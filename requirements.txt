@@ -8,3 +8,7 @@ numpy>=1.24.0
 scipy>=1.10.0
 tqdm>=4.65.0
 jsonlines>=4.0.0
+datasets>=2.14.0       # HuggingFace datasets
+sentence-transformers>=2.2.0  # Embedding for dedup
+scikit-learn>=1.3.0    # Cosine similarity computation
+pyyaml>=6.0            # Config loading

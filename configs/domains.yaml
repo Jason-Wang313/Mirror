@@ -1,0 +1,159 @@
+domains:
+  arithmetic:
+    display_name: "Arithmetic / Numerical Reasoning"
+    subcategories:
+      - mental_calculation
+      - estimation
+      - word_problems
+      - unit_conversion
+      - numerical_reasoning
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - gsm8k
+      - math_dataset
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  spatial:
+    display_name: "Spatial / Geometric Reasoning"
+    subcategories:
+      - distance_direction
+      - 2d_geometry
+      - 3d_visualization
+      - relative_positioning
+      - spatial_transformation
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - math_dataset
+      - bigbench
+      - arc
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  temporal:
+    display_name: "Temporal Reasoning"
+    subcategories:
+      - ordering_events
+      - duration_estimation
+      - timezone_arithmetic
+      - scheduling
+      - temporal_paradoxes
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - bigbench
+      - triviaqa
+      - additional
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  linguistic:
+    display_name: "Linguistic Reasoning"
+    subcategories:
+      - grammar_correction
+      - syntax_parsing
+      - morphology
+      - ambiguity_resolution
+      - register_formality
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - bigbench
+      - additional
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  logical:
+    display_name: "Logical Deduction"
+    subcategories:
+      - syllogisms
+      - propositional_logic
+      - set_relations
+      - conditional_reasoning
+      - proof_evaluation
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - logiqa
+      - folio
+      - reclor
+      - bigbench
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  social:
+    display_name: "Social / Pragmatic Reasoning"
+    subcategories:
+      - sarcasm_detection
+      - implicature
+      - theory_of_mind
+      - pragmatic_inference
+      - social_norm_violation
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - social_iqa
+      - bigbench
+      - additional
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  factual:
+    display_name: "Factual Recall"
+    subcategories:
+      - history
+      - science
+      - geography
+      - culture
+      - cross_domain_trivia
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - triviaqa
+      - arc
+      - bigbench
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
+
+  procedural:
+    display_name: "Procedural Reasoning"
+    subcategories:
+      - algorithm_execution
+      - recipe_following
+      - protocol_compliance
+      - multistep_planning
+      - error_recovery
+    target_seeds: 130
+    target_total: 625
+    sources:
+      - bigbench
+      - arc
+      - math_dataset
+    difficulty_levels:
+      - easy
+      - medium
+      - hard
+      - adversarial
