@@ -1,0 +1,10 @@
+openai>=1.0.0          # Used for NVIDIA NIM (OpenAI-compatible) + DeepSeek
+google-genai>=1.0.0    # Google AI Studio SDK
+python-dotenv>=1.0.0
+tenacity>=8.0.0        # Retry logic
+tiktoken>=0.5.0        # Token counting
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+tqdm>=4.65.0
+jsonlines>=4.0.0

@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+results/**/*.jsonl
+results/**/*.json
+!results/.gitkeep
+.vscode/
+*.ipynb_checkpoints/
+venv/
+.venv/
