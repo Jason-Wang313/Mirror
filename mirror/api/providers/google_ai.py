@@ -70,7 +70,7 @@ class GoogleAIProvider:
         Send completion request to Google AI.
 
         Args:
-            model_id: Gemini model ID (e.g., "gemini-2.5-pro-preview-05-06")
+            model_id: Gemini model ID (e.g., "gemini-2.5-pro")
             messages: List of message dicts
             temperature: Sampling temperature
             max_tokens: Maximum tokens to generate

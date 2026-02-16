@@ -31,7 +31,7 @@ MODEL_REGISTRY = {
     # --- Frontier Models ---
     "gemini-2.5-pro": {
         "provider": "google_ai",
-        "model_id": "gemini-2.5-pro-preview-05-06",
+        "model_id": "gemini-2.5-pro",
         "display_name": "Gemini 2.5 Pro",
         "lab": "Google",
         "open_weight": False,
