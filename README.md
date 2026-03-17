@@ -1,16 +1,29 @@
-# MIRROR: A Hierarchical Benchmark for Metacognitive Calibration in Large Language Models
+<div align="center">
 
-MIRROR evaluates whether LLMs can *use* their self-knowledge to make better decisions. 16 models from 8 labs, ~250,000 evaluation instances, 8 experiments across 4 metacognitive levels.
+# MIRROR
 
-**Paper:** NeurIPS 2026 Datasets & Benchmarks Track (under review)
-**Dataset:** HuggingFace (coming soon)
+**A Hierarchical Benchmark for Metacognitive Calibration in Large Language Models**
+
+*Do LLMs know what they know — and can they act on it?*
+
+![NeurIPS 2026](https://img.shields.io/badge/NeurIPS_2026-D%26B_Track-blue)
+![16 Models](https://img.shields.io/badge/Models-16_from_8_labs-green)
+![250K+ Instances](https://img.shields.io/badge/Instances-250K%2B-green)
+![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-yellow)
+![License: MIT](https://img.shields.io/badge/License-MIT-grey)
+
+[Paper (under review)](#-citation) | [Dataset (coming soon)](#) | [Quick Start](#-quick-start)
+
+</div>
 
 ---
 
-## Key Findings
+## 🔬 Key Findings
 
-1. **Compositional self-prediction fails universally:** MCI = 0.000 across all 15 models tested — models cannot predict their performance on tasks requiring combinations of skills.
-2. **The Knowing-Doing Gap:** CFR drops from 0.562 to 0.214 (62% reduction) under external constraint. Self-knowledge alone (C2) produces no significant improvement.
+1. **Compositional self-prediction fails universally:** MCI = **0.000** across all 15 models tested — models cannot predict their performance on tasks requiring combinations of skills.
+
+2. **The Knowing-Doing Gap:** CFR drops from **0.562 to 0.214** (**62% reduction**) under external constraint. Self-knowledge alone (C2) produces no significant improvement.
+
 3. **Self-knowledge is domain-atomic:** TII = 0.019–0.175 across 11 models — calibration does not meaningfully cross domain boundaries.
 
 ### Escalation Curve
@@ -20,9 +33,10 @@ MIRROR evaluates whether LLMs can *use* their self-knowledge to make better deci
 | C1 | Uninformed baseline | 0.562 | — |
 | C2 | Self-informed (MIRROR scores) | 0.583 | +0.021 (ns) |
 | C3 | Instructed (scores + normative frame) | 0.491 | −0.071 (\*) |
-| C4 | Constrained (external routing) | 0.214 | −0.348 (\*) |
+| C4 | Constrained (external routing) | **0.214** | **−0.348** (\*) |
 
-### Results Summary
+<details>
+<summary>📊 Full Results Table (16 models × 7 metrics) — click to expand</summary>
 
 | Model | Lab | Nat.Acc | Wag.Acc | MIRROR Gap | CFR (C1) | KDI |
 |:------|:----|--------:|--------:|-----------:|---------:|----:|
@@ -45,30 +59,32 @@ MIRROR evaluates whether LLMs can *use* their self-knowledge to make better deci
 
 **Nat.Acc** = natural accuracy (Exp1). **Wag.Acc** = wagering accuracy (Exp1). **MIRROR Gap** = Wag.Acc − Nat.Acc. **CFR** = Confident Failure Rate, uninformed condition (Exp9). **KDI** = Knowing-Doing Index (Exp9). **—** = not evaluated in Exp9.
 
----
-
-## Benchmark Structure
-
-```
-Level 0: Atomic Self-Knowledge     → Exp 1: Calibration Atlas (MIRROR Gap)
-Level 1: Cross-Domain Transfer     → Exp 2: Transfer Influence (TII)
-Level 2: Compositional Prediction  → Exp 3: Composition (CCE, MCI)
-Level 3: Adaptive Self-Regulation  → Exp 4: Feedback Adaptation (AI, SAR)
-                                     Exp 5: Adversarial Robustness (ARS)
-                                     Exp 6: Ecosystem Effect (SSR, FDR)
-                                     Exp 9: The Knowing-Doing Gap (CFR, KDI)
-Cross-cutting: Exp 8: Scaling Analysis
-```
-
-**5 Behavioral Channels:** Wagering, Opt-out, Difficulty Selection, Tool Delegation, Natural Language Signals.
-
-**8 Cognitive Domains:** Arithmetic, Spatial, Temporal, Linguistic, Logical, Social, Factual, Procedural.
+</details>
 
 ---
 
-## Models Evaluated
+## 🏗️ Benchmark Structure
 
-16 models from 8 labs spanning 3B to 671B parameters:
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Level 3: Adaptive Self-Regulation                          │
+│  Exp 4 (Feedback) · Exp 5 (Adversarial) · Exp 6 · Exp 9   │
+├─────────────────────────────────────────────────────────────┤
+│  Level 2: Compositional Prediction  →  Exp 3 (CCE, MCI)    │
+├─────────────────────────────────────────────────────────────┤
+│  Level 1: Cross-Domain Transfer     →  Exp 2 (TII)         │
+├─────────────────────────────────────────────────────────────┤
+│  Level 0: Atomic Self-Knowledge     →  Exp 1 (MIRROR Gap)  │
+└─────────────────────────────────────────────────────────────┘
+              ↕ Exp 8: Scaling Analysis (cross-cutting)
+```
+
+**5 Behavioral Channels:** Wagering · Opt-out · Difficulty Selection · Tool Delegation · Natural Language Signals
+
+**8 Cognitive Domains:** Arithmetic · Spatial · Temporal · Linguistic · Logical · Social · Factual · Procedural
+
+<details>
+<summary>📊 Models Evaluated (16 models from 8 labs, 3B–671B parameters)</summary>
 
 | Lab | Models |
 |:----|:-------|
@@ -81,73 +97,13 @@ Cross-cutting: Exp 8: Scaling Analysis
 | Microsoft | phi-4 |
 | Alibaba | qwen3-next-80b |
 
----
-
-## Repository Structure
-
-```
-mirror/                     # Core Python package
-  api/                      # Unified async API client (multi-provider)
-    client.py               # UnifiedClient with retry, rate limiting
-    models.py               # Model registry + Exp1 metrics loader
-    providers/              # Provider-specific adapters
-      nvidia_nim.py         # NVIDIA NIM (OpenAI-compatible)
-      deepseek.py           # DeepSeek API
-      google_ai.py          # Google AI Studio
-      groq.py, kimi.py      # Additional providers
-  data/                     # Question bank pipeline
-    pipeline.py             # Full generation pipeline
-    answer_matcher.py       # Robust answer extraction
-    cross_verifier.py       # Multi-model verification
-    exp9_template_library.py # Exp9 task templates (37 pairs x 5)
-    sources/                # Domain-specific question sources
-  experiments/              # Experiment runners
-    runner.py               # Base experiment runner
-    channels.py             # 5 behavioral measurement channels
-    agentic_paradigms.py    # Exp9 paradigm implementations
-    burn_test_runner.py     # Exp4 burn-and-test logic
-    tool_executor.py        # Exp9 tool execution
-    transfer_tasks.py       # Exp2 cross-domain tasks
-  scoring/                  # Metrics and analysis
-    metrics.py              # Core metrics (MCI, CCE, etc.)
-    agentic_metrics.py      # CFR, KDI, UDR
-    adaptation_metrics.py   # AI, SAR
-    answer_matcher.py       # Answer matching for scoring
-    statistics.py           # Bootstrap CIs, BH-FDR, mixed effects
-
-scripts/                    # Experiment execution scripts
-  run_experiment_[1-9].py   # Per-experiment runners
-  analyze_experiment_[1-9].py # Per-experiment analysis
-  generate_exp9_tasks.py    # Task bank generation
-  verify_exp9_tasks.py      # Task bank verification
-  generate_paper_tables.py  # LaTeX table generation
-  generate_escalation_figures.py # Figure generation
-  check_exp9_status.py      # Pipeline progress monitor
-
-configs/
-  domains.yaml              # 8 domains + subcategories config
-
-data/                       # Generated data and results
-  results/                  # Experimental results (JSONL)
-  exp9/                     # Exp9 task bank
-  seeds/                    # Question bank seeds
-
-paper/                      # NeurIPS 2026 paper
-  mirror_draft_v6.tex       # Latest paper source
-  mirror_draft_v6.pdf       # Compiled PDF
-  references.bib            # Bibliography
-  tables/                   # LaTeX tables
-  figures/                  # Paper-specific figures
-  neurips_2026.sty          # Style file
-
-figures/                    # Generated figures (all experiments)
-tests/                      # Test suite
-docs/                       # Documentation and status reports
-```
+</details>
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
+
+**Prerequisites:** Python 3.8+, API key for at least one provider (NVIDIA NIM, DeepSeek, or Google AI Studio).
 
 ### 1. Install
 
@@ -195,7 +151,7 @@ cd paper && pdflatex mirror_draft_v6 && bibtex mirror_draft_v6 && pdflatex mirro
 
 ---
 
-## Infrastructure
+## ⚙️ Infrastructure
 
 - **API access only** — no model weights, no fine-tuning required
 - **Temperature = 0** for reproducibility across all experiments
@@ -205,13 +161,58 @@ cd paper && pdflatex mirror_draft_v6 && bibtex mirror_draft_v6 && pdflatex mirro
 - **Resume:** checkpoint-based resume via `--resume` flag
 - **Cost:** ~8,000 API calls per model for full benchmark (~3 hours at 40 req/min)
 
+<details>
+<summary>🏗️ Repository Structure — click to expand</summary>
+
+```
+mirror/                     # Core Python package
+  api/                      # Unified async API client (multi-provider)
+    client.py               # UnifiedClient with retry, rate limiting
+    models.py               # Model registry + Exp1 metrics loader
+    providers/              # Provider-specific adapters
+  data/                     # Question bank pipeline
+    pipeline.py             # Full generation pipeline
+    answer_matcher.py       # Robust answer extraction
+    cross_verifier.py       # Multi-model verification
+    exp9_template_library.py # Exp9 task templates (37 pairs × 5)
+    sources/                # Domain-specific question sources
+  experiments/              # Experiment runners
+    runner.py               # Base experiment runner
+    channels.py             # 5 behavioral measurement channels
+    agentic_paradigms.py    # Exp9 paradigm implementations
+    burn_test_runner.py     # Exp4 burn-and-test logic
+    tool_executor.py        # Exp9 tool execution
+    transfer_tasks.py       # Exp2 cross-domain tasks
+  scoring/                  # Metrics and analysis
+    metrics.py              # Core metrics (MCI, CCE, etc.)
+    agentic_metrics.py      # CFR, KDI, UDR
+    adaptation_metrics.py   # AI, SAR
+    statistics.py           # Bootstrap CIs, BH-FDR, mixed effects
+
+scripts/                    # Experiment execution & analysis
+  run_experiment_[1-9].py   # Per-experiment runners
+  analyze_experiment_[1-9].py # Per-experiment analysis
+  generate_exp9_tasks.py    # Task bank generation
+  generate_paper_tables.py  # LaTeX table generation
+
+configs/                    # Domain configuration (domains.yaml)
+data/                       # Task templates, seeds, counterfactuals
+paper/                      # NeurIPS 2026 paper (v1–v6)
+figures/                    # Generated figures (all experiments)
+tests/                      # Test suite
+docs/                       # Status reports and experiment log
+```
+
+</details>
+
 ---
 
-## Citation
+## 📝 Citation
 
 ```bibtex
 @inproceedings{mirror2026,
-  title={{MIRROR}: A Hierarchical Benchmark for Metacognitive Calibration in Large Language Models},
+  title={{MIRROR}: A Hierarchical Benchmark for Metacognitive Calibration
+         in Large Language Models},
   author={Anonymous},
   booktitle={NeurIPS 2026 Datasets and Benchmarks Track},
   year={2026},
@@ -219,6 +220,8 @@ cd paper && pdflatex mirror_draft_v6 && bibtex mirror_draft_v6 && pdflatex mirro
 }
 ```
 
-## License
+---
 
-MIT License. See [LICENSE](LICENSE) for details.
+We welcome contributions. Please open an issue first to discuss proposed changes.
+
+![License: MIT](https://img.shields.io/badge/License-MIT-grey) See [LICENSE](LICENSE) for details.
