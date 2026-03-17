@@ -1,0 +1,74 @@
+{
+  "spatial_arithmetic": [
+    {
+      "scenario": "irregular_field",
+      "task_text": "A farmer's field is an irregular quadrilateral with vertices at coordinates (0,0), (120,0), (150,80), and (20,95). Calculate the area using the shoelace formula. Then determine how many bags of seed are needed at a rate of 25kg per hectare, where each bag contains 20kg and costs £14.50 per bag. Calculate the total cost.",
+      "component_a": {
+        "domain": "spatial",
+        "text": "coordinate geometry area calculation using shoelace formula",
+        "correct_answer": "Area = 0.5 × |x1(y2-yn) + x2(y3-y1) + ... | = 0.5 × |0(0-95) + 120(80-0) + 150(95-0) + 20(0-80)| = 0.5 × |0 + 9600 + 14250 - 1600| = 11,125 m² = 1.1125 hectares",
+        "difficulty": "hard"
+      },
+      "component_b": {
+        "domain": "arithmetic",
+        "text": "unit conversion and cost calculation",
+        "correct_answer": "Seed needed: 1.1125 ha × 25 kg/ha = 27.8 kg. Bags: 27.8/20 = 1.39, round up to 2 bags. Cost: 2 × £14.50 = £29.00",
+        "difficulty": "medium"
+      }
+    }
+  ],
+  "spatial_procedural": [
+    {
+      "scenario": "evacuation_route",
+      "task_text": "Design an evacuation route for a 3-storey building with this floor plan: L-shaped, main corridor 2m wide, stairwells at NE and SW corners, 50 meters from NE to SW. 150 occupants total (50 per floor). Describe: the correct procedure for an evacuation drill including warden assignments, sweep patterns, assembly point selection (must be 50m from building), and headcount procedure. Include the maximum evacuation time allowed by UK fire regulations (2.5 minutes for office buildings).",
+      "component_a": {
+        "domain": "spatial",
+        "text": "route planning and layout reasoning",
+        "correct_answer": "Routes: Floors 1-2 use NE stairwell (closer for most), Floor 3 splits between NE and SW based on location. Assembly point: 50m minimum from SW corner (parking lot or street). Exit capacity: 2m wide stairs = 40 people/min per stair, so 2 stairs × 2.5 min = 200 capacity (sufficient for 150).",
+        "difficulty": "medium"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "evacuation protocol sequence",
+        "correct_answer": "Procedure: (1) Assign fire wardens (1 per floor, 1 at assembly point). (2) On alarm: wardens initiate sweep from farthest point, checking all rooms, closing doors. (3) Direct occupants to designated stairwell. (4) Wardens are last to leave floor. (5) Assembly point warden receives floor wardens' reports. (6) Headcount: compare to known occupant list, report missing persons to fire service immediately. (7) Do NOT re-enter until all-clear given. Time limit: 2.5 minutes from alarm to full evacuation for office buildings per UK regulations.",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "logical_social": [
+    {
+      "scenario": "meeting_syllogisms",
+      "task_text": "In a team meeting, person A says 'If we delay the launch, we'll lose market share.' Person B says 'If we don't delay, we'll ship a buggy product.' Person C says 'A buggy product won't lose market share because our users are loyal.' (1) Identify the logical structure of each argument (conditional, categorical, etc.). (2) Are any of these valid syllogisms? (3) Person C's claim is likely empirically wrong — but how do you challenge it in the meeting without making C defensive, given that C is the most senior person in the room?",
+      "component_a": {
+        "domain": "logical",
+        "text": "syllogistic analysis and logical structure identification",
+        "correct_answer": "(1) A: conditional (if delay → market share loss). B: conditional (if not delay → buggy product). C: categorical negative claim (buggy ≠ market share loss) with causal justification. (2) None are complete syllogisms — they're all single conditionals or claims. C's structure: 'Buggy products lose share (implied premise) + our users are loyal (stated) → our buggy product won't lose share' — this is invalid because loyalty doesn't negate all product quality effects.",
+        "difficulty": "medium"
+      },
+      "component_b": {
+        "domain": "social",
+        "text": "challenging a senior person diplomatically",
+        "correct_answer": "Approach: (1) Don't say 'that's wrong' or 'I disagree'. (2) Use a question: 'C, I want to understand — are we saying loyalty fully insulates us from quality issues, or that it gives us more buffer?' (3) Offer data indirectly: 'I've seen cases where loyal users left after repeated bugs — should we look at our support ticket trends?' (4) Frame as risk mitigation: 'Even if it's unlikely, what's our backup if some users do churn?' (5) Defer to C's judgment: 'You know our users better — what's the threshold where loyalty wouldn't be enough?'",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "linguistic_temporal": [
+    {
+      "scenario": "contract_parsing",
+      "task_text": "An employment contract states: 'The employee shall be entitled to 28 days of annual leave, to be taken at times mutually agreed upon, provided that no more than 10 consecutive days shall be taken during the period from June to August inclusive, unless authorised in writing by the line manager not less than 6 weeks in advance.' Parse this sentence, identifying: (1) the main entitlement, (2) the restriction, (3) the exception to the restriction, and (4) any ambiguity. Then: you want 15 consecutive days in July 2026. What is the latest date you can request authorisation? Account for the 6-week advance notice requirement and identify what 'July 2026' means (ambiguous — first day? last day? mid-month?).",
+      "component_a": {
+        "domain": "linguistic",
+        "text": "parsing complex legal English with nested clauses",
+        "correct_answer": "(1) Entitlement: 28 days annual leave. (2) Restriction: max 10 consecutive days during June-August. (3) Exception: >10 days allowed if authorized in writing ≥6 weeks in advance. (4) Ambiguity: 'during June to August' — does a holiday starting May 31 and ending June 10 count? Does 'in July' mean starting, ending, or overlapping July?",
+        "difficulty": "hard"
+      },
+      "component_b": {
+        "domain": "temporal",
+        "text": "constraint-based date calculation from parsed text",
+        "correct_answer": "If '15 days in July' means overlapping July at all: earliest start could be June 25 (ends July 9). Latest start in July: July 17 (ends July 31). For 6 weeks advance notice: 6 weeks = 42 days. If taking July 1-15, latest request date: May 20 (42 days before July 1). If taking July 17-31, latest request: June 5. Ambiguity matters: if 'in July' means 'starting in July', then July 1 start → request by May 20.",
+        "difficulty": "hard"
+      }
+    }
+  ]
+}

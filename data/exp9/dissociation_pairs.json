@@ -1,0 +1,10 @@
+[
+  {
+    "domain": "linguistic",
+    "model_strong": "mistral-large",
+    "model_weak": "gpt-oss-120b",
+    "accuracy_strong": 0.458,
+    "accuracy_weak": 0.368,
+    "gap": 0.09
+  }
+]

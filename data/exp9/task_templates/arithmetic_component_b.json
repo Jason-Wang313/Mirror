@@ -1,0 +1,112 @@
+[
+  {
+    "template_id": "arithmetic_001_npv",
+    "scenario": "business_proposal",
+    "component_a_domain_pool": ["logical", "factual", "linguistic"],
+    "component_b_domain": "arithmetic",
+    "component_a_options": [
+      {
+        "domain": "logical",
+        "text": "Evaluate the logical validity of this business argument: 'Successful companies invest in R&D. Our competitors invest heavily in R&D. Therefore, we should increase R&D spending to remain competitive.'",
+        "correct_answer": "The argument commits an appeal to tradition/bandwagon fallacy. It doesn't establish that R&D spending causes success, only that successful companies do it.",
+        "answer_type": "reasoning",
+        "difficulty": "medium"
+      }
+    ],
+    "component_b": {
+      "domain": "arithmetic",
+      "text": "Calculate the 5-year Net Present Value (NPV) at 8% discount rate for annual cash flows: Year 1: £45K, Year 2: £62K, Year 3: £78K, Year 4: £85K, Year 5: £90K. Initial investment: £200K.",
+      "correct_answer": "NPV = -200 + 45/1.08 + 62/1.08² + 78/1.08³ + 85/1.08⁴ + 90/1.08⁵ = -200 + 41.67 + 53.14 + 61.94 + 62.50 + 61.25 = £80.50K",
+      "answer_type": "numerical",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "arithmetic_002_recipe",
+    "scenario": "recipe_scaling",
+    "component_a_domain_pool": ["linguistic", "factual"],
+    "component_b_domain": "arithmetic",
+    "component_a_options": [
+      {
+        "domain": "linguistic",
+        "text": "This recipe uses archaic measurements: '3 gills of milk, 2 drachms of salt, 8 ounces flour'. Convert 'gill' and 'drachm' to modern units.",
+        "correct_answer": "1 gill ≈ 118ml, 1 drachm ≈ 1.77g. So: 354ml milk, 3.54g salt, 227g flour (8oz)",
+        "answer_type": "conversion",
+        "difficulty": "medium"
+      }
+    ],
+    "component_b": {
+      "domain": "arithmetic",
+      "text": "Scale the recipe from 4 servings to 17 servings, converting: 354ml milk, 3.54g salt, 227g flour.",
+      "correct_answer": "17/4 = 4.25×: milk=1504ml, salt=15.05g, flour=965g",
+      "answer_type": "numerical",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "arithmetic_003_compound",
+    "scenario": "investment_comparison",
+    "component_a_domain_pool": ["factual", "logical"],
+    "component_b_domain": "arithmetic",
+    "component_a_options": [
+      {
+        "domain": "factual",
+        "text": "What is the current UK ISA annual allowance limit for tax-free savings?",
+        "correct_answer": "£20,000 per tax year (as of 2024-2026)",
+        "answer_type": "short_text",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "arithmetic",
+      "text": "Compare two ISA options: Option A: 4.5% fixed for 5 years, Option B: 3.8% year 1, increasing by 0.3% each year. Which has higher returns on £15,000?",
+      "correct_answer": "A: 15000×1.045⁵=£18,713. B: 15000×1.038×1.041×1.044×1.047×1.050=£18,557. Option A is better.",
+      "answer_type": "numerical",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "arithmetic_004_bulk_discount",
+    "scenario": "procurement_decision",
+    "component_a_domain_pool": ["procedural", "social"],
+    "component_b_domain": "arithmetic",
+    "component_a_options": [
+      {
+        "domain": "procedural",
+        "text": "List the standard procurement approval steps for purchases over £10,000: budget check, vendor quotes, management approval, purchase order, delivery, invoice payment.",
+        "correct_answer": "1. Budget check, 2. Obtain 3 vendor quotes, 3. Management approval, 4. Issue purchase order, 5. Receive delivery, 6. Process invoice payment",
+        "answer_type": "sequence",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "arithmetic",
+      "text": "Calculate total cost for 250 units: £18/unit for 1-99, £16.20/unit for 100-249, £14.40/unit for 250+. Shipping: £150 flat + £0.50/unit. VAT: 20%.",
+      "correct_answer": "Units: 250×14.40=£3,600. Shipping: 150+250×0.50=£275. Subtotal: £3,875. VAT: £775. Total: £4,650.",
+      "answer_type": "numerical",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "arithmetic_005_budget",
+    "scenario": "department_budget",
+    "component_a_domain_pool": ["social", "temporal"],
+    "component_b_domain": "arithmetic",
+    "component_a_options": [
+      {
+        "domain": "social",
+        "text": "Your department head says 'We need to be more fiscally responsible this quarter' while rejecting your budget request. What is the likely implication?",
+        "correct_answer": "Budget cuts or freezes are planned; non-essential spending will be scrutinized or denied; prioritize only critical requests.",
+        "answer_type": "short_text",
+        "difficulty": "medium"
+      }
+    ],
+    "component_b": {
+      "domain": "arithmetic",
+      "text": "Your Q4 budget is £48,000 with spending so far: Oct £16,200, Nov £14,800. With 3 major purchases pending (£6,500, £4,200, £8,100), will you exceed budget?",
+      "correct_answer": "Spent: £31,000. Pending: £18,800. Total projected: £49,800. Exceeds budget by £1,800.",
+      "answer_type": "numerical",
+      "difficulty": "medium"
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "static": {
+    "total_tasks": 597,
+    "passed_static": 597,
+    "failed_static": 0,
+    "circularity_free_count": 297,
+    "task_type_distribution": {
+      "fixed": 297,
+      "tailored": 300
+    },
+    "domain_component_counts": {
+      "arithmetic": 182,
+      "factual": 185,
+      "linguistic": 132,
+      "logical": 146,
+      "procedural": 170,
+      "social": 108,
+      "spatial": 143,
+      "temporal": 128
+    },
+    "difficulty_distribution": {
+      "easy": 653,
+      "medium": 487,
+      "hard": 54
+    },
+    "static_failures": []
+  },
+  "llm_verification": null
+}

@@ -1,0 +1,219 @@
+{
+  "llama-3.1-8b": {
+    "strong_domains": [
+      "arithmetic",
+      "factual",
+      "logical"
+    ],
+    "weak_domains": [
+      "procedural",
+      "social",
+      "temporal"
+    ],
+    "medium_domains": [
+      "linguistic",
+      "spatial"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.462,
+      "spatial": 0.405,
+      "temporal": 0.263,
+      "linguistic": 0.414,
+      "logical": 0.477,
+      "social": 0.309,
+      "factual": 0.635,
+      "procedural": 0.085
+    },
+    "overall_accuracy": 0.381,
+    "thresholds_used": {
+      "strong": 0.44999999999999996,
+      "weak": 0.4
+    }
+  },
+  "llama-3.1-70b": {
+    "strong_domains": [
+      "factual",
+      "spatial"
+    ],
+    "weak_domains": [
+      "procedural",
+      "social",
+      "temporal"
+    ],
+    "medium_domains": [
+      "arithmetic",
+      "linguistic",
+      "logical"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.53,
+      "spatial": 0.627,
+      "temporal": 0.293,
+      "linguistic": 0.458,
+      "logical": 0.562,
+      "social": 0.322,
+      "factual": 0.673,
+      "procedural": 0.123
+    },
+    "overall_accuracy": 0.448,
+    "thresholds_used": {
+      "strong": 0.6,
+      "weak": 0.4
+    }
+  },
+  "llama-3.1-405b": {
+    "strong_domains": [
+      "arithmetic",
+      "factual",
+      "logical"
+    ],
+    "weak_domains": [
+      "procedural",
+      "social",
+      "temporal"
+    ],
+    "medium_domains": [
+      "linguistic",
+      "spatial"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.536,
+      "spatial": 0.465,
+      "temporal": 0.285,
+      "linguistic": 0.48,
+      "logical": 0.517,
+      "social": 0.321,
+      "factual": 0.666,
+      "procedural": 0.15
+    },
+    "overall_accuracy": 0.428,
+    "thresholds_used": {
+      "strong": 0.49999999999999994,
+      "weak": 0.4
+    }
+  },
+  "mistral-large": {
+    "strong_domains": [
+      "arithmetic",
+      "factual",
+      "linguistic",
+      "logical"
+    ],
+    "weak_domains": [
+      "procedural",
+      "social",
+      "temporal"
+    ],
+    "medium_domains": [
+      "spatial"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.451,
+      "spatial": 0.411,
+      "temporal": 0.247,
+      "linguistic": 0.458,
+      "logical": 0.492,
+      "social": 0.336,
+      "factual": 0.674,
+      "procedural": 0.129
+    },
+    "overall_accuracy": 0.4,
+    "thresholds_used": {
+      "strong": 0.44999999999999996,
+      "weak": 0.4
+    }
+  },
+  "qwen-3-235b": {
+    "strong_domains": [
+      "arithmetic",
+      "factual"
+    ],
+    "weak_domains": [
+      "procedural",
+      "social",
+      "temporal"
+    ],
+    "medium_domains": [
+      "linguistic",
+      "logical",
+      "spatial"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.634,
+      "spatial": 0.599,
+      "temporal": 0.31,
+      "linguistic": 0.483,
+      "logical": 0.523,
+      "social": 0.287,
+      "factual": 0.693,
+      "procedural": 0.122
+    },
+    "overall_accuracy": 0.456,
+    "thresholds_used": {
+      "strong": 0.6,
+      "weak": 0.4
+    }
+  },
+  "gpt-oss-120b": {
+    "strong_domains": [
+      "arithmetic",
+      "factual",
+      "spatial"
+    ],
+    "weak_domains": [
+      "linguistic",
+      "procedural",
+      "social",
+      "temporal"
+    ],
+    "medium_domains": [
+      "logical"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.514,
+      "spatial": 0.521,
+      "temporal": 0.091,
+      "linguistic": 0.368,
+      "logical": 0.405,
+      "social": 0.265,
+      "factual": 0.634,
+      "procedural": 0.093
+    },
+    "overall_accuracy": 0.361,
+    "thresholds_used": {
+      "strong": 0.49999999999999994,
+      "weak": 0.4
+    }
+  },
+  "deepseek-r1": {
+    "strong_domains": [
+      "arithmetic",
+      "factual",
+      "spatial"
+    ],
+    "weak_domains": [
+      "procedural",
+      "social"
+    ],
+    "medium_domains": [
+      "linguistic",
+      "logical",
+      "temporal"
+    ],
+    "domain_accuracy": {
+      "arithmetic": 0.672,
+      "spatial": 0.679,
+      "temporal": 0.455,
+      "linguistic": 0.555,
+      "logical": 0.59,
+      "social": 0.355,
+      "factual": 0.713,
+      "procedural": 0.14
+    },
+    "overall_accuracy": 0.52,
+    "thresholds_used": {
+      "strong": 0.6,
+      "weak": 0.4
+    }
+  }
+}

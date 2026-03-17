@@ -1,0 +1,22 @@
+% Table 3: MCI dissociation matrices for selected models
+\begin{table}[ht]
+\centering
+\caption{Channel dissociation matrices (Spearman~$\rho$ between channel confidence
+  signals) for the best-calibrated model, worst-calibrated model, and most
+  dissociated model. Bold entries indicate $|\rho| < 0.1$ (dissociated channel
+  pair).}
+\label{tab:dissociation}
+
+\paragraph{Llama 8B}
+\begin{tabular}{lccccc}
+\toprule
+ & Wager & Opt-Out & Diff-Sel & Tool-Use & Natural \\
+\midrule
+        Wager & 1.00 & — & — & — & -0.67 \\
+        Opt-Out & — & 1.00 & — & — & — \\
+        Diff-Sel & — & — & 1.00 & — & — \\
+        Tool-Use & — & — & — & 1.00 & — \\
+        Natural & -0.67 & — & — & — & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

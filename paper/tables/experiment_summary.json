@@ -1,0 +1,105 @@
+{
+  "Exp1": {
+    "description": "Atomic Self-Knowledge",
+    "n_models": 16,
+    "n_items": "330/model (8 domains x 5 subcats x ~8 Qs)",
+    "total_records": 65237,
+    "primary_metric": "MIRROR Gap",
+    "mean": 0.16956176333937667,
+    "std": 0.05262329684712633,
+    "range": [
+      0.07429039076733666,
+      0.26733410848150546
+    ]
+  },
+  "Exp2": {
+    "description": "Cross-Domain Transfer",
+    "n_models": 11,
+    "n_items": "~150/model",
+    "total_records": 24796,
+    "primary_metric": "TII (Transfer Integrity Index)",
+    "mean": 0.10934595165242675,
+    "std": 0.0521969302237435,
+    "range": [
+      0.01904449927685644,
+      0.174623854164426
+    ]
+  },
+  "Exp3": {
+    "description": "Compositional Self-Prediction",
+    "n_models": 15,
+    "n_items": "~25/model (mixed tasks)",
+    "total_records": 4015,
+    "primary_metric": "CCE (Compositional Calibration Error)",
+    "mean": 0.6917945677979916,
+    "std": 0.15952236528978894,
+    "range": [
+      0.5,
+      0.9425
+    ]
+  },
+  "Exp4": {
+    "description": "Adaptive Self-Regulation (Burn-and-Test)",
+    "n_models": 15,
+    "n_items": "320/model x 2 conditions",
+    "total_records": 31322,
+    "primary_metric": "AI (Adaptation Index, wager)",
+    "mean": 0.011763097766134633,
+    "std": 0.05848461999611237,
+    "range": [
+      -0.078125,
+      0.1716950629779577
+    ]
+  },
+  "Exp5": {
+    "description": "Adversarial Robustness of Self-Knowledge",
+    "n_models": 14,
+    "n_items": "320/model (adv) + 320/model (clean)",
+    "total_records": 15096,
+    "primary_metric": "ARS (Adversarial Robustness Score)",
+    "mean": 0.9680724316015344,
+    "std": 0.017157625719459068,
+    "range": [
+      0.9368055555555556,
+      0.9905327741534637
+    ]
+  },
+  "Exp6": {
+    "description": "Ecosystem Effect (Trust + Flawed Premise)",
+    "n_models": 16,
+    "n_items": "240/model (6a+6b+6c)",
+    "total_records": 29310,
+    "primary_metric": "FDR (Flaw Detection Rate, Exp6b)",
+    "mean": 0.8326099537037036,
+    "std": 0.30875946220073786,
+    "range": [
+      0.0,
+      1.0
+    ]
+  },
+  "Exp8": {
+    "description": "Scaling Analysis",
+    "n_models": 4,
+    "n_items": "80/model (gap-fill)",
+    "total_records": "~320",
+    "primary_metric": "Scaling slope (nat.acc vs log2 params)",
+    "mean": 0.0279,
+    "std": null,
+    "range": null,
+    "note": "Primary: Llama 3.1 family (8B, 70B, 405B) + 3.3-70B generation comparison"
+  },
+  "Exp9": {
+    "description": "The Knowing-Doing Gap",
+    "n_models": 10,
+    "n_items": "597 tasks x 4 conditions x 3 paradigms",
+    "total_records": 131662,
+    "primary_metric": "CFR (Confident Failure Rate, C1)",
+    "mean": 0.6482501951397844,
+    "std": 0.1352306760221665,
+    "range": [
+      0.3873456790123457,
+      0.9074074074074074
+    ],
+    "kdi_mean": -0.16889
+  }
+}

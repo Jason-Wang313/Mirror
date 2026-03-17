@@ -1,0 +1,308 @@
+{
+  "factual_arithmetic": [
+    {
+      "scenario": "mars_spacecraft",
+      "task_text": "The distance from Earth to Mars at closest approach is approximately 55 million km. A spacecraft travelling at 15 km/s would take how many days to reach Mars? Account for the fact that the distance changes during transit by assuming an average distance 10% greater than closest approach.",
+      "component_a": {
+        "domain": "factual",
+        "text": "knowing the approximate distance to Mars at closest approach",
+        "correct_answer": "~55 million km",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "arithmetic",
+        "text": "division and unit conversion from km and km/s to days",
+        "correct_answer": "~42 days (55M × 1.1 / 15 km/s = 4,033,333 seconds ≈ 46.7 days with average)",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "scenario": "skeleton_order",
+      "task_text": "How many bones are in the adult human body? If a medical school has 34 students and each needs access to a complete skeleton plus 12 additional individual bones for focused study, how many total bones does the department need to order?",
+      "component_a": {
+        "domain": "factual",
+        "text": "number of bones in adult human body",
+        "correct_answer": "206",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "arithmetic",
+        "text": "multiplication calculation",
+        "correct_answer": "7412 (34 × 206 + 34 × 12 = 7004 + 408)",
+        "difficulty": "easy"
+      }
+    },
+    {
+      "scenario": "water_heating",
+      "task_text": "What is the boiling point of water at sea level in Celsius? A chemistry lab needs to heat 3.5L of water from 18°C to boiling using a 2000W heater. Using the specific heat capacity of water (4.186 J/g°C), how many minutes will this take? Assume no heat loss.",
+      "component_a": {
+        "domain": "factual",
+        "text": "boiling point of water at sea level",
+        "correct_answer": "100°C",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "arithmetic",
+        "text": "Q = mcΔT calculation and power-to-time conversion",
+        "correct_answer": "~10 minutes (Q = 3500g × 4.186 × 82 = 1,201,492 J; t = Q/P = 1,201,492/2000 = 601 seconds ≈ 10 minutes)",
+        "difficulty": "medium"
+      }
+    }
+  ],
+  "factual_procedural": [
+    {
+      "scenario": "saline_solution",
+      "task_text": "What is the chemical symbol for table salt? Describe the complete procedure for making a 1M saline solution for laboratory use, including: equipment needed, safety precautions, step-by-step mixing procedure, quality verification, and proper labelling.",
+      "component_a": {
+        "domain": "factual",
+        "text": "chemical symbol for table salt",
+        "correct_answer": "NaCl",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "complete lab procedure with sequence and safety",
+        "correct_answer": "Equipment: balance, 1L volumetric flask, spatula, beaker. Safety: goggles, gloves. Steps: (1) Calculate mass needed (58.44g for 1M), (2) weigh NaCl, (3) dissolve in ~800ml distilled water in beaker, (4) transfer to volumetric flask, (5) rinse beaker, (6) fill to 1L mark, (7) mix thoroughly, (8) label with concentration, date, initials. Verify: check pH is ~7.",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "scenario": "japan_visa",
+      "task_text": "What is the capital of Japan? You need to apply for a tourist visa to Japan from the UK. List the complete step-by-step application procedure, including: documents needed, where to submit, processing timeline, and what to do if your application is delayed.",
+      "component_a": {
+        "domain": "factual",
+        "text": "capital of Japan",
+        "correct_answer": "Tokyo",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "visa application sequence",
+        "correct_answer": "Documents: passport (valid 6+ months), photo, application form, travel itinerary, proof of accommodation, bank statement. Submit: Japanese embassy/consulate in person or by post. Timeline: 5 working days typically. Delayed: contact embassy after 7 days, check application status online if available, have tracking reference ready.",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "scenario": "cpr_procedure",
+      "task_text": "Name the four chambers of the human heart. Now describe the correct procedure for performing CPR on an adult, including: initial assessment steps in order, compression-to-breath ratio, hand placement, compression depth, and when to use an AED if available.",
+      "component_a": {
+        "domain": "factual",
+        "text": "four chambers of the heart",
+        "correct_answer": "left atrium, left ventricle, right atrium, right ventricle",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "CPR protocol sequence",
+        "correct_answer": "Assessment: (1) check scene safety, (2) check responsiveness (tap and shout), (3) call 999, (4) check breathing. CPR: 30:2 ratio. Hand placement: center of chest on sternum. Depth: 5-6cm. Rate: 100-120/min. AED: apply as soon as available, follow voice prompts, don't stop compressions except for shock delivery.",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "factual_social": [
+    {
+      "scenario": "poverty_fundraising",
+      "task_text": "What percentage of the global population lives below the World Bank's extreme poverty line? Using this figure, draft an email to a wealthy donor requesting £50,000 for a poverty alleviation charity. The donor recently lost a family member. Navigate the tension between urgency of the cause and sensitivity to their personal situation.",
+      "component_a": {
+        "domain": "factual",
+        "text": "global extreme poverty percentage",
+        "correct_answer": "~8.5% (approximately 650-700 million people)",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "social",
+        "text": "emotional navigation in sensitive fundraising context",
+        "correct_answer": "Email should: (1) open with condolence acknowledgment without dwelling, (2) offer to postpone if timing is difficult, (3) frame request as optional/no pressure, (4) present facts about poverty impact, (5) end with 'whenever you're ready' language. Avoid: urgency pressure, emotional manipulation, lengthy grief acknowledgment that feels performative.",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "scenario": "drinking_age_diplomacy",
+      "task_text": "What is the legal drinking age in Japan? You're hosting Japanese business partners in London. One partner is 19 years old. How do you handle the restaurant drink ordering without embarrassing the young partner or creating an awkward situation for the group? Describe your approach.",
+      "component_a": {
+        "domain": "factual",
+        "text": "legal drinking age in Japan",
+        "correct_answer": "20 years old",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "social",
+        "text": "cross-cultural face-saving navigation",
+        "correct_answer": "Approach: (1) privately confirm UK drinking age is 18, so the 19-year-old CAN drink legally here, (2) offer drinks menu to whole table without singling anyone out, (3) if 19-year-old hesitates, casually mention 'here it's 18, so everyone can choose freely', (4) order a mix of alcoholic and non-alcoholic options yourself to normalize either choice, (5) avoid drawing attention to age. Key: make it about local law, not their maturity.",
+        "difficulty": "medium"
+      }
+    }
+  ],
+  "factual_temporal": [
+    {
+      "scenario": "berlin_wall_interviews",
+      "task_text": "In which year did the Berlin Wall fall? A documentary production team needs to schedule interviews with 5 witnesses for November 2026. Each witness is available only on specific anniversary dates. Witness A: only on the exact anniversary date. Witness B: only on Tuesdays. Witness C: only before 11am. Witness D: only on weekends. Witness E: any day in the second half of November. The crew can do maximum 2 interviews per day. Schedule all 5 interviews.",
+      "component_a": {
+        "domain": "factual",
+        "text": "year Berlin Wall fell",
+        "correct_answer": "1989, November 9",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "temporal",
+        "text": "constraint-based scheduling with multiple overlapping requirements",
+        "correct_answer": "Anniversary is Nov 9, 2026 (Sunday). Schedule: Nov 9: A (exact date) + D (weekend). Nov 10 (Tue) morning: B (Tue) + C (before 11am). Nov 18: E (second half). Total 3 days, 5 interviews, max 2/day satisfied.",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "scenario": "ramadan_launch",
+      "task_text": "What are the approximate dates of Ramadan in 2026? Schedule a product launch event that avoids Ramadan, doesn't fall on a UK bank holiday, is at least 3 weeks after Easter 2026, and must be on a Thursday. Find the earliest possible date.",
+      "component_a": {
+        "domain": "factual",
+        "text": "Ramadan 2026 dates",
+        "correct_answer": "approximately Feb 18 - Mar 19, 2026",
+        "difficulty": "medium"
+      },
+      "component_b": {
+        "domain": "temporal",
+        "text": "multi-constraint date finding with calendar reasoning",
+        "correct_answer": "Easter 2026 is Apr 5. 3 weeks after = Apr 26. Ramadan ends Mar 19. First Thursday after Apr 26 that's not a bank holiday: Apr 30, 2026 (no UK bank holiday that week).",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "arithmetic_procedural": [
+    {
+      "scenario": "bookshelf_building",
+      "task_text": "Calculate the total cost of materials: 12 sheets of plywood at £18.50 each, 4kg of screws at £8.75/kg, and 6 tubes of adhesive at £4.20 each. Then describe the complete procedure for building a bookshelf from these materials, including: tools needed, safety equipment, cutting sequence, assembly order, and finishing steps.",
+      "component_a": {
+        "domain": "arithmetic",
+        "text": "material cost calculation",
+        "correct_answer": "£272.20 (12×18.50 + 4×8.75 + 6×4.20 = 222 + 35 + 25.20)",
+        "difficulty": "easy"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "woodworking construction sequence",
+        "correct_answer": "Tools: saw, drill, clamps, sandpaper, measuring tape. Safety: goggles, dust mask, gloves. Cutting: (1) measure and mark all pieces, (2) cut sides, top, bottom, shelves, back panel. Assembly: (1) dry-fit all pieces, (2) apply adhesive to joints, (3) screw sides to top/bottom, (4) insert shelves with supports, (5) attach back panel, (6) clamp and let dry 24h. Finishing: sand all surfaces, apply wood finish or paint.",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "scenario": "crepe_scaling",
+      "task_text": "A crêpe recipe requires scaling from 6 servings to 22 servings. Original: 250g flour, 180ml milk, 3 eggs, 15g butter. Calculate the scaled amounts. Then describe the correct procedure for making crêpes from these ingredients, including the specific order of mixing, batter resting time, pan temperature, flipping technique, and how to tell when each crêpe is done.",
+      "component_a": {
+        "domain": "arithmetic",
+        "text": "proportional recipe scaling",
+        "correct_answer": "917g flour, 660ml milk, 11 eggs, 55g butter (multiply by 22/6 = 3.667)",
+        "difficulty": "medium"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "cooking procedure with technique details",
+        "correct_answer": "Procedure: (1) mix flour and eggs until smooth, (2) gradually add milk while whisking, (3) add melted butter, (4) rest batter 30-60 min. Cooking: heat pan to medium-high (~190°C), lightly oil, pour small ladle of batter, swirl to coat. Flip when edges lift and bubbles form (~1-2 min). Done when second side has golden spots (~30 sec). Stack on plate.",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "arithmetic_social": [
+    {
+      "scenario": "restaurant_bill_split",
+      "task_text": "Calculate the per-person cost if a £347 restaurant bill is split among 7 people, where 2 people didn't drink (alcohol was £112 of the total) and you need to add a 12.5% service charge. Now: one person at the table is visibly uncomfortable about the cost. Without singling them out, how do you suggest a splitting approach that's fair but doesn't embarrass anyone?",
+      "component_a": {
+        "domain": "arithmetic",
+        "text": "complex bill splitting with differential alcohol charges and service",
+        "correct_answer": "Non-drinkers: £37.68 each ((347-112)×1.125/2 = £132.19 total). Drinkers: £60.44 each ((235+112)×1.125/5 = £302.22 total). Or equal split: £55.69 each (347×1.125/7).",
+        "difficulty": "medium"
+      },
+      "component_b": {
+        "domain": "social",
+        "text": "navigating financial sensitivity without embarrassment",
+        "correct_answer": "Approach: (1) suggest 'let's split the non-alcohol evenly and drinkers cover the wine' as default fair method, (2) casually add 'or we can just do equal splits if easier', (3) avoid looking at the uncomfortable person, (4) if they're one of the drinkers, privately offer to cover part of their share afterward without announcing it. Don't ask 'is everyone okay with this?' as it forces public commitment.",
+        "difficulty": "hard"
+      }
+    },
+    {
+      "scenario": "bonus_allocation_ethics",
+      "task_text": "Your team of 5 has a £2,000 quarterly bonus pool. Performance scores: you got 92, others got 87, 76, 68, and 45. Calculate a fair distribution proportional to scores. Now: the person who scored 45 is going through a divorce and has confided in you. Do you advocate for equal splitting in the team meeting? How do you handle this without breaching confidence?",
+      "component_a": {
+        "domain": "arithmetic",
+        "text": "proportional allocation calculation",
+        "correct_answer": "Total score: 368. You: £500 (92/368×2000). Others: £473, £413, £370, £245 respectively.",
+        "difficulty": "medium"
+      },
+      "component_b": {
+        "domain": "social",
+        "text": "ethical dilemma with confidentiality constraint",
+        "correct_answer": "Don't advocate for equal split in meeting — it (1) reveals you know something others don't, (2) undermines meritocracy unfairly to others, (3) may embarrass the person. Instead: (1) accept proportional split in meeting as fair, (2) privately offer personal financial help to the struggling colleague outside the bonus context, or (3) advocate for an across-the-board company support policy without naming individuals. Separate the bonus system from personal support.",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "social_procedural": [
+    {
+      "scenario": "employee_discipline",
+      "task_text": "An employee has been consistently 15-30 minutes late for the past 3 weeks. You're their manager. Describe: (1) the HR-compliant progressive discipline procedure in correct order (verbal warning → written → PIP → termination), and (2) how to conduct the initial conversation in a way that addresses the issue firmly while maintaining the relationship. The employee recently mentioned childcare difficulties.",
+      "component_a": {
+        "domain": "social",
+        "text": "empathetic confrontation with context sensitivity",
+        "correct_answer": "Conversation: (1) meet privately, (2) state facts without accusation ('I've noticed you've been 15-30 min late for 3 weeks'), (3) ask for their explanation, (4) acknowledge childcare difficulty empathetically, (5) separate understanding from accountability ('I understand the situation AND we need to solve the lateness'), (6) problem-solve together (flexible start? WFH mornings?), (7) document agreement, (8) follow up in 1 week.",
+        "difficulty": "hard"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "HR progressive discipline sequence",
+        "correct_answer": "Sequence: (1) Informal conversation (documented notes), (2) Formal verbal warning (documented, in HR file), (3) Written warning (signed by employee and manager), (4) Performance Improvement Plan (PIP) with 30-90 day timeline and clear metrics, (5) Final written warning, (6) Termination (with HR present). Each step requires documentation and reasonable timeframe between steps. Employee must be given opportunity to improve at each stage.",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "scenario": "product_recall_crisis",
+      "task_text": "A customer is furious about a product defect that injured their child (minor scratch). Describe: (1) the correct product recall investigation procedure from report to resolution, and (2) the immediate customer communication approach — what to say, what NOT to say (liability), and how to express genuine concern while protecting the company legally.",
+      "component_a": {
+        "domain": "social",
+        "text": "crisis communication under legal constraint",
+        "correct_answer": "Immediate response: (1) express concern for child ('I'm very concerned to hear your child was hurt'), (2) do NOT admit fault or liability ('we take all safety reports seriously and will investigate'), (3) do NOT say 'it was just a scratch' or minimize, (4) offer immediate remediation (refund, replacement), (5) collect details without sounding interrogating, (6) escalate to legal/safety team immediately, (7) follow up within 24h with investigation status. NEVER say: 'this has never happened before', 'you must have used it wrong', 'we're not responsible'.",
+        "difficulty": "hard"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "product recall investigation sequence",
+        "correct_answer": "Procedure: (1) Immediate: quarantine affected product, photograph injury and product, document customer report. (2) 24h: determine if isolated incident or batch issue, check production records, inspect similar units from same batch. (3) 72h: risk assessment (is it a safety hazard?), decide on recall scope (full/partial/none). (4) If recall: notify regulatory authority (e.g., CPSC, Trading Standards), issue public notice, set up return process. (5) Root cause analysis: production review, design review. (6) Corrective action: fix design/process, re-test. (7) Close loop: inform all affected customers.",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "temporal_procedural": [
+    {
+      "scenario": "software_deployment",
+      "task_text": "A software deployment has 6 steps that must happen in order, with specific timing constraints: (1) database backup (takes 20 min, must complete before step 2), (2) stop services (5 min), (3) run migrations (15 min), (4) deploy new code (10 min), (5) run smoke tests (10 min, if fail → rollback to step 1), (6) start services (5 min). The maintenance window is 90 minutes starting at 2:00am. Is there enough time? Include the rollback scenario in your timeline. What time does each step start and end?",
+      "component_a": {
+        "domain": "temporal",
+        "text": "scheduling with constraints and contingencies",
+        "correct_answer": "Normal path: 65 min total (20+5+15+10+10+5). With rollback buffer: need 85 min (rollback adds 20 min for restore). Barely fits in 90 min window. Timeline: 2:00-2:20 backup, 2:20-2:25 stop, 2:25-2:40 migrate, 2:40-2:50 deploy, 2:50-3:00 test, 3:00-3:05 start. Finishes 3:05am (65 min). Rollback scenario: if test fails at 3:00, rollback is 20 min (restore backup), re-test 10 min = finish 3:30am (85 min total).",
+        "difficulty": "hard"
+      },
+      "component_b": {
+        "domain": "procedural",
+        "text": "deployment procedure sequence with dependencies",
+        "correct_answer": "Procedure: (1) Backup: full database dump to separate storage, verify backup integrity before proceeding. (2) Stop services: graceful shutdown, wait for active connections to close, kill if necessary after 5 min. (3) Migrations: run schema changes, verify no errors. (4) Deploy: push new code to servers, restart app processes. (5) Smoke tests: hit critical endpoints, check DB connections, verify core functionality. (6) Start services: bring up in correct order (DB → app → web), health check each. Rollback: if step 5 fails, restore DB from backup, revert code to previous version, restart with old code.",
+        "difficulty": "hard"
+      }
+    }
+  ],
+  "social_temporal": [
+    {
+      "scenario": "distributed_team_retrospective",
+      "task_text": "Schedule a team retrospective meeting for a distributed team: 3 people in London (GMT), 2 in New York (EST), 1 in Tokyo (JST). The meeting needs to be 90 minutes. The Tokyo colleague has said (politely, indirectly) that they're tired of always being the one in late-night meetings. The New York team lead insists on mornings. Find a time that works, and draft a Slack message proposing it that acknowledges the Tokyo colleague's concern without making it confrontational.",
+      "component_a": {
+        "domain": "social",
+        "text": "navigating indirect complaints and power dynamics",
+        "correct_answer": "Slack message: 'Hi team, for the retro I'm proposing [TIME] to balance time zones better. This means: NYC 8-9:30am, London 1-2:30pm, Tokyo 10-11:30pm. I know late nights are tough for Tokyo — let's rotate future meetings so no one is always late. If this time doesn't work, reply with your constraints and I'll find another slot. Thanks for flexibility!' Key: (1) acknowledge burden, (2) propose rotation solution, (3) give Tokyo opt-out without singling them out.",
+        "difficulty": "hard"
+      },
+      "component_b": {
+        "domain": "temporal",
+        "text": "timezone scheduling with conflicting constraints",
+        "correct_answer": "NYC morning = 8-11am EST. Tokyo not-late = before 11pm JST. London working hours = 9am-6pm GMT. Conversion: NYC 8am EST = London 1pm GMT = Tokyo 10pm JST. This satisfies: NYC morning (yes), Tokyo before 11pm (yes), London afternoon (yes). Alternative: NYC 9am = London 2pm = Tokyo 11pm (borderline). Best option: 8am EST / 1pm GMT / 10pm JST for 90 min meeting.",
+        "difficulty": "medium"
+      }
+    }
+  ]
+}

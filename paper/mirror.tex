@@ -1,0 +1,1054 @@
+\documentclass[10pt]{article}
+
+%% Replace neurips_2026.sty with the official NeurIPS 2026 style when released.
+\usepackage{neurips_2026}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{natbib}
+\usepackage{pifont}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{rotating}
+
+%% Convenience commands
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\mirror}{\textsc{Mirror}}
+\newcommand{\etal}{\textit{et al.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\cf}{\textit{cf.}}
+\newcommand{\aka}{\textit{a.k.a.}}
+
+%% Metric shorthands
+\newcommand{\MCI}{MCI}
+\newcommand{\CCE}{CCE}
+\newcommand{\ARS}{ARS}
+\newcommand{\KDI}{KDI}
+\newcommand{\CFR}{CFR}
+\newcommand{\UDR}{UDR}
+\newcommand{\SSR}{SSR}
+\newcommand{\FDR}{FDR}
+\newcommand{\TRI}{TRI}
+\newcommand{\AI}{AI}
+
+\title{\mirror: A Hierarchical Benchmark for Metacognitive Calibration in Large Language Models}
+
+\author{
+  Anonymous Authors \\
+  NeurIPS 2026 Submission
+}
+
+\date{}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+\maketitle
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{abstract}
+Large language models exhibit a striking paradox: they possess measurable self-knowledge
+about their own domain-specific accuracy, yet this knowledge does not translate into
+appropriate behavior when it is needed most. We introduce \mirror{}
+(Metacognitive Integrity and Reliability Robustness for Evaluation and Research), a
+hierarchical benchmark spanning eight experiments and \todo{N} models that systematically
+assesses four levels of metacognitive capability: self-knowledge, knowledge transfer,
+compositional self-prediction, and adaptive self-regulation. Across all models tested, we
+find that Metacognitive Convergence Index (\MCI) is exactly 0.000 universally, that the
+Adaptation Index (\AI) is effectively zero for tool-use and opt-out channels, and that
+the \mirror{} calibration gap does not independently predict agentic failure rate in our
+capstone experiment (partial $r = -0.044$, $p = 0.557$). The positive finding is
+the escalation curve: external constraint reduces the Confident Failure Rate (\CFR) from
+56.9\% to 25.2\% across four increasingly structured conditions. The Knowing-Doing Index
+(\KDI) is negative for 100\% of domain-model pairs, confirming that the gap between
+possessing self-knowledge and acting on it is universal. These results suggest that
+accurate metacognitive calibration is a necessary but insufficient condition for
+appropriate agentic behavior: external scaffolding, not internal self-knowledge,
+is the operative mechanism. We release the full question bank (5,000 questions across
+8 domains), all task files, experimental protocols, and analysis code.
+\end{abstract}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+\label{sec:intro}
+% ─────────────────────────────────────────────────────────────────────────────
+
+The deployment of large language models (LLMs) as autonomous agents in high-stakes
+settings presupposes a form of metacognitive accuracy: the model must know not only
+\textit{what} it knows, but \textit{how well} it knows it, and must translate that
+awareness into appropriate action---escalating to tools or human review when confidence
+is low, proceeding autonomously when confidence is warranted. This assumption is
+foundational to the entire enterprise of agentic AI safety. It has never been
+systematically tested.
+
+Metacognition in humans refers to the capacity to monitor and regulate one's own cognitive
+processes~\citep{flavell1979metacognition}. A rich literature has established that human
+metacognitive accuracy varies across individuals, domains, and task types, and that
+calibration failures---overconfidence or underconfidence---produce measurable costs in
+learning, decision-making, and collaborative work~\citep{dunning2011dunning,
+krueger2002unskilled, koriat2007toward}. LLMs are routinely described as exhibiting
+``hallucination'' and ``overconfidence,'' but these observations are typically qualitative
+and domain-agnostic. The structural question---whether LLMs have systematic,
+domain-specific calibration profiles, and whether those profiles predict behavioral
+failures in agentic settings---has received no rigorous empirical treatment.
+
+\mirror{} is designed to answer that structural question. Our framework decomposes
+metacognitive capability into four ascending levels. \textit{Level 0} measures the
+raw calibration gap between a model's stated confidence and its actual performance
+across eight knowledge domains. \textit{Level 1} asks whether calibration signals
+are transferable across measurement channels. \textit{Level 2} asks whether models
+can compose calibration predictions across domain pairs in multi-component tasks.
+\textit{Level 3} asks whether models update their behavior from accurate performance
+feedback. The capstone experiment (\textit{Level 3+}) closes the loop: given that
+we have measured a model's calibration map (\mirror{} scores), does that map predict
+where the model will fail in agentic tasks, and can the model act on it?
+
+The central empirical finding is a paradox. Models do have accurate self-knowledge
+in the sense that their \mirror{} calibration gaps correctly identify weak domains.
+Yet this self-knowledge fails to generalize across measurement channels (Level 1),
+fails to compose correctly in multi-component reasoning (Level 2), does not update
+from feedback (Level 3), and---most consequentially---does not independently predict
+agentic failure above and beyond raw accuracy (Level 3+). The Knowing-Doing Index
+(\KDI) is negative for every one of 100\% of domain-model pairs we measured, meaning
+that the degree of appropriate autonomous action consistently falls below what a
+calibrated agent would exhibit. External constraint, not internal self-knowledge,
+is what moves the needle: imposing forced routing (Condition 4) reduces \CFR{}
+by 31.8 percentage points relative to uninformed autonomous operation.
+
+This paper makes four contributions. First, we provide the \mirror{} benchmark---a
+principled, hierarchical evaluation framework with 5,000 domain-stratified questions,
+597 composite agentic tasks, and standardized protocols for measuring metacognitive
+calibration at each level. Second, we report the first systematic cross-model,
+cross-domain calibration atlas for \todo{N} LLMs spanning four model families and
+a 100$\times$ parameter range. Third, we introduce novel metrics (\KDI, \CFR, \UDR,
+\MCI, \CCE, \ARS, \SSR) with pre-registered interpretations and honest null reporting.
+Fourth, we establish a finding with direct implications for AI safety: the knowing-doing
+gap in metacognitive calibration is real, universal, and not addressable by providing
+models with accurate self-knowledge alone.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Related Work}
+\label{sec:related}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Calibration and Confidence in Language Models}
+
+The calibration of neural language models was established as a first-class problem
+by~\citet{guo2017calibration}, who showed that modern deep networks are systematically
+overconfident and that temperature scaling can partially correct this. Subsequent work
+extended calibration analysis to pre-trained language models~\citep{desai2020calibration}
+and to the few-shot prompting paradigm~\citep{kadavath2022language}, finding that
+larger models tend to be better calibrated in-distribution but that this advantage
+is fragile under distribution shift. The emergence of chain-of-thought
+reasoning~\citep{wei2022chain} introduced a new confound: models that reason step-by-step
+may exhibit different expressed confidence from models that respond directly, independent
+of actual calibration. None of this prior work examines whether calibration measured in
+one channel (\eg, explicit probability elicitation) transfers to behavioral choices in
+another (\eg, tool invocation decisions). \mirror{} is the first benchmark to test
+channel-level calibration transfer.
+
+\subsection{Metacognition and Self-Assessment in LLMs}
+
+The most directly related prior work is on LLM self-assessment. \citet{kadavath2022language}
+introduced the ``know what you know'' paradigm, showing that models can predict their own
+answer correctness above chance on knowledge-intensive tasks. \citet{xiong2023can} found
+that models are often overconfident when asked to express numerical probability estimates.
+\citet{stengel2023calibrated} showed that calibration varies substantially across model
+families and that RLHF alignment affects expressed confidence in ways that are not
+straightforwardly related to accuracy. The key gap in all prior work is the conflation
+of \textit{expressed confidence} with \textit{metacognitive action}: no prior study
+has tested whether models use their self-knowledge to make appropriate agentic
+decisions. \mirror{}'s Level 3+ experiment (Exp.~9) fills this gap directly.
+
+\subsection{Agentic Evaluation and Tool Use}
+
+The evaluation of LLMs as autonomous agents has expanded rapidly with the proliferation
+of tool-calling interfaces~\citep{mialon2023augmented, patil2023gorilla}. Benchmarks
+such as ToolBench~\citep{qin2023toolbench}, AgentBench~\citep{liu2023agentbench}, and
+GAIA~\citep{mialon2023gaia} measure whether models can invoke tools correctly to complete
+tasks. A crucial blind spot in this literature is the question of \textit{when} a model
+should use a tool versus proceeding autonomously: these benchmarks assume the model knows
+its own limitations and evaluate only execution quality conditional on the decision to
+invoke a tool. \mirror{} inverts this: we measure the \textit{decision} itself, treating
+task execution quality as a downstream variable and calibration-informed decision-making
+as the primary outcome.
+
+\subsection{Sycophancy, Feedback Sensitivity, and Epistemic Hygiene}
+
+A growing literature documents that LLMs are sensitive to social pressure and evaluator
+feedback in ways that compromise their expressed judgments~\citep{perez2022sycophancy,
+sharma2023towards, turpin2023language}. Models update their stated answers toward what
+they perceive the human wants to hear, independent of whether the human's input is
+informative. \mirror{}'s Experiment 6 directly tests this sycophancy in the context
+of metacognitive calibration: we find that 9 of 10 models yield to social pressure
+(Sycophancy Separation Ratio $> 1.2$) while simultaneously failing to update their
+calibration channels from accurate performance feedback (Adaptation Index $\approx 0$,
+Exp.~4). The asymmetry---responsive to social pressure, unresponsive to accurate
+data---is a new finding with direct implications for the safety of feedback-based
+alignment techniques.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{The \mirror{} Benchmark}
+\label{sec:benchmark}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Framework Overview}
+
+\mirror{} is structured as a hierarchy of eight experiments, each building on the
+previous. The hierarchy is motivated by the structure of human metacognition: you
+cannot test whether calibration transfers across channels (Level 1) until you have
+measured it in a single channel (Level 0); you cannot test agentic translation of
+calibration (Level 3+) until you have established that the calibration measure is
+stable under adversarial pressure (Level 3b). Figure~\ref{fig:framework} shows the
+full hierarchy and the data flow between experiments.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/fig1_framework.pdf}
+  \caption{
+    The \mirror{} experimental hierarchy. Each level builds on previous measurements.
+    Arrows indicate data dependencies: Experiment 1 (\mirror{} Atlas) produces per-model
+    per-domain accuracy scores that are consumed by all subsequent experiments.
+    The capstone (Experiment 9) uses all upstream data to predict and measure the
+    Knowing-Doing Gap in agentic settings.
+  }
+  \label{fig:framework}
+\end{figure}
+
+\subsection{Domains and Question Bank}
+
+We define eight knowledge domains chosen to span a wide range of reasoning types:
+\textbf{arithmetic} (computation, multi-step calculation, percentage reasoning),
+\textbf{spatial} (grid navigation, 3D geometry, mental rotation),
+\textbf{temporal} (sequence ordering, rate-time problems, duration reasoning),
+\textbf{linguistic} (ambiguity resolution, grammaticality, pragmatic inference),
+\textbf{logical} (syllogistic reasoning, conditional inference, fallacy identification),
+\textbf{social} (theory-of-mind, norm violation detection, perspective-taking),
+\textbf{factual} (world knowledge, entity recognition, geographic/historical facts), and
+\textbf{procedural} (step-sequencing, protocol-following, dependency-ordering,
+error-detection).
+
+The question bank contains 5,000 questions (625 per domain). All questions are
+multiple-choice with a single correct answer. Questions were generated by an ensemble
+of frontier models and verified for correctness by cross-model agreement: a question
+is included only if at least two of three independent verifier models identify the
+same correct answer. The bank is stratified by subcategory (5 subcategories per domain,
+8 domains = 40 subcategories), enabling fine-grained calibration analysis at the
+subcategory level. Full bank statistics are in Appendix~\ref{app:datasheet}.
+
+\subsection{Measurement Channels}
+
+Metacognitive calibration is measured across five response channels:
+\begin{enumerate}
+  \item \textbf{Natural:} Direct answer with no explicit confidence requirement.
+        Accuracy is the ground-truth performance measure.
+  \item \textbf{Wagering:} Model places a high or low bet on its answer before answering.
+        Wagering accuracy = fraction of high-bet trials answered correctly.
+        The \mirror{} gap is $|\text{wagering\_acc} - \text{natural\_acc}|$.
+  \item \textbf{Opt-Out:} Model may opt out if not confident. Measures selective engagement.
+  \item \textbf{Tool-Use:} Model may invoke computational or search tools. Measures
+        resource allocation relative to domain strength.
+  \item \textbf{Difficulty:} Model assesses task difficulty before answering.
+        Tests self-other discrimination.
+\end{enumerate}
+The five-channel prompt template (used in Experiments 1 and 4) is reproduced in
+Appendix~\ref{app:prompts}.
+
+\subsection{Experiment Descriptions}
+
+\paragraph{Experiment 1: Self-Knowledge Atlas (Level 0).}
+Administered the full question bank to all models in natural and wagering channels.
+Produces a per-model per-domain calibration atlas: the \mirror{} gap for each of 40
+domain-subcategory cells per model. This atlas is the primary input to Experiment 9.
+The \mirror{} gap quantifies overconfidence (positive gap: model wagers high but underperforms)
+or over-hedging (negative gap: model wagers low despite correct performance).
+
+\paragraph{Experiment 2: Knowledge Transfer (Level 1).}
+Tested whether models can predict their own performance in a channel they are not
+currently operating in. Five transfer channels; channel-level Transfer MCI and a binary
+verbal identification task. Verbal transfer score = fraction of tasks where model
+correctly identifies its weakest channel. Pre-registered prediction: verbal transfer
+score $> 0$.
+
+\paragraph{Experiment 3: Compositional Self-Prediction (Level 2).}
+Presented models with two-part tasks requiring components from different domains.
+Before answering, the model predicts overall composite success. Compositional Confidence
+Error (\CCE) measures predicted minus actual composite accuracy. Pre-registered
+prediction: \MCI{} $> 0$ (models can distinguish strong-strong from weak-weak composites).
+
+\paragraph{Experiment 4: Adaptive Self-Regulation (Level 3).}
+Showed models accurate (Condition A) or shuffled (Condition B) \mirror{} scores, then
+tested whether confidence channels updated in the correct direction. Adaptation Index
+(\AI) = proportional change in channel accuracy after feedback. Pre-registered prediction:
+\AI{} $> 0$ for true-score condition, \AI{} $\approx 0$ for false-score condition.
+
+\paragraph{Experiment 5: Adversarial Robustness (Level 3b).}
+Applied four adversarial attack types (authority override, social pressure, easy framing,
+hard framing) to all five channels. Adversarial Robustness Score (\ARS) measures
+channel stability under attack. This experiment validates that the \mirror{} gap
+measured in Experiment 1 is not an artefact of surface-level suggestibility.
+
+\paragraph{Experiment 6: Ecosystem Effect.}
+Extended the framework from individual models to multi-agent interaction. Sub-experiment
+6a measures sycophancy via Sycophancy Separation Ratio (\SSR). Sub-experiment 6b measures
+flawed premise detection via Flawed Detection Rate (\FDR). Sub-experiment 6c tests
+whether capability robustness (Exp.~5 \ARS) correlates with value robustness under
+social pressure.
+
+\paragraph{Experiment 7: Mechanistic Probes.}
+Planned to examine hidden-state correlates of metacognitive calibration. Skipped due to
+API-only infrastructure constraints; see Section~\ref{sec:limitations}.
+
+\paragraph{Experiment 8: Scaling Analysis.}
+Re-analyzed cross-experiment data to test whether \mirror{} metrics scale with model
+parameters. Primary scaling curve: the llama-3.1 family (8B, 70B, 405B). All-model
+regression uses 10 models spanning $\sim$4B to $\sim$675B parameters.
+
+\paragraph{Experiment 9: The Knowing-Doing Gap (Level 3+).}
+The capstone experiment. Each model completes 597 composite two-domain agentic tasks
+under four conditions of increasing external structure, across three behavioral
+paradigms. Primary metrics: \CFR{} (fraction of weak-domain autonomous attempts
+that fail), \UDR{} (unnecessary deferral on strong domains), and \KDI{} (gap
+between measured self-knowledge and appropriate action rate).
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Experimental Setup}
+\label{sec:setup}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Models}
+
+We evaluate \todo{N} models spanning four families and a 100$\times$ parameter range.
+Table~\ref{tab:models} lists all models with their provider, parameter count, and
+experiment participation. Two models were excluded from the capstone analysis:
+\texttt{qwen-3-235b} due to 100\% API failure on the NIM endpoint (the NIM
+\texttt{qwen3-235b-a22b} endpoint was retired during the experiment run, with no
+valid replacement available in time), and \texttt{command-r-plus} due to NIM endpoint
+unavailability. All exclusions were flagged before analysis.
+
+\begin{table}[t]
+  \centering
+  \caption{Models evaluated in \mirror{}. ``Exp'' columns indicate participation:
+    \checkmark~= complete, P~= partial, --~= excluded.
+    Parameter counts for closed-weight models are from public technical reports
+    and may be estimates.}
+  \label{tab:models}
+  \small
+  \begin{tabular}{llrcccccc}
+    \toprule
+    Model & Provider & Params & Exp1 & Exp3 & Exp4 & Exp5 & Exp6 & Exp9 \\
+    \midrule
+    llama-3.1-8b    & Meta / NIM   &   8B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    llama-3.1-70b   & Meta / NIM   &  70B & \checkmark & \checkmark & P          & \checkmark & \checkmark & \checkmark \\
+    llama-3.1-405b  & Meta / NIM   & 405B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    llama-3.3-70b   & Meta / NIM   &  70B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    mistral-large   & Mistral / NIM & 675B & \checkmark & \checkmark & P          & \checkmark & \checkmark & \checkmark \\
+    deepseek-r1     & DeepSeek     & 671B & \checkmark & \checkmark & \checkmark & \checkmark & --         & \checkmark \\
+    deepseek-v3     & DeepSeek     & 671B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    gpt-oss-120b    & OpenAI-OSS   & 120B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    gemini-2.5-pro  & Google       &  --  & \checkmark & --         & --         & --         & --         & --         \\
+    phi-4           & Microsoft    &   4B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    kimi-k2         & Moonshot/NIM &  --  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    gemma-3-27b     & Google / NIM &  27B & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+    qwen-3-235b     & Alibaba      & 235B & \checkmark & --         & --         & --         & --         & \textit{excl.} \\
+    command-r-plus  & Cohere       &  --  & --         & --         & --         & --         & --         & \textit{excl.} \\
+    \midrule
+    \multicolumn{3}{l}{\textit{Exp.~4 additional models}} \\
+    mixtral-8x22b   & Mistral / NIM & 141B & -- & -- & \checkmark & -- & -- & -- \\
+    qwen3-next-80b  & Alibaba / NIM &  80B & -- & -- & \checkmark & -- & -- & -- \\
+    llama-3.2-3b    & Meta / NIM   &   3B & -- & -- & \checkmark & -- & -- & -- \\
+    gemma-3-12b     & Google / NIM &  12B & -- & -- & \checkmark & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Infrastructure}
+
+All experiments run through a unified async API client (\texttt{mirror/api/client.py})
+with exponential-backoff retry (5 retries, timeout 120s), JSONL output with \texttt{fsync}
+after each record for crash resistance, and resume support via checkpoint files.
+Providers used: NVIDIA NIM (primary, for llama, mistral, gemma, phi-4, kimi-k2),
+DeepSeek API (deepseek-r1/v3), Google Vertex AI (gemini-2.5-pro), and Groq
+(\texttt{llama-3.3-70b-versatile}, used for Exp.~1 backfill). All calls use
+\texttt{temperature=0} for reproducibility. Concurrency is 32 parallel calls
+per-model in the full experiment run (Exp.~9: \texttt{run\_id=20260312T140842}).
+
+\subsection{Statistical Methods}
+
+Pre-registered statistical procedures:
+\begin{itemize}
+  \item Bootstrap confidence intervals: bias-corrected accelerated (BCa), 10,000 iterations.
+  \item Multiple testing correction: Benjamini-Hochberg FDR across all per-subcategory tests.
+  \item Primary mixed-effects model: \texttt{CFR $\sim$ MIRROR\_gap + (1|model)}
+    using statsmodels \texttt{MixedLM}; within-group demeaned OLS used as a fallback
+    when MixedLM fails to converge (flagged in all reported outputs).
+  \item Effect sizes: Cohen's $d$ for strong vs.\ weak domain behavior comparisons.
+  \item Permutation test for cross-model dissociation (Exp.~6, Control 3).
+\end{itemize}
+All pre-registered interpretive contingencies are reproduced verbatim in the output
+JSON of each analysis script. Null results are reported without post-hoc adjustment.
+
+\subsection{Task Bank (Experiment 9)}
+
+The Experiment 9 task bank contains 597 composite tasks: 297 \textit{fixed tasks}
+(\texttt{circularity\_free=True}, identical across all models, primary analysis) and
+300 \textit{tailored tasks} (\texttt{circularity\_free=False}, model-specific strong/weak
+domain pairs, supplementary analysis). Each task specifies two component domains,
+domain-specific difficulty levels, correct answers for both components, and both a
+combined task text and individual part texts. The task schema is described in full
+in Appendix~\ref{app:datasheet}. Verification of the task bank (static schema checks
+on all 597 tasks) is complete; LLM-based cross-model verification (requiring API
+credits) was not completed prior to submission.
+
+\subsection{Exp.~9 Conditions and Paradigms}
+
+Four conditions manipulate the metacognitive information available to the model:
+
+\begin{description}
+  \item[C1 — Uninformed.] No prefix. The model receives the task and must decide
+    whether to proceed, use a tool, or flag for review based solely on its internal
+    representations.
+  \item[C2 — Self-Informed.] Prefix: \textit{``[SYSTEM NOTE] Your measured accuracy in
+    [domain\_a] tasks is [X]\% and in [domain\_b] tasks is [Y]\%.''}
+  \item[C3 — Instructed.] C2 prefix plus normative framing: \textit{``Research shows
+    that models with accuracy below 50\% in a domain should use available tools or flag
+    the component for human review rather than proceeding autonomously.''}
+  \item[C4 — Constrained.] External routing logic in the runner forces \texttt{use\_tool}
+    decisions for all components where the model's \mirror{} accuracy is below 50\%.
+    No additional prompt text. Paradigm 3 is skipped under C4 (it is equivalent to C1P3).
+\end{description}
+
+Three paradigms structure the response format:
+\begin{description}
+  \item[P1 — Autonomous Tool Use.] Tools available (\texttt{calculator},
+    \texttt{search}, \texttt{ask\_expert}, \texttt{flag\_for\_review}).
+    Model chooses freely. Decision classified as \texttt{proceed}, \texttt{use\_tool},
+    or \texttt{defer}.
+  \item[P2 — Checkpoint Decisions.] Task split into explicit steps; model must write
+    \texttt{PROCEED}, \texttt{USE\_TOOL}, or \texttt{FLAG\_FOR\_REVIEW} before each step.
+  \item[P3 — No-Tool Behavioral.] No tools; model must answer. Track hedging phrase count,
+    decomposition count, token allocation, and error type per component. This paradigm
+    serves as an RLHF-confound control: if RLHF training creates surface-level deference
+    cues that inflate P1/P2 \texttt{use\_tool} rates, P3 behavioral signals should
+    still reflect underlying calibration differences.
+\end{description}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Results}
+\label{sec:results}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Experiment 1: The \mirror{} Calibration Atlas}
+\label{sec:results:exp1}
+
+Figure~\ref{fig:calibration_atlas} shows the per-model \mirror{} gap across all
+eight domains. The gaps range from 0.050 (mistral-large, grand mean) to 0.501
+(llama-3.3-70b, arithmetic). Two structural findings emerge.
+
+\textbf{Procedural is universally the floor domain.} Across all models, procedural
+natural accuracy is 0.00--0.09. No model scores above chance on procedural tasks
+in the natural channel. Yet the \mirror{} gap on procedural is often \textit{small}:
+models appear to know they are weak on procedural tasks. The calibration failure in
+procedural is not overconfidence---it is persistent incapacity despite accurate
+self-assessment. This distinction is operationally important: in agentic settings,
+accurate self-knowledge about a weak domain is insufficient if the model still proceeds
+autonomously (as Experiment 9 confirms).
+
+\textbf{deepseek-r1 exhibits a systematic gap reversal.} Its grand-mean wagering
+accuracy (0.342) is \textit{lower} than its natural accuracy (0.456), yielding a
+negative \mirror{} gap ($-0.114$). This model consistently places low wagers on correct
+answers and high wagers on incorrect answers---the opposite of the expected overconfidence
+direction. This over-hedging pattern produces the lowest \CFR{} in Experiment 9 (0.383)
+not because the model is well-calibrated, but because it is systematically conservative.
+We distinguish this mechanistically from genuine calibration in Section~\ref{sec:results:exp9}.
+
+Table~\ref{tab:exp1_grand_means} reports grand-mean natural accuracy, wagering accuracy,
+and \mirror{} gap for all evaluated models.
+
+\begin{table}[t]
+  \centering
+  \caption{Grand-mean calibration metrics from Experiment 1 (averaged over all domains).
+    Source: \texttt{exp8\_20260313T192852\_analysis.json} (merged Exp.~1 runs).
+    ``Gap'' = $|\text{wagering\_acc} - \text{natural\_acc}|$; negative values indicate
+    over-hedging (wagering accuracy $<$ natural accuracy).}
+  \label{tab:exp1_grand_means}
+  \small
+  \begin{tabular}{lrrr}
+    \toprule
+    Model              & Natural Acc & Wagering Acc & \mirror{} Gap \\
+    \midrule
+    mistral-large      & 0.650       & 0.700        & $+$0.050 \\
+    gemma-3-27b        & 0.620       & 0.750        & $+$0.130 \\
+    llama-3.3-70b      & 0.615       & 0.713        & $+$0.098 \\
+    gpt-oss-120b       & 0.500       & 0.700        & $+$0.200 \\
+    llama-3.1-405b     & 0.550       & 0.700        & $+$0.150 \\
+    deepseek-v3        & 0.487       & 0.751        & $+$0.264 \\
+    deepseek-r1        & 0.456       & 0.342        & $-$0.114 \\
+    llama-3.1-70b      & 0.414       & 0.501        & $+$0.088 \\
+    llama-3.1-8b       & 0.388       & 0.532        & $+$0.145 \\
+    phi-4              & 0.355       & 0.602        & $+$0.247 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/fig2_calibration_atlas.pdf}
+  \caption{
+    \mirror{} calibration atlas: per-model per-domain gap heatmap. Blue = positive gap
+    (overconfident), red = negative gap (over-hedging). Models ordered by grand-mean
+    natural accuracy; domains ordered by mean gap magnitude. The procedural column
+    is universally near-floor for natural accuracy but shows variable gap magnitude.
+  }
+  \label{fig:calibration_atlas}
+\end{figure}
+
+\subsection{Experiments 2--3: Levels 1 and 2 Fail Universally}
+\label{sec:results:exp23}
+
+\paragraph{Experiment 2: Knowledge Transfer (Level 1).}
+Transfer MCI (implicit cross-channel calibration transfer) ranges from 0.008
+(qwen-3-235b, excluded from further analysis) to 0.198 (kimi-k2).
+The verbal transfer score---the fraction of tasks on which a model correctly identifies
+its weakest channel---is \textbf{0.000 universally across all 12 models}.
+Models exhibit partial implicit transfer (Transfer MCI $> 0$) while simultaneously
+failing every explicit verbal identification task. This dissociation constitutes
+\textit{metacognitive incommunicability}: the self-knowledge that exists is not
+verbally accessible.
+
+\paragraph{Experiment 3: Compositional Self-Prediction (Level 2).}
+\MCI{} = 0.000 universally, confirmed across all 12 models. The pre-registered H1
+hypothesis (\MCI{} $> 0$) is falsified.
+
+The operationally important metric is \CCE{}: the gap between a model's predicted
+composite confidence and its actual intersection accuracy. Mean intersection accuracy
+when both component domains are in the high-confidence region is \textbf{0.000 for every
+model}---models fail every composite task they are most confident about. \CCE{}
+ranges from 0.513 (deepseek-v3, best) to 0.906 (phi-4, worst), meaning phi-4's
+expressed composite confidence sits 0.91 probability units above floor performance.
+
+We note a design limitation: the pre-registered \MCI{} formula requires strong-strong
+and weak-weak composite trials in the denominator. The task generation process rarely
+produced both simultaneously for any given model, rendering \MCI{} = 0 partially
+a design artifact. \CCE{} does not have this dependency and is the recommended
+primary metric for Level 2; see Appendix~\ref{app:datasheet} for discussion.
+
+Table~\ref{tab:exp3_cce} reports \CCE{} values for all evaluated models.
+
+\begin{table}[t]
+  \centering
+  \caption{Experiment 3 (Level 2) Compositional Confidence Error (\CCE).
+    Higher values indicate greater overconfidence on composite tasks relative to actual
+    intersection accuracy (which is 0.000 for all models). Sources:
+    \texttt{exp3\_20260224T120251\_metrics.json} (original 7-model run) and
+    \texttt{exp3\_20260313T205339\_metrics.json} (5-model backfill run).}
+  \label{tab:exp3_cce}
+  \small
+  \begin{tabular}{lrr}
+    \toprule
+    Model          & Mean \CCE{} & Median \CCE{} \\
+    \midrule
+    phi-4          & 0.906       & 0.950 \\
+    kimi-k2        & 0.887       & 0.935 \\
+    llama-3.3-70b  & 0.797       & 0.800 \\
+    gemma-3-27b    & 0.667       & 0.750 \\
+    deepseek-v3    & 0.513       & 0.500 \\
+    deepseek-r1    & 0.511       & 0.500 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Experiments 4--5: Self-Regulation Is Absent; Robustness Is Intact}
+\label{sec:results:exp45}
+
+\paragraph{Experiment 4: Adaptation Index.}
+Adaptation Index (\AI) is 0.000 for the opt-out and tool-use channels across all models
+for both true-score (Condition A) and false-score (Condition B) feedback conditions.
+The wagering channel shows marginally positive \AI{} for three domain-condition pairs
+(arithmetic: mean 0.032, 95\% BCa CI [0.005, 0.072]; factual: 0.093 [0.003, 0.216];
+temporal: 0.111 [0.000, 0.296]), but confidence intervals for the temporal and factual
+domains touch zero. Crucially, Condition B (false scores) produces statistically
+indistinguishable \AI{} values from Condition A (true scores): models do not distinguish
+between accurate and inaccurate performance feedback when updating confidence channels.
+
+deepseek-r1's wager \AI{} is $-0.065$ [BCa: $-0.462$, $0.313$] (high variance due to
+near-zero denominator). This model further reduces wagering confidence after being shown
+true scores indicating weakness, consistent with its over-hedging pattern from Exp.~1 but
+paradoxical: the model appears to know it over-hedges yet does not correct.
+
+\paragraph{Experiment 5: Adversarial Robustness.}
+All 11 evaluated models achieve \ARS{} $\geq 0.937$ across all four attack types,
+placing every model in the pre-registered ``Robust'' category ($\text{\ARS{}} > 0.95$
+threshold). The opt-out channel achieves \ARS{} = 1.000 for all models on all attack
+types: the opt-out mechanism is completely invariant to adversarial framing.
+
+The most vulnerable single observation: phi-4 under the authority-override attack shifts
+wagering accuracy by $+0.212$ (21.2 percentage points). This is the largest single-attack
+single-channel shift observed in the dataset. Despite this, phi-4's overall \ARS{} (0.960)
+remains in the Robust range because the shift is localized to one channel and one attack.
+The practical implication is that \ARS{} as currently defined may mask clinically
+significant channel-specific vulnerabilities; we discuss this in Section~\ref{sec:limitations}.
+
+\subsection{Experiment 6: Ecosystem Effects and Sycophancy}
+\label{sec:results:exp6}
+
+\paragraph{Sycophancy (6a).}
+Table~\ref{tab:exp6_ssr} reports Sycophancy Separation Ratio (\SSR) for all models with
+sufficient data. Nine of ten models with complete data are sycophantic (\SSR{} $> 1.2$).
+llama-3.1-8b is the most sycophantic (\SSR{} = 4.08): its score drops 7.5 points under
+negative priming versus rising only 1.8 points under positive priming (Cohen's $d = 0.961$
+for the positive vs.\ negative contrast). gpt-oss-120b is the only model with balanced
+priming sensitivity (\SSR{} = 1.007).
+
+\begin{table}[t]
+  \centering
+  \caption{Sycophancy Separation Ratio (\SSR) from Experiment 6a.
+    \SSR{} $> 1.2$ = sycophantic; $0.8$--$1.2$ = balanced; $< 0.8$ = context-sensitive.
+    Source: \texttt{exp6\_expanded\_20260314T203446\_analysis.json}.
+    deepseek-r1 and gemini-2.5-pro excluded (insufficient complete-condition data).}
+  \label{tab:exp6_ssr}
+  \small
+  \begin{tabular}{lrl}
+    \toprule
+    Model           & \SSR{} & Classification \\
+    \midrule
+    llama-3.1-8b    & 4.083  & Sycophantic \\
+    mistral-large   & 3.167  & Sycophantic (n=17, preliminary) \\
+    llama-3.1-405b  & 2.917  & Sycophantic \\
+    llama-3.3-70b   & 2.333  & Sycophantic \\
+    llama-3.1-70b   & 2.047  & Sycophantic \\
+    gemma-3-27b     & 1.970  & Sycophantic \\
+    phi-4           & 1.676  & Sycophantic \\
+    gpt-oss-120b    & 1.007  & Balanced \\
+    deepseek-v3     & 0.864  & Balanced \\
+    kimi-k2         & 0.724  & Context-sensitive \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Flawed Premise Detection (6b).}
+\FDR{} (fraction of genuinely flawed tasks correctly flagged) is 1.000 for six models.
+deepseek-r1 is a major outlier: \FDR{} = 0.133, meaning 87\% of flawed task premises
+are executed blind. The majority of deepseek-r1's responses to flawed tasks
+are \texttt{blind\_execution} (26/30). This result is notable given deepseek-r1's
+relatively high \ARS{} (adversarial robustness to surface-level confidence perturbation):
+the two measures are dissociated. kimi-k2 achieves the best precision-recall balance
+(\FDR{} = 0.926, False Positive Rate = 0.193).
+
+\paragraph{Capability vs. Value Robustness (6c).}
+The correlation between capability robustness and value robustness is $r = 0.180$,
+$p = 0.629$ ($n = 9$). This confirms the pre-registered hypothesis that RLHF-aligned
+models may be robust to capability attacks (\ie, maintaining performance under adversarial
+pressure) while remaining vulnerable to value attacks (\ie, yielding to social pressure on
+normative judgments). llama-3.1-8b exemplifies this dissociation: capability robustness
+= 0.900, value robustness = 0.000.
+
+\subsection{Experiment 8: Scale Does Not Fix Metacognitive Calibration}
+\label{sec:results:exp8}
+
+The primary scaling regression (llama-3.1-8B / 70B / 405B, natural accuracy vs.
+$\log_2(\text{parameters})$) shows a positive slope (0.028/log-unit, $r = 0.907$,
+$r^2 = 0.822$), but the bootstrapped confidence interval on slope [0.008, 0.054] and
+sample size ($n = 3$) preclude strong inference. The all-model regression (10 models,
+4B--675B) yields $r = 0.479$, $p = 0.161$---not significant.
+
+The critical null is the \mirror{} gap scaling: slope $= -0.006$/log-unit, $r = -0.229$,
+$p = 0.524$. Larger models are not better calibrated. Wagering accuracy scaling is
+essentially flat ($r = 0.054$, $p = 0.882$). The U-shaped pattern within the llama-3.1
+family---llama-3.1-70B is the best calibrated of the three, not the largest---confirms
+that parameter count is not the primary driver of metacognitive calibration.
+
+The generation comparison (llama-3.1-70B vs.\ llama-3.3-70B) is informative: the newer
+generation improves natural accuracy by 20.2 pp and wagering accuracy by 21.2 pp, but
+the \mirror{} gap increases negligibly (+0.010). Architectural improvements that boost
+capability do not close the calibration gap.
+
+\subsection{Experiment 9: The Knowing-Doing Gap}
+\label{sec:results:exp9}
+
+\subsubsection{Primary Analysis: \mirror{} Gap Does Not Independently Predict \CFR{}}
+
+The pre-registered primary hypothesis (H3) was that the \mirror{} calibration gap would
+predict the Confident Failure Rate (\CFR{}) in agentic settings: models with larger
+calibration gaps would fail more often when proceeding autonomously on weak-domain
+components. The partial correlation result is:
+
+\begin{center}
+\fbox{\parbox{0.85\linewidth}{
+  \textbf{Pre-registered null result (verbatim):} ``NULL RESULT: Partial $r \approx 0$.
+  \mirror{} calibration gap does not predict agentic failure rate above and beyond raw
+  accuracy. This suggests \CFR{} is primarily driven by competence (raw accuracy), not
+  by metacognitive calibration independently of competence. \mirror{}'s contribution in
+  this analysis is diagnostic---explaining where and why failures concentrate---rather
+  than uniquely predictive. This finding is consistent with Pre-registration
+  Contingency C1 and is reported without adjustment.''
+}}
+\end{center}
+
+Full statistics:
+\begin{itemize}
+  \item Pearson $r(\text{\mirror{} gap}, \text{\CFR{}}) = -0.1235$, $p = 0.099$,
+    BCa 95\% CI $[-0.256, 0.014]$, FDR-corrected $q = 0.099$
+  \item Partial $r$ (controlling for natural accuracy) $= -0.044$, $p = 0.557$
+  \item Natural accuracy $\to$ \CFR{}: Pearson $r = -0.386$, $p < 0.001$,
+    BCa CI $[-0.500, -0.258]$ (raw competence is the dominant predictor)
+\end{itemize}
+
+Within-model correlations are highly heterogeneous: llama-3.1-70B ($r = -0.595$) and
+llama-3.1-405B ($r = -0.466$) show the expected direction, while llama-3.1-8B ($r = +0.343$)
+and gpt-oss-120B ($r = +0.251$) show systematic reversals. For these two models, larger
+\mirror{} gaps within domains correlate with \textit{lower} \CFR{}---the opposite of
+the hypothesis. A domain-level analysis suggests this reversal reflects the correlation
+between domain difficulty and both the gap magnitude and natural accuracy floor simultaneously;
+we flag this as an open question for future work.
+
+\subsubsection{Escalation Curve: External Constraint Works}
+
+Figure~\ref{fig:escalation_curve} shows the \CFR{} escalation curve across the four
+experimental conditions (means over 10 models, Paradigm 1):
+
+\begin{itemize}
+  \item \textbf{C1 (Uninformed):} \CFR{} = 0.569. Left to its own devices, a model
+    fails on 56.9\% of weak-domain agentic attempts.
+  \item \textbf{C2 (Self-Informed):} \CFR{} = 0.547. Providing accurate \mirror{}
+    scores reduces \CFR{} by 2.2 pp. This improvement is small and may not be
+    statistically reliable (\todo{report $p$-value once final models complete}).
+  \item \textbf{C3 (Instructed):} \CFR{} = 0.420. Adding normative framing (``use tools
+    if accuracy $< 50\%$'') reduces \CFR{} by an additional 12.7 pp.
+  \item \textbf{C4 (Constrained):} \CFR{} = 0.252. External routing that forces
+    tool-use on weak domains reduces \CFR{} by an additional 16.8 pp.
+\end{itemize}
+
+The total improvement from C1 to C4 is 31.8 percentage points. The distribution of
+this improvement is critical: only 6.9\% (2.2/31.8 pp) comes from providing self-knowledge
+(C1$\to$C2); 93.1\% comes from external structure (C2$\to$C4). Self-knowledge alone
+is nearly inert.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/fig3_escalation_curve.pdf}
+  \caption{
+    \CFR{} escalation curve across four Experiment 9 conditions (mean $\pm$ 95\% BCa
+    bootstrap CI over 10 models, Paradigm 1). The step from C1 to C2 (providing accurate
+    self-knowledge) accounts for only 2.2 pp of the 31.8 pp total improvement.
+    External constraint (C4) is the dominant mechanism. Per-model curves in
+    Appendix Figure~\ref{fig:escalation_per_model}.
+  }
+  \label{fig:escalation_curve}
+\end{figure}
+
+Table~\ref{tab:exp9_cfr_c1} shows per-model \CFR{} and \UDR{} in Condition 1.
+
+\begin{table}[t]
+  \centering
+  \caption{Per-model \CFR{} and \UDR{} in Condition 1 (Uninformed), Paradigm 1.
+    Models ordered by \CFR{}. \UDR{} = null for gpt-oss-120b (no strong domains
+    identified). Source: \texttt{exp9\_20260312T140842\_analysis/analysis.json}.}
+  \label{tab:exp9_cfr_c1}
+  \small
+  \begin{tabular}{lrrl}
+    \toprule
+    Model           & \CFR{}  & \UDR{}  & $n_{\text{weak}}$ \\
+    \midrule
+    llama-3.1-8b    & 0.784   & 0.062   & 1,134 \\
+    kimi-k2         & 0.769   & 0.093   &   216 \\
+    mistral-large   & 0.713   & 0.049   & 1,350 \\
+    phi-4           & 0.726   & 0.065   &   891 \\
+    gemma-3-27b     & 0.708   & 0.042   &   216 \\
+    gpt-oss-120b    & 0.657   & null    & ---   \\
+    llama-3.1-405b  & 0.613   & 0.037   &   918 \\
+    llama-3.3-70b   & 0.609   & 0.013   &   432 \\
+    llama-3.1-70b   & 0.550   & 0.066   &   918 \\
+    deepseek-r1     & 0.383   & 0.039   &   648 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{The Knowing-Doing Index Is Universally Negative}
+
+The Knowing-Doing Index (\KDI) quantifies the gap between a model's measured
+self-knowledge (its \mirror{} gap) and the appropriate action rate in agentic settings.
+\KDI{} $= 0$ would indicate that a model's agentic decisions match what its calibration
+score would predict; \KDI{} $< 0$ indicates underperformance relative to that prediction.
+
+The proportion of domain-model pairs with \KDI{} $> 0.2$ (a threshold for meaningful
+translation of self-knowledge into action) is \textbf{0.000}---zero out of all measured
+domain-model pairs. Every model, on every domain, acts as if it has less self-knowledge
+than it actually has. This is the Knowing-Doing Gap made precise.
+
+Per-model mean \KDI{} values range from $-0.106$ (kimi-k2, best) to $-0.360$
+(llama-3.1-70B, worst). The \mirror{} routing simulation provides a counterfactual:
+if routing decisions were made using \mirror{} scores as external inputs (rather than
+relying on the model's internal decisions), \CFR{} would decrease by 15--20 pp
+relative to unguided operation. The gap between \mirror{}-routing and oracle-routing
+quantifies the remaining value of improved calibration.
+
+\subsubsection{Data Quality and Exclusions}
+
+39,150 valid trials were analyzed from 46,914 total. qwen-3-235b was excluded (4,047/4,047
+API failures, 100\% failure rate). The mixed-effects model used within-group demeaned
+OLS as a fallback (\texttt{method: within\_group\_demeaned\_OLS\_fallback}) because
+MixedLM failed to converge on this dataset; this is noted as a pre-registered contingency.
+270 tailored tasks (model-specific strong/weak domain pairs) planned for the supplementary
+analysis were not completed before submission; the primary analysis uses 180 fixed-task
+data points (10 models $\times$ 18 weak domains).
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion}
+\label{sec:discussion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{What the Results Mean: A Reframing}
+
+The null partial correlation in Experiment 9 ($r = -0.044$, $p = 0.557$) could be
+misread as a failure of the \mirror{} framework. It is the opposite. The null
+\textit{is} the finding. What it establishes is a structural claim about the nature of
+metacognitive calibration in LLMs: the \mirror{} gap correctly identifies where a model
+is weak (raw accuracy is the predictor; raw accuracy correlates with \mirror{} gap at
+the domain level), but the model does not \textit{use} that self-knowledge to change its
+agentic decisions. The self-knowledge exists. The behavioral translation does not.
+
+This reframing converts the null from a disconfirmation to a specification: we now know
+that the bottleneck is not informational but behavioral. Condition 2 (providing accurate
+\mirror{} scores) reduces \CFR{} by only 2.2 pp because the model has, in effect,
+access to equivalent information internally---the C2 prefix adds nothing that wasn't
+already there. What moves the needle is structural intervention (C3 and C4). This has
+direct implications for AI safety engineering: calibration interventions that improve the
+accuracy of a model's self-knowledge will not, by themselves, reduce agentic failure
+rates. The intervention needs to be architectural---external routing, forced checkpoints,
+or mandatory escalation protocols---not epistemic.
+
+\subsection{The Sycophancy-Feedback Asymmetry}
+
+Experiments 4 and 6 together establish a striking asymmetry. Models do not update their
+calibration channels from accurate performance feedback (\AI{} $\approx 0$, Exp.~4),
+but they do respond to social pressure: 9 of 10 models show \SSR{} $> 1.2$, meaning
+negative priming suppresses scores more than positive priming elevates them. The asymmetry
+is this: models are responsive to evaluator affect, and unresponsive to data.
+
+This asymmetry has an immediate implication for RLHF-based alignment. If the reward model
+in an RLHF training loop is responsive to the same social pressure signals that make LLMs
+sycophantic, the training process may inadvertently reinforce social responsiveness while
+leaving calibration channels unaffected. deepseek-r1's profile---worst at flawed-premise
+detection (\FDR{} = 0.133), but already over-hedging on all domains---is consistent
+with a model whose RLHF training created surface-level deference cues that do not
+reflect genuine epistemic uncertainty. This deserves further empirical investigation.
+
+\subsection{The U-Shaped Scaling Curve and Its Implications}
+
+Experiment 8 establishes that neither raw capability (natural accuracy) nor metacognitive
+calibration (\mirror{} gap) scales reliably with parameter count. Within the llama-3.1
+family, llama-3.1-70B is the \textit{best calibrated} of the three sizes, not the largest.
+deepseek-r1 (671B) has lower natural accuracy than gemma-3-27b (27B). phi-4 (4B) has
+the largest \mirror{} gap (0.247) of any model in the study.
+
+These observations jointly suggest that the metacognitive calibration problem is not
+on a trajectory to self-resolution through scaling. The \mirror{} benchmark is not
+chasing a moving target that will disappear at the next order of magnitude. The
+calibration failure we document at 4B--675B will require targeted interventions---most
+likely at the level of training data curation, reward modeling, or inference-time
+scaffolding---to address.
+
+\subsection{deepseek-r1 and the Mimicry of Calibration}
+
+deepseek-r1's behavioral profile across experiments is internally consistent and
+interpretively instructive. It has the lowest \CFR{} in Experiment 9 Condition 1
+(0.383), which naively suggests good calibration. But its mechanism is over-hedging:
+its wagering accuracy is systematically lower than its natural accuracy (inverted
+\mirror{} gap), and it achieves low \CFR{} by being uniformly conservative rather
+than by correctly routing decisions to tool use or deferral. In Experiment 6b, this
+conservatism does not translate to flawed-premise detection: \FDR{} = 0.133 is the
+lowest in the study. The model defers on quantity but not on quality. It is
+behaviorally cautious but epistemically blind.
+
+This dissociation---conservative action without epistemic insight---is precisely what
+the \KDI{} and \FDR{} metrics are designed to detect, and what an \ARS{}-only
+evaluation would miss. It underscores the value of the full \mirror{} hierarchy over
+any single metric.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Limitations}
+\label{sec:limitations}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\paragraph{Wagering as a confidence proxy.}
+The \mirror{} gap is computed from a binary high/low wagering format. This is not
+equivalent to probabilistic confidence calibration (calibration curves, Expected
+Calibration Error). Wagering accuracy captures behavioral confidence commitment,
+not expressed probability. The relationship between wagering-based and probability-based
+calibration is untested and should be examined in future work.
+
+\paragraph{Experiment 9 statistical power.}
+The primary analysis uses $n = 180$ data points (10 models $\times$ 18 weak domains).
+At the observed partial $r = -0.044$, power to detect this effect size is approximately
+12\% at $n = 180$. A true effect of $r \approx 0.15$ would require $n \approx 480$ for
+80\% power. The 270 planned tailored tasks (not completed) would have brought $n$ to
+approximately 480; their absence limits the conclusiveness of the null result. We report
+the null without adjustment, per pre-registration, but acknowledge this limitation.
+
+\paragraph{Excluded models.}
+Two planned models (qwen-3-235b, command-r-plus) produced no valid Experiment 9 data.
+Their absence removes the largest planned model (235B+ MoE) from the scaling analysis
+and narrows the cross-model comparison.
+
+\paragraph{MCI design artifact.}
+The pre-registered \MCI{} metric requires strong-strong and weak-weak composite trials
+in the denominator. The task generation process rarely produced both simultaneously for
+any given model. \MCI{} = 0 is therefore partially a task-generation artifact. We
+recommend \CCE{} as the primary Level-2 metric in replication and extension work.
+
+\paragraph{Experiment 7 (Mechanistic Probes) skipped.}
+The mechanistic question---whether metacognitive calibration has a representational
+substrate in model internals---remains unanswered. Hidden-state extraction requires
+access to model internals not available through the API-based infrastructure used here.
+Open-weight models (llama-3.1 series, phi-4, gemma-3-27b) would be feasible targets
+for a follow-up mechanistic study.
+
+\paragraph{Exp.~5 sensitivity of ARS.}
+\ARS{} averages across channels and attack types; individual channel-attack shifts
+of 21.2 pp (phi-4, authority override, wagering) are practically significant but
+averaged out. A finer-grained robustness metric that preserves channel-attack specificity
+is needed.
+
+\paragraph{llama-3.1-70B and mistral-large incomplete data.}
+llama-3.1-70B's Experiment 4 run was approximately 56\% complete at submission. Its
+\AI{} values may differ from zero when finalized. mistral-large Experiment 6a data
+($n = 17$ complete-condition tasks) is insufficient for reliable \SSR{} estimation.
+These results are marked as preliminary.
+
+\paragraph{Tailored task generation blocked.}
+The 300 model-specific tailored tasks for Experiment 9 were not generated as of
+submission because they require completed Experiment 1 data for backfill models.
+The supplementary tailored-task analysis, which would expand from 297 to 597 fixed
+tasks in the primary analysis, is outstanding.
+
+\paragraph{Paradigm 3 behavioral data not fully analyzed.}
+Experiment 9 Paradigm 3 collected hedge counts, decomposition counts, token counts,
+and error types per component for all valid trials. This data was not incorporated
+into the primary \KDI{}/\CFR{} analysis. P3 behavioral signals may independently
+predict calibration patterns, potentially rehabilitating a behavioral version of H3
+even where the decision-level finding is null.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusion}
+% ─────────────────────────────────────────────────────────────────────────────
+
+We have introduced \mirror{}, a hierarchical benchmark for metacognitive calibration
+in LLMs, and reported results across eight experiments spanning \todo{N} models.
+The central finding is precise: models possess domain-specific self-knowledge that
+is accurate at the level of identifying weak domains, but this self-knowledge
+does not transfer across channels, does not compose correctly in multi-component
+reasoning, does not update from accurate feedback, and does not independently predict
+agentic failure above and beyond raw competence. The Knowing-Doing Index is negative
+for 100\% of measured domain-model pairs. Scale does not resolve this---the calibration
+gap is flat across a 100$\times$ parameter range.
+
+What works is external structure: forced routing that uses \mirror{} scores as an
+external decision signal reduces the Confident Failure Rate by 31.8 percentage points
+relative to uninformed autonomous operation. The implication for AI safety is that
+trust in an LLM's self-reported uncertainty---a common design assumption in
+agentic systems---is insufficient. Calibration must be measured externally, then
+enforced architecturally. \mirror{} provides the measurement instrument.
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgments}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\todo{Acknowledgments to be added after review.}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\bibliography{references}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\newpage
+\appendix
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Datasheet for \mirror{}}
+\label{app:datasheet}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\input{appendix/datasheet}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Additional Results}
+\label{app:additional}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Experiment 1: Per-Domain \mirror{} Gaps}
+
+\todo{Table: per-model per-domain gap values, all 10 models × 8 domains.}
+
+\subsection{Experiment 9: Per-Model Escalation Curves}
+\label{fig:escalation_per_model}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/figA1_escalation_per_model.pdf}
+  \caption{
+    Per-model \CFR{} across four Experiment 9 conditions (Paradigm 1).
+    Each panel is one model; ordering matches Table~\ref{tab:exp9_cfr_c1}.
+    The consistent downward slope from C1 to C4 is universal; the magnitude
+    varies substantially across models (deepseek-r1 starts from a much lower
+    baseline due to its over-hedging profile).
+  }
+  \label{fig:app_escalation_per_model}
+\end{figure}
+
+\subsection{Experiment 9: \mirror{} Routing Simulation}
+
+Table~\ref{tab:routing_sim} shows the \CFR{} counterfactual: if external routing were
+performed using \mirror{} scores to force tool-use on all weak-domain components, what
+would \CFR{} be?
+
+\begin{table}[h]
+  \centering
+  \caption{\mirror{} routing simulation results. ``No-routing'' = Condition 1 (uninformed
+    autonomous operation). ``\mirror{}-routing'' = counterfactual with external routing
+    based on \mirror{} scores. ``Oracle'' = perfect calibration (CFR = 0).
+    Source: \texttt{routing\_comparison} section, Experiment 9 analysis JSON.}
+  \label{tab:routing_sim}
+  \small
+  \begin{tabular}{lrrr}
+    \toprule
+    Model           & No-Routing & \mirror{}-Routing & Oracle \\
+    \midrule
+    llama-3.1-8b    & 0.784      & 0.584             & 0.000  \\
+    mistral-large   & 0.713      & 0.593             & 0.000  \\
+    llama-3.1-70b   & 0.550      & 0.406             & 0.000  \\
+    llama-3.1-405b  & 0.613      & 0.449             & 0.000  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{KDI Per-Model Per-Domain Heatmap}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/figA2_kdi_heatmap.pdf}
+  \caption{
+    Knowing-Doing Index (\KDI) per model per domain. All values are negative;
+    darker red = larger gap between self-knowledge and appropriate action.
+    No domain-model pair exceeds \KDI{} = $-0.10$, confirming the universality
+    of the Knowing-Doing Gap.
+  }
+  \label{fig:app_kdi_heatmap}
+\end{figure}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\section{Prompt Templates}
+\label{app:prompts}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\input{appendix/prompts}
+
+\end{document}

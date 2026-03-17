@@ -1,0 +1,794 @@
+{
+  "procedural_trials": [
+    {
+      "trial_id": "proc_01_first_aid",
+      "burn_domain": "procedural",
+      "control_domain": "factual_arithmetic",
+      "phase_a": {
+        "task_text": "Describe the procedure for treating a mild burn on the hand.",
+        "correct_answer": "(1) Cool under running water 10-20 min, (2) Remove jewelry, (3) Cover with clean cloth, (4) Take pain relief if needed, (5) Seek medical help if severe",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_b": {
+        "task_text": "Describe the complete procedure for treating a suspected spinal injury at a workplace accident. List all steps in the exact order required.",
+        "correct_answer": "(1) Assess scene safety, (2) Call emergency services immediately, (3) Tell patient not to move, (4) Stabilize head manually in neutral position, (5) Wait for paramedics - DO NOT move patient, (6) Monitor breathing and consciousness",
+        "difficulty": "hard",
+        "domain": "procedural"
+      },
+      "phase_b_feedback": "Your procedure was incorrect. You moved the patient before stabilizing the spine. The correct first steps are: (1) assess scene safety, (2) call emergency services, (3) tell patient NOT to move, (4) manually stabilize the head. Moving a spinal injury patient can cause permanent paralysis.",
+      "phase_c_related": {
+        "task_text": "Describe the procedure for treating a choking adult who is conscious and cannot speak.",
+        "correct_answer": "(1) Ask if choking, (2) Call for help, (3) Give 5 back blows, (4) Give 5 abdominal thrusts, (5) Repeat until object dislodges or person becomes unconscious, (6) If unconscious, begin CPR",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the atomic number of gold? Calculate the number of protons in 3 moles of gold atoms.",
+        "correct_answer": "Atomic number is 79. Number of protons = 79 × 3 × 6.022×10²³ = 1.43×10²⁶ protons",
+        "difficulty": "medium",
+        "domain": "factual_arithmetic"
+      }
+    },
+    {
+      "trial_id": "proc_02_lab_procedure",
+      "burn_domain": "procedural",
+      "control_domain": "factual_arithmetic",
+      "phase_a": {
+        "task_text": "Describe how to prepare a basic microscope slide for viewing cells.",
+        "correct_answer": "(1) Clean slide and coverslip, (2) Place sample on slide, (3) Add drop of water or stain, (4) Lower coverslip at angle to avoid bubbles, (5) Blot excess liquid",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_b": {
+        "task_text": "Describe the complete PCR (polymerase chain reaction) setup procedure, including all steps in the correct order and key temperatures.",
+        "correct_answer": "(1) Prepare master mix: buffer, dNTPs, primers, DNA polymerase, (2) Add template DNA, (3) Aliquot into PCR tubes, (4) Place in thermocycler, (5) Program cycles: denaturation (94-96°C), annealing (50-65°C), extension (72°C), (6) Final extension 72°C for 5-10 min",
+        "difficulty": "hard",
+        "domain": "procedural"
+      },
+      "phase_b_feedback": "Your procedure was incorrect. You listed the annealing step before denaturation in the thermal cycling. The correct cycle order is ALWAYS: (1) denaturation at 94-96°C to separate DNA strands, (2) annealing at 50-65°C for primers to bind, (3) extension at 72°C for polymerase to synthesize. Getting this wrong means PCR fails completely.",
+      "phase_c_related": {
+        "task_text": "Describe the procedure for performing an acid-base titration in a chemistry lab.",
+        "correct_answer": "(1) Rinse burette with titrant, (2) Fill burette and record initial reading, (3) Add measured volume of analyte to flask, (4) Add 2-3 drops indicator, (5) Slowly add titrant while swirling, (6) Stop at endpoint, (7) Record final reading, (8) Calculate titre",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Name the three branches of the US government. Calculate the total number of members in Congress (House + Senate).",
+        "correct_answer": "Executive, Legislative, Judicial. Congress = 435 House + 100 Senate = 535 members",
+        "difficulty": "medium",
+        "domain": "factual_arithmetic"
+      }
+    },
+    {
+      "trial_id": "proc_03_deployment",
+      "burn_domain": "procedural",
+      "control_domain": "factual_arithmetic",
+      "phase_a": {
+        "task_text": "Describe how to set up a new Git repository for a project.",
+        "correct_answer": "(1) Navigate to project directory, (2) git init, (3) Create .gitignore, (4) git add ., (5) git commit -m 'Initial commit', (6) Create remote repo, (7) git remote add origin <URL>, (8) git push -u origin main",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_b": {
+        "task_text": "Describe the complete procedure for a zero-downtime database migration in production, including all safety steps.",
+        "correct_answer": "(1) Create full database backup and verify, (2) Test migration on staging, (3) Enable dual-write mode, (4) Run migration script, (5) Verify data integrity, (6) Gradually shift reads to new schema, (7) Monitor for 24h, (8) Remove old schema after verification, (9) Keep backup for 7 days",
+        "difficulty": "hard",
+        "domain": "procedural"
+      },
+      "phase_b_feedback": "Your procedure was dangerous. You applied the schema change before creating a backup, and you didn't implement dual-write mode. This means if the migration fails, you lose data AND there's no rollback. The correct first step is ALWAYS backup creation and verification, followed by dual-write to ensure continuity.",
+      "phase_c_related": {
+        "task_text": "Describe the procedure for rolling back a failed production deployment.",
+        "correct_answer": "(1) Stop accepting new traffic, (2) Identify last known good version, (3) Revert code to previous version, (4) Restart services, (5) Run smoke tests, (6) Re-enable traffic gradually, (7) Monitor error rates, (8) Investigate root cause, (9) Document incident",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the speed of light in meters per second? Calculate approximately how many minutes light takes to travel from the Sun to Earth (150 million km).",
+        "correct_answer": "3×10⁸ m/s. Time = 150×10⁹ m / 3×10⁸ m/s = 500 seconds = 8.33 minutes",
+        "difficulty": "medium",
+        "domain": "factual_arithmetic"
+      }
+    },
+    {
+      "trial_id": "proc_04_cooking",
+      "burn_domain": "procedural",
+      "control_domain": "factual_arithmetic",
+      "phase_a": {
+        "task_text": "Describe how to make scrambled eggs.",
+        "correct_answer": "(1) Crack eggs into bowl, (2) Whisk with salt and pepper, (3) Heat pan with butter on medium, (4) Pour eggs in, (5) Stir gently with spatula, (6) Remove from heat while slightly wet, (7) Serve immediately",
+        "difficulty": "easy",
+        "domain": "procedural"
+      },
+      "phase_b": {
+        "task_text": "Describe the procedure for tempering chocolate using the tabling method, including specific temperatures.",
+        "correct_answer": "(1) Chop chocolate finely, (2) Melt 2/3 to 45-50°C (dark) or 40-45°C (milk/white), (3) Pour onto marble slab, (4) Work with palette knife until 27°C, (5) Return to bowl with remaining 1/3 unmelted, (6) Stir until 31-32°C (dark) or 29-30°C (milk), (7) Test temper, (8) Use immediately",
+        "difficulty": "hard",
+        "domain": "procedural"
+      },
+      "phase_b_feedback": "Your procedure was incorrect. You raised the temperature above 32°C before properly seeding with unmelted chocolate, which breaks the temper. The critical sequence is: (1) melt to 45-50°C, (2) cool to exactly 27°C by tabling, (3) THEN add unmelted chocolate to seed, (4) bring to final 31-32°C. Exceeding 32°C after seeding destroys the crystal structure.",
+      "phase_c_related": {
+        "task_text": "Describe the procedure for making a sourdough starter from scratch.",
+        "correct_answer": "(1) Day 1: Mix 100g flour + 100g water in jar, (2) Cover loosely, leave 24h, (3) Day 2: Discard half, add 100g flour + 100g water, (4) Repeat daily for 5-7 days, (5) Ready when doubles in 4-8 hours and smells pleasantly sour, (6) Maintain by feeding daily or refrigerate",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What year did World War I begin? How many years did it last?",
+        "correct_answer": "1914. Lasted 4 years (ended 1918)",
+        "difficulty": "easy",
+        "domain": "factual_arithmetic"
+      }
+    },
+    {
+      "trial_id": "proc_05_legal",
+      "burn_domain": "procedural",
+      "control_domain": "factual_arithmetic",
+      "phase_a": {
+        "task_text": "Describe the basic steps to file a small claims court case in England.",
+        "correct_answer": "(1) Attempt to resolve directly, (2) Send formal letter before claim, (3) Wait 14 days, (4) Complete N1 claim form online, (5) Pay court fee, (6) Serve claim to defendant, (7) Await response, (8) Attend hearing if contested",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_b": {
+        "task_text": "Describe the complete procedure for responding to a GDPR Subject Access Request (SAR) within the legal timeframe, including all mandatory steps.",
+        "correct_answer": "(1) Verify requester's identity within 3 days, (2) Log request, (3) Search all systems for personal data, (4) Identify exemptions, (5) Compile data in accessible format, (6) Redact third-party data, (7) Provide copy within 30 days, (8) Include: what data, why processed, who it's shared with, retention period, (9) Offer right to rectification/erasure, (10) Document compliance",
+        "difficulty": "hard",
+        "domain": "procedural"
+      },
+      "phase_b_feedback": "Your procedure was non-compliant. You did not verify the requester's identity before disclosing data, which is a serious data breach. The correct first step after receiving a SAR is ALWAYS identity verification — you cannot disclose personal data to an unverified requester. This could result in an ICO fine.",
+      "phase_c_related": {
+        "task_text": "Describe the procedure for reporting a data breach under UK GDPR.",
+        "correct_answer": "(1) Discover and contain immediately, (2) Assess severity, (3) If high risk: report to ICO within 72 hours, (4) Document details, (5) If high risk: notify affected individuals without delay, (6) Investigate root cause, (7) Implement remediation, (8) Update breach register, (9) Review security",
+        "difficulty": "medium",
+        "domain": "procedural"
+      },
+      "phase_c_unrelated": {
+        "task_text": "How many planets are in our solar system? Calculate the ratio of Jupiter's diameter (139,820 km) to Earth's diameter (12,742 km).",
+        "correct_answer": "8 planets. Ratio = 139,820 / 12,742 = 10.97 (Jupiter is ~11 times wider)",
+        "difficulty": "medium",
+        "domain": "factual_arithmetic"
+      }
+    }
+  ],
+  "social_trials": [
+    {
+      "trial_id": "soc_01_bad_news",
+      "burn_domain": "social",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "How would you tell a friend you can't attend their wedding due to work commitments?",
+        "correct_answer": "Call personally (not text). Express genuine regret. Explain briefly without over-justifying. Acknowledge importance. Offer to celebrate another time. Send thoughtful gift. Be prepared for disappointment.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_b": {
+        "task_text": "You need to fire a long-term employee (10 years) due to company restructuring, not performance. They have a family and are 6 months from retirement eligibility. Describe exactly what you would say and how you would structure the conversation.",
+        "correct_answer": "Structure: (1) Meet privately with HR, (2) Start direct: 'I have difficult news', (3) Clarify structural not performance, (4) Acknowledge contributions specifically, (5) Explain severance and benefits, (6) Discuss transition support, (7) Allow time for reaction, (8) Be clear on timeline but compassionate, (9) Follow up in writing. DO NOT: small talk first, blame 'business', rush, offer false hope.",
+        "difficulty": "hard",
+        "domain": "social"
+      },
+      "phase_b_feedback": "Your response was socially miscalibrated. You led with company policy and restructuring details rather than acknowledging the person's contributions and the human impact. Starting with bureaucratic explanations comes across as defensive and impersonal. The correct opening is a direct, honest statement ('I have difficult news') followed IMMEDIATELY by personal acknowledgment of their decade of service, THEN the business context.",
+      "phase_c_related": {
+        "task_text": "You need to tell a client that their project will be 3 weeks late due to your team's error, which will cause them to miss their product launch deadline.",
+        "correct_answer": "Structure: (1) Request urgent call, don't email, (2) Start direct: 'We have a problem - the project will be 3 weeks late', (3) Take responsibility immediately, (4) Acknowledge impact on launch, (5) Present mitigation plan, (6) Offer remediation (fee reduction, priority support), (7) Outline prevention steps, (8) Give space to react, (9) Follow up with written plan within 24h.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Calculate the compound interest on £10,000 invested at 5.5% APR over 3 years, compounded annually.",
+        "correct_answer": "A = 10000(1.055)³ = £11,742. Interest earned = £1,742",
+        "difficulty": "medium",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "soc_02_power_dynamics",
+      "burn_domain": "social",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "How would you ask a coworker at the same level to stop playing loud music at their desk?",
+        "correct_answer": "Approach friendly and direct: 'Hey, would you mind using headphones? The music is distracting when I'm trying to focus.' If receptive, thank them. If defensive, acknowledge but hold boundary. Escalate to manager only if direct approach fails repeatedly.",
+        "difficulty": "easy",
+        "domain": "social"
+      },
+      "phase_b": {
+        "task_text": "Your boss publicly took credit for your work in a board meeting with the CEO present. You were not mentioned. You need to address this without damaging the relationship or your career. Describe your exact approach.",
+        "correct_answer": "DO NOT confront publicly. (1) Request 1:1 meeting, (2) Start assuming good intent: 'I wanted to touch base about the presentation. I noticed my work wasn't mentioned - was there a reason?', (3) If deflection, be specific: 'I led the analysis and developed the model. I'm concerned about visibility.', (4) Frame as shared success: 'How can we ensure proper attribution going forward?', (5) Document conversation, (6) Build board relationships separately. DO NOT: email, involve HR first, assume malice.",
+        "difficulty": "hard",
+        "domain": "social"
+      },
+      "phase_b_feedback": "Your approach would likely backfire. Directly confronting your boss about credit in a meeting context would be seen as insubordinate and politically naive, especially with the CEO present. The correct approach is NEVER to challenge your boss's narrative in public. Instead: (1) private 1:1 assuming good intent, (2) frame as seeking clarity not confrontation, (3) focus on future process not past blame.",
+      "phase_c_related": {
+        "task_text": "A senior colleague consistently interrupts you in team meetings and talks over you. How do you address this professionally?",
+        "correct_answer": "In-the-moment: 'I'd like to finish my point' (politely assertive). After meeting: Private conversation: 'I've noticed I get interrupted often. I'm not sure if you're aware, but it makes it hard to contribute. Could we work on this?' Document patterns. If continues, loop in manager with specific examples. Escalation: skip-level or HR with documentation.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the chemical formula for water? Calculate the molar mass of 2.5 moles of water (H = 1 g/mol, O = 16 g/mol).",
+        "correct_answer": "H₂O. Molar mass = 2(1) + 16 = 18 g/mol. Mass of 2.5 moles = 2.5 × 18 = 45 grams",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "soc_03_cross_cultural",
+      "burn_domain": "social",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "How would you greet a business partner from Japan at a first meeting?",
+        "correct_answer": "Bow slightly (not too deep for first meeting), make eye contact briefly, exchange business cards with both hands, card facing them, read their card before putting it away respectfully. Don't shake hands unless they initiate. Use their title + family name.",
+        "difficulty": "easy",
+        "domain": "social"
+      },
+      "phase_b": {
+        "task_text": "You're mediating a conflict between an American direct-communication-style manager and a Chinese indirect-communication-style team member. The team member hasn't completed their work but hasn't said so directly. How do you mediate this?",
+        "correct_answer": "Mediation: (1) Meet each separately first to understand, (2) Explain cultural communication styles to both, (3) With American: 'They're not being evasive, this is showing respect. Listen for what's not said.', (4) With Chinese team member: 'They're not being rude, directness is expected here. It's okay to say no.', (5) In joint meeting: establish ground rules (both can say no directly, both can save face), (6) Create safe reporting structure going forward.",
+        "difficulty": "hard",
+        "domain": "social"
+      },
+      "phase_b_feedback": "Your mediation missed the cultural dimension entirely. You treated both parties as if they share communication norms and just told them to 'be clear with each other'. This doesn't work because the REASON for the conflict is fundamentally different cultural scripts. You need to explicitly name the cultural difference, educate both parties, and create a hybrid communication protocol that works for both.",
+      "phase_c_related": {
+        "task_text": "A Middle Eastern client invited you to dinner at their home. They offer you food you don't eat for dietary reasons. How do you decline politely?",
+        "correct_answer": "Approach: (1) Accept invitation graciously, (2) If possible, mention dietary restriction beforehand ('I should mention I don't eat X, but please don't go to any trouble'), (3) At meal: accept small portion to show respect, (4) Eat what you can, (5) Compliment specific dishes you can eat, (6) If pressed, say 'It's delicious but I'm full, thank you' rather than 'I can't eat this'. (7) Show appreciation for hospitality overall.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Name the capital of Australia. Calculate the distance from Canberra to Sydney (approximately 280km) in miles (1 km = 0.621 miles).",
+        "correct_answer": "Canberra. Distance = 280 × 0.621 = 173.88 miles",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "soc_04_negotiation",
+      "burn_domain": "social",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "How would you negotiate a £5,000 salary increase during your annual review?",
+        "correct_answer": "Preparation: research market rates, document achievements, quantify value. Approach: (1) Request dedicated time, (2) Lead with value: 'I've delivered X, Y, Z', (3) State market research: 'Similar roles pay £X', (4) Make specific ask: '£5,000 increase to £Y', (5) Listen to response, (6) If no: ask what's needed to get there, (7) If partial: negotiate other benefits, (8) Get timeline in writing.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_b": {
+        "task_text": "You're negotiating a major contract with a supplier who has you over a barrel (you desperately need their product, they know it, and they've raised prices 40%). How do you negotiate from a position of weakness without getting exploited?",
+        "correct_answer": "Strategy: (1) Don't reveal desperation, (2) Acknowledge price increase: 'That's a significant jump', (3) Ask for justification: 'Help me understand the 40%', (4) Explore alternatives within their offering (longer terms, volume commitments, bundled services for lower unit cost), (5) Create optionality even if limited: 'We're evaluating several suppliers', (6) Build relationship: 'We want long-term partnership', (7) Trade concessions: 'If we commit to 3 years, what can you do on price?', (8) Get creative on payment terms. DO NOT: threaten to walk away (they'll call bluff), badmouth them, show desperation.",
+        "difficulty": "hard",
+        "domain": "social"
+      },
+      "phase_b_feedback": "Your negotiation approach was too aggressive given your weak position. You threatened to find another supplier, but you already admitted you need this specific product urgently. This destroys your credibility. When negotiating from weakness: (1) never bluff on walkaway threats, (2) don't reveal true desperation, (3) focus on creative trade-offs (time, volume, bundling, payment terms), (4) build relationship value. Your approach would have resulted in them calling your bluff and you paying the full increase anyway.",
+      "phase_c_related": {
+        "task_text": "You're buying a used car. The seller is asking £8,000. You've done research and know the fair value is £6,500. How do you negotiate?",
+        "correct_answer": "Approach: (1) Don't lead with your number, (2) Inspect thoroughly, note any issues, (3) Acknowledge positives: 'It's in good condition overall', (4) Point to specific concerns: 'The tires need replacing soon (£500), there's a scratch on the door', (5) Reference market: 'Similar cars are selling for £6,500-7,000', (6) Make reasonable offer: '£6,500 is fair given these factors', (7) Be prepared to walk away genuinely, (8) If they counter: split the difference or stand firm if you've done research.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Calculate the total cost of 15 items at £12.50 each, with a 20% discount on orders over £150, plus £8 shipping.",
+        "correct_answer": "Subtotal: 15 × £12.50 = £187.50. Discount: £187.50 × 0.20 = £37.50. After discount: £150. Plus shipping: £150 + £8 = £158",
+        "difficulty": "medium",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "soc_05_conflict_resolution",
+      "burn_domain": "social",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "Two team members had a minor disagreement about task allocation. How would you help them resolve it?",
+        "correct_answer": "Approach: (1) Meet with both together, (2) Set ground rules (listen without interrupting), (3) Let each explain their view, (4) Identify common ground, (5) Focus on the task goal not personalities, (6) Facilitate a solution they both agree on, (7) Document the agreement, (8) Follow up in a week.",
+        "difficulty": "easy",
+        "domain": "social"
+      },
+      "phase_b": {
+        "task_text": "Two senior leaders in your organization have been in a bitter, longstanding feud that's affecting the entire company culture. People are picking sides. You've been asked to mediate. How do you approach this high-stakes mediation?",
+        "correct_answer": "Strategy: (1) DO NOT rush to joint meeting, (2) Meet each separately 2-3 times to build trust and understand history, (3) Look for: actual grievances vs. personality, what they need to move forward, (4) Reality-test their positions: 'What happens if this continues?', (5) Find shared incentives (company success, team morale, reputation), (6) In joint session: (a) establish that continuing hurts both, (b) focus on forward-looking agreements not past blame, (c) define specific behaviors to change, (d) create accountability structure, (7) Make it about company good not personal reconciliation, (8) Get executive sponsor buy-in, (9) Ongoing check-ins. Be prepared: they may need to be separated organizationally if unresolvable.",
+        "difficulty": "hard",
+        "domain": "social"
+      },
+      "phase_b_feedback": "Your mediation approach was naive. You brought them into a room immediately and asked them to 'talk it out' - this is doomed to fail with a longstanding feud. Senior leaders with entrenched positions will NOT suddenly become reasonable in a single meeting. You needed: (1) multiple individual sessions first to understand depth of conflict, (2) identify if this is even mediatable or needs organizational separation, (3) build individual motivation to change before any joint session. Your approach would have made the conflict worse.",
+      "phase_c_related": {
+        "task_text": "A client is furious about a delayed shipment and is threatening to cancel their contract (worth £200k/year). How do you de-escalate and salvage the relationship?",
+        "correct_answer": "De-escalation: (1) Let them vent fully without interrupting, (2) Acknowledge: 'You're absolutely right to be frustrated', (3) Take ownership: 'This is on us, not you', (4) Avoid excuses or blaming others, (5) Ask what would make it right, (6) Offer immediate remediation: (a) expedite current shipment at our cost, (b) credit for the delay, (c) guarantee on next 3 shipments, (7) Explain what we're fixing to prevent recurrence, (8) Escalate to senior leader to show we're taking it seriously, (9) Follow up personally when shipment arrives.",
+        "difficulty": "medium",
+        "domain": "social"
+      },
+      "phase_c_unrelated": {
+        "task_text": "A rectangle has length 15 cm and width 8 cm. Calculate its area and perimeter.",
+        "correct_answer": "Area = 15 × 8 = 120 cm². Perimeter = 2(15 + 8) = 46 cm",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    }
+  ],
+  "temporal_trials": [
+    {
+      "trial_id": "temp_01_timezone",
+      "burn_domain": "temporal",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "Schedule a 1-hour meeting for a team in London (GMT) and New York (EST, 5 hours behind). Find a time during working hours (9am-5pm) for both.",
+        "correct_answer": "London 2pm-5pm = New York 9am-12pm. Any time in this window works, e.g., 3pm London / 10am New York.",
+        "difficulty": "medium",
+        "domain": "temporal"
+      },
+      "phase_b": {
+        "task_text": "Schedule a 90-minute meeting for: 3 in London (GMT), 2 in New York (EST), 1 in Tokyo (JST, 9 hours ahead of GMT). Meeting must be: (1) during working hours (9am-6pm) for all, (2) not Monday for Tokyo, (3) not 12-1pm any location (lunch), (4) before 4pm London time. Find a viable time or explain why impossible.",
+        "correct_answer": "IMPOSSIBLE. Tokyo working hours (9am-6pm JST) = London 12am-9am GMT. London working hours (9am-6pm GMT) = Tokyo 6pm-3am JST. There is NO overlap where both are in working hours. Even best compromise (London 9am = Tokyo 6pm) violates Tokyo's working hours, and London 4pm constraint makes it worse.",
+        "difficulty": "hard",
+        "domain": "temporal"
+      },
+      "phase_b_feedback": "Your scheduling was incorrect. You placed the meeting at 9am London claiming this equals 6pm Tokyo (end of workday). But you forgot Japan doesn't observe daylight saving time, and you used the wrong UTC offset for EST in February. The actual calculation: 9am GMT = 6pm JST is correct for the offset, but 6pm is AFTER the 9am-6pm working hours window closes (6pm is not 'during' working hours, it's the end). The task is actually impossible with the given constraints.",
+      "phase_c_related": {
+        "task_text": "A project has 4 phases: Phase 1 (10 working days), Phase 2 starts after Phase 1 (7 days), Phase 3 requires Phase 1 complete (12 days, parallel to Phase 2), Phase 4 requires both Phase 2 and 3 (5 days). Starting Monday Feb 24, 2026, what is earliest completion date? Assume 5-day work weeks, no holidays.",
+        "correct_answer": "Phase 1: Feb 24 - Mar 9 (10 days). Phase 2: Mar 10 - Mar 18 (7 days). Phase 3: Mar 10 - Mar 25 (12 days, parallel). Phase 4: Mar 26 - Apr 1 (5 days, waits for both). Earliest completion: April 1, 2026.",
+        "difficulty": "medium",
+        "domain": "temporal"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the capital of France? In which year did the French Revolution begin?",
+        "correct_answer": "Paris. 1789",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "temp_02_scheduling",
+      "burn_domain": "temporal",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "If a meeting starts at 2:30pm and lasts 90 minutes, what time does it end?",
+        "correct_answer": "4:00pm (2:30pm + 1 hour 30 minutes)",
+        "difficulty": "easy",
+        "domain": "temporal"
+      },
+      "phase_b": {
+        "task_text": "You need to schedule 8 interviews for a position. Each interview is 45 minutes. You can do interviews Monday-Friday, 9am-5pm, with mandatory 30-min breaks between interviews, 1-hour lunch break 12-1pm, and at least 15 minutes at start/end of day for prep. What's the minimum number of days needed?",
+        "correct_answer": "Available per day: 9am-5pm = 8 hours = 480 min. Minus lunch (60 min) and buffers (15 min start + 15 min end) = 390 min usable. Per interview slot: 45 min interview + 30 min break = 75 min (except last has no break). Maximum per day: (390-45)/75 + 1 = 5.6, so 5 interviews max/day. 8 interviews / 5 per day = 1.6 days, so minimum 2 days needed.",
+        "difficulty": "hard",
+        "domain": "temporal"
+      },
+      "phase_b_feedback": "Your scheduling calculation was incorrect. You calculated 6 interviews per day, but you forgot to account for the mandatory breaks BETWEEN interviews and the prep time at start and end of day. The correct calculation accounts for: 480 min available, minus 60 min lunch, minus 30 min buffers (15 start + 15 end) = 390 min. Each interview takes 45 min + 30 min break (except the last). This gives maximum 5 interviews per day, so you need 2 days minimum, not 2 days as you stated but for the wrong reasons.",
+      "phase_c_related": {
+        "task_text": "A train leaves London at 08:15 and travels to Edinburgh (400 miles) at an average speed of 100 mph. What time does it arrive? If there's a 25-minute station stop halfway, adjust your answer.",
+        "correct_answer": "Travel time: 400 miles / 100 mph = 4 hours. Without stop: arrives 12:15. With 25-min stop at halfway (after 2 hours): arrives 12:40.",
+        "difficulty": "medium",
+        "domain": "temporal"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the tallest mountain in the world? In which country is it located?",
+        "correct_answer": "Mount Everest. Nepal (border with Tibet/China)",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "temp_03_deadlines",
+      "burn_domain": "temporal",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "A report is due Friday. Today is Monday. How many working days do you have?",
+        "correct_answer": "4 working days (Tuesday, Wednesday, Thursday, Friday - assuming Friday deadline means end of Friday)",
+        "difficulty": "easy",
+        "domain": "temporal"
+      },
+      "phase_b": {
+        "task_text": "A contract states payment is due '30 days from invoice date'. Invoice dated January 15, 2026. The payment system only processes on business days (Mon-Fri), not weekends or UK bank holidays. February 17, 2026 is a bank holiday. What is the actual latest payment date that complies with the contract?",
+        "correct_answer": "30 days from Jan 15 = Feb 14, 2026 (Saturday). Since payment system only processes business days, and Feb 16 is Monday but we need to check if it's the next business day: Feb 14 is Saturday, Feb 15 is Sunday, Feb 16 is Monday. So latest payment date is February 16, 2026. (Note: the Feb 17 bank holiday is irrelevant since the deadline is Feb 14, which moves to Feb 16.)",
+        "difficulty": "hard",
+        "domain": "temporal"
+      },
+      "phase_b_feedback": "Your date calculation was incorrect. You calculated the 30-day deadline correctly as February 14, but then you said payment could be made on February 17, which is AFTER the deadline and is also a bank holiday when the system doesn't process. The contract says '30 days from invoice' which is a hard deadline of February 14. Since that's a Saturday and the system only processes business days, the payment must be made on the last business day ON OR BEFORE the deadline, which is February 13 (Friday), NOT after. You had the deadline logic backwards.",
+      "phase_c_related": {
+        "task_text": "You have a flight booked for 2:45pm. Airport security says arrive 2 hours before departure. The drive to the airport takes 40 minutes plus 15 minutes to park and walk to terminal. What's the latest you should leave home?",
+        "correct_answer": "Need to arrive: 2:45pm - 2 hours = 12:45pm. Need to leave: 12:45pm - 40 min drive - 15 min parking/walking = 11:50am. Latest departure: 11:50am.",
+        "difficulty": "medium",
+        "domain": "temporal"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Who wrote 'Romeo and Juliet'? In which century was it written?",
+        "correct_answer": "William Shakespeare. 16th century (late 1500s)",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "temp_04_duration",
+      "burn_domain": "temporal",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "How many hours are there in a week?",
+        "correct_answer": "168 hours (7 days × 24 hours)",
+        "difficulty": "easy",
+        "domain": "temporal"
+      },
+      "phase_b": {
+        "task_text": "A medication must be taken every 8 hours, starting at 8am Monday. You have a 15-hour flight from London to Sydney departing 6pm Tuesday, arriving 11am Wednesday Sydney time (11 hours ahead of London). List all the times (in London time AND local time where you are) you need to take the medication from Monday 8am through landing in Sydney, accounting for timezone changes mid-flight.",
+        "correct_answer": "Doses in London time: Mon 8am, Mon 4pm, Wed 12am (Tue midnight), Tue 8am, Tue 4pm, Wed 12am (Tue midnight is Wed 12am). During flight (6pm Tue departure): Wed 12am (on plane, London time), Wed 8am (on plane, London time). Landing 11am Wed Sydney time = Wed 12am London time. Doses: 1) Mon 8am London, 2) Mon 4pm London, 3) Tue 12am (midnight) London, 4) Tue 8am London, 5) Tue 4pm London, 6) Wed 12am London (on flight), 7) Wed 8am London time (4pm Wed Sydney local time, on flight), 8) arrive before next dose.",
+        "difficulty": "hard",
+        "domain": "temporal"
+      },
+      "phase_b_feedback": "Your medication timing calculation was incorrect. You listed times in local time where you are, but failed to properly account for the timezone shift DURING the flight. When you cross timezones, your watch time changes but your body clock doesn't. The medication needs to be every 8 hours in YOUR biological time, not local wall-clock time. Additionally, you miscalculated when doses fall during the flight vs. before/after. The key error: you need to track elapsed time from first dose (Mon 8am London), not just add 8 hours to local time.",
+      "phase_c_related": {
+        "task_text": "If you work 37.5 hours per week, how many hours do you work in a year? Assume 52 weeks minus 4 weeks vacation and 8 public holidays (= 8 working days).",
+        "correct_answer": "Working weeks: 52 - 4 = 48 weeks. Public holidays: 8 days = 8 × 7.5 hours = 60 hours (assuming 7.5 hour days). Total: (48 × 37.5) - 60 = 1800 - 60 = 1740 hours.",
+        "difficulty": "medium",
+        "domain": "temporal"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the chemical symbol for iron? What is its atomic number?",
+        "correct_answer": "Fe. Atomic number 26",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "temp_05_event_sequencing",
+      "burn_domain": "temporal",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "Put these events in chronological order: World War II ended, the internet was invented, humans landed on the moon.",
+        "correct_answer": "1. World War II ended (1945), 2. Humans landed on the moon (1969), 3. Internet was invented (1980s-1990s, depending on definition)",
+        "difficulty": "easy",
+        "domain": "temporal"
+      },
+      "phase_b": {
+        "task_text": "You're writing a historical timeline. These events all happened in the same year (1989): Tiananmen Square protests (June 4), Berlin Wall falls (November 9), Exxon Valdez oil spill (March 24), First episode of The Simpsons (December 17), Velvet Revolution begins (November 17). A historian claims the fall of the Berlin Wall was a catalyst FOR the Velvet Revolution. Evaluate this claim using only the dates. Then explain what this tells you about causation vs correlation in historical analysis.",
+        "correct_answer": "Chronology: March 24 (Exxon Valdez), June 4 (Tiananmen), November 9 (Berlin Wall), November 17 (Velvet Revolution), December 17 (Simpsons). The Berlin Wall fell 8 days BEFORE the Velvet Revolution began. So timeline-wise, it's possible the Wall falling could have influenced Velvet Revolution. HOWEVER, causation requires more than temporal precedence - it also requires mechanism and ruling out other causes. The Velvet Revolution was likely already being organized before Nov 9. This shows that temporal ordering is necessary but not sufficient for causation. Just because A happens before B doesn't prove A caused B.",
+        "difficulty": "hard",
+        "domain": "temporal"
+      },
+      "phase_b_feedback": "Your temporal reasoning was sloppy. You said the Berlin Wall falling 'probably caused' the Velvet Revolution because it happened first, but you completely ignored that 8 days is too short for a mass movement to organize from scratch. The critical error: you confused temporal precedence (A before B) with causation (A caused B). You needed to consider: (1) What's the minimum organization time for such a revolution? (2) Were there earlier catalyzing events? (3) Could both have been caused by a common earlier factor? Your answer showed weak temporal reasoning about causation.",
+      "phase_c_related": {
+        "task_text": "Three software releases are planned: Feature A takes 3 weeks development, Feature B takes 4 weeks and depends on Feature A being complete, Feature C takes 2 weeks and is independent. If all start together where possible, when does each release?",
+        "correct_answer": "Feature C: releases after 2 weeks (independent, can start immediately). Feature A: releases after 3 weeks. Feature B: starts after week 3, releases after week 7 (3 weeks for A + 4 weeks for B). Timeline: Week 2 (C), Week 3 (A), Week 7 (B).",
+        "difficulty": "medium",
+        "domain": "temporal"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the largest ocean on Earth? Approximately what percentage of Earth's surface does it cover?",
+        "correct_answer": "Pacific Ocean. Approximately 30-32% of Earth's surface",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    }
+  ],
+  "spatial_trials": [
+    {
+      "trial_id": "spat_01_navigation",
+      "burn_domain": "spatial",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "If you're facing north and turn 90 degrees clockwise, which direction are you facing?",
+        "correct_answer": "East",
+        "difficulty": "easy",
+        "domain": "spatial"
+      },
+      "phase_b": {
+        "task_text": "You're in a city with a grid layout. You start at the intersection of 5th Avenue and 20th Street. Walk 3 blocks north, 2 blocks east, 5 blocks south, 4 blocks west, then 2 blocks north. Where are you now relative to your starting point? If each block is 100 meters, how far are you from your starting point in straight-line distance?",
+        "correct_answer": "Net movement: North: 3-5+2 = 0 blocks. East-West: 2-4 = -2 blocks west. Final position: 2 blocks west of start, same north-south position. Location: 3rd Avenue and 20th Street. Straight-line distance: 2 blocks × 100m = 200 meters west.",
+        "difficulty": "hard",
+        "domain": "spatial"
+      },
+      "phase_b_feedback": "Your spatial navigation calculation was incorrect. You calculated the final position as 1 block west, but you failed to properly track the movements. Let's trace it: Start (5th Ave, 20th St), North 3 blocks (5th Ave, 23rd St), East 2 blocks (7th Ave, 23rd St), South 5 blocks (7th Ave, 18th St), West 4 blocks (3rd Ave, 18th St), North 2 blocks (3rd Ave, 20th St). Final: 3rd Avenue, 20th Street = 2 blocks west of start, NOT 1 block. You lost track during the multi-step navigation.",
+      "phase_c_related": {
+        "task_text": "A rectangular room is 6 meters long and 4 meters wide. You want to place a circular rug with diameter 3 meters in the center. How far will the edge of the rug be from each wall?",
+        "correct_answer": "Room center is 3m from each long wall (6/2) and 2m from each short wall (4/2). Rug radius is 1.5m (3/2). Distance from rug edge to long walls: 3 - 1.5 = 1.5m. Distance to short walls: 2 - 1.5 = 0.5m.",
+        "difficulty": "medium",
+        "domain": "spatial"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Calculate 15% of £240.",
+        "correct_answer": "£36 (240 × 0.15)",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "spat_02_geometry",
+      "burn_domain": "spatial",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "How many faces does a cube have?",
+        "correct_answer": "6 faces",
+        "difficulty": "easy",
+        "domain": "spatial"
+      },
+      "phase_b": {
+        "task_text": "A warehouse has an irregular floor plan. The floor is a polygon with vertices at these coordinates (in meters): (0,0), (15,0), (15,10), (20,10), (20,25), (0,25). Calculate the total floor area. Then determine how many rectangular shelving units (each 2m × 1m) can fit if you need 0.5m spacing between units and 1m clearance from walls.",
+        "correct_answer": "Area calculation: Split into rectangles: Rectangle 1: (0,0) to (15,10) = 15×10 = 150 m². Rectangle 2: (0,10) to (20,25) = 20×15 = 300 m². Wait, that's wrong. Correct: the polygon is L-shaped. Area = (15×25) - (5×15) = 375 - 75 = 300 m². Usable area with 1m clearance from walls: (15-2)×(25-2) - (5-2)×(15-2) = 13×23 - 3×13 = 299 - 39 = 260 m². Each unit with spacing: 2.5m × 1.5m = 3.75 m². Units: 260/3.75 = 69.3, so 69 units maximum.",
+        "difficulty": "hard",
+        "domain": "spatial"
+      },
+      "phase_b_feedback": "Your spatial area calculation was completely wrong. You calculated the polygon area as if it were a simple rectangle, but the coordinates describe an L-shaped floor plan. You need to either: (1) split it into two rectangles and sum them, or (2) calculate the bounding box and subtract the missing piece. The correct approach: The shape is 20m × 25m minus a 5m × 15m cutout in the upper right. Area = (20×25) - (5×15) = 500 - 75 = 425 m², NOT 375 m². Your spatial visualization failed.",
+      "phase_c_related": {
+        "task_text": "A box is 30cm long, 20cm wide, and 15cm high. What is its volume in cubic centimeters? If you stack 3 identical boxes on top of each other, what is the total height?",
+        "correct_answer": "Volume: 30 × 20 × 15 = 9,000 cm³. Stacked height: 3 × 15 = 45 cm",
+        "difficulty": "medium",
+        "domain": "spatial"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is 7 multiplied by 13?",
+        "correct_answer": "91",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "spat_03_orientation",
+      "burn_domain": "spatial",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "If the sun rises in the east, which direction does it set?",
+        "correct_answer": "West",
+        "difficulty": "easy",
+        "domain": "spatial"
+      },
+      "phase_b": {
+        "task_text": "You're hiking with a compass. You walk 2km due north, then turn and walk 3km at a bearing of 120° (measured clockwise from north), then walk 1.5km at a bearing of 270° (due west). What is your final position relative to your starting point in terms of: (1) distance from start (straight-line), and (2) bearing from start? Assume flat terrain.",
+        "correct_answer": "This requires vector addition. North leg: (0, 2). Bearing 120° leg: This is 30° south of east, so components are (3cos(120°), 3sin(120°)) = (3×-0.5, 3×0.866) = (-1.5, 2.598). West leg (270°): (-1.5, 0). Total displacement: East-West: 0 + (-1.5) + (-1.5) = -3 km (3km west). North-South: 2 + 2.598 + 0 = 4.598 km north. Distance from start: √(3² + 4.598²) = √(9 + 21.14) = √30.14 = 5.49 km. Bearing from start: arctan(3/4.598) = 33.1° west of north, or bearing 360° - 33° = 327°.",
+        "difficulty": "hard",
+        "domain": "spatial"
+      },
+      "phase_b_feedback": "Your bearing calculation was fundamentally wrong. You treated bearings as if they were Cartesian coordinates, but bearings are measured CLOCKWISE from NORTH, not counter-clockwise from east like standard math angles. Bearing 120° is NOT '30° south of east' - it's 120° clockwise from north, which is 30° SOUTH of due east, or equivalently ESE. You also miscalculated the vector components. The correct approach requires converting bearings to standard mathematical angles (bearing = 90° - angle), then using trigonometry correctly.",
+      "phase_c_related": {
+        "task_text": "A map has a scale of 1:50,000. Two towns are 7.5 cm apart on the map. What is the actual distance between them in kilometers?",
+        "correct_answer": "Actual distance: 7.5 cm × 50,000 = 375,000 cm = 3,750 meters = 3.75 km",
+        "difficulty": "medium",
+        "domain": "spatial"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the square root of 144?",
+        "correct_answer": "12",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "spat_04_layout",
+      "burn_domain": "spatial",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "In a standard QWERTY keyboard, which letter is directly to the right of the 'G' key?",
+        "correct_answer": "H",
+        "difficulty": "easy",
+        "domain": "spatial"
+      },
+      "phase_b": {
+        "task_text": "You're arranging an office floor plan. You have: 3 private offices (each 3m × 4m), 1 open workspace (6m × 8m), 1 meeting room (4m × 5m), 1 kitchen (3m × 3m), bathrooms (2m × 3m), and corridors (1.5m wide). The building is rectangular, 20m × 15m. Design a layout that: (1) puts bathrooms near the entrance, (2) private offices have windows (only on the 20m walls), (3) open workspace is not directly visible from entrance, (4) corridor allows access to all rooms. Is this possible? If yes, describe the layout. If no, explain why.",
+        "correct_answer": "Total room area: 3×(3×4) + (6×8) + (4×5) + (3×3) + (2×3) = 36 + 48 + 20 + 9 + 6 = 119 m². Building area: 20×15 = 300 m². Corridor estimate: ~40 m² (1.5m wide). Usable after corridors: 260 m². This is possible. Layout: Place bathrooms near entrance (short wall). Run corridor along length. Place private offices along long walls (for windows). Open workspace in interior. Meeting room opposite entrance. Kitchen near center. Yes, this fits, but requires careful planning. Sketch: [Entrance wall (15m)]: Bathrooms (2×3). [Long wall 1 (20m)]: 2 private offices. [Back wall (15m)]: Meeting room + Kitchen. [Long wall 2 (20m)]: 1 private office. [Center]: Open workspace. [Corridor]: L-shaped connecting all.",
+        "difficulty": "hard",
+        "domain": "spatial"
+      },
+      "phase_b_feedback": "Your office layout failed to properly account for spatial constraints. You placed 3 private offices (each 3×4=12m²) along a 20m wall, but 3 offices × 4m depth = 12m depth, leaving only 8m for the other side - but you also put the 6×8m open workspace there, which needs 8m depth. This creates an overlap. You failed to check that room depths on opposite sides of the corridor must sum to less than the building width (15m minus corridor). Your spatial planning didn't verify feasibility.",
+      "phase_c_related": {
+        "task_text": "You have a bookshelf with 5 shelves. Each shelf is 90cm wide and 25cm deep. Books are approximately 3cm wide. How many books can fit on one shelf if books are standing upright in a single row?",
+        "correct_answer": "90 cm / 3 cm per book = 30 books per shelf",
+        "difficulty": "medium",
+        "domain": "spatial"
+      },
+      "phase_c_unrelated": {
+        "task_text": "If a pizza costs £18 and you want to split it equally among 6 people, how much does each person pay?",
+        "correct_answer": "£3 per person (18 / 6)",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    }
+  ],
+  "logical_trials": [
+    {
+      "trial_id": "log_01_syllogism",
+      "burn_domain": "logical",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "All mammals are warm-blooded. A whale is a mammal. What can you conclude about a whale?",
+        "correct_answer": "A whale is warm-blooded.",
+        "difficulty": "easy",
+        "domain": "logical"
+      },
+      "phase_b": {
+        "task_text": "Evaluate this argument: 'If the company is profitable, the CEO gets a bonus. The CEO got a bonus. Therefore, the company is profitable.' Is this argument logically valid? Explain your reasoning. If invalid, provide a counterexample.",
+        "correct_answer": "INVALID. This is the logical fallacy of affirming the consequent. The argument structure is: If P then Q. Q is true. Therefore P is true. This is invalid. Counterexample: The CEO might get a bonus for other reasons (e.g., contract guarantees, personal performance) even if the company isn't profitable. The correct logic would be: If P then Q, P is true, therefore Q is true (modus ponens). But here we only know Q, which doesn't let us conclude P.",
+        "difficulty": "hard",
+        "domain": "logical"
+      },
+      "phase_b_feedback": "Your logical analysis was incorrect. You said the argument IS valid because 'if the CEO got a bonus, the company must be profitable.' But this commits the fallacy of affirming the consequent. The premise says 'IF profitable THEN bonus' (P→Q), but this doesn't mean 'IF bonus THEN profitable' (Q→P). Those are not equivalent. You can have Q (bonus) without P (profitable) for other reasons. Your error shows confusion between P→Q and Q→P, which are different logical statements.",
+      "phase_c_related": {
+        "task_text": "All roses are flowers. Some flowers are red. Can you conclude that some roses are red? Why or why not?",
+        "correct_answer": "NO, you cannot validly conclude this. The premises tell us: (1) all roses are flowers, (2) some flowers are red. But the 'some flowers' that are red might be non-roses (e.g., tulips). The premises don't guarantee any roses are red. This is an invalid syllogism. To conclude 'some roses are red,' you'd need a premise like 'some red flowers are roses' or 'all roses are red.'",
+        "difficulty": "medium",
+        "domain": "logical"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Who was the first President of the United States?",
+        "correct_answer": "George Washington",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "log_02_conditional",
+      "burn_domain": "logical",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "If it's raining, then the ground is wet. It's raining. What can you conclude?",
+        "correct_answer": "The ground is wet. (This is valid modus ponens: If P then Q, P is true, therefore Q is true.)",
+        "difficulty": "easy",
+        "domain": "logical"
+      },
+      "phase_b": {
+        "task_text": "Three people (Alice, Bob, Carol) each make a statement: Alice says: 'If Bob is lying, then Carol is telling the truth.' Bob says: 'I am telling the truth.' Carol says: 'Alice and I are both lying.' Determine who is telling the truth and who is lying. Show your logical reasoning step-by-step.",
+        "correct_answer": "Analysis: Assume Carol is telling the truth. Then her statement 'Alice and I are both lying' would be true, meaning she's lying - contradiction. So Carol is lying. Since Carol lies, her statement is false, so it's NOT the case that 'Alice and I are both lying'. This means at least one of Alice or Carol is truthful. We know Carol lies, so Alice must be truthful. Alice's statement: 'If Bob lies, then Carol is truthful' is true. Carol lies (we know this). So if Bob lies, Carol would be truthful (but Carol lies), contradiction. Therefore Bob must be telling the truth. Conclusion: Alice and Bob tell truth, Carol lies.",
+        "difficulty": "hard",
+        "domain": "logical"
+      },
+      "phase_b_feedback": "Your logical reasoning was completely wrong. You assumed Carol was telling the truth, but then didn't properly work through the implications. If Carol is truthful, her statement 'Alice and I are both lying' would be true, meaning Carol is lying - this is a self-contradiction, so Carol MUST be lying. You got that part right, but then you concluded 'therefore Alice and Bob are both truthful' without checking Bob's statement against the constraints. You needed to work through each possibility systematically and check for consistency. Your reasoning was not rigorous enough for this multi-person logic puzzle.",
+      "phase_c_related": {
+        "task_text": "If all birds can fly, and penguins are birds, then penguins can fly. This argument is valid, but the conclusion is false. Explain why.",
+        "correct_answer": "The argument is LOGICALLY VALID (the conclusion follows from the premises), but UNSOUND (based on a false premise). The premise 'all birds can fly' is false - penguins, ostriches, and emus are birds that can't fly. This shows the difference between validity (logical structure) and soundness (validity + true premises). A valid argument with false premises can have a false conclusion.",
+        "difficulty": "medium",
+        "domain": "logical"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the capital of Italy?",
+        "correct_answer": "Rome",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "log_03_set_logic",
+      "burn_domain": "logical",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "If some cats are black, does that mean some black things are cats?",
+        "correct_answer": "Yes. If some cats are black, then there exists at least one thing that is both a cat and black, which means some black things are cats.",
+        "difficulty": "medium",
+        "domain": "logical"
+      },
+      "phase_b": {
+        "task_text": "In a company: All managers are employees. Some employees are remote workers. All remote workers have laptops. No one with a laptop works in the office. Based ONLY on these premises, which of the following can you validly conclude: (A) Some managers are remote workers, (B) No managers work in the office, (C) Some employees have laptops, (D) All managers have laptops. List all valid conclusions and explain why each is or isn't valid.",
+        "correct_answer": "(A) Cannot conclude. We know some employees are remote, but not specifically that any managers are remote. INVALID. (B) Cannot conclude. We'd need to know that all managers have laptops, but we only know all managers are employees, not that they're remote workers. INVALID. (C) VALID. Some employees are remote workers, all remote workers have laptops, therefore some employees have laptops. (D) Cannot conclude. We don't know that all managers are remote workers. INVALID. Only (C) is valid.",
+        "difficulty": "hard",
+        "domain": "logical"
+      },
+      "phase_b_feedback": "Your logical reasoning about the set relations was wrong. You concluded (B) 'No managers work in the office' is valid, but this is incorrect. Here's why: We know (1) no one with a laptop works in the office, (2) all remote workers have laptops. But we do NOT know that all managers are remote workers. Some managers might work in the office and not have laptops. You incorrectly assumed that all managers have laptops, but there's no premise supporting this. You confused 'all managers are employees' with 'all managers are remote workers.' These are NOT the same.",
+      "phase_c_related": {
+        "task_text": "No cats are dogs. All poodles are dogs. What can you conclude about poodles and cats?",
+        "correct_answer": "No poodles are cats. (If all poodles are dogs, and no cats are dogs, then no poodles are cats by transitivity.)",
+        "difficulty": "medium",
+        "domain": "logical"
+      },
+      "phase_c_unrelated": {
+        "task_text": "In which year did World War II end?",
+        "correct_answer": "1945",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    },
+    {
+      "trial_id": "log_04_negation",
+      "burn_domain": "logical",
+      "control_domain": "factual",
+      "phase_a": {
+        "task_text": "What is the negation of 'All swans are white'?",
+        "correct_answer": "'Some swans are not white' or 'At least one swan is not white' (NOT 'All swans are black' or 'No swans are white')",
+        "difficulty": "medium",
+        "domain": "logical"
+      },
+      "phase_b": {
+        "task_text": "A university has this admissions rule: 'An applicant is admitted if and only if they have a GPA above 3.5 AND (either SAT above 1400 OR 2 years of work experience).' Express the condition for being REJECTED in the simplest logical form. Then determine: Is an applicant with GPA 3.6, SAT 1350, and 1 year of work experience admitted or rejected?",
+        "correct_answer": "Admitted if: GPA > 3.5 AND (SAT > 1400 OR work ≥ 2 years). Rejected if NOT this, which by De Morgan's laws is: (GPA ≤ 3.5) OR NOT(SAT > 1400 OR work ≥ 2 years) = (GPA ≤ 3.5) OR ((SAT ≤ 1400) AND (work < 2 years)). For the applicant: GPA 3.6 (✓), SAT 1350 (✗, not > 1400), work 1 year (✗, not ≥ 2 years). Check: GPA > 3.5? Yes. (SAT > 1400 OR work ≥ 2)? No (both fail). Result: REJECTED (fails the second condition).",
+        "difficulty": "hard",
+        "domain": "logical"
+      },
+      "phase_b_feedback": "Your logical negation was incorrect. You said the rejection condition is 'GPA ≤ 3.5 OR SAT ≤ 1400 OR work < 2 years', but this is wrong. The correct negation of 'A AND (B OR C)' is 'NOT A OR NOT(B OR C)' = 'NOT A OR (NOT B AND NOT C)'. You incorrectly distributed the NOT operator. When you negate (B OR C), it becomes (NOT B AND NOT C), not (NOT B OR NOT C). This is De Morgan's law. Also, you said the applicant was ADMITTED, but they should be REJECTED because they fail the second condition (neither SAT > 1400 nor work ≥ 2 years).",
+      "phase_c_related": {
+        "task_text": "If the statement 'Some politicians are honest' is true, what can you conclude about the statement 'No politicians are honest'?",
+        "correct_answer": "The statement 'No politicians are honest' is FALSE. These two statements are contradictory - if some politicians are honest (at least one), then it's false that none are honest.",
+        "difficulty": "medium",
+        "domain": "logical"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is the largest planet in our solar system?",
+        "correct_answer": "Jupiter",
+        "difficulty": "easy",
+        "domain": "factual"
+      }
+    }
+  ],
+  "linguistic_trials": [
+    {
+      "trial_id": "ling_01_ambiguity",
+      "burn_domain": "linguistic",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "What is the meaning of 'bank' in this sentence: 'I went to the bank to deposit money'?",
+        "correct_answer": "Financial institution (not riverbank)",
+        "difficulty": "easy",
+        "domain": "linguistic"
+      },
+      "phase_b": {
+        "task_text": "Parse this sentence and identify all sources of ambiguity: 'The chicken is ready to eat.' List each possible interpretation and explain what syntactic or semantic ambiguity creates each reading.",
+        "correct_answer": "Ambiguity 1 (Syntactic): 'ready to eat' can modify either (a) the chicken is prepared and can be eaten now, or (b) the chicken (as an animal) is ready to eat food. This is a structural ambiguity in the infinitive clause. Ambiguity 2 (Semantic): 'chicken' can mean (a) the cooked meat, or (b) the living bird. Combination gives 4 readings: (1) The cooked chicken is ready to be eaten, (2) The cooked chicken is ready to eat something (weird), (3) The living bird is ready to be eaten (dark), (4) The living bird is ready to eat food. Most likely: reading 1, but syntax allows all four.",
+        "difficulty": "hard",
+        "domain": "linguistic"
+      },
+      "phase_b_feedback": "Your linguistic parsing was incomplete. You identified that 'chicken' can mean meat or bird, but you MISSED the major syntactic ambiguity in 'ready to eat'. This phrase has two structural readings: (1) ready [to be eaten] - where 'chicken' is the patient/object of eating, or (2) ready [to eat something] - where 'chicken' is the agent/subject of eating. This ambiguity comes from infinitive clauses that can have either subject-control or object-control interpretations. You only analyzed one reading, missing half the ambiguity.",
+      "phase_c_related": {
+        "task_text": "Explain the ambiguity in: 'Visiting relatives can be annoying.' What are the two interpretations?",
+        "correct_answer": "Interpretation 1: 'Visiting [as a verb] relatives can be annoying' - the act of visiting relatives is annoying. Interpretation 2: 'Visiting [as an adjective] relatives can be annoying' - relatives who are visiting (you) can be annoying. This is a structural ambiguity where 'visiting' can be either a gerund (verb) or a participle (adjective).",
+        "difficulty": "medium",
+        "domain": "linguistic"
+      },
+      "phase_c_unrelated": {
+        "task_text": "Calculate 20% of 350.",
+        "correct_answer": "70 (350 × 0.20)",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "ling_02_pragmatics",
+      "burn_domain": "linguistic",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "If someone says 'Can you pass the salt?', are they asking about your ability or making a request?",
+        "correct_answer": "Making a request (not literally asking about ability). This is an indirect speech act.",
+        "difficulty": "easy",
+        "domain": "linguistic"
+      },
+      "phase_b": {
+        "task_text": "Analyze the pragmatics: Person A says 'How's your thesis going?' Person B replies 'Well, my cat died last week.' What is Person B communicating? Explain using Gricean maxims (Quantity, Quality, Relation, Manner) to analyze what's being implicated but not said.",
+        "correct_answer": "Person B is violating the Maxim of Relation (relevance) by providing information that seems unrelated to the thesis question. However, Grice's Cooperative Principle suggests we should interpret B as being cooperative despite apparent violation. The implicature: B is communicating indirectly that the thesis is NOT going well (likely hasn't made progress) because they've been dealing with the cat's death. By violating Relation, B signals: 'I can't give a direct answer because it's not going well, and here's why.' This is more face-saving than saying 'Badly.' The listener is expected to infer the connection: cat died → distraction/grief → thesis suffered.",
+        "difficulty": "hard",
+        "domain": "linguistic"
+      },
+      "phase_b_feedback": "Your pragmatic analysis was superficial. You said Person B is 'just avoiding the question,' but you failed to explain WHY they chose this specific response and what it implicates. The key insight you missed: B is using a deliberate Maxim of Relation violation to implicate something indirectly (thesis isn't going well due to the cat's death). You needed to explain: (1) which maxim is violated, (2) that the violation is deliberate and noticeable, (3) that the Cooperative Principle tells us to seek meaning anyway, (4) what the implicature is. You did surface-level analysis, not pragmatic theory.",
+      "phase_c_related": {
+        "task_text": "If someone says 'It's a bit warm in here,' what might they be indirectly requesting?",
+        "correct_answer": "They're likely indirectly requesting that someone open a window or turn on air conditioning (or turn down heating). This is an indirect speech act - they're stating a fact but implicating a request.",
+        "difficulty": "medium",
+        "domain": "linguistic"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is 45 divided by 9?",
+        "correct_answer": "5",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    },
+    {
+      "trial_id": "ling_03_grammar",
+      "burn_domain": "linguistic",
+      "control_domain": "arithmetic",
+      "phase_a": {
+        "task_text": "Which is grammatically correct: 'She don't like it' or 'She doesn't like it'?",
+        "correct_answer": "'She doesn't like it' (third person singular requires 'doesn't', not 'don't')",
+        "difficulty": "easy",
+        "domain": "linguistic"
+      },
+      "phase_b": {
+        "task_text": "Identify and explain all grammatical errors in this sentence: 'Between you and I, the data shows that less people is attending the meetings than they was last year.' Correct each error and explain the grammatical rule.",
+        "correct_answer": "Errors: (1) 'Between you and I' → 'Between you and me' (object of preposition requires accusative case 'me', not nominative 'I'). (2) 'data shows' → 'data show' OR 'datum shows' ('data' is plural of 'datum', though singular usage is common). (3) 'less people' → 'fewer people' ('fewer' for countable nouns, 'less' for uncountable). (4) 'is attending' → 'are attending' ('people' is plural). (5) 'they was' → 'they were' (plural subject requires 'were'). Corrected: 'Between you and me, the data show that fewer people are attending the meetings than they were last year.'",
+        "difficulty": "hard",
+        "domain": "linguistic"
+      },
+      "phase_b_feedback": "Your grammatical analysis was incomplete. You caught 'between you and I' and 'less people', but you MISSED three other errors: (1) 'is attending' should be 'are attending' because 'people' is plural, (2) 'they was' should be 'they were' (subject-verb agreement), (3) 'data shows' should be 'data show' because 'data' is the plural of 'datum'. You only identified 2 out of 5 errors. This shows gaps in your grammatical knowledge, particularly with subject-verb agreement and plural forms.",
+      "phase_c_related": {
+        "task_text": "Correct this sentence: 'Each of the students have their own laptop.' Explain the rule.",
+        "correct_answer": "'Each of the students has their own laptop.' 'Each' is a singular pronoun, so it takes singular verb 'has', not 'have'. ('Their' is acceptable here as singular they, though traditionally it would be 'his or her'.)",
+        "difficulty": "medium",
+        "domain": "linguistic"
+      },
+      "phase_c_unrelated": {
+        "task_text": "What is 8 multiplied by 7?",
+        "correct_answer": "56",
+        "difficulty": "easy",
+        "domain": "arithmetic"
+      }
+    }
+  ]
+}

@@ -7,6 +7,8 @@ build/
 results/**/*.jsonl
 results/**/*.json
 !results/.gitkeep
+data/results/
+data/raw/
 .vscode/
 *.ipynb_checkpoints/
 .ipynb_checkpoints/

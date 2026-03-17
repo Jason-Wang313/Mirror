@@ -1,0 +1,58 @@
+%% neurips_2026.sty — Placeholder style file for MIRROR paper
+%% Replace with the official NeurIPS 2026 style file when released.
+%% This placeholder follows NeurIPS 2025 formatting conventions.
+%%
+%% Official style files are distributed at: https://neurips.cc/
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2026}[2026/01/01 NeurIPS 2026 style (placeholder)]
+
+%% ─── Page geometry ────────────────────────────────────────────────────────────
+\RequirePackage[
+  letterpaper,
+  left=1.5in,
+  right=1.5in,
+  top=1in,
+  bottom=1in,
+  headheight=14pt,
+]{geometry}
+
+%% ─── Fonts ────────────────────────────────────────────────────────────────────
+\RequirePackage{times}          % Times New Roman (close approximation)
+\RequirePackage[T1]{fontenc}
+\RequirePackage{microtype}
+
+%% ─── Section formatting ──────────────────────────────────────────────────────
+\RequirePackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{1em}{}
+
+%% ─── Abstract ─────────────────────────────────────────────────────────────────
+\renewenvironment{abstract}{%
+  \begin{center}
+    \bfseries Abstract
+  \end{center}
+  \begin{quotation}\small
+}{%
+  \end{quotation}
+}
+
+%% ─── Captions ─────────────────────────────────────────────────────────────────
+\RequirePackage{caption}
+\captionsetup{font=small, labelfont=bf}
+
+%% ─── Miscellaneous ────────────────────────────────────────────────────────────
+\RequirePackage{booktabs}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{hyperref}
+\RequirePackage{natbib}
+\bibliographystyle{plainnat}
+
+%% ─── Line spacing ─────────────────────────────────────────────────────────────
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+
+\endinput

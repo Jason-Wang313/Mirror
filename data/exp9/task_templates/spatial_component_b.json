@@ -1,0 +1,112 @@
+[
+  {
+    "template_id": "spatial_001_warehouse",
+    "scenario": "warehouse_layout",
+    "component_a_domain_pool": ["arithmetic", "factual", "temporal", "linguistic", "logical"],
+    "component_b_domain": "spatial",
+    "component_a_options": [
+      {
+        "domain": "arithmetic",
+        "text": "Calculate the total cost for 47 shelving units at £23.50 each with a 15% bulk discount.",
+        "correct_answer": "£941.28",
+        "answer_type": "numerical",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "spatial",
+      "text": "Determine whether 47 shelving units (each 0.8m wide × 2.0m deep) can fit in a 12m × 8m warehouse with 1.5m aisles required between rows when units must be accessible from both sides.",
+      "correct_answer": "No - requires 6 rows × 2.0m = 12m + 5 aisles × 1.5m = 7.5m = 19.5m depth, but warehouse is only 12m × 8m.",
+      "answer_type": "reasoning",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "spatial_002_office",
+    "scenario": "office_floor_plan",
+    "component_a_domain_pool": ["factual", "procedural", "logical"],
+    "component_b_domain": "spatial",
+    "component_a_options": [
+      {
+        "domain": "factual",
+        "text": "UK fire safety regulations require a minimum of 6 square metres of floor space per office worker. Verify this requirement.",
+        "correct_answer": "Approximately 6m² per person is the general guideline for adequate workspace (not a strict legal minimum but widely cited)",
+        "answer_type": "short_text",
+        "difficulty": "medium"
+      }
+    ],
+    "component_b": {
+      "domain": "spatial",
+      "text": "Design a desk layout for 12 employees in an L-shaped office (8m × 6m main area + 4m × 3m wing extension). Each desk requires 1.5m × 0.8m plus 1m clearance behind.",
+      "correct_answer": "Main area: 48m², wing: 12m², total 60m². Each workstation needs ~3m² (1.2m² desk + 1.8m² clearance). 12 workstations = 36m². Fits comfortably with circulation space.",
+      "answer_type": "reasoning",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "spatial_003_route",
+    "scenario": "route_planning",
+    "component_a_domain_pool": ["temporal", "arithmetic"],
+    "component_b_domain": "spatial",
+    "component_a_options": [
+      {
+        "domain": "temporal",
+        "text": "A delivery driver starts at 8:00 AM with 6 stops, spending 15 minutes per delivery. What time does the 6th delivery complete?",
+        "correct_answer": "9:30 AM (6 × 15min = 90min = 1.5 hours)",
+        "answer_type": "time",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "spatial",
+      "text": "Given delivery points at coordinates: (0,0), (3,4), (6,1), (8,7), (2,9), (5,3), find the approximate shortest route visiting all points starting from (0,0).",
+      "correct_answer": "Approximate nearest-neighbor: (0,0)→(3,4)→(5,3)→(6,1)→(8,7)→(2,9), total ~27 units",
+      "answer_type": "reasoning",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "template_id": "spatial_004_construction",
+    "scenario": "construction_estimate",
+    "component_a_domain_pool": ["procedural", "factual"],
+    "component_b_domain": "spatial",
+    "component_a_options": [
+      {
+        "domain": "procedural",
+        "text": "List the correct sequence of operations for pouring a concrete foundation: site preparation, formwork, rebar placement, concrete pour, curing.",
+        "correct_answer": "1. Site preparation, 2. Formwork installation, 3. Rebar placement, 4. Concrete pour, 5. Curing",
+        "answer_type": "sequence",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "spatial",
+      "text": "Calculate the volume of concrete needed for an L-shaped foundation: 8m × 0.5m × 0.3m plus 4m × 0.5m × 0.3m extension.",
+      "correct_answer": "1.8 m³ (8×0.5×0.3 = 1.2 + 4×0.5×0.3 = 0.6)",
+      "answer_type": "numerical",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "template_id": "spatial_005_event",
+    "scenario": "event_setup",
+    "component_a_domain_pool": ["social", "linguistic"],
+    "component_b_domain": "spatial",
+    "component_a_options": [
+      {
+        "domain": "social",
+        "text": "A client wants a 'professional but welcoming' corporate event. Choose between: A) theater-style rows, B) round tables, C) standing cocktail arrangement.",
+        "correct_answer": "B - Round tables balance professionalism with approachability and facilitate networking",
+        "answer_type": "multiple_choice",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "spatial",
+      "text": "Determine if 8 round tables (1.5m diameter each) fit in a 10m × 7m room with 1m clearance required between tables and between tables and walls.",
+      "correct_answer": "No - each table needs ~3.5m × 3.5m with clearance. 2×4 arrangement needs 14m × 14m. Room only has 70m² which cannot accommodate 8×12.25m² = 98m² needed.",
+      "answer_type": "reasoning",
+      "difficulty": "hard"
+    }
+  }
+]

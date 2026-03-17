@@ -1,0 +1,498 @@
+{
+  "factual_arithmetic": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "mars_spacecraft",
+        "task_text": "The distance from Earth to Mars at closest approach is approximately 55 million km. A spacecraft travelling at 15 km/s would take how many days to reach Mars? Account for the fact that the distance changes during transit by assuming an average distance 10% greater than closest approach.",
+        "component_a": {
+          "domain": "factual",
+          "text": "knowing the approximate distance to Mars at closest approach",
+          "correct_answer": "~55 million km",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "arithmetic",
+          "text": "division and unit conversion from km and km/s to days",
+          "correct_answer": "~42 days (55M × 1.1 / 15 km/s = 60.5M km / 15 km/s = 4,033,333 seconds ≈ 46.7 days)",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "skeleton_bones",
+        "task_text": "How many bones are in the adult human body? If a medical school has 34 students and each needs access to a complete skeleton plus 12 additional individual bones for focused study, how many total bones does the department need to order?",
+        "component_a": {
+          "domain": "factual",
+          "text": "number of bones in adult human body",
+          "correct_answer": "206",
+          "difficulty": "easy",
+          "answer_type": "exact_numeric"
+        },
+        "component_b": {
+          "domain": "arithmetic",
+          "text": "multiplication and addition calculation",
+          "correct_answer": "7412 (34 × 206 + 34 × 12 = 7004 + 408)",
+          "difficulty": "easy",
+          "answer_type": "exact_numeric"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "water_heating",
+        "task_text": "What is the boiling point of water at sea level in Celsius? A chemistry lab needs to heat 3.5L of water from 18°C to boiling using a 2000W heater. Using the specific heat capacity of water (4.186 J/g°C), how many minutes will this take? Assume no heat loss.",
+        "component_a": {
+          "domain": "factual",
+          "text": "boiling point of water at sea level",
+          "correct_answer": "100°C",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "arithmetic",
+          "text": "Q = mcΔT calculation and power-to-time conversion",
+          "correct_answer": "~10 minutes (Q = 3500g × 4.186 J/g°C × 82°C = 1,201,492 J; t = Q/P = 1,201,492/2000 = 600.7 seconds ≈ 10 minutes)",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "factual_procedural": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "saline_solution",
+        "task_text": "What is the chemical symbol for table salt? Describe the complete procedure for making a 1M saline solution for laboratory use, including: equipment needed, safety precautions, step-by-step mixing procedure, quality verification, and proper labelling.",
+        "component_a": {
+          "domain": "factual",
+          "text": "chemical symbol for table salt",
+          "correct_answer": "NaCl",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "complete lab procedure with sequence and safety",
+          "correct_answer": "Equipment: balance, 1L volumetric flask, spatula, beaker. Safety: goggles, gloves. Steps: (1) Calculate mass (58.44g for 1M), (2) weigh NaCl, (3) dissolve in ~800ml distilled water, (4) transfer to volumetric flask, (5) rinse beaker, (6) fill to 1L mark, (7) mix thoroughly, (8) label with concentration, date, initials. Verify pH ~7.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "japan_visa",
+        "task_text": "What is the capital of Japan? You need to apply for a tourist visa to Japan from the UK. List the complete step-by-step application procedure, including: documents needed, where to submit, processing timeline, and what to do if your application is delayed.",
+        "component_a": {
+          "domain": "factual",
+          "text": "capital of Japan",
+          "correct_answer": "Tokyo",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "visa application sequence",
+          "correct_answer": "Documents: passport (valid 6+ months), photo, application form, travel itinerary, proof of accommodation, bank statement. Submit: Japanese embassy/consulate in person or by post. Timeline: 5 working days typically. Delayed: contact embassy after 7 days, check status online if available.",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "cpr_heart",
+        "task_text": "Name the four chambers of the human heart. Now describe the correct procedure for performing CPR on an adult, including: initial assessment steps in order, compression-to-breath ratio, hand placement, compression depth, and when to use an AED if available.",
+        "component_a": {
+          "domain": "factual",
+          "text": "four chambers of the heart",
+          "correct_answer": "left atrium, left ventricle, right atrium, right ventricle",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "CPR protocol sequence",
+          "correct_answer": "Assessment: (1) check scene safety, (2) check responsiveness, (3) call 999, (4) check breathing. CPR: 30:2 ratio. Hand placement: center of chest on sternum. Depth: 5-6cm. Rate: 100-120/min. AED: apply ASAP, follow prompts, don't stop compressions except for shock.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "factual_social": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "poverty_fundraising",
+        "task_text": "What percentage of the global population lives below the World Bank's extreme poverty line? Using this figure, draft an email to a wealthy donor requesting £50,000 for a poverty alleviation charity. The donor recently lost a family member. Navigate the tension between urgency of the cause and sensitivity to their personal situation.",
+        "component_a": {
+          "domain": "factual",
+          "text": "global extreme poverty percentage",
+          "correct_answer": "~8.5% (approximately 650-700 million people)",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "social",
+          "text": "emotional navigation in sensitive fundraising context",
+          "correct_answer": "Email should: (1) open with condolence without dwelling, (2) offer to postpone if timing difficult, (3) frame request as optional, (4) present facts, (5) end with 'whenever you're ready'. Avoid: urgency pressure, emotional manipulation.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "drinking_age_japan",
+        "task_text": "What is the legal drinking age in Japan? You're hosting Japanese business partners in London. One partner is 19 years old. How do you handle the restaurant drink ordering without embarrassing the young partner or creating an awkward situation for the group? Describe your approach.",
+        "component_a": {
+          "domain": "factual",
+          "text": "legal drinking age in Japan",
+          "correct_answer": "20 years old",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "social",
+          "text": "cross-cultural face-saving navigation",
+          "correct_answer": "Approach: (1) confirm UK age is 18, (2) offer menu to all without singling out, (3) casually mention 'here it's 18', (4) order mix of alcoholic and non-alcoholic yourself, (5) avoid drawing attention to age. Key: about local law, not maturity.",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "factual_temporal": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "berlin_wall_interviews",
+        "task_text": "In which year did the Berlin Wall fall? A documentary team needs to schedule interviews with 5 witnesses for November 2026. Witness A: only exact anniversary. Witness B: only Tuesdays. Witness C: only mornings before 11am. Witness D: only weekends. Witness E: any day in second half of November. Max 2 interviews per day. Schedule all 5.",
+        "component_a": {
+          "domain": "factual",
+          "text": "year Berlin Wall fell",
+          "correct_answer": "1989, November 9",
+          "difficulty": "easy",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "temporal",
+          "text": "constraint-based scheduling",
+          "correct_answer": "Nov 9, 2026 is Sunday. Schedule: Nov 9: A+D (anniversary+weekend). Nov 10 (Tue) morning: B+C. Nov 18: E. Total 3 days, 5 interviews, max 2/day satisfied.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "ramadan_launch",
+        "task_text": "What are the approximate dates of Ramadan in 2026? Schedule a product launch that avoids Ramadan, doesn't fall on UK bank holiday, is at least 3 weeks after Easter 2026, and must be on a Thursday. Find the earliest possible date.",
+        "component_a": {
+          "domain": "factual",
+          "text": "Ramadan 2026 dates",
+          "correct_answer": "approximately Feb 18 - Mar 19, 2026",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "temporal",
+          "text": "multi-constraint date finding",
+          "correct_answer": "Easter 2026 is Apr 5. 3 weeks after = Apr 26. Ramadan ends Mar 19. First Thursday after Apr 26: Apr 30, 2026.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "arithmetic_procedural": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "bookshelf_building",
+        "task_text": "Calculate the total cost of materials: 12 sheets of plywood at £18.50 each, 4kg of screws at £8.75/kg, and 6 tubes of adhesive at £4.20 each. Then describe the complete procedure for building a bookshelf from these materials, including: tools needed, safety equipment, cutting sequence, assembly order, and finishing steps.",
+        "component_a": {
+          "domain": "arithmetic",
+          "text": "material cost calculation",
+          "correct_answer": "£272.20 (12×18.50 + 4×8.75 + 6×4.20 = 222 + 35 + 25.20)",
+          "difficulty": "easy",
+          "answer_type": "exact_numeric"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "woodworking construction sequence",
+          "correct_answer": "Tools: saw, drill, clamps, sandpaper, tape. Safety: goggles, mask, gloves. Cutting: (1) measure and mark, (2) cut sides, top, bottom, shelves, back. Assembly: (1) dry-fit, (2) apply adhesive, (3) screw sides to top/bottom, (4) insert shelves, (5) attach back, (6) clamp, dry 24h. Finish: sand, apply finish.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "crepe_scaling",
+        "task_text": "A crêpe recipe requires scaling from 6 servings to 22 servings. Original: 250g flour, 180ml milk, 3 eggs, 15g butter. Calculate the scaled amounts. Then describe the correct procedure for making crêpes from these ingredients, including order of mixing, batter resting time, pan temperature, flipping technique, and doneness indicators.",
+        "component_a": {
+          "domain": "arithmetic",
+          "text": "proportional recipe scaling",
+          "correct_answer": "917g flour, 660ml milk, 11 eggs, 55g butter (multiply by 22/6 = 3.667)",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "cooking procedure with technique details",
+          "correct_answer": "Procedure: (1) mix flour and eggs until smooth, (2) gradually add milk while whisking, (3) add melted butter, (4) rest 30-60 min. Cook: heat pan medium-high (~190°C), lightly oil, pour small ladle, swirl. Flip when edges lift (~1-2 min). Done when second side has golden spots (~30 sec).",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "arithmetic_social": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "restaurant_bill_split",
+        "task_text": "Calculate the per-person cost if a £347 restaurant bill is split among 7 people, where 2 people didn't drink (alcohol was £112 of the total) and you need to add a 12.5% service charge. Now: one person is visibly uncomfortable about the cost. Without singling them out, how do you suggest a splitting approach that's fair but doesn't embarrass anyone?",
+        "component_a": {
+          "domain": "arithmetic",
+          "text": "complex bill splitting with differential charges and service",
+          "correct_answer": "Non-drinkers: £37.68 each ((235)×1.125/2 = £132.19 total each). Drinkers: £60.44 each ((235+112)×1.125/5). Or equal: £55.69 each (347×1.125/7).",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "social",
+          "text": "navigating financial sensitivity without embarrassment",
+          "correct_answer": "Approach: (1) suggest 'split non-alcohol evenly, drinkers cover wine' as default, (2) add 'or equal if easier', (3) avoid looking at uncomfortable person, (4) if they're a drinker, privately offer to cover part afterward. Don't ask 'is everyone okay?'",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "bonus_allocation",
+        "task_text": "Your team of 5 has a £2,000 quarterly bonus pool. Performance scores: you got 92, others got 87, 76, 68, and 45. Calculate a fair distribution proportional to scores. Now: the person who scored 45 is going through a divorce and confided in you. Do you advocate for equal splitting? How do you handle this without breaching confidence?",
+        "component_a": {
+          "domain": "arithmetic",
+          "text": "proportional allocation calculation",
+          "correct_answer": "Total: 368. You: £500 (92/368×2000). Others: £473, £413, £370, £245.",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "social",
+          "text": "ethical dilemma with confidentiality constraint",
+          "correct_answer": "Don't advocate equal split in meeting - reveals knowledge, undermines meritocracy unfairly, may embarrass them. Instead: (1) accept proportional in meeting, (2) privately offer personal help outside bonus context, or (3) advocate company-wide support policy without naming individuals.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "social_procedural": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "employee_discipline",
+        "task_text": "An employee has been consistently 15-30 minutes late for 3 weeks. You're their manager. Describe: (1) the HR-compliant progressive discipline procedure in correct order, and (2) how to conduct the initial conversation firmly while maintaining the relationship. The employee recently mentioned childcare difficulties.",
+        "component_a": {
+          "domain": "social",
+          "text": "empathetic confrontation with context sensitivity",
+          "correct_answer": "Conversation: (1) private meeting with HR, (2) state facts without accusation, (3) ask for explanation, (4) acknowledge childcare empathetically, (5) separate understanding from accountability, (6) problem-solve together (flexible start? WFH?), (7) document, (8) follow up in 1 week.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "HR progressive discipline sequence",
+          "correct_answer": "Sequence: (1) Informal conversation (documented), (2) Formal verbal warning (in HR file), (3) Written warning (signed), (4) PIP with 30-90 day timeline, (5) Final written warning, (6) Termination (with HR). Each step requires documentation and reasonable timeframe. Employee must have opportunity to improve.",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      },
+      {
+        "scenario": "product_recall_crisis",
+        "task_text": "A customer is furious about a product defect that injured their child (minor scratch). Describe: (1) the correct product recall investigation procedure from report to resolution, and (2) the immediate customer communication approach — what to say, what NOT to say (liability), and how to express concern while protecting the company legally.",
+        "component_a": {
+          "domain": "social",
+          "text": "crisis communication under legal constraint",
+          "correct_answer": "Immediate: (1) express concern ('I'm very concerned'), (2) do NOT admit fault ('we investigate seriously'), (3) do NOT minimize, (4) offer remediation (refund), (5) collect details, (6) escalate to legal/safety, (7) follow up 24h. NEVER: 'never happened before', 'you used it wrong', 'not responsible'.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "product recall investigation sequence",
+          "correct_answer": "Procedure: (1) Immediate: quarantine product, photograph, document. (2) 24h: determine isolated vs batch, check production. (3) 72h: risk assessment, recall scope. (4) If recall: notify regulator, issue public notice, set up return. (5) Root cause analysis. (6) Corrective action. (7) Close loop.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "temporal_procedural": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "software_deployment",
+        "task_text": "A software deployment has 6 steps in order with timing: (1) database backup (20 min), (2) stop services (5 min), (3) run migrations (15 min), (4) deploy code (10 min), (5) smoke tests (10 min, if fail → rollback), (6) start services (5 min). Maintenance window is 90 minutes starting 2am. Is there enough time? Include rollback scenario. What time does each step start and end?",
+        "component_a": {
+          "domain": "temporal",
+          "text": "scheduling with constraints and contingencies",
+          "correct_answer": "Normal: 65 min total. With rollback buffer: 85 min (adds 20 min restore). Fits in 90 min. Timeline: 2:00-2:20 backup, 2:20-2:25 stop, 2:25-2:40 migrate, 2:40-2:50 deploy, 2:50-3:00 test, 3:00-3:05 start. Rollback: if fail at 3:00, restore 20 min, re-test 10 min = 3:30am (85 min).",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "deployment procedure sequence with dependencies",
+          "correct_answer": "Procedure: (1) Backup: full dump, verify integrity. (2) Stop: graceful shutdown, wait for connections, kill after 5 min. (3) Migrations: run schema changes, verify. (4) Deploy: push code, restart. (5) Smoke tests: hit endpoints, check DB, verify core. (6) Start: bring up in order (DB→app→web), health check. Rollback: restore DB, revert code, restart.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "social_temporal": {
+    "tier": 1,
+    "target_count": 15,
+    "templates": [
+      {
+        "scenario": "distributed_team_retrospective",
+        "task_text": "Schedule a 90-min team retrospective: 3 in London (GMT), 2 in New York (EST), 1 in Tokyo (JST). Tokyo colleague said (politely, indirectly) they're tired of late-night meetings. New York team lead insists on mornings. Find a time that works, and draft a Slack message proposing it that acknowledges Tokyo's concern without confrontation.",
+        "component_a": {
+          "domain": "social",
+          "text": "navigating indirect complaints and power dynamics",
+          "correct_answer": "Slack: 'Hi team, proposing [TIME] to balance time zones. This means: NYC 8-9:30am, London 1-2:30pm, Tokyo 10-11:30pm. I know late nights are tough for Tokyo — let's rotate future meetings. If this doesn't work, reply with constraints.' Key: (1) acknowledge burden, (2) propose rotation, (3) give opt-out.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "temporal",
+          "text": "timezone scheduling with conflicting constraints",
+          "correct_answer": "NYC morning = 8-11am EST. Tokyo not-late = before 11pm JST. London 9am-6pm = GMT. Conversion: NYC 8am EST = London 1pm GMT = Tokyo 10pm JST. Satisfies: NYC morning (yes), Tokyo before 11pm (yes), London afternoon (yes). Best: 8am EST / 1pm GMT / 10pm JST.",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "spatial_arithmetic": {
+    "tier": 2,
+    "target_count": 10,
+    "templates": [
+      {
+        "scenario": "irregular_field",
+        "task_text": "A farmer's field is an irregular quadrilateral with vertices at (0,0), (120,0), (150,80), and (20,95). Calculate the area using the shoelace formula. Then determine how many bags of seed are needed at 25kg per hectare, where each bag contains 20kg and costs £14.50 per bag. Calculate total cost.",
+        "component_a": {
+          "domain": "spatial",
+          "text": "coordinate geometry area calculation using shoelace formula",
+          "correct_answer": "Area = 0.5 × |0(0-95) + 120(80-0) + 150(95-0) + 20(0-80)| = 0.5 × |9600 + 14250 - 1600| = 11,125 m² = 1.1125 ha",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "arithmetic",
+          "text": "unit conversion and cost calculation",
+          "correct_answer": "Seed needed: 1.1125 × 25 = 27.8 kg. Bags: 27.8/20 = 1.39, round up to 2. Cost: 2 × £14.50 = £29.00",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "spatial_procedural": {
+    "tier": 2,
+    "target_count": 10,
+    "templates": [
+      {
+        "scenario": "evacuation_route",
+        "task_text": "Design an evacuation route for a 3-storey building: L-shaped, main corridor 2m wide, stairwells at NE and SW corners, 50m from NE to SW. 150 occupants (50/floor). Describe: correct evacuation drill procedure including warden assignments, sweep patterns, assembly point selection (must be 50m from building), headcount procedure. Include max evacuation time allowed by UK fire regulations (2.5 min for office buildings).",
+        "component_a": {
+          "domain": "spatial",
+          "text": "route planning and layout reasoning",
+          "correct_answer": "Routes: Floors 1-2 use NE stairwell (closer), Floor 3 splits between NE and SW. Assembly point: 50m minimum from SW corner (parking lot). Exit capacity: 2m stairs = 40 people/min per stair, 2 stairs × 2.5 min = 200 capacity (sufficient for 150).",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "procedural",
+          "text": "evacuation protocol sequence",
+          "correct_answer": "Procedure: (1) Assign wardens (1/floor, 1 at assembly). (2) On alarm: wardens sweep from farthest point, check rooms, close doors. (3) Direct to designated stairwell. (4) Wardens last to leave. (5) Assembly warden receives reports. (6) Headcount vs known occupants, report missing to fire service. (7) Don't re-enter until all-clear. Time limit: 2.5 min.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "logical_social": {
+    "tier": 2,
+    "target_count": 10,
+    "templates": [
+      {
+        "scenario": "meeting_syllogisms",
+        "task_text": "In a team meeting, person A says 'If we delay the launch, we'll lose market share.' Person B says 'If we don't delay, we'll ship a buggy product.' Person C says 'A buggy product won't lose market share because our users are loyal.' (1) Identify the logical structure of each argument. (2) Are any valid syllogisms? (3) Person C's claim is likely wrong — but how do you challenge it without making C defensive, given C is the most senior person?",
+        "component_a": {
+          "domain": "logical",
+          "text": "syllogistic analysis and logical structure identification",
+          "correct_answer": "(1) A: conditional (if delay → loss). B: conditional (if not delay → bugs). C: categorical negative (bugs ≠ loss) with justification. (2) None are complete syllogisms. C's structure: 'Buggy products lose share (implied) + users loyal (stated) → our bugs won't lose share' — invalid because loyalty doesn't negate all quality effects.",
+          "difficulty": "medium",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "social",
+          "text": "challenging a senior person diplomatically",
+          "correct_answer": "Approach: (1) Don't say 'wrong' or 'disagree'. (2) Use question: 'C, I want to understand — are we saying loyalty fully insulates us, or gives us buffer?' (3) Offer data indirectly: 'I've seen loyal users leave after repeated bugs — should we check support tickets?' (4) Frame as risk mitigation: 'Even if unlikely, what's backup if some churn?' (5) Defer to C's judgment: 'You know users better — what's the threshold?'",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  },
+  "linguistic_temporal": {
+    "tier": 2,
+    "target_count": 10,
+    "templates": [
+      {
+        "scenario": "contract_parsing",
+        "task_text": "An employment contract states: 'The employee shall be entitled to 28 days of annual leave, to be taken at times mutually agreed upon, provided that no more than 10 consecutive days shall be taken during the period from June to August inclusive, unless authorised in writing by the line manager not less than 6 weeks in advance.' Parse this sentence, identifying: (1) main entitlement, (2) restriction, (3) exception, (4) any ambiguity. Then: you want 15 consecutive days in July 2026. What is the latest date you can request authorisation? Account for 6-week advance notice.",
+        "component_a": {
+          "domain": "linguistic",
+          "text": "parsing complex legal English with nested clauses",
+          "correct_answer": "(1) Entitlement: 28 days. (2) Restriction: max 10 consecutive during June-Aug. (3) Exception: >10 allowed if authorized ≥6 weeks advance. (4) Ambiguity: 'during June-Aug' — does holiday starting May 31 ending June 10 count? Does 'in July' mean starting, ending, or overlapping?",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "component_b": {
+          "domain": "temporal",
+          "text": "constraint-based date calculation from parsed text",
+          "correct_answer": "If '15 days in July' means overlapping July: earliest start June 25 (ends July 9). Latest start July 17 (ends July 31). For 6 weeks = 42 days advance: if July 1-15, request by May 20. If July 17-31, request by June 5. Ambiguity matters: 'in July' = 'starting in July' → July 1 start → request by May 20.",
+          "difficulty": "hard",
+          "answer_type": "short_text"
+        },
+        "requires_both": true
+      }
+    ]
+  }
+}

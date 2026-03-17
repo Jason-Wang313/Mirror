@@ -1,0 +1,15 @@
+{
+  "pipeline_run": {
+    "timestamp": "2026-02-23T08:06:37.167670",
+    "mode": "full",
+    "duration_minutes": 592.15
+  },
+  "seed_stats": {},
+  "generation_stats": {},
+  "counterfactual_stats": {},
+  "dedup_stats": {},
+  "verification_stats": {},
+  "difficulty_stats": {},
+  "final_count": 1087,
+  "provenance_stats": {}
+}

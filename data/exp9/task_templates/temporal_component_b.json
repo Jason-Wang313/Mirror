@@ -1,0 +1,24 @@
+[
+  {
+    "template_id": "temporal_001_timezone",
+    "scenario": "meeting_scheduling",
+    "component_a_domain_pool": ["factual", "arithmetic"],
+    "component_b_domain": "temporal",
+    "component_a_options": [
+      {
+        "domain": "factual",
+        "text": "What is the time zone offset between London (GMT) and Tokyo (JST)?",
+        "correct_answer": "+9 hours (Tokyo is 9 hours ahead)",
+        "answer_type": "short_text",
+        "difficulty": "easy"
+      }
+    ],
+    "component_b": {
+      "domain": "temporal",
+      "text": "Schedule a meeting for team members in London (GMT), New York (EST, -5 from GMT), and Tokyo (JST, +9). Find a 1-hour slot within 9 AM-6 PM for all locations.",
+      "correct_answer": "Very limited options: 4-5 PM London = 11 AM-12 PM NY = 1-2 AM Tokyo (Tokyo out of range). 9-10 AM London = 4-5 AM NY (NY out of range). No perfect solution within all business hours.",
+      "answer_type": "reasoning",
+      "difficulty": "hard"
+    }
+  }
+]
