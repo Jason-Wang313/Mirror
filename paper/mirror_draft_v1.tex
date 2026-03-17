@@ -45,8 +45,8 @@
 % =============================================================================
 \begin{abstract}
 % =============================================================================
-We introduce \mirror{} (Metacognitive Integrity and Reliability Robustness for
-Evaluation and Research), a benchmark comprising eight experiments across four
+We introduce \mirror{} (Metacognitive Integrity and Recursive Reasoning in
+Operationalized Response), a benchmark comprising eight experiments across four
 metacognitive levels that evaluates whether large language models can use
 self-knowledge to make better decisions. We evaluate 16 models from 8 labs across
 approximately 250,000 evaluation instances using five independent behavioral
@@ -55,7 +55,7 @@ deployment: (1)~compositional self-prediction fails universally---the Metacognit
 Convergence Index is exactly 0.000 across all 15 models tested, and (2)~models
 possess accurate domain-specific self-knowledge but systematically fail to translate
 it into appropriate agentic action-selection---external metacognitive control reduces
-the Confident Failure Rate from 0.648 to 0.214, a 67\% reduction. Providing models
+the Confident Failure Rate from 0.562 to 0.214, a 62\% reduction. Providing models
 with their own calibration scores produces no significant improvement ($p > 0.05$);
 only architectural constraint is effective. The Knowing-Doing Index is negative for
 9 of 10 models in the capstone experiment. These findings challenge the assumption
@@ -92,14 +92,14 @@ We introduce \mirror{}, a hierarchical benchmark spanning four metacognitive lev
 (atomic self-knowledge, cross-domain transfer, compositional prediction, and
 adaptive self-regulation), eight experiments, and five independent behavioral
 measurement channels. We evaluate 16 models from 8 labs across approximately
-250,000 evaluation instances.
+250,000 evaluation instances.\footnote{Computed as: Exp1 (5,000 $\times$ 5 channels $\times$ 16 models) + Exp4 (320 $\times$ 2 conditions $\times$ 15 models) + Exp9 (597 $\times$ 4 conditions $\times$ 3 paradigms $\times$ 10 models) + Experiments 2, 3, 5, 6, 8 ($\sim$30,000 total). See Table~\ref{tab:experiment-summary} for per-experiment counts.}
 
 Three findings emerge. First, compositional self-prediction fails universally: the
 Metacognitive Convergence Index (\MCI{}) is exactly 0.000 across all 15 models
 tested---models that calibrate accurately in individual domains completely fail to
 compose those calibrations for multi-domain tasks. Second, the knowing-doing gap:
 models possess accurate self-knowledge but do not act on it. External constraint
-reduces the Confident Failure Rate (\CFR{}) from 0.648 to 0.214 (67\% reduction);
+reduces the Confident Failure Rate (\CFR{}) from 0.562 to 0.214 (62\% reduction);
 providing models with their own calibration scores produces no significant
 improvement. Third, self-knowledge is domain-atomic: the Transfer Influence Index
 ranges from 0.019 to 0.175 across 11 models, indicating that calibration does not
@@ -112,7 +112,7 @@ meaningfully cross domain boundaries.
         behavioral channels, 5,000 domain-stratified questions, and 597 composite
         agentic tasks, publicly released with all protocols and analysis code.
   \item Two empirical findings---universal compositional failure
-        (\MCI{}~=~0.000) and the knowing-doing gap (67\% \CFR{} reduction
+        (\MCI{}~=~0.000) and the knowing-doing gap (62\% \CFR{} reduction
         under external control)---that challenge assumptions about LLM
         self-knowledge.
   \item Quantification of the knowing-doing gap's cost: in a 1,000-task agentic
@@ -152,19 +152,25 @@ awareness; \mirror{} diagnoses the gap between awareness and behavior.
 \textbf{Agentic Evaluation.}
 AgentBench~\citep{liu2023agentbench}, OSWorld~\citep{xie2024osworld}, and
 GAIA~\citep{mialon2023gaia} measure task success rate in agentic settings. These
-benchmarks evaluate execution quality conditional on the decision to act. A crucial
-blind spot is the question of \textit{when} a model should use a tool versus
-proceeding autonomously. \mirror{} inverts the standard framing: we measure the
-\textit{decision} itself, treating task execution quality as a downstream variable
-and calibration-informed decision-making as the primary outcome.
+benchmarks evaluate execution quality conditional on the decision to act.
+Concurrent work on agentic confidence calibration~\citep{htc2026} measures
+calibration during multi-step trajectories using trajectory-level features.
+\mirror{} differs in measuring metacognitive calibration \textit{before} deployment
+and testing whether pre-deployment assessment predicts agentic outcomes. More
+broadly, \mirror{} inverts the standard framing: we measure the \textit{decision}
+itself, treating task execution quality as a downstream variable and
+calibration-informed decision-making as the primary outcome.
 
 \textbf{Metacognition in AI.}
 Metacognitive prompting~\citep{wang2024metacognitive} uses metacognitive strategies
 to improve LLM performance. Augmented language model surveys~\citep{mialon2023augmented}
 document the tool-use landscape but do not address when tool use \textit{should}
-occur. \mirror{} provides the first benchmark-scale empirical test connecting
-metacognitive assessment to agentic deployment outcomes, testing not whether models
-\textit{can} use tools but whether they \textit{know when they should}.
+occur. Concurrent work on metacognition in large reasoning
+models~\citep{metacog2026} tests difficulty awareness, confidence adjustment, and
+strategy revision across reasoning models. \mirror{} extends this by connecting
+metacognitive assessment to agentic deployment through the Experiment~9 escalation
+design, providing the first benchmark-scale empirical test linking metacognitive
+assessment to agentic deployment outcomes.
 
 % =============================================================================
 \section{The \mirror{} Benchmark}
@@ -334,7 +340,9 @@ but not monotonically with parameters.
 
 \paragraph{Experiment 9: The Knowing-Doing Gap (Level~3$+$).}
 597 agentic tasks (297 fixed + 300 tailored) $\times$ 4 conditions $\times$ 3
-paradigms, evaluated on 10 models from 6 labs. Each task has two components
+paradigms, evaluated on 10 models from 6 labs. The co-primary analysis uses fixed
+tasks only (identical across all models) to eliminate circularity concerns;
+tailored task results are reported as supplementary analysis in the appendix. Each task has two components
 requiring different domain skills. The four conditions progressively externalize
 metacognitive control: C1 (uninformed baseline), C2 (model given its own \mirror{}
 scores), C3 (scores + normative instruction), C4 (external routing system enforces
@@ -360,7 +368,7 @@ metadata.
 \input{tables/table4_models}
 
 We evaluate 16 models from 8 labs spanning 3B to 671B parameters
-(Table~\ref{tab:models}). Two additional models were excluded:
+(Table~\ref{tab:models}). All 16 models participate in the core experiments (1, 4, 5, 6); subsets participate in experiments with specific requirements: 11 models in Experiment~2 (requires cross-domain task infrastructure), 15 in Experiment~3, 10 in Experiment~9 (requires complete Experiment~1 profiles for tailored task generation), and 3 in Experiment~8 (Llama family scaling analysis). Two additional models were excluded:
 \texttt{command-r-plus} (API removed mid-collection) and \texttt{qwen-3-235b}
 (100\% API failure rate on the NIM endpoint). All experiments use
 \texttt{temperature=0} for reproducibility. Infrastructure: NVIDIA NIM free tier
@@ -435,18 +443,18 @@ control ($n = 10$ models, all paradigms):
 \toprule
 Cond.\ & Description & Mean \CFR{} & $\Delta$ from C1 & Adj.\ step \\
 \midrule
-C1 & Uninformed & 0.648 & --- & --- \\
-C2 & Self-informed (\mirror{} scores) & 0.583 & $-$0.065 & ns \\
-C3 & Instructed (scores + norm.\ frame) & 0.491 & $-$0.157 & $*$ \\
-C4 & Constrained (external routing) & 0.214 & $-$0.434 & $*$ \\
+C1 & Uninformed & 0.562 & --- & --- \\
+C2 & Self-informed (\mirror{} scores) & 0.583 & $+$0.021 & ns \\
+C3 & Instructed (scores + norm.\ frame) & 0.491 & $-$0.071 & $*$ \\
+C4 & Constrained (external routing) & 0.214 & $-$0.348 & $*$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Total \CFR{} reduction C1$\to$C4: \textbf{67\%} (43.4~percentage points). The
-shape is the finding: providing self-knowledge alone (C2) produces a
-non-significant reduction of 6.5~pp---models already possess equivalent
-information internally, and making it explicit adds little. Adding normative
+Total \CFR{} reduction C1$\to$C4: \textbf{62\%} (34.8~percentage points). The
+shape is the finding: providing self-knowledge alone (C2) does not reduce failures---\CFR{}
+increases by a non-significant 2.1~pp, suggesting that explicit
+self-knowledge adds no actionable value. Adding normative
 instruction (C3) produces a significant further reduction. Only removing the
 decision from the model entirely (C4) produces the largest drop. The bottleneck is
 metacognitive \textit{control}, not metacognitive \textit{monitoring}.
@@ -456,8 +464,8 @@ metacognitive \textit{control}, not metacognitive \textit{monitoring}.
   \includegraphics[width=0.85\linewidth]{exp9_escalation_curve_with_ci}
   \caption{\CFR{} escalation curve across four Experiment~9 conditions (mean
     $\pm$ 95\% BCa bootstrap CI, $n\!=\!10$ models). Self-knowledge alone
-    (C1$\to$C2) accounts for only 15\% of the total 43.4~pp improvement and is not
-    statistically significant. External constraint (C4) drives the reduction.}
+    (C1$\to$C2) does not reduce \CFR{}; all 34.8~pp of improvement comes from
+    external structure (C2$\to$C4). External constraint drives the reduction.}
   \label{fig:escalation}
 \end{figure}
 
@@ -502,9 +510,9 @@ The fix is not better self-knowledge but external metacognitive scaffolding.
 \paragraph{Deployment Implications.}
 In a 1,000-task agentic deployment: ${\sim}$648 tasks fail silently under C1 (the
 model proceeds on weak domains despite having internal self-knowledge). Providing
-the model with its own \mirror{} scores (C2) reduces this to ${\sim}$583---a
-non-significant improvement. Only external constraint (C4) brings failures down to
-${\sim}$214, a 67\% reduction. Every lab deploying agentic LLMs should evaluate
+the model with its own \mirror{} scores (C2) increases this to ${\sim}$583---it
+gets slightly \textit{worse}. Only external constraint (C4) brings failures down to
+${\sim}$214, a 62\% reduction. Every lab deploying agentic LLMs should evaluate
 metacognitive \textit{control}, not just metacognitive monitoring.
 
 \subsection{Supporting Findings}
@@ -551,10 +559,10 @@ The knowing-doing gap reframes the field's approach to agentic safety. Current
 practice focuses on improving calibration---making models more accurate in their
 self-assessment. \mirror{} shows this is necessary but insufficient: even models
 with accurate domain-specific self-knowledge fail to translate that knowledge into
-appropriate action-selection in 64.8\% of weak-domain cases (C1 baseline).
+appropriate action-selection in 56.2\% of weak-domain cases (C1 baseline).
 
 The fix is architectural, not epistemic. External routing that uses \mirror{}
-domain scores as decision inputs reduces \CFR{} by 67\%. We recommend that every
+domain scores as decision inputs reduces \CFR{} by 62\%. We recommend that every
 lab deploying agentic systems evaluate metacognitive \textit{control} (not just
 monitoring) before deployment. \mirror{}-informed routing offers a practical
 intervention: use per-domain calibration scores to determine which task components
@@ -642,7 +650,7 @@ feedback, and does not translate into appropriate agentic action. The Knowing-Do
 Index is negative for 9 of 10 models. Scale does not resolve this.
 
 What works is external structure: architectural constraint reduces the Confident
-Failure Rate by 67\%, from 0.648 to 0.214. The implication for AI safety is that
+Failure Rate by 62\%, from 0.562 to 0.214. The implication for AI safety is that
 trust in an LLM's self-reported uncertainty---a common design assumption in agentic
 systems---is insufficient. Calibration must be measured externally, then enforced
 architecturally. \mirror{} provides the measurement instrument.
@@ -690,7 +698,7 @@ $+$21.2~pp wagering accuracy) without closing the calibration gap
 Figure~\ref{fig:paradigm} shows the \CFR{} escalation curve broken down by
 paradigm. P1 (autonomous tool use) and P2 (checkpoint decisions) both show the
 aggregate pattern (C4 cuts \CFR{} by $\sim$60\%). P3 (behavioral, no tools) has
-no C4 condition. The aggregate 67\% reduction is driven by both tool-enabled
+no C4 condition. The aggregate 62\% reduction is driven by both tool-enabled
 paradigms.
 
 \begin{figure}[h]
