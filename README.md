@@ -1,29 +1,28 @@
 # MIRROR: A Hierarchical Benchmark for Metacognitive Calibration in Large Language Models
 
-**MIRROR** (Metacognitive Integrity and Recursive Reasoning in Operationalized Response) is a benchmark that evaluates whether LLMs can *use* their self-knowledge to make better decisions. We test 16 models from 8 labs across ~250,000 evaluation instances.
+MIRROR evaluates whether LLMs can *use* their self-knowledge to make better decisions. 16 models from 8 labs, ~250,000 evaluation instances, 8 experiments across 4 metacognitive levels.
 
-📄 **Paper:** NeurIPS 2026 Datasets & Benchmarks Track (under review)  
-📦 **Dataset:** [HuggingFace](https://huggingface.co/datasets/Jason-Wang313/MIRROR) (coming soon)  
-🏗️ **Status:** All 8 experiments complete. Paper submitted.
+**Paper:** NeurIPS 2026 Datasets & Benchmarks Track (under review)
+**Dataset:** HuggingFace (coming soon)
 
 ---
 
 ## Key Findings
 
-**1. Compositional self-prediction fails universally.**  
-The Metacognitive Convergence Index (MCI) is exactly **0.000** across all 15 models tested. Models that calibrate accurately in individual domains completely fail to compose those calibrations for multi-domain tasks.
+1. **Compositional self-prediction fails universally:** MCI = 0.000 across all 15 models tested — models cannot predict their performance on tasks requiring combinations of skills.
+2. **The Knowing-Doing Gap:** CFR drops from 0.562 to 0.214 (62% reduction) under external constraint. Self-knowledge alone (C2) produces no significant improvement.
+3. **Self-knowledge is domain-atomic:** TII = 0.019–0.175 across 11 models — calibration does not meaningfully cross domain boundaries.
 
-**2. The Knowing-Doing Gap.**  
-Models possess accurate self-knowledge but don't act on it. External architectural constraint reduces the Confident Failure Rate (CFR) from **0.562 to 0.214** — a **62% reduction**. Providing models with their own calibration scores produces no significant improvement (*p* > 0.05).
+### Escalation Curve
 
-**3. Self-knowledge is domain-atomic.**  
-Transfer Influence Index (TII) ranges from 0.019 to 0.175 across 11 models. Calibration does not meaningfully cross domain boundaries.
+| Condition | Description | Mean CFR | Δ from C1 |
+|:----------|:------------|:--------:|:---------:|
+| C1 | Uninformed baseline | 0.562 | — |
+| C2 | Self-informed (MIRROR scores) | 0.583 | +0.021 (ns) |
+| C3 | Instructed (scores + normative frame) | 0.491 | −0.071 (\*) |
+| C4 | Constrained (external routing) | 0.214 | −0.348 (\*) |
 
----
-
-## Results Summary
-
-### Main Results (Table 3 in paper)
+### Results Summary
 
 | Model | Lab | Nat.Acc | Wag.Acc | MIRROR Gap | CFR (C1) | KDI |
 |:------|:----|--------:|--------:|-----------:|---------:|----:|
@@ -44,52 +43,41 @@ Transfer Influence Index (TII) ranges from 0.019 to 0.175 across 11 models. Cali
 | phi-4 | Microsoft | 0.279 | 0.483 | 0.222 | 0.721 | −0.304 |
 | qwen3-next-80b | Alibaba | 0.486 | 0.638 | 0.152 | — | — |
 
-**Nat.Acc** = natural accuracy (Exp1). **Wag.Acc** = wagering accuracy (Exp1). **MIRROR Gap** = Wag.Acc − Nat.Acc (overconfidence). **CFR** = Confident Failure Rate, uninformed condition (Exp9). **KDI** = Knowing-Doing Index (Exp9). "—" = model not evaluated in Exp9.
-
-### Experiment 9: Escalation Curve
-
-| Condition | Description | Mean CFR | Δ from C1 |
-|:----------|:------------|:--------:|:---------:|
-| C1 | Uninformed baseline | 0.562 | — |
-| C2 | Self-informed (MIRROR scores) | 0.583 | +0.021 (ns) |
-| C3 | Instructed (scores + normative frame) | 0.491 | −0.071 (*) |
-| C4 | Constrained (external routing) | 0.214 | −0.348 (*) |
-
-Self-knowledge alone (C2) adds nothing. Only external constraint (C4) works.
+**Nat.Acc** = natural accuracy (Exp1). **Wag.Acc** = wagering accuracy (Exp1). **MIRROR Gap** = Wag.Acc − Nat.Acc. **CFR** = Confident Failure Rate, uninformed condition (Exp9). **KDI** = Knowing-Doing Index (Exp9). **—** = not evaluated in Exp9.
 
 ---
 
 ## Benchmark Structure
 
-MIRROR decomposes LLM metacognition into **4 levels** × **5 behavioral channels** × **8 experiments**:
-
 ```
-Level 0: Atomic Self-Knowledge     → Exp 1: Calibration Atlas
+Level 0: Atomic Self-Knowledge     → Exp 1: Calibration Atlas (MIRROR Gap)
 Level 1: Cross-Domain Transfer     → Exp 2: Transfer Influence (TII)
 Level 2: Compositional Prediction  → Exp 3: Composition (CCE, MCI)
 Level 3: Adaptive Self-Regulation  → Exp 4: Feedback Adaptation (AI, SAR)
-                                   → Exp 5: Adversarial Robustness (ARS)
-                                   → Exp 6: Ecosystem Effect (SSR, FDR)
-                                   → Exp 9: Knowing-Doing Gap (CFR, KDI)
+                                     Exp 5: Adversarial Robustness (ARS)
+                                     Exp 6: Ecosystem Effect (SSR, FDR)
+                                     Exp 9: The Knowing-Doing Gap (CFR, KDI)
 Cross-cutting: Exp 8: Scaling Analysis
 ```
 
 **5 Behavioral Channels:** Wagering, Opt-out, Difficulty Selection, Tool Delegation, Natural Language Signals.
 
+**8 Cognitive Domains:** Arithmetic, Spatial, Temporal, Linguistic, Logical, Social, Factual, Procedural.
+
 ---
 
 ## Models Evaluated
 
-16 models from 8 labs (3B to >1T parameters):
+16 models from 8 labs spanning 3B to 671B parameters:
 
 | Lab | Models |
 |:----|:-------|
+| Meta | llama-3.1-8b, llama-3.1-70b, llama-3.1-405b, llama-3.2-3b, llama-3.3-70b |
 | DeepSeek | deepseek-r1, deepseek-v3 |
 | Google | gemini-2.5-pro, gemma-3-12b, gemma-3-27b |
+| Mistral | mistral-large, mixtral-8x22b |
 | OpenAI | gpt-oss-120b |
 | Moonshot AI | kimi-k2 |
-| Meta | llama-3.1-8b, llama-3.1-70b, llama-3.1-405b, llama-3.2-3b, llama-3.3-70b |
-| Mistral | mistral-large, mixtral-8x22b |
 | Microsoft | phi-4 |
 | Alibaba | qwen3-next-80b |
 
@@ -98,92 +86,124 @@ Cross-cutting: Exp 8: Scaling Analysis
 ## Repository Structure
 
 ```
-Mirror/
-├── README.md
-├── paper/
-│   ├── mirror_draft_v6.tex          # NeurIPS 2026 D&B submission
-│   ├── references.bib
-│   ├── figures/
-│   │   ├── exp9_escalation_curve_with_ci.png
-│   │   ├── fig3_kdi_distribution.png
-│   │   ├── fig2_money_plot.png
-│   │   ├── exp8_hero_figure.png
-│   │   ├── exp9_escalation_per_paradigm.png
-│   │   └── figure1_mirror_gradient.png
-│   └── tables/
-│       ├── table1_main_results.tex
-│       └── table2_comparison.tex
-├── experiments/
-│   ├── exp1_self_knowledge_atlas/
-│   ├── exp2_cross_domain_transfer/
-│   ├── exp3_compositional_prediction/
-│   ├── exp4_adaptation_crucible/
-│   ├── exp5_adversarial_robustness/
-│   ├── exp6_ecosystem_effect/
-│   ├── exp8_scaling_analysis/
-│   └── exp9_knowing_doing_gap/
-├── analysis/
-│   ├── generate_figures.py
-│   └── compute_metrics.py
-├── data/
-│   ├── exp1/                        # Raw JSONL results
-│   ├── exp2/
-│   ├── ...
-│   └── exp9/
-├── prompts/                         # All evaluation prompts
-│   ├── exp1_templates/
-│   ├── ...
-│   └── exp9_templates/
-└── eval/                            # pip-installable evaluation suite
-    ├── setup.py
-    ├── mirror_eval/
-    │   ├── __init__.py
-    │   ├── run_benchmark.py
-    │   └── scoring.py
-    └── README.md
+mirror/                     # Core Python package
+  api/                      # Unified async API client (multi-provider)
+    client.py               # UnifiedClient with retry, rate limiting
+    models.py               # Model registry + Exp1 metrics loader
+    providers/              # Provider-specific adapters
+      nvidia_nim.py         # NVIDIA NIM (OpenAI-compatible)
+      deepseek.py           # DeepSeek API
+      google_ai.py          # Google AI Studio
+      groq.py, kimi.py      # Additional providers
+  data/                     # Question bank pipeline
+    pipeline.py             # Full generation pipeline
+    answer_matcher.py       # Robust answer extraction
+    cross_verifier.py       # Multi-model verification
+    exp9_template_library.py # Exp9 task templates (37 pairs x 5)
+    sources/                # Domain-specific question sources
+  experiments/              # Experiment runners
+    runner.py               # Base experiment runner
+    channels.py             # 5 behavioral measurement channels
+    agentic_paradigms.py    # Exp9 paradigm implementations
+    burn_test_runner.py     # Exp4 burn-and-test logic
+    tool_executor.py        # Exp9 tool execution
+    transfer_tasks.py       # Exp2 cross-domain tasks
+  scoring/                  # Metrics and analysis
+    metrics.py              # Core metrics (MCI, CCE, etc.)
+    agentic_metrics.py      # CFR, KDI, UDR
+    adaptation_metrics.py   # AI, SAR
+    answer_matcher.py       # Answer matching for scoring
+    statistics.py           # Bootstrap CIs, BH-FDR, mixed effects
+
+scripts/                    # Experiment execution scripts
+  run_experiment_[1-9].py   # Per-experiment runners
+  analyze_experiment_[1-9].py # Per-experiment analysis
+  generate_exp9_tasks.py    # Task bank generation
+  verify_exp9_tasks.py      # Task bank verification
+  generate_paper_tables.py  # LaTeX table generation
+  generate_escalation_figures.py # Figure generation
+  check_exp9_status.py      # Pipeline progress monitor
+
+configs/
+  domains.yaml              # 8 domains + subcategories config
+
+data/                       # Generated data and results
+  results/                  # Experimental results (JSONL)
+  exp9/                     # Exp9 task bank
+  seeds/                    # Question bank seeds
+
+paper/                      # NeurIPS 2026 paper
+  mirror_draft_v6.tex       # Latest paper source
+  mirror_draft_v6.pdf       # Compiled PDF
+  references.bib            # Bibliography
+  tables/                   # LaTeX tables
+  figures/                  # Paper-specific figures
+  neurips_2026.sty          # Style file
+
+figures/                    # Generated figures (all experiments)
+tests/                      # Test suite
+docs/                       # Documentation and status reports
 ```
 
 ---
 
 ## Quick Start
 
-### Evaluate a new model
-
-```bash
-pip install mirror-eval  # coming soon
-
-mirror-eval --model your-model-name --api-key $API_KEY --experiments all
-```
-
-Running the full benchmark requires ~8,000 API calls (~3 hours at 40 req/min). Only API access is needed — no weights, no activations, no fine-tuning.
-
-### Reproduce results
+### 1. Install
 
 ```bash
 git clone https://github.com/Jason-Wang313/Mirror.git
 cd Mirror
+pip install -e .
+```
 
-# Install dependencies
-pip install -r requirements.txt
+### 2. Configure API keys
 
-# Run analysis on existing data
-python analysis/compute_metrics.py --experiment all
-python analysis/generate_figures.py
+```bash
+cp .env.example .env
+# Edit .env with your API keys:
+#   NIM_API_KEY=...          (NVIDIA NIM - primary)
+#   DEEPSEEK_API_KEY=...     (DeepSeek r1/v3)
+#   GOOGLE_AI_API_KEY=...    (Google AI Studio)
+```
+
+### 3. Run experiments
+
+```bash
+# Run Experiment 1 (Calibration Atlas) for a single model
+python scripts/run_experiment_1.py --models llama-3.1-8b
+
+# Run Experiment 9 (Knowing-Doing Gap) — full pipeline
+python scripts/run_experiment_9.py --mode pilot --models llama-3.1-8b
+
+# Analyze results
+python scripts/analyze_experiment_9.py --run-id <RUN_ID>
+```
+
+### 4. Generate paper assets
+
+```bash
+# Generate LaTeX tables from analysis data
+python scripts/generate_paper_tables.py
+
+# Generate figures
+python scripts/generate_escalation_figures.py
+
+# Compile paper
+cd paper && pdflatex mirror_draft_v6 && bibtex mirror_draft_v6 && pdflatex mirror_draft_v6 && pdflatex mirror_draft_v6
 ```
 
 ---
 
 ## Infrastructure
 
-All experiments use `temperature=0` for reproducibility.
-
-| API Provider | Models |
-|:-------------|:-------|
-| NVIDIA NIM (free tier) | Llama family, Mistral, Gemma-3-27b, Phi-4, Kimi-K2, GPT-OSS-120b, Qwen3 |
-| DeepSeek API | deepseek-r1, deepseek-v3 |
-| Google AI Studio | gemini-2.5-pro, gemma-3-12b |
-
-Concurrency: 32 parallel calls per model. All results stored as JSONL with `fsync` after each record for crash resistance.
+- **API access only** — no model weights, no fine-tuning required
+- **Temperature = 0** for reproducibility across all experiments
+- **Providers:** NVIDIA NIM (primary), DeepSeek API, Google AI Studio
+- **Concurrency:** 32 parallel calls per model
+- **Output:** JSONL with `fsync` after each record (crash-resistant)
+- **Resume:** checkpoint-based resume via `--resume` flag
+- **Cost:** ~8,000 API calls per model for full benchmark (~3 hours at 40 req/min)
 
 ---
 
@@ -199,14 +219,6 @@ Concurrency: 32 parallel calls per model. All results stored as JSONL with `fsyn
 }
 ```
 
----
-
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-## Contact
-
-For questions about the benchmark, open an issue or contact the authors (details after de-anonymization).

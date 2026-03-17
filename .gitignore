@@ -9,5 +9,13 @@ results/**/*.json
 !results/.gitkeep
 .vscode/
 *.ipynb_checkpoints/
+.ipynb_checkpoints/
 venv/
 .venv/
+*.log
+.DS_Store
+*.aux
+*.bbl
+*.blg
+*.out
+*.synctex.gz
