@@ -1,0 +1,292 @@
+{
+  "description": "Threshold sensitivity analysis for Exp9 CFR under 4 weak-domain definitions",
+  "c4_routing_note": "C4 used a FIXED absolute threshold of natural_acc < 0.50 at run time. Alternative definitions change which components are counted as 'weak' in the CFR calculation, not the routing decision itself.",
+  "definitions": {
+    "Original (<=0.40)": "Domain is weak if model's natural_acc <= 0.40 (run-time strength field)",
+    "Median": "Domain is weak if model's natural_acc < model's median across all domains",
+    "Bottom-3": "Domain is weak if it's among the model's 3 lowest-accuracy domains",
+    "Absolute <0.40": "Domain is weak if natural_acc < 0.40 (strict less-than, recalculated)"
+  },
+  "aggregate": {
+    "Original (<=0.40)": {
+      "C1_CFR": 0.542281,
+      "C4_CFR": 0.0,
+      "reduction": null,
+      "N_weak_C1": 3867,
+      "N_weak_C4": 4245,
+      "C1_auto_fail": 2097,
+      "C4_auto_fail": 0
+    },
+    "Median": {
+      "C1_CFR": 0.516029,
+      "C4_CFR": 0.242081,
+      "reduction": 0.530877,
+      "N_weak_C1": 4211,
+      "N_weak_C4": 4420,
+      "C1_auto_fail": 2173,
+      "C4_auto_fail": 1070
+    },
+    "Bottom-3": {
+      "C1_CFR": 0.502052,
+      "C4_CFR": 0.232963,
+      "reduction": 0.535978,
+      "N_weak_C1": 4386,
+      "N_weak_C4": 4593,
+      "C1_auto_fail": 2202,
+      "C4_auto_fail": 1070
+    },
+    "Absolute <0.40": {
+      "C1_CFR": 0.530011,
+      "C4_CFR": 0.205766,
+      "reduction": 0.611771,
+      "N_weak_C1": 4515,
+      "N_weak_C4": 4787,
+      "C1_auto_fail": 2393,
+      "C4_auto_fail": 985
+    }
+  },
+  "per_model_C1_CFR": {
+    "deepseek-r1": {
+      "Original (<=0.40)": {
+        "cfr": 0.40081799591002043,
+        "weak_total": 489,
+        "auto_fail": 196
+      },
+      "Median": {
+        "cfr": 0.3202614379084967,
+        "weak_total": 306,
+        "auto_fail": 98
+      },
+      "Bottom-3": {
+        "cfr": 0.26403326403326405,
+        "weak_total": 481,
+        "auto_fail": 127
+      },
+      "Absolute <0.40": {
+        "cfr": 0.3202614379084967,
+        "weak_total": 306,
+        "auto_fail": 98
+      }
+    },
+    "gemma-3-27b": {
+      "Original (<=0.40)": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Median": {
+        "cfr": 0.538647342995169,
+        "weak_total": 414,
+        "auto_fail": 223
+      },
+      "Bottom-3": {
+        "cfr": 0.538647342995169,
+        "weak_total": 414,
+        "auto_fail": 223
+      },
+      "Absolute <0.40": {
+        "cfr": 0.5486111111111112,
+        "weak_total": 288,
+        "auto_fail": 158
+      }
+    },
+    "gpt-oss-120b": {
+      "Original (<=0.40)": {
+        "cfr": 0.5679405520169851,
+        "weak_total": 942,
+        "auto_fail": 535
+      },
+      "Median": {
+        "cfr": 0.5,
+        "weak_total": 450,
+        "auto_fail": 225
+      },
+      "Bottom-3": {
+        "cfr": 0.5,
+        "weak_total": 450,
+        "auto_fail": 225
+      },
+      "Absolute <0.40": {
+        "cfr": 0.5152671755725191,
+        "weak_total": 786,
+        "auto_fail": 405
+      }
+    },
+    "kimi-k2": {
+      "Original (<=0.40)": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Median": {
+        "cfr": 0.41304347826086957,
+        "weak_total": 414,
+        "auto_fail": 171
+      },
+      "Bottom-3": {
+        "cfr": 0.41304347826086957,
+        "weak_total": 414,
+        "auto_fail": 171
+      },
+      "Absolute <0.40": {
+        "cfr": 0.4930555555555556,
+        "weak_total": 288,
+        "auto_fail": 142
+      }
+    },
+    "llama-3.1-405b": {
+      "Original (<=0.40)": {
+        "cfr": 0.47172619047619047,
+        "weak_total": 672,
+        "auto_fail": 317
+      },
+      "Median": {
+        "cfr": 0.44921875,
+        "weak_total": 512,
+        "auto_fail": 230
+      },
+      "Bottom-3": {
+        "cfr": 0.44921875,
+        "weak_total": 512,
+        "auto_fail": 230
+      },
+      "Absolute <0.40": {
+        "cfr": 0.44921875,
+        "weak_total": 512,
+        "auto_fail": 230
+      }
+    },
+    "llama-3.1-70b": {
+      "Original (<=0.40)": {
+        "cfr": 0.4806547619047619,
+        "weak_total": 672,
+        "auto_fail": 323
+      },
+      "Median": {
+        "cfr": 0.4417293233082707,
+        "weak_total": 532,
+        "auto_fail": 235
+      },
+      "Bottom-3": {
+        "cfr": 0.4417293233082707,
+        "weak_total": 532,
+        "auto_fail": 235
+      },
+      "Absolute <0.40": {
+        "cfr": 0.4417293233082707,
+        "weak_total": 532,
+        "auto_fail": 235
+      }
+    },
+    "llama-3.1-8b": {
+      "Original (<=0.40)": {
+        "cfr": 0.7022058823529411,
+        "weak_total": 816,
+        "auto_fail": 573
+      },
+      "Median": {
+        "cfr": 0.744140625,
+        "weak_total": 512,
+        "auto_fail": 381
+      },
+      "Bottom-3": {
+        "cfr": 0.744140625,
+        "weak_total": 512,
+        "auto_fail": 381
+      },
+      "Absolute <0.40": {
+        "cfr": 0.6744186046511628,
+        "weak_total": 688,
+        "auto_fail": 464
+      }
+    },
+    "llama-3.3-70b": {
+      "Original (<=0.40)": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Median": {
+        "cfr": 0.44871794871794873,
+        "weak_total": 468,
+        "auto_fail": 210
+      },
+      "Bottom-3": {
+        "cfr": 0.44871794871794873,
+        "weak_total": 468,
+        "auto_fail": 210
+      },
+      "Absolute <0.40": {
+        "cfr": 0.5208333333333334,
+        "weak_total": 144,
+        "auto_fail": 75
+      }
+    },
+    "mistral-large": {
+      "Original (<=0.40)": {
+        "cfr": 0.5543478260869565,
+        "weak_total": 276,
+        "auto_fail": 153
+      },
+      "Median": {
+        "cfr": 0.5703703703703704,
+        "weak_total": 135,
+        "auto_fail": 77
+      },
+      "Bottom-3": {
+        "cfr": 0.5703703703703704,
+        "weak_total": 135,
+        "auto_fail": 77
+      },
+      "Absolute <0.40": {
+        "cfr": 0.5450643776824035,
+        "weak_total": 233,
+        "auto_fail": 127
+      }
+    },
+    "phi-4": {
+      "Original (<=0.40)": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Median": {
+        "cfr": 0.6901709401709402,
+        "weak_total": 468,
+        "auto_fail": 323
+      },
+      "Bottom-3": {
+        "cfr": 0.6901709401709402,
+        "weak_total": 468,
+        "auto_fail": 323
+      },
+      "Absolute <0.40": {
+        "cfr": 0.6219512195121951,
+        "weak_total": 738,
+        "auto_fail": 459
+      }
+    },
+    "qwen3-235b-nim": {
+      "Original (<=0.40)": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Median": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Bottom-3": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      },
+      "Absolute <0.40": {
+        "cfr": null,
+        "weak_total": 0,
+        "auto_fail": 0
+      }
+    }
+  }
+}
