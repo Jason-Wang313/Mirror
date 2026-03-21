@@ -1,0 +1,522 @@
+{
+  "deepseek-r1": {
+    "mci_spearman": 0.355597,
+    "mci_kendall": 0.341744,
+    "n_valid_pairs_spearman": 10,
+    "n_valid_pairs_kendall": 10,
+    "n_questions_per_channel": {
+      "ch1": 198,
+      "ch2": 194,
+      "ch3": 121,
+      "ch4": 260,
+      "ch5": 233
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.397167,
+        "kendall": 0.371793,
+        "n": 167
+      },
+      "ch1_ch3": {
+        "spearman": 0.463888,
+        "kendall": 0.434604,
+        "n": 97
+      },
+      "ch1_ch4": {
+        "spearman": 0.499667,
+        "kendall": 0.464527,
+        "n": 191
+      },
+      "ch1_ch5": {
+        "spearman": 0.479565,
+        "kendall": 0.444913,
+        "n": 188
+      },
+      "ch2_ch3": {
+        "spearman": 0.323407,
+        "kendall": 0.323407,
+        "n": 90
+      },
+      "ch2_ch4": {
+        "spearman": 0.255056,
+        "kendall": 0.254396,
+        "n": 189
+      },
+      "ch2_ch5": {
+        "spearman": 0.28968,
+        "kendall": 0.286295,
+        "n": 181
+      },
+      "ch3_ch4": {
+        "spearman": 0.422944,
+        "kendall": 0.422944,
+        "n": 116
+      },
+      "ch3_ch5": {
+        "spearman": 0.314712,
+        "kendall": 0.306661,
+        "n": 107
+      },
+      "ch4_ch5": {
+        "spearman": 0.109885,
+        "kendall": 0.107902,
+        "n": 226
+      }
+    }
+  },
+  "gemini-2.5-pro": {
+    "mci_spearman": -0.061176,
+    "mci_kendall": -0.057021,
+    "n_valid_pairs_spearman": 3,
+    "n_valid_pairs_kendall": 3,
+    "n_questions_per_channel": {
+      "ch1": 75,
+      "ch2": 303,
+      "ch3": 26,
+      "ch4": 312,
+      "ch5": 286
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": null,
+        "kendall": null,
+        "n": 65
+      },
+      "ch1_ch3": {
+        "spearman": -0.041667,
+        "kendall": -0.041667,
+        "n": 25
+      },
+      "ch1_ch4": {
+        "spearman": -0.1941,
+        "kendall": -0.179474,
+        "n": 70
+      },
+      "ch1_ch5": {
+        "spearman": null,
+        "kendall": null,
+        "n": 54
+      },
+      "ch2_ch3": {
+        "spearman": null,
+        "kendall": null,
+        "n": 23
+      },
+      "ch2_ch4": {
+        "spearman": null,
+        "kendall": null,
+        "n": 298
+      },
+      "ch2_ch5": {
+        "spearman": null,
+        "kendall": null,
+        "n": 278
+      },
+      "ch3_ch4": {
+        "spearman": 0.05224,
+        "kendall": 0.050078,
+        "n": 24
+      },
+      "ch3_ch5": {
+        "spearman": null,
+        "kendall": null,
+        "n": 20
+      },
+      "ch4_ch5": {
+        "spearman": null,
+        "kendall": null,
+        "n": 284
+      }
+    }
+  },
+  "gpt-oss-120b": {
+    "mci_spearman": 0.096132,
+    "mci_kendall": 0.093437,
+    "n_valid_pairs_spearman": 6,
+    "n_valid_pairs_kendall": 6,
+    "n_questions_per_channel": {
+      "ch1": 325,
+      "ch2": 325,
+      "ch3": 269,
+      "ch4": 302,
+      "ch5": 324
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.230247,
+        "kendall": 0.221282,
+        "n": 323
+      },
+      "ch1_ch3": {
+        "spearman": 0.060529,
+        "kendall": 0.058138,
+        "n": 255
+      },
+      "ch1_ch4": {
+        "spearman": null,
+        "kendall": null,
+        "n": 300
+      },
+      "ch1_ch5": {
+        "spearman": 0.112938,
+        "kendall": 0.107985,
+        "n": 322
+      },
+      "ch2_ch3": {
+        "spearman": 0.161442,
+        "kendall": 0.161442,
+        "n": 255
+      },
+      "ch2_ch4": {
+        "spearman": null,
+        "kendall": null,
+        "n": 301
+      },
+      "ch2_ch5": {
+        "spearman": -0.065875,
+        "kendall": -0.065597,
+        "n": 322
+      },
+      "ch3_ch4": {
+        "spearman": null,
+        "kendall": null,
+        "n": 236
+      },
+      "ch3_ch5": {
+        "spearman": 0.077511,
+        "kendall": 0.077369,
+        "n": 256
+      },
+      "ch4_ch5": {
+        "spearman": null,
+        "kendall": null,
+        "n": 302
+      }
+    }
+  },
+  "llama-3.1-405b": {
+    "mci_spearman": 0.109658,
+    "mci_kendall": 0.107865,
+    "n_valid_pairs_spearman": 10,
+    "n_valid_pairs_kendall": 10,
+    "n_questions_per_channel": {
+      "ch1": 330,
+      "ch2": 342,
+      "ch3": 274,
+      "ch4": 342,
+      "ch5": 342
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.287337,
+        "kendall": 0.279114,
+        "n": 330
+      },
+      "ch1_ch3": {
+        "spearman": 0.135572,
+        "kendall": 0.132237,
+        "n": 265
+      },
+      "ch1_ch4": {
+        "spearman": -0.062423,
+        "kendall": -0.06019,
+        "n": 330
+      },
+      "ch1_ch5": {
+        "spearman": 0.25215,
+        "kendall": 0.242951,
+        "n": 330
+      },
+      "ch2_ch3": {
+        "spearman": 0.451546,
+        "kendall": 0.451546,
+        "n": 274
+      },
+      "ch2_ch4": {
+        "spearman": 0.073779,
+        "kendall": 0.073225,
+        "n": 342
+      },
+      "ch2_ch5": {
+        "spearman": -0.018726,
+        "kendall": -0.018538,
+        "n": 342
+      },
+      "ch3_ch4": {
+        "spearman": 0.103968,
+        "kendall": 0.10325,
+        "n": 274
+      },
+      "ch3_ch5": {
+        "spearman": -0.05462,
+        "kendall": -0.054172,
+        "n": 274
+      },
+      "ch4_ch5": {
+        "spearman": -0.072003,
+        "kendall": -0.07077,
+        "n": 342
+      }
+    }
+  },
+  "llama-3.1-70b": {
+    "mci_spearman": 0.012391,
+    "mci_kendall": 0.011827,
+    "n_valid_pairs_spearman": 10,
+    "n_valid_pairs_kendall": 10,
+    "n_questions_per_channel": {
+      "ch1": 329,
+      "ch2": 342,
+      "ch3": 276,
+      "ch4": 342,
+      "ch5": 342
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.180503,
+        "kendall": 0.175702,
+        "n": 329
+      },
+      "ch1_ch3": {
+        "spearman": 0.017436,
+        "kendall": 0.01693,
+        "n": 267
+      },
+      "ch1_ch4": {
+        "spearman": -0.044025,
+        "kendall": -0.041846,
+        "n": 329
+      },
+      "ch1_ch5": {
+        "spearman": 0.081504,
+        "kendall": 0.078109,
+        "n": 329
+      },
+      "ch2_ch3": {
+        "spearman": -0.020249,
+        "kendall": -0.020249,
+        "n": 276
+      },
+      "ch2_ch4": {
+        "spearman": -0.064433,
+        "kendall": -0.063295,
+        "n": 342
+      },
+      "ch2_ch5": {
+        "spearman": -0.006493,
+        "kendall": -0.006413,
+        "n": 342
+      },
+      "ch3_ch4": {
+        "spearman": -0.060335,
+        "kendall": -0.059445,
+        "n": 276
+      },
+      "ch3_ch5": {
+        "spearman": 0.001227,
+        "kendall": 0.001214,
+        "n": 276
+      },
+      "ch4_ch5": {
+        "spearman": 0.038773,
+        "kendall": 0.037559,
+        "n": 342
+      }
+    }
+  },
+  "llama-3.1-8b": {
+    "mci_spearman": -0.030859,
+    "mci_kendall": -0.029712,
+    "n_valid_pairs_spearman": 10,
+    "n_valid_pairs_kendall": 10,
+    "n_questions_per_channel": {
+      "ch1": 330,
+      "ch2": 342,
+      "ch3": 277,
+      "ch4": 342,
+      "ch5": 342
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.021511,
+        "kendall": 0.021333,
+        "n": 330
+      },
+      "ch1_ch3": {
+        "spearman": -0.043429,
+        "kendall": -0.043063,
+        "n": 269
+      },
+      "ch1_ch4": {
+        "spearman": 0.040118,
+        "kendall": 0.039015,
+        "n": 330
+      },
+      "ch1_ch5": {
+        "spearman": -0.221648,
+        "kendall": -0.21585,
+        "n": 330
+      },
+      "ch2_ch3": {
+        "spearman": 0.111494,
+        "kendall": 0.111494,
+        "n": 277
+      },
+      "ch2_ch4": {
+        "spearman": 0.030483,
+        "kendall": 0.029813,
+        "n": 342
+      },
+      "ch2_ch5": {
+        "spearman": 0.047444,
+        "kendall": 0.046617,
+        "n": 342
+      },
+      "ch3_ch4": {
+        "spearman": -0.05723,
+        "kendall": -0.056054,
+        "n": 277
+      },
+      "ch3_ch5": {
+        "spearman": -0.107037,
+        "kendall": -0.105168,
+        "n": 277
+      },
+      "ch4_ch5": {
+        "spearman": -0.130301,
+        "kendall": -0.12526,
+        "n": 342
+      }
+    }
+  },
+  "mistral-large": {
+    "mci_spearman": 0.071349,
+    "mci_kendall": 0.067415,
+    "n_valid_pairs_spearman": 10,
+    "n_valid_pairs_kendall": 10,
+    "n_questions_per_channel": {
+      "ch1": 333,
+      "ch2": 342,
+      "ch3": 277,
+      "ch4": 342,
+      "ch5": 342
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.153962,
+        "kendall": 0.141715,
+        "n": 333
+      },
+      "ch1_ch3": {
+        "spearman": 0.18124,
+        "kendall": 0.167925,
+        "n": 268
+      },
+      "ch1_ch4": {
+        "spearman": -0.115268,
+        "kendall": -0.104466,
+        "n": 333
+      },
+      "ch1_ch5": {
+        "spearman": 0.191443,
+        "kendall": 0.170442,
+        "n": 333
+      },
+      "ch2_ch3": {
+        "spearman": 0.271254,
+        "kendall": 0.271254,
+        "n": 277
+      },
+      "ch2_ch4": {
+        "spearman": -0.053892,
+        "kendall": -0.053218,
+        "n": 342
+      },
+      "ch2_ch5": {
+        "spearman": 0.143514,
+        "kendall": 0.138286,
+        "n": 342
+      },
+      "ch3_ch4": {
+        "spearman": -0.125876,
+        "kendall": -0.124657,
+        "n": 277
+      },
+      "ch3_ch5": {
+        "spearman": 0.238123,
+        "kendall": 0.229171,
+        "n": 277
+      },
+      "ch4_ch5": {
+        "spearman": -0.171015,
+        "kendall": -0.162302,
+        "n": 342
+      }
+    }
+  },
+  "qwen-3-235b": {
+    "mci_spearman": 0.165107,
+    "mci_kendall": 0.158435,
+    "n_valid_pairs_spearman": 10,
+    "n_valid_pairs_kendall": 10,
+    "n_questions_per_channel": {
+      "ch1": 314,
+      "ch2": 308,
+      "ch3": 251,
+      "ch4": 323,
+      "ch5": 171
+    },
+    "pairwise_detail": {
+      "ch1_ch2": {
+        "spearman": 0.171365,
+        "kendall": 0.161137,
+        "n": 306
+      },
+      "ch1_ch3": {
+        "spearman": 0.395525,
+        "kendall": 0.375897,
+        "n": 237
+      },
+      "ch1_ch4": {
+        "spearman": 0.221131,
+        "kendall": 0.204141,
+        "n": 312
+      },
+      "ch1_ch5": {
+        "spearman": 0.187856,
+        "kendall": 0.175169,
+        "n": 171
+      },
+      "ch2_ch3": {
+        "spearman": 0.200764,
+        "kendall": 0.200764,
+        "n": 235
+      },
+      "ch2_ch4": {
+        "spearman": 0.16216,
+        "kendall": 0.159461,
+        "n": 308
+      },
+      "ch2_ch5": {
+        "spearman": -0.072134,
+        "kendall": -0.071267,
+        "n": 170
+      },
+      "ch3_ch4": {
+        "spearman": 0.180374,
+        "kendall": 0.177892,
+        "n": 241
+      },
+      "ch3_ch5": {
+        "spearman": 0.191651,
+        "kendall": 0.189733,
+        "n": 125
+      },
+      "ch4_ch5": {
+        "spearman": 0.012381,
+        "kendall": 0.011424,
+        "n": 171
+      }
+    }
+  }
+}

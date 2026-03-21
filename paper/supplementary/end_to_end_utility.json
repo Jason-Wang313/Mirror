@@ -1,0 +1,466 @@
+{
+  "C1": {
+    "total": 17698,
+    "autonomous": 15890,
+    "autonomous_correct": 5736,
+    "autonomous_incorrect": 10154,
+    "escalated": 1808,
+    "n_models": 10,
+    "per_model": {
+      "deepseek-r1": {
+        "total": 1944,
+        "autonomous": 1725,
+        "autonomous_correct": 1171,
+        "autonomous_incorrect": 554,
+        "escalated": 219,
+        "autonomy_rate": 0.8873,
+        "system_success_rate": 0.715,
+        "cfr": 0.285
+      },
+      "gemma-3-27b": {
+        "total": 1782,
+        "autonomous": 1549,
+        "autonomous_correct": 394,
+        "autonomous_incorrect": 1155,
+        "escalated": 233,
+        "autonomy_rate": 0.8692,
+        "system_success_rate": 0.3519,
+        "cfr": 0.6481
+      },
+      "gpt-oss-120b": {
+        "total": 1962,
+        "autonomous": 1962,
+        "autonomous_correct": 699,
+        "autonomous_incorrect": 1263,
+        "escalated": 0,
+        "autonomy_rate": 1.0,
+        "system_success_rate": 0.3563,
+        "cfr": 0.6437
+      },
+      "kimi-k2": {
+        "total": 1780,
+        "autonomous": 1483,
+        "autonomous_correct": 639,
+        "autonomous_incorrect": 844,
+        "escalated": 297,
+        "autonomy_rate": 0.8331,
+        "system_success_rate": 0.5258,
+        "cfr": 0.4742
+      },
+      "llama-3.1-405b": {
+        "total": 1962,
+        "autonomous": 1792,
+        "autonomous_correct": 687,
+        "autonomous_incorrect": 1105,
+        "escalated": 170,
+        "autonomy_rate": 0.9134,
+        "system_success_rate": 0.4368,
+        "cfr": 0.5632
+      },
+      "llama-3.1-70b": {
+        "total": 1962,
+        "autonomous": 1777,
+        "autonomous_correct": 791,
+        "autonomous_incorrect": 986,
+        "escalated": 185,
+        "autonomy_rate": 0.9057,
+        "system_success_rate": 0.4975,
+        "cfr": 0.5025
+      },
+      "llama-3.1-8b": {
+        "total": 1962,
+        "autonomous": 1651,
+        "autonomous_correct": 237,
+        "autonomous_incorrect": 1414,
+        "escalated": 311,
+        "autonomy_rate": 0.8415,
+        "system_success_rate": 0.2793,
+        "cfr": 0.7207
+      },
+      "llama-3.3-70b": {
+        "total": 1782,
+        "autonomous": 1662,
+        "autonomous_correct": 677,
+        "autonomous_incorrect": 985,
+        "escalated": 120,
+        "autonomy_rate": 0.9327,
+        "system_success_rate": 0.4473,
+        "cfr": 0.5527
+      },
+      "mistral-large": {
+        "total": 780,
+        "autonomous": 718,
+        "autonomous_correct": 110,
+        "autonomous_incorrect": 608,
+        "escalated": 62,
+        "autonomy_rate": 0.9205,
+        "system_success_rate": 0.2205,
+        "cfr": 0.7795
+      },
+      "phi-4": {
+        "total": 1782,
+        "autonomous": 1571,
+        "autonomous_correct": 331,
+        "autonomous_incorrect": 1240,
+        "escalated": 211,
+        "autonomy_rate": 0.8816,
+        "system_success_rate": 0.3042,
+        "cfr": 0.6958
+      }
+    },
+    "mean_autonomy_rate": 0.8985,
+    "mean_system_success_rate": 0.4134,
+    "mean_cfr": 0.5866,
+    "overall_autonomy_rate": 0.8978,
+    "overall_system_success_rate": 0.4263,
+    "overall_cfr": 0.5737
+  },
+  "C2": {
+    "total": 14410,
+    "autonomous": 12207,
+    "autonomous_correct": 4473,
+    "autonomous_incorrect": 7734,
+    "escalated": 2203,
+    "n_models": 10,
+    "per_model": {
+      "deepseek-r1": {
+        "total": 780,
+        "autonomous": 544,
+        "autonomous_correct": 316,
+        "autonomous_incorrect": 228,
+        "escalated": 236,
+        "autonomy_rate": 0.6974,
+        "system_success_rate": 0.7077,
+        "cfr": 0.2923
+      },
+      "gemma-3-27b": {
+        "total": 1782,
+        "autonomous": 1514,
+        "autonomous_correct": 447,
+        "autonomous_incorrect": 1067,
+        "escalated": 268,
+        "autonomy_rate": 0.8496,
+        "system_success_rate": 0.4012,
+        "cfr": 0.5988
+      },
+      "gpt-oss-120b": {
+        "total": 1346,
+        "autonomous": 1346,
+        "autonomous_correct": 538,
+        "autonomous_incorrect": 808,
+        "escalated": 0,
+        "autonomy_rate": 1.0,
+        "system_success_rate": 0.3997,
+        "cfr": 0.6003
+      },
+      "kimi-k2": {
+        "total": 1600,
+        "autonomous": 1369,
+        "autonomous_correct": 640,
+        "autonomous_incorrect": 729,
+        "escalated": 231,
+        "autonomy_rate": 0.8556,
+        "system_success_rate": 0.5444,
+        "cfr": 0.4556
+      },
+      "llama-3.1-405b": {
+        "total": 1286,
+        "autonomous": 848,
+        "autonomous_correct": 385,
+        "autonomous_incorrect": 463,
+        "escalated": 438,
+        "autonomy_rate": 0.6594,
+        "system_success_rate": 0.64,
+        "cfr": 0.36
+      },
+      "llama-3.1-70b": {
+        "total": 1394,
+        "autonomous": 1250,
+        "autonomous_correct": 562,
+        "autonomous_incorrect": 688,
+        "escalated": 144,
+        "autonomy_rate": 0.8967,
+        "system_success_rate": 0.5065,
+        "cfr": 0.4935
+      },
+      "llama-3.1-8b": {
+        "total": 1294,
+        "autonomous": 882,
+        "autonomous_correct": 197,
+        "autonomous_incorrect": 685,
+        "escalated": 412,
+        "autonomy_rate": 0.6816,
+        "system_success_rate": 0.4706,
+        "cfr": 0.5294
+      },
+      "llama-3.3-70b": {
+        "total": 1782,
+        "autonomous": 1628,
+        "autonomous_correct": 678,
+        "autonomous_incorrect": 950,
+        "escalated": 154,
+        "autonomy_rate": 0.9136,
+        "system_success_rate": 0.4669,
+        "cfr": 0.5331
+      },
+      "mistral-large": {
+        "total": 1364,
+        "autonomous": 1185,
+        "autonomous_correct": 305,
+        "autonomous_incorrect": 880,
+        "escalated": 179,
+        "autonomy_rate": 0.8688,
+        "system_success_rate": 0.3548,
+        "cfr": 0.6452
+      },
+      "phi-4": {
+        "total": 1782,
+        "autonomous": 1641,
+        "autonomous_correct": 405,
+        "autonomous_incorrect": 1236,
+        "escalated": 141,
+        "autonomy_rate": 0.9209,
+        "system_success_rate": 0.3064,
+        "cfr": 0.6936
+      }
+    },
+    "mean_autonomy_rate": 0.8344,
+    "mean_system_success_rate": 0.4798,
+    "mean_cfr": 0.5202,
+    "overall_autonomy_rate": 0.8471,
+    "overall_system_success_rate": 0.4633,
+    "overall_cfr": 0.5367
+  },
+  "C3": {
+    "total": 16268,
+    "autonomous": 12450,
+    "autonomous_correct": 4689,
+    "autonomous_incorrect": 7761,
+    "escalated": 3818,
+    "n_models": 10,
+    "per_model": {
+      "deepseek-r1": {
+        "total": 1752,
+        "autonomous": 1134,
+        "autonomous_correct": 780,
+        "autonomous_incorrect": 354,
+        "escalated": 618,
+        "autonomy_rate": 0.6473,
+        "system_success_rate": 0.7979,
+        "cfr": 0.2021
+      },
+      "gemma-3-27b": {
+        "total": 1782,
+        "autonomous": 1534,
+        "autonomous_correct": 477,
+        "autonomous_incorrect": 1057,
+        "escalated": 248,
+        "autonomy_rate": 0.8608,
+        "system_success_rate": 0.4068,
+        "cfr": 0.5932
+      },
+      "gpt-oss-120b": {
+        "total": 1454,
+        "autonomous": 1128,
+        "autonomous_correct": 372,
+        "autonomous_incorrect": 756,
+        "escalated": 326,
+        "autonomy_rate": 0.7758,
+        "system_success_rate": 0.4801,
+        "cfr": 0.5199
+      },
+      "kimi-k2": {
+        "total": 1738,
+        "autonomous": 1409,
+        "autonomous_correct": 624,
+        "autonomous_incorrect": 785,
+        "escalated": 329,
+        "autonomy_rate": 0.8107,
+        "system_success_rate": 0.5483,
+        "cfr": 0.4517
+      },
+      "llama-3.1-405b": {
+        "total": 1560,
+        "autonomous": 1120,
+        "autonomous_correct": 415,
+        "autonomous_incorrect": 705,
+        "escalated": 440,
+        "autonomy_rate": 0.7179,
+        "system_success_rate": 0.5481,
+        "cfr": 0.4519
+      },
+      "llama-3.1-70b": {
+        "total": 1474,
+        "autonomous": 1066,
+        "autonomous_correct": 474,
+        "autonomous_incorrect": 592,
+        "escalated": 408,
+        "autonomy_rate": 0.7232,
+        "system_success_rate": 0.5984,
+        "cfr": 0.4016
+      },
+      "llama-3.1-8b": {
+        "total": 1578,
+        "autonomous": 1070,
+        "autonomous_correct": 248,
+        "autonomous_incorrect": 822,
+        "escalated": 508,
+        "autonomy_rate": 0.6781,
+        "system_success_rate": 0.4791,
+        "cfr": 0.5209
+      },
+      "llama-3.3-70b": {
+        "total": 1782,
+        "autonomous": 1461,
+        "autonomous_correct": 612,
+        "autonomous_incorrect": 849,
+        "escalated": 321,
+        "autonomy_rate": 0.8199,
+        "system_success_rate": 0.5236,
+        "cfr": 0.4764
+      },
+      "mistral-large": {
+        "total": 1366,
+        "autonomous": 962,
+        "autonomous_correct": 215,
+        "autonomous_incorrect": 747,
+        "escalated": 404,
+        "autonomy_rate": 0.7042,
+        "system_success_rate": 0.4531,
+        "cfr": 0.5469
+      },
+      "phi-4": {
+        "total": 1782,
+        "autonomous": 1566,
+        "autonomous_correct": 472,
+        "autonomous_incorrect": 1094,
+        "escalated": 216,
+        "autonomy_rate": 0.8788,
+        "system_success_rate": 0.3861,
+        "cfr": 0.6139
+      }
+    },
+    "mean_autonomy_rate": 0.7617,
+    "mean_system_success_rate": 0.5222,
+    "mean_cfr": 0.4778,
+    "overall_autonomy_rate": 0.7653,
+    "overall_system_success_rate": 0.5229,
+    "overall_cfr": 0.4771
+  },
+  "C4": {
+    "total": 12074,
+    "autonomous": 5517,
+    "autonomous_correct": 2534,
+    "autonomous_incorrect": 2983,
+    "escalated": 6557,
+    "n_models": 10,
+    "per_model": {
+      "deepseek-r1": {
+        "total": 1286,
+        "autonomous": 410,
+        "autonomous_correct": 281,
+        "autonomous_incorrect": 129,
+        "escalated": 876,
+        "autonomy_rate": 0.3188,
+        "system_success_rate": 0.8997,
+        "cfr": 0.1003
+      },
+      "gemma-3-27b": {
+        "total": 1144,
+        "autonomous": 903,
+        "autonomous_correct": 349,
+        "autonomous_incorrect": 554,
+        "escalated": 241,
+        "autonomy_rate": 0.7893,
+        "system_success_rate": 0.5157,
+        "cfr": 0.4843
+      },
+      "gpt-oss-120b": {
+        "total": 1308,
+        "autonomous": 366,
+        "autonomous_correct": 161,
+        "autonomous_incorrect": 205,
+        "escalated": 942,
+        "autonomy_rate": 0.2798,
+        "system_success_rate": 0.8433,
+        "cfr": 0.1567
+      },
+      "kimi-k2": {
+        "total": 1188,
+        "autonomous": 886,
+        "autonomous_correct": 551,
+        "autonomous_incorrect": 335,
+        "escalated": 302,
+        "autonomy_rate": 0.7458,
+        "system_success_rate": 0.718,
+        "cfr": 0.282
+      },
+      "llama-3.1-405b": {
+        "total": 1308,
+        "autonomous": 302,
+        "autonomous_correct": 162,
+        "autonomous_incorrect": 140,
+        "escalated": 1006,
+        "autonomy_rate": 0.2309,
+        "system_success_rate": 0.893,
+        "cfr": 0.107
+      },
+      "llama-3.1-70b": {
+        "total": 1308,
+        "autonomous": 435,
+        "autonomous_correct": 225,
+        "autonomous_incorrect": 210,
+        "escalated": 873,
+        "autonomy_rate": 0.3326,
+        "system_success_rate": 0.8394,
+        "cfr": 0.1606
+      },
+      "llama-3.1-8b": {
+        "total": 1308,
+        "autonomous": 125,
+        "autonomous_correct": 20,
+        "autonomous_incorrect": 105,
+        "escalated": 1183,
+        "autonomy_rate": 0.0956,
+        "system_success_rate": 0.9197,
+        "cfr": 0.0803
+      },
+      "llama-3.3-70b": {
+        "total": 1144,
+        "autonomous": 1008,
+        "autonomous_correct": 463,
+        "autonomous_incorrect": 545,
+        "escalated": 136,
+        "autonomy_rate": 0.8811,
+        "system_success_rate": 0.5236,
+        "cfr": 0.4764
+      },
+      "mistral-large": {
+        "total": 934,
+        "autonomous": 130,
+        "autonomous_correct": 50,
+        "autonomous_incorrect": 80,
+        "escalated": 804,
+        "autonomy_rate": 0.1392,
+        "system_success_rate": 0.9143,
+        "cfr": 0.0857
+      },
+      "phi-4": {
+        "total": 1146,
+        "autonomous": 952,
+        "autonomous_correct": 272,
+        "autonomous_incorrect": 680,
+        "escalated": 194,
+        "autonomy_rate": 0.8307,
+        "system_success_rate": 0.4066,
+        "cfr": 0.5934
+      }
+    },
+    "mean_autonomy_rate": 0.4644,
+    "mean_system_success_rate": 0.7473,
+    "mean_cfr": 0.2527,
+    "overall_autonomy_rate": 0.4569,
+    "overall_system_success_rate": 0.7529,
+    "overall_cfr": 0.2471
+  }
+}

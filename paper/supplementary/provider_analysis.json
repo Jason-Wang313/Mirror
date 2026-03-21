@@ -1,0 +1,57 @@
+{
+  "groups": {
+    "Meta (LLaMA)": {
+      "models": {
+        "llama-3.1-8b": 0.7866,
+        "llama-3.1-70b": 0.5501,
+        "llama-3.1-405b": 0.6133,
+        "llama-3.3-70b": 0.5473
+      },
+      "cfr_values": [
+        0.7866,
+        0.5501,
+        0.6133,
+        0.5473
+      ],
+      "n": 4,
+      "mean_cfr": 0.6243
+    },
+    "Non-Meta NIM": {
+      "models": {
+        "gemma-3-27b": 0.6875,
+        "gpt-oss-120b": 0.6568,
+        "kimi-k2": 0.625,
+        "mistral-large": 0.9074,
+        "phi-4": 0.7211
+      },
+      "cfr_values": [
+        0.6875,
+        0.6568,
+        0.625,
+        0.9074,
+        0.7211
+      ],
+      "n": 5,
+      "mean_cfr": 0.7196
+    },
+    "DeepSeek": {
+      "models": {
+        "deepseek-r1": 0.3873
+      },
+      "cfr_values": [
+        0.3873
+      ],
+      "n": 1,
+      "mean_cfr": 0.3873
+    }
+  },
+  "mann_whitney_test": {
+    "test": "Mann-Whitney U",
+    "U_statistic": 4.0,
+    "p_value": 0.1416,
+    "meta_n": 4,
+    "non_meta_n": 5,
+    "significant_at_05": false,
+    "interpretation": "No significant difference in CFR between Meta and Non-Meta groups (p >= 0.05)"
+  }
+}
