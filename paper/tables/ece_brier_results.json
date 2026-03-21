@@ -1,0 +1,192 @@
+{
+  "per_model": {
+    "deepseek-r1": {
+      "n_records": 955,
+      "ece": 0.4387,
+      "brier_score": 0.4204,
+      "overconfidence": 0.4385,
+      "mean_confidence": 0.9254,
+      "mean_accuracy": 0.4869,
+      "mirror_gap": 0.1387
+    },
+    "deepseek-v3": {
+      "n_records": 1427,
+      "ece": 0.2892,
+      "brier_score": 0.2906,
+      "overconfidence": 0.2865,
+      "mean_confidence": 0.8997,
+      "mean_accuracy": 0.6132,
+      "mirror_gap": 0.2672
+    },
+    "gemini-2.5-pro": {
+      "n_records": 166,
+      "ece": 0.3675,
+      "brier_score": 0.3664,
+      "overconfidence": 0.3675,
+      "mean_confidence": 0.994,
+      "mean_accuracy": 0.6265,
+      "mirror_gap": 0.0743
+    },
+    "gemma-3-12b": {
+      "n_records": 809,
+      "ece": 0.3199,
+      "brier_score": 0.2937,
+      "overconfidence": 0.2766,
+      "mean_confidence": 0.8576,
+      "mean_accuracy": 0.581,
+      "mirror_gap": 0.16
+    },
+    "gemma-3-27b": {
+      "n_records": 792,
+      "ece": 0.1992,
+      "brier_score": 0.2239,
+      "overconfidence": 0.198,
+      "mean_confidence": 0.8861,
+      "mean_accuracy": 0.6881,
+      "mirror_gap": 0.1497
+    },
+    "gpt-oss-120b": {
+      "n_records": 1598,
+      "ece": 0.4386,
+      "brier_score": 0.41,
+      "overconfidence": 0.4386,
+      "mean_confidence": 0.7859,
+      "mean_accuracy": 0.3473,
+      "mirror_gap": 0.1612
+    },
+    "kimi-k2": {
+      "n_records": 1034,
+      "ece": 0.2368,
+      "brier_score": 0.2388,
+      "overconfidence": 0.2356,
+      "mean_confidence": 0.9522,
+      "mean_accuracy": 0.7166,
+      "mirror_gap": 0.1914
+    },
+    "llama-3.1-405b": {
+      "n_records": 991,
+      "ece": 0.4904,
+      "brier_score": 0.4583,
+      "overconfidence": 0.4858,
+      "mean_confidence": 0.8934,
+      "mean_accuracy": 0.4077,
+      "mirror_gap": 0.1021
+    },
+    "llama-3.1-70b": {
+      "n_records": 1009,
+      "ece": 0.3949,
+      "brier_score": 0.3866,
+      "overconfidence": 0.3949,
+      "mean_confidence": 0.83,
+      "mean_accuracy": 0.4351,
+      "mirror_gap": 0.2125
+    },
+    "llama-3.1-8b": {
+      "n_records": 1114,
+      "ece": 0.1563,
+      "brier_score": 0.2766,
+      "overconfidence": 0.1563,
+      "mean_confidence": 0.5414,
+      "mean_accuracy": 0.3851,
+      "mirror_gap": 0.1865
+    },
+    "llama-3.2-3b": {
+      "n_records": 520,
+      "ece": 0.0831,
+      "brier_score": 0.2501,
+      "overconfidence": -0.0785,
+      "mean_confidence": 0.5023,
+      "mean_accuracy": 0.5808,
+      "mirror_gap": 0.1793
+    },
+    "llama-3.3-70b": {
+      "n_records": 1642,
+      "ece": 0.1139,
+      "brier_score": 0.1653,
+      "overconfidence": 0.1133,
+      "mean_confidence": 0.899,
+      "mean_accuracy": 0.7856,
+      "mirror_gap": 0.2673
+    },
+    "mistral-large": {
+      "n_records": 1005,
+      "ece": 0.3772,
+      "brier_score": 0.3936,
+      "overconfidence": 0.374,
+      "mean_confidence": 0.78,
+      "mean_accuracy": 0.406,
+      "mirror_gap": 0.113
+    },
+    "mixtral-8x22b": {
+      "n_records": 520,
+      "ece": 0.365,
+      "brier_score": 0.3573,
+      "overconfidence": 0.365,
+      "mean_confidence": 0.9592,
+      "mean_accuracy": 0.5942,
+      "mirror_gap": 0.1363
+    },
+    "phi-4": {
+      "n_records": 265,
+      "ece": 0.1868,
+      "brier_score": 0.2707,
+      "overconfidence": 0.0011,
+      "mean_confidence": 0.6879,
+      "mean_accuracy": 0.6868,
+      "mirror_gap": 0.222
+    },
+    "qwen-3-235b": {
+      "n_records": 1513,
+      "ece": 0.5263,
+      "brier_score": 0.5162,
+      "overconfidence": 0.5241,
+      "mean_confidence": 0.9001,
+      "mean_accuracy": 0.3761,
+      "mirror_gap": null
+    },
+    "qwen3-235b-nim": {
+      "n_records": 3,
+      "ece": 0.3333,
+      "brier_score": 0.3333,
+      "overconfidence": 0.3333,
+      "mean_confidence": 1.0,
+      "mean_accuracy": 0.6667,
+      "mirror_gap": null
+    },
+    "qwen3-next-80b": {
+      "n_records": 525,
+      "ece": 0.3333,
+      "brier_score": 0.3227,
+      "overconfidence": 0.3333,
+      "mean_confidence": 0.9714,
+      "mean_accuracy": 0.6381,
+      "mirror_gap": 0.1517
+    }
+  },
+  "correlations": {
+    "mirror_gap_vs_ece": {
+      "spearman_rho": -0.5941,
+      "p_value": 0.0057,
+      "n_models": 16
+    },
+    "mirror_gap_vs_brier": {
+      "spearman_rho": -0.6029,
+      "p_value": 0.0047,
+      "n_models": 16
+    },
+    "mirror_gap_vs_overconfidence": {
+      "spearman_rho": -0.5647,
+      "p_value": 0.0105,
+      "n_models": 16
+    }
+  },
+  "methodology": {
+    "wager_scale": "1-10 (normalized to 0.1-1.0 by dividing by 10)",
+    "ece_bins": 10,
+    "ece_formula": "sum((|bin|/N) * |accuracy(bin) - mean_confidence(bin)|)",
+    "brier_formula": "mean((p_hat - y)^2)",
+    "overconfidence_formula": "mean(p_hat) - mean(y)",
+    "filter": "channel==1, parsed.bet is not None, answer_correct is not None",
+    "source_files": "all exp1_*_results.jsonl and exp1_*_shard.jsonl (excluding counterfactual)"
+  }
+}
