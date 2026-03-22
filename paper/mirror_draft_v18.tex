@@ -472,10 +472,10 @@ reflects insufficient composite-task diversity (mean 94 items per domain pair
 across 13 of 28 pairs; see Section~\ref{sec:discussion}). The \CCE{} result is the more reliable measure: models that calibrate their
 confidence in individual domains fail to compose those calibrations for
 multi-domain tasks. An expanded v2 evaluation with 112 composite tasks covering all 28 domain pairs
-confirms these results: CCE ranges from 0.434 to 0.758 across 11 models (vs.\
+confirms these results: CCE ranges from 0.434 to 0.758 across 12 models (vs.\
 0.500--0.943 on the original 25-item set), with all models showing mean
-confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{Two models (deepseek-r1, deepseek-v3) are excluded from the v2 evaluation due to API balance exhaustion during the expanded run (0\% valid response rate). Two additional models (phi-4, qwen3-next-80b) could not be evaluated due to API endpoint unavailability at submission time. All four models are included in the v1 evaluation.}
-The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
+confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{Two models (deepseek-r1, deepseek-v3) are excluded from the v2 evaluation due to API balance exhaustion during the expanded run (0\% valid response rate). One additional model (phi-4) could not be evaluated due to API endpoint unavailability at submission time. All three models are included in the v1 evaluation.}
+The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 12 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
 
 \subsection{Finding 2: The Knowing-Doing Gap}
 
