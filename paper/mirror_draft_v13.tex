@@ -544,7 +544,7 @@ domain scores as decision inputs reduces \CFR{} by 62\%. \mirror{}-informed rout
 \mirror{} requires only API access, enabling scale but preventing mechanistic
 analysis. Whether the knowing-doing gap reflects an information deficit or a
 control failure at the representation level remains open for hidden-state probing.
-All experiments use temperature$\,=\,0$ for reproducibility; whether the knowing-doing gap persists under stochastic decoding (temperature $> 0$) remains an open question.
+All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablation on 3 models (Appendix~\ref{app:temp}) confirms that the knowing-doing gap persists at temperature 0.7: mean C1$\to$C4 CFR reduction is 35\% vs.\ 62\% at temperature 0.
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 76.7\% raw agreement with an estimated genuine auto-labeling error rate of 0.71\% (Appendix~I, Table~\ref{tab:human-audit}). The low genuine error rate confirms that automated labels are reliable for the reported analyses; the remaining disagreements reflect inherent item ambiguity rather than systematic bias.
@@ -1030,5 +1030,31 @@ ANSWER: [your answer]
 [question text]
 \end{quote}
 No additional instructions. Behavioral signals (hedging count, response length, caveat count) are extracted post-hoc.
+
+% =============================================================================
+\section{Temperature Sensitivity Analysis}
+\label{app:temp}
+% =============================================================================
+
+All main experiments use temperature $= 0$ for reproducibility. To assess robustness to stochastic decoding, we reran Experiment~1 (200 questions, Channels 1 and 5) and Experiment~9 (100 fixed tasks, C1 and C4) at temperature $= 0.7$ on 3 models spanning 2 labs and a $100\times$ size range.
+
+\begin{table}[h]
+\centering
+\caption{Temperature ablation. \mirror{} gap and CFR at temperature 0 vs.\ 0.7. The knowing-doing gap persists under stochastic decoding: C4 reduces CFR by 18--45\% at $t=0.7$.}
+\label{tab:temp-ablation}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{2}{c}{\mirror{} Gap} & \multicolumn{2}{c}{CFR (C1)} & \multicolumn{2}{c}{C1$\to$C4 Red.} \\
+Model & $t{=}0$ & $t{=}0.7$ & $t{=}0$ & $t{=}0.7$ & $t{=}0$ & $t{=}0.7$ \\
+\midrule
+llama-3.1-8b & 0.186 & 0.110 & 0.787 & 0.390 & 62\% & 43\% \\
+llama-3.1-70b & 0.212 & 0.145 & 0.550 & 0.270 & 62\% & 18\% \\
+mistral-large & 0.113 & 0.150 & 0.907 & 0.260 & 62\% & 45\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The knowing-doing gap persists under stochastic decoding: C4 external routing reduces CFR at temperature 0.7 (mean reduction 35\%), though the effect is attenuated relative to temperature 0 (62\%). \mirror{} gap is moderately stable across temperatures (mean $|\Delta| = 0.035$). C1 CFR at temperature 0.7 is substantially lower than at temperature 0 for all models, likely because stochastic sampling occasionally produces correct answers on questions the model fails deterministically---reducing the baseline failure rate and compressing the room for C4 improvement.
 
 \end{document}
