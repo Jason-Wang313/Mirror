@@ -76,7 +76,7 @@ class ProviderRateLimiter:
         """Initialize with default rate limits per provider."""
         self.limiters = {
             "nvidia_nim": RateLimiter(requests_per_minute=30),
-            "google_ai": RateLimiter(requests_per_minute=30),
+            "google_ai": RateLimiter(requests_per_minute=60),
             "deepseek": RateLimiter(requests_per_minute=30),
         }
 

@@ -83,10 +83,17 @@ class GoogleAIProvider:
         try:
             system_instruction, contents = self._convert_messages(messages)
 
+            # Gemini 2.5+ uses internal thinking tokens that consume output budget.
+            effective_max_tokens = max(max_tokens, 4096)
+            thinking_cfg = None
+            if "2.5" in model_id or "2.0-flash-thinking" in model_id:
+                thinking_cfg = types.ThinkingConfig(thinking_budget=1024)
+
             config = types.GenerateContentConfig(
                 temperature=temperature,
-                max_output_tokens=max_tokens,
+                max_output_tokens=effective_max_tokens,
                 system_instruction=system_instruction if system_instruction else None,
+                thinking_config=thinking_cfg,
             )
 
             response = await self.client.aio.models.generate_content(

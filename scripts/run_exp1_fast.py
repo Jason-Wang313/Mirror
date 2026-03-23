@@ -80,6 +80,7 @@ MODEL_ROUTING = {
     "kimi-k2":        ("groq",     "moonshotai/kimi-k2-instruct",            16),
     "gemma-3-27b":    ("nim",      "google/gemma-3-27b-it",                  6),
     "qwen3-235b-nim": ("nim",      "qwen/qwen3.5-397b-a17b",                 4),
+    "gemini-2.5-pro":  ("google_ai", "gemini-2.5-pro",                        12),
 }
 
 MAX_RETRIES = 4
@@ -104,6 +105,9 @@ def get_provider(provider_type: str):
     elif provider_type == "groq":
         from mirror.api.providers.groq import GroqProvider
         p = GroqProvider()
+    elif provider_type == "google_ai":
+        from mirror.api.providers.google_ai import GoogleAIProvider
+        p = GoogleAIProvider()
     else:
         raise ValueError(f"Unknown provider: {provider_type}")
     _providers[provider_type] = p

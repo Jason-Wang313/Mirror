@@ -1,0 +1,36 @@
+{
+  "gemini-2.5-pro": {
+    "arithmetic": {
+      "wagering_acc": 0.92,
+      "natural_acc": 0.62
+    },
+    "spatial": {
+      "wagering_acc": 0.94,
+      "natural_acc": 0.88
+    },
+    "temporal": {
+      "wagering_acc": 0.66,
+      "natural_acc": 0.6
+    },
+    "linguistic": {
+      "wagering_acc": 0.52,
+      "natural_acc": 0.4791666666666667
+    },
+    "logical": {
+      "wagering_acc": 0.66,
+      "natural_acc": 0.42
+    },
+    "social": {
+      "wagering_acc": 0.5918367346938775,
+      "natural_acc": 0.38095238095238093
+    },
+    "factual": {
+      "wagering_acc": 0.88,
+      "natural_acc": 0.72
+    },
+    "procedural": {
+      "wagering_acc": 0.1,
+      "natural_acc": 0.0
+    }
+  }
+}

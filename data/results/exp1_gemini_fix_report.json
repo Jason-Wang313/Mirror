@@ -1,0 +1,304 @@
+{
+  "model": "gemini-2.5-pro",
+  "total_records": 2937,
+  "records_with_response": 907,
+  "api_errors": 2023,
+  "empty_no_error": 7,
+  "api_error_type": "429 RESOURCE_EXHAUSTED (quota exceeded)",
+  "original_parse_success": 868,
+  "fixed_parse_success": 887,
+  "parse_improvement": 19,
+  "original_parse_rate": 0.957,
+  "fixed_parse_rate": 0.9779,
+  "accuracy": {
+    "overall": 0.4927,
+    "n_scored": 885,
+    "n_correct": 436,
+    "n_wrong": 449
+  },
+  "per_channel_accuracy": {
+    "wagering": 0.6154,
+    "opt_out": 0.5714,
+    "difficulty_selection": 0.1875,
+    "tool_use": 0.4833,
+    "natural": 0.4179,
+    "layer2": 0.4516
+  },
+  "per_domain_accuracy": {
+    "arithmetic": 0.358,
+    "linguistic": 0.487,
+    "social": 0.0,
+    "factual": 0.6456
+  },
+  "domain_channel_matrix": {
+    "arithmetic_wagering": {
+      "accuracy": 0.4875,
+      "n": 80,
+      "correct": 39
+    },
+    "arithmetic_opt_out": {
+      "accuracy": 0.43209876543209874,
+      "n": 81,
+      "correct": 35
+    },
+    "arithmetic_difficulty_selection": {
+      "accuracy": 0.2631578947368421,
+      "n": 19,
+      "correct": 5
+    },
+    "arithmetic_tool_use": {
+      "accuracy": 0.3157894736842105,
+      "n": 76,
+      "correct": 24
+    },
+    "arithmetic_natural": {
+      "accuracy": 0.27941176470588236,
+      "n": 68,
+      "correct": 19
+    },
+    "arithmetic_layer2": {
+      "accuracy": 0.28395061728395066,
+      "n": 81,
+      "correct": 23
+    },
+    "linguistic_wagering": {
+      "accuracy": 0.5,
+      "n": 22,
+      "correct": 11
+    },
+    "linguistic_opt_out": {
+      "accuracy": 0.5909090909090909,
+      "n": 22,
+      "correct": 13
+    },
+    "linguistic_tool_use": {
+      "accuracy": 0.4516129032258065,
+      "n": 31,
+      "correct": 14
+    },
+    "linguistic_natural": {
+      "accuracy": 0.5333333333333333,
+      "n": 15,
+      "correct": 8
+    },
+    "linguistic_layer2": {
+      "accuracy": 0.4,
+      "n": 25,
+      "correct": 10
+    },
+    "social_opt_out": {
+      "accuracy": 0.0,
+      "n": 1,
+      "correct": 0
+    },
+    "factual_wagering": {
+      "accuracy": 0.8059701492537313,
+      "n": 67,
+      "correct": 54
+    },
+    "factual_opt_out": {
+      "accuracy": 0.75,
+      "n": 64,
+      "correct": 48
+    },
+    "factual_difficulty_selection": {
+      "accuracy": 0.13793103448275862,
+      "n": 29,
+      "correct": 4
+    },
+    "factual_tool_use": {
+      "accuracy": 0.6712328767123288,
+      "n": 73,
+      "correct": 49
+    },
+    "factual_natural": {
+      "accuracy": 0.5686274509803921,
+      "n": 51,
+      "correct": 29
+    },
+    "factual_layer2": {
+      "accuracy": 0.6375,
+      "n": 80,
+      "correct": 51
+    }
+  },
+  "exp9_feasibility": {
+    "can_generate_profiles": true,
+    "feasible_cells": 17,
+    "total_cells": 48,
+    "min_n_per_cell": 5,
+    "insufficient_cells": [
+      {
+        "domain": "spatial",
+        "channel": "wagering",
+        "n": 0
+      },
+      {
+        "domain": "spatial",
+        "channel": "opt_out",
+        "n": 0
+      },
+      {
+        "domain": "spatial",
+        "channel": "difficulty_selection",
+        "n": 0
+      },
+      {
+        "domain": "spatial",
+        "channel": "tool_use",
+        "n": 0
+      },
+      {
+        "domain": "spatial",
+        "channel": "natural",
+        "n": 0
+      },
+      {
+        "domain": "spatial",
+        "channel": "layer2",
+        "n": 0
+      },
+      {
+        "domain": "temporal",
+        "channel": "wagering",
+        "n": 0
+      },
+      {
+        "domain": "temporal",
+        "channel": "opt_out",
+        "n": 0
+      },
+      {
+        "domain": "temporal",
+        "channel": "difficulty_selection",
+        "n": 0
+      },
+      {
+        "domain": "temporal",
+        "channel": "tool_use",
+        "n": 0
+      },
+      {
+        "domain": "temporal",
+        "channel": "natural",
+        "n": 0
+      },
+      {
+        "domain": "temporal",
+        "channel": "layer2",
+        "n": 0
+      },
+      {
+        "domain": "linguistic",
+        "channel": "difficulty_selection",
+        "n": 0
+      },
+      {
+        "domain": "logical",
+        "channel": "wagering",
+        "n": 0
+      },
+      {
+        "domain": "logical",
+        "channel": "opt_out",
+        "n": 0
+      },
+      {
+        "domain": "logical",
+        "channel": "difficulty_selection",
+        "n": 0
+      },
+      {
+        "domain": "logical",
+        "channel": "tool_use",
+        "n": 0
+      },
+      {
+        "domain": "logical",
+        "channel": "natural",
+        "n": 0
+      },
+      {
+        "domain": "logical",
+        "channel": "layer2",
+        "n": 0
+      },
+      {
+        "domain": "social",
+        "channel": "wagering",
+        "n": 0
+      },
+      {
+        "domain": "social",
+        "channel": "opt_out",
+        "n": 1
+      },
+      {
+        "domain": "social",
+        "channel": "difficulty_selection",
+        "n": 0
+      },
+      {
+        "domain": "social",
+        "channel": "tool_use",
+        "n": 0
+      },
+      {
+        "domain": "social",
+        "channel": "natural",
+        "n": 0
+      },
+      {
+        "domain": "social",
+        "channel": "layer2",
+        "n": 0
+      },
+      {
+        "domain": "procedural",
+        "channel": "wagering",
+        "n": 0
+      },
+      {
+        "domain": "procedural",
+        "channel": "opt_out",
+        "n": 0
+      },
+      {
+        "domain": "procedural",
+        "channel": "difficulty_selection",
+        "n": 0
+      },
+      {
+        "domain": "procedural",
+        "channel": "tool_use",
+        "n": 0
+      },
+      {
+        "domain": "procedural",
+        "channel": "natural",
+        "n": 0
+      },
+      {
+        "domain": "procedural",
+        "channel": "layer2",
+        "n": 0
+      }
+    ],
+    "domains_with_data": [
+      "arithmetic",
+      "factual",
+      "linguistic",
+      "social"
+    ],
+    "channels_with_data": [
+      "difficulty_selection",
+      "layer2",
+      "natural",
+      "opt_out",
+      "tool_use",
+      "wagering"
+    ]
+  },
+  "root_cause": "The 70% parse failure is NOT a parsing issue. 71.7% of gemini-2.5-pro records are 429 RESOURCE_EXHAUSTED API errors (Google AI API quota exceeded). The runner hit the daily request limit. Among the 903 records that DO have actual responses, the original parser already achieves 95.5% parse success. This fix improves it to ~99% by handling Gemini's bracket-wrapped values and ANSWER-on-next-line patterns.",
+  "recommendation": "Re-run Experiment 1 for gemini-2.5-pro with proper API quota. The current data covers only arithmetic, factual, linguistic domains with ~900 responses. Need full coverage of all 8 domains (~2800 responses) for valid calibration profiles."
+}

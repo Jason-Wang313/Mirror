@@ -361,7 +361,7 @@ miscalibrated.
 
 \paragraph{Experiment 9: The Knowing-Doing Gap (Level~3$+$).}
 597 agentic tasks (297 fixed + 300 tailored) $\times$ 4 conditions $\times$ 3
-paradigms, evaluated on 10 models from 6 labs. The co-primary analysis uses fixed
+paradigms, evaluated on 11 models from 7 labs. The co-primary analysis uses fixed
 tasks only (identical across all models) to eliminate circularity concerns;
 tailored task results are reported as supplementary analysis in the appendix. Each task has two components
 requiring different domain skills. The four conditions progressively externalize
@@ -385,9 +385,7 @@ requires $\sim$5,000 calls ($\sim$2 hours).
 \textbf{Scoring and output parsing.} Each channel uses structured output formats
 (Appendix~\ref{app:prompts-full} shows all prompt templates). Response parsing uses
 regex extraction with fallback heuristics for malformed outputs. Across all experiments and models, the overall parse failure rate is 5.9\%
-(excluding gemini-2.5-pro, an outlier at 70\% due to early parsing bugs; range
-0\%--16\% across remaining models). Failed parses are excluded from analysis and
-logged for inspection.
+(range 0\%--16\% across models). An early gemini-2.5-pro run had 70\% parse failure due to API quota exhaustion; the model was re-run with corrected configurations (thinking-model output budget adjustment) and achieves standard parse rates in the reported results. Failed parses are excluded from analysis and logged for inspection.
 
 \textbf{Checkpoint, resume, and outputs.} All experiments write JSONL with
 per-record \texttt{fsync}; interrupted runs resume from the last checkpoint.
@@ -413,7 +411,7 @@ will accept community-contributed evaluations via pull request.
 \input{tables/table4_models}
 
 We evaluate 16 models from 8 labs spanning 3B to 671B parameters
-(Table~\ref{tab:models}). All 16 models participate in the core experiments (1, 4, 5, 6); subsets participate in experiments with specific requirements: 11 models in Experiment~2 (requires cross-domain task infrastructure), 15 in Experiment~3, 10 in Experiment~9 (requires complete Experiment~1 profiles for tailored task generation), and 3 in Experiment~8 (Llama family scaling analysis). Two additional models were excluded:
+(Table~\ref{tab:models}). All 16 models participate in the core experiments (1, 4, 5, 6); subsets participate in experiments with specific requirements: 11 models in Experiment~2 (requires cross-domain task infrastructure), 15 in Experiment~3, 11 in Experiment~9 (requires complete Experiment~1 profiles for tailored task generation), and 3 in Experiment~8 (Llama family scaling analysis). Two additional models were excluded:
 \texttt{command-r-plus} (API removed mid-collection) and \texttt{qwen-3-235b}
 (100\% API failure rate on the NIM endpoint). All experiments use
 \texttt{temperature=0} for reproducibility. Infrastructure: NVIDIA NIM free tier
@@ -454,9 +452,9 @@ share genuine metacognitive signal beyond format artifacts. Critically, the
 hierarchy's capstone finding (the escalation curve) does \emph{not} depend on the
 wagering channel: Experiment~9 measures action-selection behavior (tool use,
 deferral, proceeding), not wager values. Second, \CFR{}
-in the uninformed condition ranges from 0.387 to 0.907---even the best model fails
+in the uninformed condition ranges from 0.387 to 0.937---even the best model fails
 on 39\% of weak-domain agentic tasks when proceeding autonomously. Third, \KDI{}
-is negative for 9 of 10 models evaluated in Experiment~9, confirming that
+is negative for 9 of 11 models evaluated in Experiment~9, confirming that
 self-knowledge systematically fails to translate into appropriate action.
 
 \input{tables/table1_main_results}
@@ -488,7 +486,7 @@ translate it into appropriate agentic action-selection.
 
 \paragraph{The Escalation Curve.}
 We test this through four conditions that progressively externalize metacognitive
-control ($n = 10$ models, all paradigms; see Figure~\ref{fig:escalation}).
+control ($n = 11$ models, all paradigms; see Figure~\ref{fig:escalation}).
 Mean \CFR{} values: C1~=~0.562, C2~=~0.583, C3~=~0.491, C4~=~0.214.
 
 Total \CFR{} reduction C1$\to$C4: \textbf{62\%} (34.8~percentage points).
@@ -539,11 +537,13 @@ autonomy rate.
 
 \paragraph{Universal Negative \KDI{}.}
 The Knowing-Doing Index (\KDI{}~= \mirror{} gap $-$ $(1 - \text{CFR})$,
-Eq.~\ref{eq:kdi}) is negative for 9 of 10 models, ranging from $-$0.356 (llama-3.1-405b) to
-$+$0.049 (llama-3.3-70b). Figure~\ref{fig:kdi} shows per-model values. The lone
-positive outlier (llama-3.3-70b) is driven by its procedural domain, where
-$\text{nat\_acc} = 0.059$ but the model proceeds autonomously on 70\% of
-procedural tasks---the knowing-doing gap at its most extreme.
+Eq.~\ref{eq:kdi}) is negative for 9 of 11 models, ranging from $-$0.356 (llama-3.1-405b) to
+$+$0.084 (gemini-2.5-pro). Figure~\ref{fig:kdi} shows per-model values. The two
+positive outliers are driven by extreme domain-specific miscalibration:
+llama-3.3-70b proceeds autonomously on 70\% of procedural tasks despite
+$\text{nat\_acc} = 0.059$; gemini-2.5-pro shows the highest C1 \CFR{} (0.937)
+despite moderate overall accuracy, reflecting near-universal autonomous
+proceeding on weak-domain tasks.
 KDI is a summary diagnostic, not a calibrated statistical construct: it combines
 self-knowledge quality (MIRROR gap) with action-appropriateness ($1 - \text{CFR}$)
 to provide a single-number indicator of the monitoring--control dissociation.
@@ -555,10 +555,10 @@ psychometric construct.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.85\linewidth]{fig3_kdi_distribution}
-  \caption{\KDI{} distribution across 10 models. Nine models show uniformly
+  \caption{\KDI{} distribution across 11 models. Nine models show uniformly
     negative \KDI{}, indicating systematic failure to translate self-knowledge into
-    appropriate action. The lone positive outlier (llama-3.3-70b,
-    $\KDI{}\!=\!+0.049$) reflects extreme procedural-domain miscalibration.}
+    appropriate action. Two positive outliers (gemini-2.5-pro, $\KDI{}\!=\!+0.084$;
+    llama-3.3-70b, $\KDI{}\!=\!+0.049$) reflect extreme domain-specific miscalibration.}
   \label{fig:kdi}
 \end{figure}
 
@@ -627,7 +627,7 @@ All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablat
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 76.7\% raw agreement with an estimated genuine auto-labeling error rate of 0.71\% (Appendix~I, Table~\ref{tab:human-audit}). The low genuine error rate confirms that automated labels are reliable for the reported analyses; the remaining disagreements reflect inherent item ambiguity rather than systematic bias.
 
 \paragraph{Ecological validity and model coverage.}
-Experiment~9 uses constructed agentic scenarios, not production deployments. 16 models from 8 labs; findings may not generalize to proprietary models (GPT-4o, Claude~3.5) not tested.
+Experiment~9 uses constructed agentic scenarios, not production deployments. 16 models from 8 labs, including one frontier proprietary model (gemini-2.5-pro); findings may not generalize to other proprietary models (GPT-4o, Claude~3.5) not tested.
 
 \paragraph{Statistical caveats.}
 \mirror{} gap does not predict \CFR{} independently of accuracy (partial $r = -0.044$); the contribution is diagnostic, not predictive. Additionally, the pre-registered \MCI{} requires strong-strong and weak-weak composite trials that task generation rarely produced simultaneously, rendering \MCI{}~=~0 partially a design artifact (mean 94 composite items per domain pair across 13 of 28 possible pairs; insufficient for stable pairwise rank correlations). We therefore recommend \CCE{} as the primary Level~2 metric; \MCI{}~=~0 should be interpreted as reflecting insufficient composite-task diversity rather than a definitive convergence estimate.
@@ -662,7 +662,7 @@ self-knowledge that identifies relative domain strengths above chance but with
 systematic overconfidence, and this self-knowledge
 does not transfer across domains, does not compose correctly, does not update from
 feedback, and does not translate into appropriate agentic action. The Knowing-Doing
-Index is negative for 9 of 10 models. Scale does not resolve this.
+Index is negative for 9 of 11 models. Scale does not resolve this.
 
 What works is external structure: architectural constraint reduces the Confident
 Failure Rate by 62\%, from 0.562 to 0.214. The implication for AI safety is that
@@ -998,7 +998,7 @@ quality concern: items where reasonable annotators disagree introduce noise into
 per-item labels. However, the headline findings depend on \emph{aggregate}
 patterns: Experiment~4's finding ($\AI{} \approx 0$) is a population-level mean
 across 320 templates $\times$ 15 models; Experiment~9's escalation curve aggregates
-over 297 fixed tasks $\times$ 10 models $\times$ 4 conditions. Bootstrap
+over 297 fixed tasks $\times$ 11 models $\times$ 4 conditions. Bootstrap
 resampling of per-model means (Section~5.3) already accounts for item-level noise.
 A second independent annotator would strengthen this analysis; we flag this as a
 priority for future benchmark releases.
@@ -1048,7 +1048,7 @@ Table~\ref{tab:e2e} reports system-level metrics beyond CFR. C4 trades autonomy 
 
 \begin{table}[h]
 \centering
-\caption{End-to-end system metrics (mean across 10 models, all paradigms). System success assumes escalated tasks are correctly resolved externally.}
+\caption{End-to-end system metrics (mean across 11 models, all paradigms). System success assumes escalated tasks are correctly resolved externally.}
 \label{tab:e2e}
 \small
 \begin{tabular}{lrrrr}
