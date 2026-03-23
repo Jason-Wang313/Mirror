@@ -1,0 +1,262 @@
+{
+  "exp3_cce_cis": [
+    {
+      "model": "gemma-3-12b",
+      "cce": 0.516,
+      "ci_lower": 0.431,
+      "ci_upper": 0.596,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "gemma-3-27b",
+      "cce": 0.524,
+      "ci_lower": 0.442,
+      "ci_upper": 0.601,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "gpt-oss-120b",
+      "cce": 0.477,
+      "ci_lower": 0.362,
+      "ci_upper": 0.596,
+      "n": 61,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "kimi-k2",
+      "cce": 0.49,
+      "ci_lower": 0.396,
+      "ci_upper": 0.578,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "llama-3.1-405b",
+      "cce": 0.485,
+      "ci_lower": 0.421,
+      "ci_upper": 0.545,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "llama-3.1-70b",
+      "cce": 0.434,
+      "ci_lower": 0.35,
+      "ci_upper": 0.518,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "llama-3.1-8b",
+      "cce": 0.583,
+      "ci_lower": 0.512,
+      "ci_upper": 0.646,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "llama-3.2-3b",
+      "cce": 0.588,
+      "ci_lower": 0.519,
+      "ci_upper": 0.649,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "llama-3.3-70b",
+      "cce": 0.446,
+      "ci_lower": 0.375,
+      "ci_upper": 0.514,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "mistral-large",
+      "cce": 0.642,
+      "ci_lower": 0.56,
+      "ci_upper": 0.714,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "mixtral-8x22b",
+      "cce": 0.758,
+      "ci_lower": 0.673,
+      "ci_upper": 0.829,
+      "n": 112,
+      "ci_excludes_zero": true
+    },
+    {
+      "model": "qwen3-next-80b",
+      "cce": 0.48,
+      "ci_lower": 0.392,
+      "ci_upper": 0.566,
+      "n": 112,
+      "ci_excludes_zero": true
+    }
+  ],
+  "exp9_escalation": {
+    "n_models": 11,
+    "models": [
+      "deepseek-r1",
+      "gemini-2.5-pro",
+      "gemma-3-27b",
+      "gpt-oss-120b",
+      "kimi-k2",
+      "llama-3.1-405b",
+      "llama-3.1-70b",
+      "llama-3.1-8b",
+      "llama-3.3-70b",
+      "mistral-large",
+      "phi-4"
+    ],
+    "by_condition": {
+      "1": {
+        "label": "C1 (Uninformed)",
+        "n": 11,
+        "mean": 0.5914,
+        "sd": 0.1672,
+        "ci_lower": 0.5114,
+        "ci_upper": 0.7056
+      },
+      "2": {
+        "label": "C2 (Self-informed)",
+        "n": 11,
+        "mean": 0.6211,
+        "sd": 0.1554,
+        "ci_lower": 0.551,
+        "ci_upper": 0.7344
+      },
+      "3": {
+        "label": "C3 (Instructed)",
+        "n": 11,
+        "mean": 0.5373,
+        "sd": 0.1776,
+        "ci_lower": 0.4624,
+        "ci_upper": 0.6828
+      },
+      "4": {
+        "label": "C4 (Constrained)",
+        "n": 11,
+        "mean": 0.2027,
+        "sd": 0.2691,
+        "ci_lower": 0.0663,
+        "ci_upper": 0.3763
+      }
+    },
+    "comparisons": [
+      {
+        "comparison": "C1→C2",
+        "n_pairs": 11,
+        "cohens_d": -0.206,
+        "p_raw": 0.5195,
+        "p_holm": 0.5195,
+        "significant_holm": false
+      },
+      {
+        "comparison": "C2→C3",
+        "n_pairs": 11,
+        "cohens_d": 0.691,
+        "p_raw": 0.0273,
+        "p_holm": 0.0557,
+        "significant_holm": false
+      },
+      {
+        "comparison": "C3→C4",
+        "n_pairs": 11,
+        "cohens_d": 1.023,
+        "p_raw": 0.0186,
+        "p_holm": 0.0557,
+        "significant_holm": false
+      }
+    ],
+    "per_model": {
+      "deepseek-r1": {
+        "1": 0.4045,
+        "2": 0.6789,
+        "3": 0.2927,
+        "4": 0.0
+      },
+      "gemini-2.5-pro": {
+        "1": 0.8908,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 0.092
+      },
+      "gemma-3-27b": {
+        "1": 0.5486,
+        "2": 0.5882,
+        "3": 0.559,
+        "4": 0.5451
+      },
+      "gpt-oss-120b": {
+        "1": 0.5679,
+        "2": 0.6242,
+        "3": 0.5584,
+        "4": 0.0
+      },
+      "kimi-k2": {
+        "1": 0.4931,
+        "2": 0.6961,
+        "3": 0.5417,
+        "4": 0.5139
+      },
+      "llama-3.1-405b": {
+        "1": 0.4717,
+        "2": 0.378,
+        "3": 0.436,
+        "4": 0.0
+      },
+      "llama-3.1-70b": {
+        "1": 0.4807,
+        "2": 0.5104,
+        "3": 0.5238,
+        "4": 0.0
+      },
+      "llama-3.1-8b": {
+        "1": 0.7022,
+        "2": 0.5551,
+        "3": 0.5466,
+        "4": 0.0
+      },
+      "llama-3.3-70b": {
+        "1": 0.4383,
+        "2": 0.5159,
+        "3": 0.3642,
+        "4": 0.429
+      },
+      "mistral-large": {
+        "1": 0.8719,
+        "2": 0.6552,
+        "3": 0.5469,
+        "4": 0.0
+      },
+      "phi-4": {
+        "1": 0.6361,
+        "2": 0.6299,
+        "3": 0.5408,
+        "4": 0.6497
+      }
+    },
+    "gemini_cfr": {
+      "1": 0.8908,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 0.092
+    }
+  },
+  "exp9_exclusions": {
+    "total_models": 16,
+    "exp9_models": 11,
+    "missing_from_exp9": [
+      "deepseek-v3",
+      "gemma-3-12b",
+      "llama-3.2-3b",
+      "mixtral-8x22b",
+      "qwen3-next-80b"
+    ],
+    "reason": "Lacked complete Experiment 1 calibration profiles needed for tailored task generation (run with fewer channels or added after Experiment 9 task bank was generated)."
+  }
+}
