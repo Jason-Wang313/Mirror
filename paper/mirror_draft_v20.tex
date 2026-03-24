@@ -596,17 +596,20 @@ The fix is not better self-knowledge but external metacognitive scaffolding
 (see Figure~\ref{fig:money} in Appendix~\ref{app:money} for the full scatter plot).
 
 \paragraph{Human-baseline pilot (staged subset).}
-We executed an expanded staged human-baseline packet on an Exp1 subset
-($n=192$, 24 questions/domain) and an Exp9 fixed-task subset
-($n=162$ tasks; 324 components), with medium+ difficulty prioritization.
-On Exp1, human Nat.Acc is 1.000 (95\% Wilson CI [0.980, 1.000]). Under strict
-median split, the ceiling profile still yields no weak domains; to avoid a
-zero-denominator artifact in ceiling cases, we pre-specify and report a
-deterministic bottom-2 fallback weak-domain set for pilot readout. Under this
-fallback, Exp9 has $n_{\text{weak}}=84$ components with CFR~=~0.000,
-weak-domain escalation~=~0.000, autonomy~=~1.000, and oracle system
-success~=~1.000. We report both the strict median-split result (no weak domains)
-and the fallback result for denominator-estimable pilot comparison.
+We executed an expanded staged human-baseline packet with three independent
+participants on an Exp1 subset ($n=192$ per participant; 24
+questions/domain) and an Exp9 fixed-task subset ($n=162$ tasks per participant;
+324 components). Exp1 is ceiling-saturated for all three participants:
+participant-mean Nat.Acc~=~1.000$\pm$0.000 (range 1.000--1.000; pooled 95\%
+Wilson CI [0.993, 1.000], $n=576$). Under strict median split, all three
+profiles yield no weak domains; as pre-specified, we therefore report the
+deterministic bottom-2 fallback weak-domain set. The fallback weak domains are
+stable across participants (arithmetic, factual). Under this fallback,
+participant-mean Exp9 CFR~=~0.000$\pm$0.000 (range 0.000--0.000),
+weak-domain escalation~=~0.163$\pm$0.090 (range 0.060--0.226),
+autonomy~=~0.838$\pm$0.077 (range 0.781--0.926), and oracle system
+success~=~1.000$\pm$0.000; pooled weak-component denominator
+$n_{\text{weak}}=252$.
 
 \subsection{Supporting Findings}
 
@@ -662,11 +665,15 @@ All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablat
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
-In addition, an expanded staged human-baseline pilot was executed (Exp1
-$n=192$, Exp9 $n=162$). Exp1 remains ceiling-saturated (Nat.Acc=1.000), so we
-report both strict median-split (no weak domains) and a pre-specified bottom-2
-fallback weak-domain readout to keep the Exp9 CFR denominator estimable in pilot
-analysis. The next step is multi-participant replication to quantify variance.
+In addition, a completed three-participant staged human baseline (Exp1 $n=192$
+each; Exp9 $n=162$ each) now reports participant-mean metrics with explicit
+variance/range (Section~5.3), and a separate 3-rater audit on 100 items reports
+69.0\% unanimous agreement with Fleiss' $\kappa=0.681$ (Appendix~I,
+Table~\ref{tab:human-audit-multirater}). Remaining limitation: Exp1 human
+performance is ceiling-saturated for all three participants, so strict median
+split yields no weak domains; we therefore retain and disclose the
+pre-specified bottom-2 fallback for denominator-estimable Exp9 pilot
+comparison.
 
 \paragraph{Ecological validity and model coverage.}
 Experiment~9 uses constructed agentic scenarios, not production deployments. 16 models from 8 labs, including one frontier proprietary model (gemini-2.5-pro); findings may not generalize to other proprietary models (GPT-4o, Claude~3.5) not tested.
@@ -693,10 +700,11 @@ Future work includes mechanistic probing of the knowing-doing gap via hidden-sta
 
 \paragraph{Human-baseline scale-up.}
 The staged human-baseline protocol is now operational, expanded, and
-pilot-executed. The next step is multi-participant scale-up with
-inter-rater reliability reporting and pre-registered weak-domain rules
-(strict median split + fallback + absolute-threshold sensitivity) so
-human-vs-model CFR comparisons remain stable under high human accuracy.
+multi-participant executed with inter-rater reliability reporting. The next
+step is scale-up on a harder/larger human subset (higher difficulty and
+adversarial-heavy strata) with pre-registered weak-domain rules (strict median
+split + fallback + absolute-threshold sensitivity) to reduce ceiling effects
+and further stress-test human-vs-model CFR comparisons.
 
 \vspace{-1mm}
 % =============================================================================
@@ -1024,6 +1032,26 @@ Exp 9 & 50 & 98.0\% & 0.957 & 1 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
+\begin{table}[h]
+\centering
+\caption{Three-rater agreement on a 100-item blinded human-audit subset
+  (same schema as \texttt{real\_human\_audit\_100\_R\{1,2,3\}.csv}).}
+\label{tab:human-audit-multirater}
+\small
+\begin{tabular}{lrr}
+\toprule
+Pair / Aggregate & Raw Agreement & $\kappa$ \\
+\midrule
+R1--R2 & 81.0\% & 0.698 \\
+R1--R3 & 70.0\% & 0.563 \\
+R2--R3 & 87.0\% & 0.807 \\
+\midrule
+\textbf{Unanimous (all 3 raters)} & \textbf{69.0\%} & --- \\
+\textbf{Fleiss' $\kappa$ (3 raters)} & --- & \textbf{0.681} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Of 420 audited items, 42 showed disagreement between human and automated labels.
 The disagreements comprised 40 parsing errors (response extraction failures, predominantly in Experiment~6b) and 1 ambiguous edge case (Experiment~9). \textbf{Only 1 item (0.24\%) contained a genuine auto-labeling error} (in Experiment~1).
 Experiments 3, 4, 5, and 9---the four experiments most central to the paper's headline findings---achieved \textbf{100\% agreement} ($\kappa = 1.000$) for Exp3/4/5 and \textbf{98\% agreement} ($\kappa = 0.957$) for Exp9, with zero genuine errors in all four.
@@ -1036,9 +1064,10 @@ reflect genuine model behavior rather than labeling artifacts.
 
 Correcting the 1 genuine error changes mean \mirror{} gap from 0.170 to 0.161,
 a shift of $<$0.01 that does not affect any headline finding. No corrections are
-needed for \CFR{}, \FDR{}, or escalation curve values.
-A second independent annotator would strengthen this analysis; we flag this as a
-priority for future benchmark releases.
+needed for \CFR{}, \FDR{}, or escalation curve values. To quantify human-label
+variance directly, we additionally ran a 3-rater blinded replication on 100
+items: unanimous agreement is 69.0\%, Fleiss' $\kappa=0.681$, and pairwise
+Cohen's $\kappa$ ranges 0.563--0.807 (Table~\ref{tab:human-audit-multirater}).
 
 % =============================================================================
 \section{MCI Robustness to Alternative Association Measures}
