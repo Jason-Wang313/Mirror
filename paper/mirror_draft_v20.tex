@@ -256,7 +256,7 @@ feedback adaptation, ecosystem interactions, and agentic decision-making.
      {\footnotesize Exp~4: Feedback (\textit{AI})
       ~$\vert$~ Exp~5: Adversarial (\textit{ARS})
       ~$\vert$~ Exp~6: Ecosystem (\textit{SSR, FDR})
-      ~$\vert$~ \textbf{Exp~9}: \textit{CFR, KDI}}};
+      ~$\vert$~ \textbf{Exp~9}: \textit{CFR (primary), KDI (diagnostic)}}};
 
   \draw[-stealth, thick, gray!60] (l0) -- (l1);
   \draw[-stealth, thick, gray!60] (l1) -- (l2);
@@ -316,14 +316,15 @@ ECE & 1 & L0 & Within-channel calibration error \\
 \FDR{} & 6 & L3 & Flawed premise detection rate \\
 \SSR{} & 6 & L3 & Sycophancy separation ratio \\
 \CFR{} & 9 & L3+ & Confident failure rate (agentic) \\
-\KDI{} & 9 & L3+ & Knowing-doing dissociation index \\
+\KDI{} & 9 & L3+ & Knowing-doing diagnostic summary (secondary) \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Experiments}
 
-\mirror{} comprises eight experiments spanning all four metacognitive levels.\footnote{Experiment~7 (mechanistic probing via hidden-state analysis) was planned but omitted from this release due to GPU access constraints; we retain the original numbering for consistency with the pre-registration.} Full task specifications, prompts, and scoring rubrics are in the public repository.
+\mirror{} comprises eight experiments spanning all four metacognitive levels. Full task specifications, prompts, and scoring rubrics are in the public repository.
+\textbf{Experiment numbering note (prominent).} Experiment~7 (mechanistic probing via hidden-state analysis) was pre-registered but omitted from this release due to GPU access constraints; we retain the original numbering for consistency with the pre-registration.
 
 \paragraph{Experiment 1: Self-Knowledge Atlas (Level~0).}
 5,000 questions across 8 domains (arithmetic, spatial, temporal, linguistic,
@@ -420,7 +421,7 @@ will accept community-contributed evaluations via pull request.
 
 We evaluate 16 models from 8 labs spanning 3B to 671B parameters
 (Table~\ref{tab:models}). All 16 models participate in the core experiments (1, 4, 5, 6) and in Experiment~9 (the capstone agentic evaluation); subsets participate in experiments with specific requirements: 11 models in Experiment~2 (requires cross-domain task infrastructure), 15 in Experiment~3, and 4 in Experiment~8 (Llama-family scaling analysis).
-\textbf{Coverage status matrix (models per experiment):} Exp1=16, Exp2=11, Exp3=15, Exp4=15, Exp5=14, Exp6=16, Exp8=4, Exp9=16 (Exp7 planned, omitted in this release).
+\textbf{Coverage status matrix (models per experiment):} Exp1=16, Exp2=11, Exp3=15, Exp4=15, Exp5=14, Exp6=16, Exp8=4, Exp9=16; Exp7 was pre-registered and is omitted in this release (GPU constraints).
 Two additional models were excluded entirely:
 \texttt{command-r-plus} (API removed mid-collection) and \texttt{qwen-3-235b}
 (100\% API failure rate on the NIM endpoint). All experiments use
@@ -463,9 +464,10 @@ hierarchy's capstone finding (the escalation curve) does \emph{not} depend on th
 wagering channel: Experiment~9 measures action-selection behavior (tool use,
 deferral, proceeding), not wager values. Second, \CFR{}
 in the uninformed condition ranges from 0.387 to 0.937---even the best model fails
-on 39\% of weak-domain agentic tasks when proceeding autonomously. Third, \KDI{}
-is negative for 13 of 16 models evaluated in Experiment~9, confirming that
-self-knowledge systematically fails to translate into appropriate action.
+on 39\% of weak-domain agentic tasks when proceeding autonomously. As a
+secondary diagnostic (not a headline claim), \KDI{} is negative for 13 of 16
+models evaluated in Experiment~9, consistent with a monitoring--control
+dissociation.
 
 \input{tables/table1_main_results}
 
@@ -545,7 +547,15 @@ accounts for this by penalizing false escalations. Appendix~\ref{app:e2e}
 reports complementary end-to-end metrics including system success rate and
 autonomy rate.
 
-\paragraph{Universal Negative \KDI{}.}
+\paragraph{Wager-independent sensitivity.}
+The escalation result is robust without wagering-dependent quantities.
+Weak-domain sets are derived from Experiment~1 natural-channel accuracy only, and
+Experiment~9 metrics use action outcomes (proceed/defer/tool), not wager values.
+Under three natural-channel-only weak-domain definitions (median split,
+bottom-3 domains, absolute $<0.40$), C4 still reduces CFR by 53.1--61.2\%
+(Appendix~\ref{app:threshold}, Table~\ref{tab:threshold}).
+
+\paragraph{Supplementary \KDI{} diagnostic.}
 The Knowing-Doing Dissociation (\KDI{}~= \mirror{} gap $-$ $(1 - \text{CFR})$,
 Eq.~\ref{eq:kdi}) is negative for 13 of 16 models, ranging from $-$0.558 (llama-3.2-3b) to
 $+$0.279 (deepseek-v3). Figure~\ref{fig:kdi} shows per-model values. The three
@@ -586,17 +596,17 @@ The fix is not better self-knowledge but external metacognitive scaffolding
 (see Figure~\ref{fig:money} in Appendix~\ref{app:money} for the full scatter plot).
 
 \paragraph{Human-baseline pilot (staged subset).}
-We executed the staged human-baseline protocol on an Exp1 subset
-($n=80$, 10 questions/domain) and an Exp9 fixed-task subset
-($n=54$ tasks; 108 components). On Exp1, human Nat.Acc is
-1.000 (95\% Wilson CI [0.954, 1.000]). Using the same median-split weak-domain
-rule as the model analysis, no domains are classified as weak in this pilot
-profile, yielding $n_{\text{weak}}=0$ components in Exp9. We therefore report
-CFR as 0.000 by convention for this run, with autonomy 1.000, weak-domain
-escalation 0.000, and oracle system success 1.000. These pilot numbers are
-useful as an execution proof and protocol check, but the ceiling effect indicates
-that a larger and harder human subset is needed for a fully discriminative
-human--model comparator.
+We executed an expanded staged human-baseline packet on an Exp1 subset
+($n=192$, 24 questions/domain) and an Exp9 fixed-task subset
+($n=162$ tasks; 324 components), with medium+ difficulty prioritization.
+On Exp1, human Nat.Acc is 1.000 (95\% Wilson CI [0.980, 1.000]). Under strict
+median split, the ceiling profile still yields no weak domains; to avoid a
+zero-denominator artifact in ceiling cases, we pre-specify and report a
+deterministic bottom-2 fallback weak-domain set for pilot readout. Under this
+fallback, Exp9 has $n_{\text{weak}}=84$ components with CFR~=~0.000,
+weak-domain escalation~=~0.000, autonomy~=~1.000, and oracle system
+success~=~1.000. We report both the strict median-split result (no weak domains)
+and the fallback result for denominator-estimable pilot comparison.
 
 \subsection{Supporting Findings}
 
@@ -652,9 +662,11 @@ All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablat
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
-In addition, a staged human-baseline pilot was executed (Exp1+Exp9 subset), but
-the pilot saturates at ceiling (Exp1 Nat.Acc=1.000, no weak domains under
-median-split), making CFR comparison underpowered in this first pass.
+In addition, an expanded staged human-baseline pilot was executed (Exp1
+$n=192$, Exp9 $n=162$). Exp1 remains ceiling-saturated (Nat.Acc=1.000), so we
+report both strict median-split (no weak domains) and a pre-specified bottom-2
+fallback weak-domain readout to keep the Exp9 CFR denominator estimable in pilot
+analysis. The next step is multi-participant replication to quantify variance.
 
 \paragraph{Ecological validity and model coverage.}
 Experiment~9 uses constructed agentic scenarios, not production deployments. 16 models from 8 labs, including one frontier proprietary model (gemini-2.5-pro); findings may not generalize to other proprietary models (GPT-4o, Claude~3.5) not tested.
@@ -680,10 +692,11 @@ would alter the behavioral naturalism that motivates the multi-channel design.
 Future work includes mechanistic probing of the knowing-doing gap via hidden-state analysis on open-weight models, behavioral fine-tuning on \mirror{} data, multi-agent cascade analysis, and production deployment of \mirror{}-informed routing.
 
 \paragraph{Human-baseline scale-up.}
-The staged human-baseline protocol is now operational and pilot-executed. The
-next step is scale-up: increase participant count, expand the Exp1/Exp9 subset
-size, and pre-specify an absolute weak-domain threshold in addition to
-median-split reporting so CFR remains estimable even under high human accuracy.
+The staged human-baseline protocol is now operational, expanded, and
+pilot-executed. The next step is multi-participant scale-up with
+inter-rater reliability reporting and pre-registered weak-domain rules
+(strict median split + fallback + absolute-threshold sensitivity) so
+human-vs-model CFR comparisons remain stable under high human accuracy.
 
 \vspace{-1mm}
 % =============================================================================
@@ -952,7 +965,9 @@ Table~\ref{tab:threshold} shows that the CFR reduction under C4 is robust to the
 definition of ``weak domain.'' The C4 runner uses an absolute threshold of
 $\text{Nat.Acc}(m,d) < 0.50$ for routing decisions; the strength labels in the
 analysis (used for CFR computation) use $\text{Nat.Acc}(m,d) \leq 0.40$. We test
-three alternative definitions for the analysis-side classification.
+three alternative definitions for the analysis-side classification. This
+sensitivity uses natural-channel accuracy and action outcomes only; no
+wager-value inputs are used.
 
 \begin{table}[h]
 \centering

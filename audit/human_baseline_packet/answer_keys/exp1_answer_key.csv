@@ -9,73 +9,185 @@ HB_EXP1_0007,arithmetic_v2_mental_calculation_0007,281,exact_numeric,arithmetic
 HB_EXP1_0008,arithmetic_v2_numerical_reasoning_0042,0.8 and 80% are equal,short_text,arithmetic
 HB_EXP1_0009,arithmetic_v2_unit_conversion_0031,0.05,exact_numeric,arithmetic
 HB_EXP1_0010,arithmetic_v2_word_problems_0011,60,exact_numeric,arithmetic
-HB_EXP1_0011,factual_v2_cross_domain_trivia_0047,Dinosaur Fossils,short_text,factual
-HB_EXP1_0012,factual_v2_culture_0038,Jane Austen,short_text,factual
-HB_EXP1_0013,factual_v2_geography_0005,Tokyo,short_text,factual
-HB_EXP1_0014,factual_v2_history_0028,Elizabeth I,short_text,factual
-HB_EXP1_0015,factual_v2_science_0018,Fossils,short_text,factual
-HB_EXP1_0016,factual_v2_cross_domain_trivia_0044,Igneous rock,short_text,factual
-HB_EXP1_0017,factual_v2_culture_0032,Ludwig van Beethoven,short_text,factual
-HB_EXP1_0018,factual_v2_geography_0008,Beijing,short_text,factual
-HB_EXP1_0019,factual_v2_history_0024,Chiang Kai-shek,short_text,factual
-HB_EXP1_0020,factual_v2_science_0017,CO2,short_text,factual
-HB_EXP1_0021,linguistic_v2_ambiguity_resolution_0023,(1) The woman heard the man who was using a phone; (2) The woman heard the man by using a phone.,short_text,linguistic
-HB_EXP1_0022,linguistic_v2_grammar_correction_0043,"No, the sentence is grammatically correct.",short_text,linguistic
-HB_EXP1_0023,linguistic_v2_morphology_0018,non- + conform + -ity,short_text,linguistic
-HB_EXP1_0024,linguistic_v2_register_formality_0032,No,short_text,linguistic
-HB_EXP1_0025,linguistic_v2_syntax_parsing_0002,organization,short_text,linguistic
-HB_EXP1_0026,linguistic_v2_ambiguity_resolution_0021,The researcher is studying a report while on the plane.,short_text,linguistic
-HB_EXP1_0027,linguistic_v2_grammar_correction_0043,"'was' should be 'were' — 'if' clause requires the subjunctive mood, 'were' is the correct form for the subjunctive",short_text,linguistic
-HB_EXP1_0028,linguistic_v2_morphology_0014,dis- + enthusiasm + -atic + -ally,short_text,linguistic
-HB_EXP1_0029,linguistic_v2_register_formality_0033,I'm super excited to announce my colleague's upcoming wedding!,short_text,linguistic
-HB_EXP1_0030,linguistic_v2_syntax_parsing_0004,song,short_text,linguistic
-HB_EXP1_0031,logical_v2_conditional_reasoning_0037,No,short_text,logical
-HB_EXP1_0032,logical_v2_proof_evaluation_0043,Not all countries in Europe use the Euro — the UK uses the Pound Sterling.,short_text,logical
-HB_EXP1_0033,logical_v2_propositional_logic_0015,Yes,short_text,logical
-HB_EXP1_0034,logical_v2_set_relations_0008,Yes,short_text,logical
-HB_EXP1_0035,logical_v2_syllogisms_0009,a string instrument,short_text,logical
-HB_EXP1_0036,logical_v2_conditional_reasoning_0032,Yes,short_text,logical
-HB_EXP1_0037,logical_v2_proof_evaluation_0044,"The premise is correct, but the first part of the second premise is incorrect as bikes are not cars.",short_text,logical
-HB_EXP1_0038,logical_v2_propositional_logic_0016,Yes,short_text,logical
-HB_EXP1_0039,logical_v2_set_relations_0021,No,short_text,logical
-HB_EXP1_0040,logical_v2_syllogisms_0006,produce,short_text,logical
-HB_EXP1_0041,procedural_v2_algorithm_execution_0006,"[2, 1, 0, 0, 0, 0, 1, 0, 1]",short_text,procedural
-HB_EXP1_0042,procedural_v2_error_recovery_0046,"Immediately halt production, inspect and isolate all potentially substandard fabrics, and implement a manual quality assurance process until the system is repaired.",short_text,procedural
-HB_EXP1_0043,procedural_v2_multistep_planning_0032,"1. Use 'useradd' to create the new user, 2. Set the user's password with 'passwd'.",short_text,procedural
-HB_EXP1_0044,procedural_v2_protocol_compliance_0020,"Ask the parent about the child's location and the substance ingested, and dispatch emergency services immediately if necessary, while continuing to assess the situation over the phone.",short_text,procedural
-HB_EXP1_0045,procedural_v2_recipe_following_0013,Increase baking time by 2 minutes.,short_text,procedural
-HB_EXP1_0046,procedural_v2_algorithm_execution_0000,5,short_text,procedural
-HB_EXP1_0047,procedural_v2_error_recovery_0040,Close the app to free up memory.,short_text,procedural
-HB_EXP1_0048,procedural_v2_multistep_planning_0034,"1. Boot from the macOS installation USB, 2. Select the 'Disk Utility' option, 3. Open the Terminal, 4. Use the 'passwd' command to reset the password",short_text,procedural
-HB_EXP1_0049,procedural_v2_protocol_compliance_0023,"Reject submission, display an inline validation error on the password field, and provide feedback on the password requirements.",short_text,procedural
-HB_EXP1_0050,procedural_v2_recipe_following_0019,"No adjustment needed, as pastry flour does not affect the sweetness of the cookies.",short_text,procedural
-HB_EXP1_0051,social_v2_implicature_0003,You are unwilling to let them use the gaming console.,short_text,social
-HB_EXP1_0052,social_v2_pragmatic_inference_0024,Make the sandwich themselves or ask someone else,short_text,social
-HB_EXP1_0053,social_v2_sarcasm_detection_0031,Sarcastic,short_text,social
-HB_EXP1_0054,social_v2_social_norm_violation_0043,Yes,short_text,social
-HB_EXP1_0055,social_v2_theory_of_mind_0019,In the backpack,short_text,social
-HB_EXP1_0056,social_v2_implicature_0009,"You're not impressed by the artwork, but are focusing on a positive aspect.",short_text,social
-HB_EXP1_0057,social_v2_pragmatic_inference_0027,Wait for C to finish their phone call or find someone else,short_text,social
-HB_EXP1_0058,social_v2_sarcasm_detection_0036,Sarcastic,short_text,social
-HB_EXP1_0059,social_v2_social_norm_violation_0040,Yes,short_text,social
-HB_EXP1_0060,social_v2_theory_of_mind_0019,In the bag.,short_text,social
-HB_EXP1_0061,spatial_v2_2d_geometry_0006,9,exact_numeric,spatial
-HB_EXP1_0062,spatial_v2_3d_visualization_0043,6,exact_numeric,spatial
-HB_EXP1_0063,spatial_v2_distance_direction_0016,Chris,short_text,spatial
-HB_EXP1_0064,spatial_v2_relative_positioning_0024,the shelf,short_text,spatial
-HB_EXP1_0065,spatial_v2_spatial_transformation_0037,upwards and to the right,short_text,spatial
-HB_EXP1_0066,spatial_v2_2d_geometry_0007,54,exact_numeric,spatial
-HB_EXP1_0067,spatial_v2_3d_visualization_0049,2,exact_numeric,spatial
-HB_EXP1_0068,spatial_v2_distance_direction_0015,Moped,short_text,spatial
-HB_EXP1_0069,spatial_v2_relative_positioning_0028,the block,short_text,spatial
-HB_EXP1_0070,spatial_v2_spatial_transformation_0033,south,short_text,spatial
-HB_EXP1_0071,temporal_v2_duration_estimation_0019,Wednesday at 3:00 PM,short_text,temporal
-HB_EXP1_0072,temporal_v2_ordering_events_0006,"first mobile phone call, then Apple introduces the Macintosh computer, then first Space Shuttle disaster",short_text,temporal
-HB_EXP1_0073,temporal_v2_scheduling_0039,11:30 AM,short_text,temporal
-HB_EXP1_0074,temporal_v2_temporal_paradoxes_0043,"No, the director would have been 10 years old when the film was released",short_text,temporal
-HB_EXP1_0075,temporal_v2_timezone_arithmetic_0025,10 PM (previous day),short_text,temporal
-HB_EXP1_0076,temporal_v2_duration_estimation_0016,2:00 PM the next day,short_text,temporal
-HB_EXP1_0077,temporal_v2_ordering_events_0001,The sinking of the Titanic occurred before the start of World War I and the discovery of King Tut's tomb.,short_text,temporal
-HB_EXP1_0078,temporal_v2_scheduling_0035,10:30 AM,short_text,temporal
-HB_EXP1_0079,temporal_v2_temporal_paradoxes_0017,"Yes, if the first play occurred 3 days ago and the second play occurred 1 day before that, then the second play occurred 4 days ago.",short_text,temporal
-HB_EXP1_0080,temporal_v2_timezone_arithmetic_0028,10 PM,short_text,temporal
+HB_EXP1_0011,arithmetic_v2_estimation_0029,About 720 pages,short_text,arithmetic
+HB_EXP1_0012,arithmetic_v2_mental_calculation_0009,32,exact_numeric,arithmetic
+HB_EXP1_0013,arithmetic_v2_numerical_reasoning_0047,"0.1, 0.2, 0.25",short_text,arithmetic
+HB_EXP1_0014,arithmetic_v2_unit_conversion_0036,0.5,exact_numeric,arithmetic
+HB_EXP1_0015,arithmetic_v2_word_problems_0014,6,exact_numeric,arithmetic
+HB_EXP1_0016,arithmetic_v2_estimation_0026,12,short_text,arithmetic
+HB_EXP1_0017,arithmetic_v2_mental_calculation_0005,20,exact_numeric,arithmetic
+HB_EXP1_0018,arithmetic_v2_numerical_reasoning_0046,20% of 250 (50),short_text,arithmetic
+HB_EXP1_0019,arithmetic_v2_unit_conversion_0037,100,exact_numeric,arithmetic
+HB_EXP1_0020,arithmetic_v2_word_problems_0019,72,exact_numeric,arithmetic
+HB_EXP1_0021,arithmetic_v2_estimation_0022,About 120 hours,short_text,arithmetic
+HB_EXP1_0022,arithmetic_v2_mental_calculation_0002,80,exact_numeric,arithmetic
+HB_EXP1_0023,arithmetic_v2_numerical_reasoning_0044,"0.1, 0.3, 0.9",short_text,arithmetic
+HB_EXP1_0024,arithmetic_v2_unit_conversion_0032,0.75,exact_numeric,arithmetic
+HB_EXP1_0025,factual_v2_cross_domain_trivia_0047,Dinosaur Fossils,short_text,factual
+HB_EXP1_0026,factual_v2_culture_0038,Jane Austen,short_text,factual
+HB_EXP1_0027,factual_v2_geography_0005,Tokyo,short_text,factual
+HB_EXP1_0028,factual_v2_history_0028,Elizabeth I,short_text,factual
+HB_EXP1_0029,factual_v2_science_0018,Fossils,short_text,factual
+HB_EXP1_0030,factual_v2_cross_domain_trivia_0044,Igneous rock,short_text,factual
+HB_EXP1_0031,factual_v2_culture_0032,Ludwig van Beethoven,short_text,factual
+HB_EXP1_0032,factual_v2_geography_0008,Beijing,short_text,factual
+HB_EXP1_0033,factual_v2_history_0024,Chiang Kai-shek,short_text,factual
+HB_EXP1_0034,factual_v2_science_0017,CO2,short_text,factual
+HB_EXP1_0035,factual_v2_cross_domain_trivia_0045,H,short_text,factual
+HB_EXP1_0036,factual_v2_culture_0031,Vincent van Gogh,short_text,factual
+HB_EXP1_0037,factual_v2_geography_0001,Missouri River,short_text,factual
+HB_EXP1_0038,factual_v2_history_0025,1666,short_text,factual
+HB_EXP1_0039,factual_v2_science_0019,1079252848,short_text,factual
+HB_EXP1_0040,factual_v2_cross_domain_trivia_0042,Percy Bysshe Shelley,short_text,factual
+HB_EXP1_0041,factual_v2_culture_0034,Thomas Edison,short_text,factual
+HB_EXP1_0042,factual_v2_geography_0007,Amazon Rainforest,short_text,factual
+HB_EXP1_0043,factual_v2_history_0022,Treaty of Frankfurt,short_text,factual
+HB_EXP1_0044,factual_v2_science_0010,Photosynthesis,short_text,factual
+HB_EXP1_0045,factual_v2_cross_domain_trivia_0049,Trumpet,short_text,factual
+HB_EXP1_0046,factual_v2_culture_0033,Moby-Dick,short_text,factual
+HB_EXP1_0047,factual_v2_geography_0002,Antarctic Desert,short_text,factual
+HB_EXP1_0048,factual_v2_history_0022,Margaret Thatcher,short_text,factual
+HB_EXP1_0049,linguistic_v2_ambiguity_resolution_0023,(1) The woman heard the man who was using a phone; (2) The woman heard the man by using a phone.,short_text,linguistic
+HB_EXP1_0050,linguistic_v2_grammar_correction_0043,"No, the sentence is grammatically correct.",short_text,linguistic
+HB_EXP1_0051,linguistic_v2_morphology_0018,non- + conform + -ity,short_text,linguistic
+HB_EXP1_0052,linguistic_v2_register_formality_0032,No,short_text,linguistic
+HB_EXP1_0053,linguistic_v2_syntax_parsing_0002,organization,short_text,linguistic
+HB_EXP1_0054,linguistic_v2_ambiguity_resolution_0021,The researcher is studying a report while on the plane.,short_text,linguistic
+HB_EXP1_0055,linguistic_v2_grammar_correction_0043,"'was' should be 'were' — 'if' clause requires the subjunctive mood, 'were' is the correct form for the subjunctive",short_text,linguistic
+HB_EXP1_0056,linguistic_v2_morphology_0014,dis- + enthusiasm + -atic + -ally,short_text,linguistic
+HB_EXP1_0057,linguistic_v2_register_formality_0033,I'm super excited to announce my colleague's upcoming wedding!,short_text,linguistic
+HB_EXP1_0058,linguistic_v2_syntax_parsing_0004,song,short_text,linguistic
+HB_EXP1_0059,linguistic_v2_ambiguity_resolution_0022,(1) I'm searching for a pencil that I can use to draw with; (2) I'm looking for a pencil with which to draw (formal or old-fashioned usage),short_text,linguistic
+HB_EXP1_0060,linguistic_v2_grammar_correction_0045,"'they is' should be 'they are' — subject-verb agreement, 'they' is a plural subject",short_text,linguistic
+HB_EXP1_0061,linguistic_v2_morphology_0011,im-,short_text,linguistic
+HB_EXP1_0062,linguistic_v2_register_formality_0035,No,short_text,linguistic
+HB_EXP1_0063,linguistic_v2_syntax_parsing_0006,population,short_text,linguistic
+HB_EXP1_0064,linguistic_v2_ambiguity_resolution_0021,The author is editing a manuscript while on the ferry.,short_text,linguistic
+HB_EXP1_0065,linguistic_v2_grammar_correction_0049,"'it's' should be 'its' — 'its' shows possession, 'it's' is a contraction of 'it is'",short_text,linguistic
+HB_EXP1_0066,linguistic_v2_morphology_0012,account → accountable → unaccountable,short_text,linguistic
+HB_EXP1_0067,linguistic_v2_register_formality_0035,Yes,short_text,linguistic
+HB_EXP1_0068,linguistic_v2_syntax_parsing_0005,athletes,short_text,linguistic
+HB_EXP1_0069,linguistic_v2_ambiguity_resolution_0028,(1) The new curriculum is having an impact on the students who are in their final year of study; (2) The new curriculum is impacting the students in a way that is in its final year (less likely),short_text,linguistic
+HB_EXP1_0070,linguistic_v2_grammar_correction_0044,"'whom are' should be 'who are' — 'who' is the subject of the clause, not 'whom'",short_text,linguistic
+HB_EXP1_0071,linguistic_v2_morphology_0012,replace → replaceable → irreplaceable,short_text,linguistic
+HB_EXP1_0072,linguistic_v2_register_formality_0036,Informal,short_text,linguistic
+HB_EXP1_0073,logical_v2_conditional_reasoning_0037,No,short_text,logical
+HB_EXP1_0074,logical_v2_proof_evaluation_0043,Not all countries in Europe use the Euro — the UK uses the Pound Sterling.,short_text,logical
+HB_EXP1_0075,logical_v2_propositional_logic_0015,Yes,short_text,logical
+HB_EXP1_0076,logical_v2_set_relations_0008,Yes,short_text,logical
+HB_EXP1_0077,logical_v2_syllogisms_0009,a string instrument,short_text,logical
+HB_EXP1_0078,logical_v2_conditional_reasoning_0032,Yes,short_text,logical
+HB_EXP1_0079,logical_v2_proof_evaluation_0044,"The premise is correct, but the first part of the second premise is incorrect as bikes are not cars.",short_text,logical
+HB_EXP1_0080,logical_v2_propositional_logic_0016,Yes,short_text,logical
+HB_EXP1_0081,logical_v2_set_relations_0021,No,short_text,logical
+HB_EXP1_0082,logical_v2_syllogisms_0006,produce,short_text,logical
+HB_EXP1_0083,logical_v2_conditional_reasoning_0031,No,short_text,logical
+HB_EXP1_0084,logical_v2_proof_evaluation_0044,Not all dogs have tails — some dogs may be born without or lose their tails due to injury or illness.,short_text,logical
+HB_EXP1_0085,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0086,logical_v2_set_relations_0022,Yes,short_text,logical
+HB_EXP1_0087,logical_v2_syllogisms_0009,an animal,short_text,logical
+HB_EXP1_0088,logical_v2_conditional_reasoning_0032,No,short_text,logical
+HB_EXP1_0089,logical_v2_proof_evaluation_0045,"Not all isosceles trapezoids are parallelograms — isosceles trapezoids can have non-parallel sides, while parallelograms have parallel sides.",short_text,logical
+HB_EXP1_0090,logical_v2_propositional_logic_0014,No,short_text,logical
+HB_EXP1_0091,logical_v2_set_relations_0021,No,short_text,logical
+HB_EXP1_0092,logical_v2_syllogisms_0002,a pet,short_text,logical
+HB_EXP1_0093,logical_v2_conditional_reasoning_0033,No,short_text,logical
+HB_EXP1_0094,logical_v2_proof_evaluation_0047,"The conclusion is correct, but the premise does not necessarily imply the conclusion, there could be other reasons why someone cannot buy liquor.",short_text,logical
+HB_EXP1_0095,logical_v2_propositional_logic_0010,Yes,short_text,logical
+HB_EXP1_0096,logical_v2_set_relations_0026,No,short_text,logical
+HB_EXP1_0097,procedural_v2_algorithm_execution_0006,"[2, 1, 0, 0, 0, 0, 1, 0, 1]",short_text,procedural
+HB_EXP1_0098,procedural_v2_error_recovery_0046,"Immediately halt production, inspect and isolate all potentially substandard fabrics, and implement a manual quality assurance process until the system is repaired.",short_text,procedural
+HB_EXP1_0099,procedural_v2_multistep_planning_0032,"1. Use 'useradd' to create the new user, 2. Set the user's password with 'passwd'.",short_text,procedural
+HB_EXP1_0100,procedural_v2_protocol_compliance_0020,"Ask the parent about the child's location and the substance ingested, and dispatch emergency services immediately if necessary, while continuing to assess the situation over the phone.",short_text,procedural
+HB_EXP1_0101,procedural_v2_recipe_following_0013,Increase baking time by 2 minutes.,short_text,procedural
+HB_EXP1_0102,procedural_v2_algorithm_execution_0000,5,short_text,procedural
+HB_EXP1_0103,procedural_v2_error_recovery_0040,Close the app to free up memory.,short_text,procedural
+HB_EXP1_0104,procedural_v2_multistep_planning_0034,"1. Boot from the macOS installation USB, 2. Select the 'Disk Utility' option, 3. Open the Terminal, 4. Use the 'passwd' command to reset the password",short_text,procedural
+HB_EXP1_0105,procedural_v2_protocol_compliance_0023,"Reject submission, display an inline validation error on the password field, and provide feedback on the password requirements.",short_text,procedural
+HB_EXP1_0106,procedural_v2_recipe_following_0019,"No adjustment needed, as pastry flour does not affect the sweetness of the cookies.",short_text,procedural
+HB_EXP1_0107,procedural_v2_algorithm_execution_0002,"[2, 5, 3, 8, 6]",short_text,procedural
+HB_EXP1_0108,procedural_v2_error_recovery_0046,"Roll back to the previous working version of the deployment script, identify and fix the issue, and re-run the pipeline.",short_text,procedural
+HB_EXP1_0109,procedural_v2_multistep_planning_0031,"1. Install Ruby 2.7+, 2. Configure the intranet connection, 3. Install the required module",short_text,procedural
+HB_EXP1_0110,procedural_v2_protocol_compliance_0020,"Ask the hiker about their location and dispatch a rescue team immediately, while continuing to assess the situation over the phone.",short_text,procedural
+HB_EXP1_0111,procedural_v2_recipe_following_0011,8 teaspoons of baking powder,short_text,procedural
+HB_EXP1_0112,procedural_v2_algorithm_execution_0003,"[1] and [3, 7, 8, 6]",short_text,procedural
+HB_EXP1_0113,procedural_v2_error_recovery_0044,"Redirect queries to available nodes, and initiate a restart or replacement of the failed node.",short_text,procedural
+HB_EXP1_0114,procedural_v2_multistep_planning_0039,Run 'git fetch' to update the local copy.,short_text,procedural
+HB_EXP1_0115,procedural_v2_protocol_compliance_0021,Prevent the developer from saving modifications and display a notification indicating that the file is locked by another developer.,short_text,procedural
+HB_EXP1_0116,procedural_v2_recipe_following_0016,Increase the rising time to about 2 to 2 1/2 hours.,short_text,procedural
+HB_EXP1_0117,procedural_v2_algorithm_execution_0007,"[945, 118, 5, 12, 23, 39, 67, 85]",short_text,procedural
+HB_EXP1_0118,procedural_v2_error_recovery_0045,"Activate the emergency cooling system to rapidly reduce the server temperature, then initiate a controlled shutdown of non-essential servers.",short_text,procedural
+HB_EXP1_0119,procedural_v2_multistep_planning_0033,Run 'pip install numpy',short_text,procedural
+HB_EXP1_0120,procedural_v2_protocol_compliance_0026,"Reject the order, display an error message to the client, and provide options for address correction.",short_text,procedural
+HB_EXP1_0121,social_v2_implicature_0003,You are unwilling to let them use the gaming console.,short_text,social
+HB_EXP1_0122,social_v2_pragmatic_inference_0024,Make the sandwich themselves or ask someone else,short_text,social
+HB_EXP1_0123,social_v2_sarcasm_detection_0031,Sarcastic,short_text,social
+HB_EXP1_0124,social_v2_social_norm_violation_0043,Yes,short_text,social
+HB_EXP1_0125,social_v2_theory_of_mind_0019,In the backpack,short_text,social
+HB_EXP1_0126,social_v2_implicature_0009,"You're not impressed by the artwork, but are focusing on a positive aspect.",short_text,social
+HB_EXP1_0127,social_v2_pragmatic_inference_0027,Wait for C to finish their phone call or find someone else,short_text,social
+HB_EXP1_0128,social_v2_sarcasm_detection_0036,Sarcastic,short_text,social
+HB_EXP1_0129,social_v2_social_norm_violation_0040,Yes,short_text,social
+HB_EXP1_0130,social_v2_theory_of_mind_0019,In the bag.,short_text,social
+HB_EXP1_0131,social_v2_implicature_0005,You think the plan is unlikely to succeed.,short_text,social
+HB_EXP1_0132,social_v2_pragmatic_inference_0011,Get up and turn off the light themselves or ask someone else to do it.,short_text,social
+HB_EXP1_0133,social_v2_sarcasm_detection_0038,Sarcastic,short_text,social
+HB_EXP1_0134,social_v2_social_norm_violation_0045,Yes,short_text,social
+HB_EXP1_0135,social_v2_theory_of_mind_0013,In the conference room,short_text,social
+HB_EXP1_0136,social_v2_implicature_0004,You already have something else scheduled and can't hang out.,short_text,social
+HB_EXP1_0137,social_v2_pragmatic_inference_0023,Ask someone else for help,short_text,social
+HB_EXP1_0138,social_v2_sarcasm_detection_0039,Sarcastic,short_text,social
+HB_EXP1_0139,social_v2_social_norm_violation_0049,Yes,short_text,social
+HB_EXP1_0140,social_v2_theory_of_mind_0018,5,short_text,social
+HB_EXP1_0141,social_v2_implicature_0008,You are unwilling to lend them money.,short_text,social
+HB_EXP1_0142,social_v2_pragmatic_inference_0027,Offer to buy B's ticket or suggest a free activity.,short_text,social
+HB_EXP1_0143,social_v2_sarcasm_detection_0033,Sarcastic,short_text,social
+HB_EXP1_0144,social_v2_social_norm_violation_0049,Yes,short_text,social
+HB_EXP1_0145,spatial_v2_2d_geometry_0006,9,exact_numeric,spatial
+HB_EXP1_0146,spatial_v2_3d_visualization_0043,6,exact_numeric,spatial
+HB_EXP1_0147,spatial_v2_distance_direction_0016,Chris,short_text,spatial
+HB_EXP1_0148,spatial_v2_relative_positioning_0024,the shelf,short_text,spatial
+HB_EXP1_0149,spatial_v2_spatial_transformation_0037,upwards and to the right,short_text,spatial
+HB_EXP1_0150,spatial_v2_2d_geometry_0007,54,exact_numeric,spatial
+HB_EXP1_0151,spatial_v2_3d_visualization_0049,2,exact_numeric,spatial
+HB_EXP1_0152,spatial_v2_distance_direction_0015,Moped,short_text,spatial
+HB_EXP1_0153,spatial_v2_relative_positioning_0028,the block,short_text,spatial
+HB_EXP1_0154,spatial_v2_spatial_transformation_0033,south,short_text,spatial
+HB_EXP1_0155,spatial_v2_2d_geometry_0001,72,exact_numeric,spatial
+HB_EXP1_0156,spatial_v2_3d_visualization_0041,6,exact_numeric,spatial
+HB_EXP1_0157,spatial_v2_distance_direction_0005,Lucas,short_text,spatial
+HB_EXP1_0158,spatial_v2_relative_positioning_0024,the park,short_text,spatial
+HB_EXP1_0159,spatial_v2_spatial_transformation_0032,southeast,short_text,spatial
+HB_EXP1_0160,spatial_v2_2d_geometry_0001,48,exact_numeric,spatial
+HB_EXP1_0161,spatial_v2_3d_visualization_0040,3,exact_numeric,spatial
+HB_EXP1_0162,spatial_v2_distance_direction_0018,Desk,short_text,spatial
+HB_EXP1_0163,spatial_v2_relative_positioning_0022,the sofa,short_text,spatial
+HB_EXP1_0164,spatial_v2_spatial_transformation_0034,left,short_text,spatial
+HB_EXP1_0165,spatial_v2_2d_geometry_0000,36,exact_numeric,spatial
+HB_EXP1_0166,spatial_v2_3d_visualization_0016,5,exact_numeric,spatial
+HB_EXP1_0167,spatial_v2_distance_direction_0012,Barn,short_text,spatial
+HB_EXP1_0168,spatial_v2_relative_positioning_0020,the coffee table,short_text,spatial
+HB_EXP1_0169,temporal_v2_duration_estimation_0019,Wednesday at 3:00 PM,short_text,temporal
+HB_EXP1_0170,temporal_v2_ordering_events_0006,"first mobile phone call, then Apple introduces the Macintosh computer, then first Space Shuttle disaster",short_text,temporal
+HB_EXP1_0171,temporal_v2_scheduling_0039,11:30 AM,short_text,temporal
+HB_EXP1_0172,temporal_v2_temporal_paradoxes_0043,"No, the director would have been 10 years old when the film was released",short_text,temporal
+HB_EXP1_0173,temporal_v2_timezone_arithmetic_0025,10 PM (previous day),short_text,temporal
+HB_EXP1_0174,temporal_v2_duration_estimation_0016,2:00 PM the next day,short_text,temporal
+HB_EXP1_0175,temporal_v2_ordering_events_0001,The sinking of the Titanic occurred before the start of World War I and the discovery of King Tut's tomb.,short_text,temporal
+HB_EXP1_0176,temporal_v2_scheduling_0035,10:30 AM,short_text,temporal
+HB_EXP1_0177,temporal_v2_temporal_paradoxes_0017,"Yes, if the first play occurred 3 days ago and the second play occurred 1 day before that, then the second play occurred 4 days ago.",short_text,temporal
+HB_EXP1_0178,temporal_v2_timezone_arithmetic_0028,10 PM,short_text,temporal
+HB_EXP1_0179,temporal_v2_duration_estimation_0018,Friday at 3:15 PM,short_text,temporal
+HB_EXP1_0180,temporal_v2_ordering_events_0005,first Apple computer,short_text,temporal
+HB_EXP1_0181,temporal_v2_scheduling_0030,9:45 AM,short_text,temporal
+HB_EXP1_0182,temporal_v2_temporal_paradoxes_0044,"No, the person would have been working at the company 10 years before it was founded.",short_text,temporal
+HB_EXP1_0183,temporal_v2_timezone_arithmetic_0028,6 AM,short_text,temporal
+HB_EXP1_0184,temporal_v2_duration_estimation_0015,8:00 AM,short_text,temporal
+HB_EXP1_0185,temporal_v2_ordering_events_0004,the first Olympics in Athens,short_text,temporal
+HB_EXP1_0186,temporal_v2_scheduling_0037,11:30 AM,short_text,temporal
+HB_EXP1_0187,temporal_v2_temporal_paradoxes_0043,50% or 1 in 2,short_text,temporal
+HB_EXP1_0188,temporal_v2_timezone_arithmetic_0025,4 PM,short_text,temporal
+HB_EXP1_0189,temporal_v2_duration_estimation_0013,5:15 PM,short_text,temporal
+HB_EXP1_0190,temporal_v2_ordering_events_0003,first Apple computer release,short_text,temporal
+HB_EXP1_0191,temporal_v2_scheduling_0030,9:00 PM,short_text,temporal
+HB_EXP1_0192,temporal_v2_temporal_paradoxes_0040,"No, he would have been 12 years old when he started studying abroad.",short_text,temporal

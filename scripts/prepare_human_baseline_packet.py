@@ -29,6 +29,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 OUT_DIR = ROOT / "audit" / "human_baseline_packet"
+DIFFICULTY_SCORE = {"easy": 0, "medium": 1, "hard": 2}
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -42,8 +43,40 @@ def load_jsonl(path: Path) -> list[dict]:
     return rows
 
 
-def sample_exp1(questions: list[dict], per_domain: int, seed: int) -> list[dict]:
+def _difficulty_score(value: str) -> int:
+    return DIFFICULTY_SCORE.get(str(value or "").strip().lower(), -1)
+
+
+def _apply_difficulty_priority(pool: list[dict], rng: random.Random, hard_priority: bool) -> list[dict]:
+    ordered = list(pool)
+    rng.shuffle(ordered)
+    if hard_priority:
+        # Stable sort keeps random order for equal-difficulty items.
+        ordered.sort(key=lambda x: _difficulty_score(x.get("difficulty", "")), reverse=True)
+    return ordered
+
+
+def _task_difficulty_min(task: dict) -> int:
+    da = _difficulty_score(task.get("difficulty_a", ""))
+    db = _difficulty_score(task.get("difficulty_b", ""))
+    return min(da, db)
+
+
+def _task_difficulty_sum(task: dict) -> int:
+    da = _difficulty_score(task.get("difficulty_a", ""))
+    db = _difficulty_score(task.get("difficulty_b", ""))
+    return da + db
+
+
+def sample_exp1(
+    questions: list[dict],
+    per_domain: int,
+    seed: int,
+    hard_priority: bool = False,
+    min_difficulty: str = "easy",
+) -> list[dict]:
     rng = random.Random(seed)
+    min_score = DIFFICULTY_SCORE[min_difficulty]
     by_domain: dict[str, list[dict]] = defaultdict(list)
     for q in questions:
         domain = str(q.get("domain", "")).strip()
@@ -52,14 +85,17 @@ def sample_exp1(questions: list[dict], per_domain: int, seed: int) -> list[dict]
 
     selected: list[dict] = []
     for domain in sorted(by_domain):
-        pool = by_domain[domain]
+        pool = [q for q in by_domain[domain] if _difficulty_score(q.get("difficulty", "")) >= min_score]
+        if len(pool) < per_domain:
+            # Fallback to full pool if filtered items are insufficient.
+            pool = by_domain[domain]
         by_subcat: dict[str, list[dict]] = defaultdict(list)
         for q in pool:
             sub = str(q.get("subcategory", "unknown"))
             by_subcat[sub].append(q)
         subcats = sorted(by_subcat)
         for sub in subcats:
-            rng.shuffle(by_subcat[sub])
+            by_subcat[sub] = _apply_difficulty_priority(by_subcat[sub], rng, hard_priority)
 
         # Round-robin by subcategory for broad coverage.
         picks: list[dict] = []
@@ -87,8 +123,15 @@ def _pair_key(task: dict) -> str:
     return f"{lo}+{hi}"
 
 
-def sample_exp9(tasks: list[dict], per_pair: int, seed: int) -> list[dict]:
+def sample_exp9(
+    tasks: list[dict],
+    per_pair: int,
+    seed: int,
+    hard_priority: bool = False,
+    min_difficulty: str = "easy",
+) -> list[dict]:
     rng = random.Random(seed)
+    min_score = DIFFICULTY_SCORE[min_difficulty]
     fixed = [
         t for t in tasks
         if t.get("task_type") == "fixed" and bool(t.get("circularity_free", False))
@@ -99,8 +142,15 @@ def sample_exp9(tasks: list[dict], per_pair: int, seed: int) -> list[dict]:
 
     selected: list[dict] = []
     for pair in sorted(by_pair):
-        pool = by_pair[pair]
+        full_pool = list(by_pair[pair])
+        pool = [t for t in full_pool if _task_difficulty_min(t) >= min_score]
+        if len(pool) < per_pair:
+            # Fallback to full pair pool if strict filtering is too narrow.
+            pool = full_pool
+        pool = list(pool)
         rng.shuffle(pool)
+        if hard_priority:
+            pool.sort(key=_task_difficulty_sum, reverse=True)
         selected.extend(pool[:per_pair])
     return selected
 
@@ -114,12 +164,32 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
             writer.writerow({k: row.get(k, "") for k in fieldnames})
 
 
-def build_packet(exp1_per_domain: int, exp9_per_pair: int, seed: int) -> dict:
+def build_packet(
+    exp1_per_domain: int,
+    exp9_per_pair: int,
+    seed: int,
+    exp1_hard_priority: bool = False,
+    exp9_hard_priority: bool = False,
+    exp1_min_difficulty: str = "easy",
+    exp9_min_difficulty: str = "easy",
+) -> dict:
     questions = load_jsonl(DATA_DIR / "questions.jsonl")
     exp9_tasks = load_jsonl(DATA_DIR / "exp9_tasks.jsonl")
 
-    exp1 = sample_exp1(questions, exp1_per_domain, seed)
-    exp9 = sample_exp9(exp9_tasks, exp9_per_pair, seed)
+    exp1 = sample_exp1(
+        questions,
+        exp1_per_domain,
+        seed,
+        hard_priority=exp1_hard_priority,
+        min_difficulty=exp1_min_difficulty,
+    )
+    exp9 = sample_exp9(
+        exp9_tasks,
+        exp9_per_pair,
+        seed,
+        hard_priority=exp9_hard_priority,
+        min_difficulty=exp9_min_difficulty,
+    )
 
     exp1_tasks_rows: list[dict] = []
     exp1_response_rows: list[dict] = []
@@ -297,6 +367,10 @@ def build_packet(exp1_per_domain: int, exp9_per_pair: int, seed: int) -> dict:
         "seed": seed,
         "exp1_per_domain": exp1_per_domain,
         "exp9_per_pair": exp9_per_pair,
+        "exp1_hard_priority": exp1_hard_priority,
+        "exp9_hard_priority": exp9_hard_priority,
+        "exp1_min_difficulty": exp1_min_difficulty,
+        "exp9_min_difficulty": exp9_min_difficulty,
         "exp1_items_total": len(exp1_tasks_rows),
         "exp9_items_total": len(exp9_tasks_rows),
         "exp1_domains": sorted({r["domain"] for r in exp1_tasks_rows}),
@@ -313,6 +387,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Prepare MIRROR human-baseline packet.")
     parser.add_argument("--exp1-per-domain", type=int, default=10)
     parser.add_argument("--exp9-per-pair", type=int, default=2)
+    parser.add_argument("--exp1-hard-priority", action="store_true")
+    parser.add_argument("--exp9-hard-priority", action="store_true")
+    parser.add_argument("--exp1-min-difficulty", choices=["easy", "medium", "hard"], default="easy")
+    parser.add_argument("--exp9-min-difficulty", choices=["easy", "medium", "hard"], default="easy")
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
@@ -320,6 +398,10 @@ def main() -> None:
         exp1_per_domain=args.exp1_per_domain,
         exp9_per_pair=args.exp9_per_pair,
         seed=args.seed,
+        exp1_hard_priority=args.exp1_hard_priority,
+        exp9_hard_priority=args.exp9_hard_priority,
+        exp1_min_difficulty=args.exp1_min_difficulty,
+        exp9_min_difficulty=args.exp9_min_difficulty,
     )
     print(json.dumps(manifest, indent=2))
     print(f"Packet written to: {OUT_DIR}")

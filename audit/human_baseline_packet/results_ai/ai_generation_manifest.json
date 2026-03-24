@@ -5,43 +5,43 @@
   "exp9_out": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_ai_generated.csv",
   "exp1_domain_summary": {
     "arithmetic": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "factual": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "linguistic": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "logical": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "procedural": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "social": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "spatial": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     },
     "temporal": {
-      "n": 10,
-      "n_correct": 10,
+      "n": 24,
+      "n_correct": 24,
       "nat_acc": 1.0
     }
   },

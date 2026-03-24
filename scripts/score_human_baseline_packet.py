@@ -61,7 +61,41 @@ def normalize_decision(s: str) -> str:
     return ""
 
 
-def score_exp1(exp1_rows: list[dict], exp1_key: dict[str, dict]) -> dict:
+def _select_weak_domains(
+    per_domain: dict[str, dict],
+    median_acc: float,
+    weak_domain_rule: str,
+    fallback_bottom_k: int,
+) -> tuple[list[str], list[str], str]:
+    median_weak = sorted(
+        [d for d, stats in per_domain.items() if stats["nat_acc"] < median_acc]
+    )
+    ranked = sorted(
+        per_domain.keys(),
+        key=lambda d: (per_domain[d]["nat_acc"], d),
+    )
+    if ranked:
+        k = max(1, min(fallback_bottom_k, len(ranked)))
+        bottom_k = sorted(ranked[:k])
+    else:
+        bottom_k = []
+
+    if weak_domain_rule == "median":
+        return median_weak, bottom_k, "median"
+    if weak_domain_rule == "bottom_k":
+        return bottom_k, bottom_k, "bottom_k"
+    # Default: median with deterministic fallback.
+    if median_weak:
+        return median_weak, bottom_k, "median"
+    return bottom_k, bottom_k, "bottom_k_fallback"
+
+
+def score_exp1(
+    exp1_rows: list[dict],
+    exp1_key: dict[str, dict],
+    weak_domain_rule: str = "median_or_bottom_k",
+    fallback_bottom_k: int = 2,
+) -> dict:
     item_results: list[dict] = []
     domain_totals: dict[str, dict[str, int]] = defaultdict(lambda: {"n": 0, "correct": 0, "missing": 0})
 
@@ -117,7 +151,15 @@ def score_exp1(exp1_rows: list[dict], exp1_key: dict[str, dict]) -> dict:
         else:
             median_acc = 0.5 * (sorted_vals[mid - 1] + sorted_vals[mid])
 
-    weak_domains = sorted([d for d, stats in per_domain.items() if stats["nat_acc"] < median_acc])
+    weak_domains, weak_domains_bottom_k, rule_applied = _select_weak_domains(
+        per_domain=per_domain,
+        median_acc=median_acc,
+        weak_domain_rule=weak_domain_rule,
+        fallback_bottom_k=fallback_bottom_k,
+    )
+    weak_domains_median = sorted(
+        [d for d, stats in per_domain.items() if stats["nat_acc"] < median_acc]
+    )
     strong_domains = sorted([d for d in per_domain if d not in weak_domains])
 
     return {
@@ -130,6 +172,11 @@ def score_exp1(exp1_rows: list[dict], exp1_key: dict[str, dict]) -> dict:
         },
         "domain_summary": per_domain,
         "median_domain_nat_acc": median_acc,
+        "weak_domain_rule_requested": weak_domain_rule,
+        "weak_domain_rule_applied": rule_applied,
+        "weak_domain_fallback_bottom_k": fallback_bottom_k,
+        "weak_domains_median": weak_domains_median,
+        "weak_domains_bottom_k": weak_domains_bottom_k,
         "weak_domains": weak_domains,
         "strong_domains": strong_domains,
         "item_results": item_results,
@@ -222,6 +269,10 @@ def build_markdown(summary: dict, cohort_label: str = "Human Baseline") -> str:
     lo, hi = exp1["overall"]["nat_acc_ci95"]
     weak = exp1["weak_domains"]
     strong = exp1["strong_domains"]
+    weak_rule_req = exp1.get("weak_domain_rule_requested", "median_or_bottom_k")
+    weak_rule_applied = exp1.get("weak_domain_rule_applied", "median")
+    bottom_k = exp1.get("weak_domain_fallback_bottom_k", 2)
+    weak_median = exp1.get("weak_domains_median", [])
     lines = [
         f"# {cohort_label} Summary",
         "",
@@ -237,7 +288,11 @@ def build_markdown(summary: dict, cohort_label: str = "Human Baseline") -> str:
         "",
         "## Domain Split (from Exp1)",
         "",
-        f"- Weak domains (< median): {', '.join(weak) if weak else '(none)'}",
+        f"- Weak-domain rule requested: `{weak_rule_req}`",
+        f"- Weak-domain rule applied: `{weak_rule_applied}`",
+        f"- Weak domains (active for Exp9): {', '.join(weak) if weak else '(none)'}",
+        f"- Weak domains (< median): {', '.join(weak_median) if weak_median else '(none)'}",
+        f"- Bottom-{bottom_k} fallback set: {', '.join(exp1.get('weak_domains_bottom_k', [])) if exp1.get('weak_domains_bottom_k') else '(none)'}",
         f"- Strong domains: {', '.join(strong) if strong else '(none)'}",
         "",
         "## Per-Domain Nat.Acc",
@@ -256,13 +311,15 @@ def build_markdown(summary: dict, cohort_label: str = "Human Baseline") -> str:
             "",
             "- This report assumes Exp9 decisions use: `PROCEED`, `USE_TOOL`, or `FLAG_FOR_REVIEW`.",
             "- CFR denominator follows MIRROR convention: all weak-domain components.",
+            "- If median-split yields no weak domains, `median_or_bottom_k` applies a deterministic bottom-k fallback to keep the denominator estimable.",
             "",
             "## Paper-Ready Insert (Draft)",
             "",
             (
                 f"{cohort_label} pilot on the staged subset reports Exp1 Nat.Acc "
                 f"{exp1['overall']['nat_acc']:.3f} (95% CI [{lo:.3f}, {hi:.3f}]). "
-                f"Using weak domains defined from this {cohort_label.lower()} Exp1 profile, Exp9 C1-style "
+                f"Using weak domains defined from this {cohort_label.lower()} Exp1 profile "
+                f"(rule `{weak_rule_applied}`), Exp9 C1-style "
                 f"CFR is {exp9['metrics']['cfr_c1_style']:.3f}, with weak-domain escalation "
                 f"rate {exp9['metrics']['escalation_rate_weak']:.3f} and autonomy "
                 f"{exp9['metrics']['autonomy_rate']:.3f}."
@@ -311,6 +368,19 @@ def main() -> None:
         default="Human Baseline",
         help="Label used in markdown title and insert text.",
     )
+    parser.add_argument(
+        "--weak-domain-rule",
+        type=str,
+        choices=["median", "bottom_k", "median_or_bottom_k"],
+        default="median_or_bottom_k",
+        help="Rule for deriving weak domains from Exp1 per-domain Nat.Acc.",
+    )
+    parser.add_argument(
+        "--fallback-bottom-k",
+        type=int,
+        default=2,
+        help="Bottom-k used when weak-domain rule requires fallback.",
+    )
     args = parser.parse_args()
 
     exp1_rows = read_csv(args.exp1_responses)
@@ -320,7 +390,12 @@ def main() -> None:
     exp1_key = {r["item_id"]: r for r in exp1_key_rows}
     exp9_key = {r["item_id"]: r for r in exp9_key_rows}
 
-    exp1_summary = score_exp1(exp1_rows, exp1_key)
+    exp1_summary = score_exp1(
+        exp1_rows,
+        exp1_key,
+        weak_domain_rule=args.weak_domain_rule,
+        fallback_bottom_k=args.fallback_bottom_k,
+    )
     exp9_summary = score_exp9(exp9_rows, exp9_key, set(exp1_summary["weak_domains"]))
 
     summary = {

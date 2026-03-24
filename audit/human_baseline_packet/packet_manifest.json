@@ -1,9 +1,13 @@
 {
   "seed": 42,
-  "exp1_per_domain": 10,
-  "exp9_per_pair": 2,
-  "exp1_items_total": 80,
-  "exp9_items_total": 54,
+  "exp1_per_domain": 24,
+  "exp9_per_pair": 6,
+  "exp1_hard_priority": true,
+  "exp9_hard_priority": true,
+  "exp1_min_difficulty": "medium",
+  "exp9_min_difficulty": "medium",
+  "exp1_items_total": 192,
+  "exp9_items_total": 162,
   "exp1_domains": [
     "arithmetic",
     "factual",
