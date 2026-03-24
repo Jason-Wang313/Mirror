@@ -419,7 +419,9 @@ will accept community-contributed evaluations via pull request.
 \input{tables/table4_models}
 
 We evaluate 16 models from 8 labs spanning 3B to 671B parameters
-(Table~\ref{tab:models}). All 16 models participate in the core experiments (1, 4, 5, 6) and in Experiment~9 (the capstone agentic evaluation); subsets participate in experiments with specific requirements: 11 models in Experiment~2 (requires cross-domain task infrastructure), 15 in Experiment~3, and 3 in Experiment~8 (Llama family scaling analysis). Two additional models were excluded entirely:
+(Table~\ref{tab:models}). All 16 models participate in the core experiments (1, 4, 5, 6) and in Experiment~9 (the capstone agentic evaluation); subsets participate in experiments with specific requirements: 11 models in Experiment~2 (requires cross-domain task infrastructure), 15 in Experiment~3, and 4 in Experiment~8 (Llama-family scaling analysis).
+\textbf{Coverage status matrix (models per experiment):} Exp1=16, Exp2=11, Exp3=15, Exp4=15, Exp5=14, Exp6=16, Exp8=4, Exp9=16 (Exp7 planned, omitted in this release).
+Two additional models were excluded entirely:
 \texttt{command-r-plus} (API removed mid-collection) and \texttt{qwen-3-235b}
 (100\% API failure rate on the NIM endpoint). All experiments use
 \texttt{temperature=0} for reproducibility. Infrastructure: NVIDIA NIM free tier
@@ -558,6 +560,10 @@ Negative KDI means the model ``knows better than it acts.'' We name KDI for its
 communicative value---the sign, not the magnitude, carries the interpretive
 weight---while acknowledging it is a diagnostic summary, not a formally validated
 psychometric construct.
+\textbf{Interpretation boundary.} KDI is not the sole evidentiary basis for the
+paper's claim. The primary evidence is the escalation curve (Figure~\ref{fig:escalation})
+and the C3$\to$C4 effect ($d=1.21$, $p<0.0001$), which are computed directly from
+action outcomes and do not require KDI.
 
 \begin{figure}[t]
   \centering
@@ -1054,7 +1060,14 @@ C4 Constrained & 45.7\% & 21.0\% & 54.3\% & 75.3\% \\
 
 The cost of C4 is operational, not accuracy: 54.3\% of task components require external resolution, imposing human-review or tool-invocation overhead. Whether this trade-off is favorable depends on the deployment's cost function---\mirror{} provides the decision data; threshold selection is application-specific.
 
-\textbf{Provider analysis.} Among the 10 Experiment~9 models, 9 are accessed via NVIDIA NIM and 1 via the DeepSeek API. Within NIM, no systematic difference in CFR is observed between Meta-family models (mean CFR = 0.624, $n=4$) and non-Meta models (mean CFR = 0.720, $n=5$; Mann-Whitney $p = 0.14$). The single DeepSeek-API model (deepseek-r1, CFR = 0.387) falls within the NIM range. While the limited provider diversity prevents strong conclusions, no evidence of provider-specific artifacts was detected.
+\textbf{Provider analysis (subset).} For the fixed-task Exp9 subset with complete
+provider-attributed records ($n=10$ models), 9 are accessed via NVIDIA NIM and 1
+via the DeepSeek API. Within NIM, no systematic difference in CFR is observed
+between Meta-family models (mean CFR = 0.624, $n=4$) and non-Meta models
+(mean CFR = 0.720, $n=5$; Mann-Whitney $p = 0.14$). The single DeepSeek-API
+model (deepseek-r1, CFR = 0.387) falls within the NIM range. While the limited
+provider diversity prevents strong conclusions, no evidence of provider-specific
+artifacts was detected.
 
 % =============================================================================
 \section{Channel Prompt Templates}
