@@ -64,7 +64,7 @@ models cannot predict their own performance on multi-domain tasks, and (2)~model
 exhibit above-chance but imperfect domain-specific self-knowledge yet systematically
 fail to translate even this partial awareness into appropriate agentic
 action-selection---external metacognitive control reduces the Confident Failure Rate
-from 0.600 to 0.143 (76\% reduction at temperature~0; 35\% at temperature~0.7).
+from 0.600 to 0.143 (76\% reduction at temperature~0; 66\% at temperature~0.7).
 Providing models with their own calibration scores produces no significant
 improvement ($p > 0.05$); only architectural constraint is effective. This suggests
 that external metacognitive scaffolding---not improved self-knowledge---is the path
@@ -491,10 +491,9 @@ control ($n = 16$ models, all paradigms; see Figure~\ref{fig:escalation}).
 Mean \CFR{} values: C1~=~0.600 (SD=0.176), C2~=~0.605 (SD=0.181), C3~=~0.514 (SD=0.215), C4~=~0.143 (SD=0.239).
 
 Total \CFR{} reduction C1$\to$C4: \textbf{76\%} (45.7~percentage points).
-This reduction is measured at temperature~0; at temperature~0.7 on 3 models, C4
-still reduces CFR but the effect attenuates to a mean 35\% reduction
-(Appendix~\ref{app:temp}), suggesting the 76\% figure is an upper bound under
-stochastic decoding. The
+This reduction is measured at temperature~0; at temperature~0.7 on 5 models from 4 labs, C4
+still reduces CFR by a mean 66\% (range 33--96\%;
+Appendix~\ref{app:temp}), confirming the effect is robust under stochastic decoding. The
 shape is the finding: providing self-knowledge alone (C2) does not reduce failures---\CFR{}
 increases by a non-significant 0.5~pp, suggesting that explicit
 self-knowledge adds no actionable value. Adding normative
@@ -622,7 +621,7 @@ domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed rout
 \mirror{} requires only API access, enabling scale but preventing mechanistic
 analysis. Whether the knowing-doing gap reflects an information deficit or a
 control failure at the representation level remains open for hidden-state probing.
-All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablation (Appendix~\ref{app:temp}) shows the C1$\to$C4 CFR reduction attenuates from 76\% to 35\% at temperature~0.7. The knowing-doing gap persists under stochastic decoding but is substantially narrower, likely because stochastic sampling produces occasional correct answers on deterministically-failed questions. The 76\% reduction reported throughout should be interpreted as a temperature-0 upper bound.
+All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablation (Appendix~\ref{app:temp}) shows the C1$\to$C4 CFR reduction attenuates from 76\% to 66\% at temperature~0.7 (mean across 5 models from 4 labs). The knowing-doing gap persists under stochastic decoding but is substantially narrower, likely because stochastic sampling produces occasional correct answers on deterministically-failed questions. The 76\% reduction reported throughout should be interpreted as a temperature-0 upper bound.
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
