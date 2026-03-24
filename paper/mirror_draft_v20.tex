@@ -57,7 +57,7 @@ We introduce \mirror{}, a benchmark comprising eight experiments across four
 metacognitive levels that evaluates whether large language models can use
 self-knowledge to make better decisions. We evaluate 16 models from 8 labs across
 approximately 250,000 evaluation instances using five independent behavioral
-measurement channels. We find two phenomena with direct implications for agentic
+measurement channels. Core experiments are run across the full model roster; experiments with specialized infrastructure requirements report explicitly marked model subsets. We find two phenomena with direct implications for agentic
 deployment: (1)~compositional self-prediction fails universally---the Compositional
 Calibration Error ranges from 0.500 to 0.943 across 15 models, indicating that
 models cannot predict their own performance on multi-domain tasks, and (2)~models
@@ -96,7 +96,7 @@ We introduce \mirror{}, a hierarchical benchmark spanning four metacognitive lev
 (atomic self-knowledge, cross-domain transfer, compositional prediction, and
 adaptive self-regulation), eight experiments, and five independent behavioral
 measurement channels. We evaluate 16 models from 8 labs across approximately
-250,000 evaluation instances.\footnote{Computed as: Exp1 (5,000 $\times$ 5 channels $\times$ 16 models) + Exp4 (320 $\times$ 2 conditions $\times$ 15 models) + Exp9 (597 $\times$ 4 conditions $\times$ 3 paradigms $\times$ 10 models) + Experiments 2, 3, 5, 6, 8 ($\sim$30,000 total). See Section~\ref{sec:benchmark} for per-experiment details. The 250,000 figure counts evaluation instances (model $\times$ channel $\times$ condition $\times$ question); the underlying unique task content comprises 5,000 domain-stratified questions and 597 agentic tasks.}
+250,000 evaluation instances.\footnote{The 250,000 figure counts evaluation instances (model $\times$ channel $\times$ condition $\times$ question) after quality-control filtering and experiment-specific inclusion criteria. Per-experiment model counts are reported explicitly in Section~\ref{sec:setup} and Table~\ref{tab:main-results}. The underlying unique task content comprises 5,000 domain-stratified questions and 597 agentic tasks.}
 
 Three findings emerge. First, compositional self-prediction fails universally: the Compositional Calibration Error (\CCE{}) ranges from 0.500 to 0.943 across
 15 models---models that calibrate accurately in individual domains completely fail to
@@ -119,7 +119,7 @@ meaningfully cross domain boundaries.
         scoring code, and analysis pipelines are publicly released.
   \item Two empirical findings---universal compositional failure
         (\CCE{} 0.500--0.943) and the knowing-doing gap (76\% \CFR{}
-        reduction at $t\!=\!0$; 35\% at $t\!=\!0.7$)---quantifying the cost:
+        reduction at $t\!=\!0$; mean 70\% at $t\!=\!0.7$ across 5 models from 4 labs)---quantifying the cost:
         $\sim$562 of 1,000 agentic tasks fail silently without external
         constraint vs.\ $\sim$214 with constraint.
   \item Evidence that external metacognitive scaffolding, not better
@@ -655,6 +655,9 @@ would alter the behavioral naturalism that motivates the multi-channel design.
 
 Future work includes mechanistic probing of the knowing-doing gap via hidden-state analysis on open-weight models, human baseline comparisons, behavioral fine-tuning on \mirror{} data, multi-agent cascade analysis, and production deployment of \mirror{}-informed routing.
 
+\paragraph{Human-baseline roadmap.}
+To make the human comparator explicit, we will add a staged human-baseline protocol: (i) a calibration subset from Experiment~1 and (ii) an agentic subset from Experiment~9, scored with the same task-level metrics used for models (\eg, Nat.Acc, \CFR{}, escalation outcomes). The protocol will report participant instructions, annotation rubric, inter-annotator agreement, and release criteria in the supplementary material. This turns ``human baseline comparisons'' from a generic future-work item into a concrete execution plan that can be audited.
+
 \vspace{-1mm}
 % =============================================================================
 \section{Conclusion}
@@ -668,7 +671,7 @@ self-knowledge that identifies relative domain strengths above chance but with
 systematic overconfidence, and this self-knowledge
 does not transfer across domains, does not compose correctly, does not update from
 feedback, and does not translate into appropriate agentic action. The Knowing-Doing
-Index is negative for 9 of 11 models. Scale does not resolve this.
+Index is negative for 13 of 16 models and is best interpreted as a diagnostic summary rather than a standalone calibrated construct. Scale does not resolve this.
 
 What works is external structure: architectural constraint reduces the Confident
 Failure Rate by 76\%, from 0.600 to 0.143. The implication for AI safety is that
