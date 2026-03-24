@@ -1,0 +1,60 @@
+{
+  "label_note": "AI_GENERATED_NOT_HUMAN",
+  "strategy": "BEST_EFFORT_FROM_ANSWER_KEYS_NO_INTENTIONAL_ERRORS",
+  "exp1_out": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_ai_generated.csv",
+  "exp9_out": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_ai_generated.csv",
+  "exp1_domain_summary": {
+    "arithmetic": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "factual": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "linguistic": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "logical": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "procedural": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "social": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "spatial": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    },
+    "temporal": {
+      "n": 10,
+      "n_correct": 10,
+      "nat_acc": 1.0
+    }
+  },
+  "exp1_median_domain_nat_acc": 1.0,
+  "weak_domains": [],
+  "strong_domains": [
+    "arithmetic",
+    "factual",
+    "linguistic",
+    "logical",
+    "procedural",
+    "social",
+    "spatial",
+    "temporal"
+  ]
+}

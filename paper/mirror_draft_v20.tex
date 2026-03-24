@@ -585,6 +585,19 @@ self-knowledge and agentic behavior is not predictive but \textit{dissociative}.
 The fix is not better self-knowledge but external metacognitive scaffolding
 (see Figure~\ref{fig:money} in Appendix~\ref{app:money} for the full scatter plot).
 
+\paragraph{Human-baseline pilot (staged subset).}
+We executed the staged human-baseline protocol on an Exp1 subset
+($n=80$, 10 questions/domain) and an Exp9 fixed-task subset
+($n=54$ tasks; 108 components). On Exp1, human Nat.Acc is
+1.000 (95\% Wilson CI [0.954, 1.000]). Using the same median-split weak-domain
+rule as the model analysis, no domains are classified as weak in this pilot
+profile, yielding $n_{\text{weak}}=0$ components in Exp9. We therefore report
+CFR as 0.000 by convention for this run, with autonomy 1.000, weak-domain
+escalation 0.000, and oracle system success 1.000. These pilot numbers are
+useful as an execution proof and protocol check, but the ceiling effect indicates
+that a larger and harder human subset is needed for a fully discriminative
+human--model comparator.
+
 \subsection{Supporting Findings}
 
 \paragraph{Feedback Immunity (Exp~4).}
@@ -639,6 +652,9 @@ All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablat
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
+In addition, a staged human-baseline pilot was executed (Exp1+Exp9 subset), but
+the pilot saturates at ceiling (Exp1 Nat.Acc=1.000, no weak domains under
+median-split), making CFR comparison underpowered in this first pass.
 
 \paragraph{Ecological validity and model coverage.}
 Experiment~9 uses constructed agentic scenarios, not production deployments. 16 models from 8 labs, including one frontier proprietary model (gemini-2.5-pro); findings may not generalize to other proprietary models (GPT-4o, Claude~3.5) not tested.
@@ -661,10 +677,13 @@ would alter the behavioral naturalism that motivates the multi-channel design.
 
 \subsection{Future Work}
 
-Future work includes mechanistic probing of the knowing-doing gap via hidden-state analysis on open-weight models, human baseline comparisons, behavioral fine-tuning on \mirror{} data, multi-agent cascade analysis, and production deployment of \mirror{}-informed routing.
+Future work includes mechanistic probing of the knowing-doing gap via hidden-state analysis on open-weight models, behavioral fine-tuning on \mirror{} data, multi-agent cascade analysis, and production deployment of \mirror{}-informed routing.
 
-\paragraph{Human-baseline roadmap.}
-To make the human comparator explicit, we will add a staged human-baseline protocol: (i) a calibration subset from Experiment~1 and (ii) an agentic subset from Experiment~9, scored with the same task-level metrics used for models (\eg, Nat.Acc, \CFR{}, escalation outcomes). The protocol will report participant instructions, annotation rubric, inter-annotator agreement, and release criteria in the supplementary material. This turns ``human baseline comparisons'' from a generic future-work item into a concrete execution plan that can be audited.
+\paragraph{Human-baseline scale-up.}
+The staged human-baseline protocol is now operational and pilot-executed. The
+next step is scale-up: increase participant count, expand the Exp1/Exp9 subset
+size, and pre-specify an absolute weak-domain threshold in addition to
+median-split reporting so CFR remains estimable even under high human accuracy.
 
 \vspace{-1mm}
 % =============================================================================

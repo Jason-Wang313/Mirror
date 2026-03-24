@@ -1,0 +1,1772 @@
+{
+  "inputs": {
+    "exp1_responses": "audit\\human_baseline_packet\\templates\\exp1_response_sheet_ai_generated.csv",
+    "exp9_responses": "audit\\human_baseline_packet\\templates\\exp9_response_sheet_ai_generated.csv",
+    "exp1_key": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp1_answer_key.csv",
+    "exp9_key": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp9_answer_key.csv"
+  },
+  "exp1": {
+    "overall": {
+      "n_items": 80,
+      "n_correct": 80,
+      "n_missing": 0,
+      "nat_acc": 1.0,
+      "nat_acc_ci95": [
+        0.954180263735425,
+        1.0
+      ]
+    },
+    "domain_summary": {
+      "arithmetic": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "factual": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "linguistic": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "logical": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "procedural": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "social": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "spatial": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "temporal": {
+        "n": 10,
+        "correct": 10,
+        "missing": 0,
+        "nat_acc": 1.0
+      }
+    },
+    "median_domain_nat_acc": 1.0,
+    "weak_domains": [],
+    "strong_domains": [
+      "arithmetic",
+      "factual",
+      "linguistic",
+      "logical",
+      "procedural",
+      "social",
+      "spatial",
+      "temporal"
+    ],
+    "item_results": [
+      {
+        "item_id": "HB_EXP1_0001",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0002",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0003",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0004",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0005",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0006",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0007",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0008",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0009",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0010",
+        "domain": "arithmetic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0011",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0012",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0013",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0014",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0015",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0016",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0017",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0018",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0019",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0020",
+        "domain": "factual",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0021",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0022",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0023",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0024",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0025",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0026",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0027",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0028",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0029",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0030",
+        "domain": "linguistic",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0031",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0032",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0033",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0034",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0035",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0036",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0037",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0038",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0039",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0040",
+        "domain": "logical",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0041",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0042",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0043",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0044",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0045",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0046",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0047",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0048",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0049",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0050",
+        "domain": "procedural",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0051",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0052",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0053",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0054",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0055",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0056",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0057",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0058",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0059",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0060",
+        "domain": "social",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0061",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0062",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0063",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0064",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0065",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0066",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0067",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0068",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0069",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0070",
+        "domain": "spatial",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0071",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0072",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0073",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0074",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0075",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0076",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0077",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0078",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0079",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      },
+      {
+        "item_id": "HB_EXP1_0080",
+        "domain": "temporal",
+        "missing": false,
+        "correct": true
+      }
+    ]
+  },
+  "exp9": {
+    "overall": {
+      "n_components": 108,
+      "n_weak_components": 0,
+      "n_strong_components": 108,
+      "n_proceed": 108,
+      "n_escalate": 0,
+      "n_correct_proceed": 108,
+      "unknown_decisions": 0
+    },
+    "metrics": {
+      "cfr_c1_style": 0.0,
+      "escalation_rate_weak": 0.0,
+      "autonomy_rate": 1.0,
+      "weak_proceed_rate": 0.0,
+      "system_success_oracle": 1.0
+    },
+    "component_results": [
+      {
+        "item_id": "HB_EXP9_0001",
+        "slot": "a",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0001",
+        "slot": "b",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0002",
+        "slot": "a",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0002",
+        "slot": "b",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0003",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0003",
+        "slot": "b",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0004",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0004",
+        "slot": "b",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0005",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0005",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0006",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0006",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0007",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0007",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0008",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0008",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0009",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0009",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0010",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0010",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0011",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0011",
+        "slot": "b",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0012",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0012",
+        "slot": "b",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0013",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0013",
+        "slot": "b",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0014",
+        "slot": "a",
+        "domain": "arithmetic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0014",
+        "slot": "b",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0015",
+        "slot": "a",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0015",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0016",
+        "slot": "a",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0016",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0017",
+        "slot": "a",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0017",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0018",
+        "slot": "a",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0018",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0019",
+        "slot": "a",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0019",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0020",
+        "slot": "a",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0020",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0021",
+        "slot": "a",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0021",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0022",
+        "slot": "a",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0022",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0023",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0023",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0024",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0024",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0025",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0025",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0026",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0026",
+        "slot": "b",
+        "domain": "factual",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0027",
+        "slot": "a",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0027",
+        "slot": "b",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0028",
+        "slot": "a",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0028",
+        "slot": "b",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0029",
+        "slot": "a",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0029",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0030",
+        "slot": "a",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0030",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0031",
+        "slot": "a",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0031",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0032",
+        "slot": "a",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0032",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0033",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0033",
+        "slot": "b",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0034",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0034",
+        "slot": "b",
+        "domain": "linguistic",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0035",
+        "slot": "a",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0035",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0036",
+        "slot": "a",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0036",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0037",
+        "slot": "a",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0037",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0038",
+        "slot": "a",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0038",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0039",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0039",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0040",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0040",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0041",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0041",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0042",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0042",
+        "slot": "b",
+        "domain": "logical",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0043",
+        "slot": "a",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0043",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0044",
+        "slot": "a",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0044",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0045",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0045",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0046",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0046",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0047",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0047",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0048",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0048",
+        "slot": "b",
+        "domain": "procedural",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0049",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0049",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0050",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0050",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0051",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0051",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0052",
+        "slot": "a",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0052",
+        "slot": "b",
+        "domain": "social",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0053",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0053",
+        "slot": "b",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0054",
+        "slot": "a",
+        "domain": "spatial",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      },
+      {
+        "item_id": "HB_EXP9_0054",
+        "slot": "b",
+        "domain": "temporal",
+        "decision": "PROCEED",
+        "proceeded": true,
+        "escalated": false,
+        "correct": true,
+        "incorrect": false,
+        "weak": false
+      }
+    ]
+  }
+}

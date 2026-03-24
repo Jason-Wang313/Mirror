@@ -1,0 +1,81 @@
+item_id,question_id,correct_answer,answer_type,domain
+HB_EXP1_0001,arithmetic_v2_estimation_0026,About 165 minutes,short_text,arithmetic
+HB_EXP1_0002,arithmetic_v2_mental_calculation_0001,8,exact_numeric,arithmetic
+HB_EXP1_0003,arithmetic_v2_numerical_reasoning_0040,0.2,short_text,arithmetic
+HB_EXP1_0004,arithmetic_v2_unit_conversion_0033,500,exact_numeric,arithmetic
+HB_EXP1_0005,arithmetic_v2_word_problems_0018,240,exact_numeric,arithmetic
+HB_EXP1_0006,arithmetic_v2_estimation_0024,About 250000 centimeters,short_text,arithmetic
+HB_EXP1_0007,arithmetic_v2_mental_calculation_0007,281,exact_numeric,arithmetic
+HB_EXP1_0008,arithmetic_v2_numerical_reasoning_0042,0.8 and 80% are equal,short_text,arithmetic
+HB_EXP1_0009,arithmetic_v2_unit_conversion_0031,0.05,exact_numeric,arithmetic
+HB_EXP1_0010,arithmetic_v2_word_problems_0011,60,exact_numeric,arithmetic
+HB_EXP1_0011,factual_v2_cross_domain_trivia_0047,Dinosaur Fossils,short_text,factual
+HB_EXP1_0012,factual_v2_culture_0038,Jane Austen,short_text,factual
+HB_EXP1_0013,factual_v2_geography_0005,Tokyo,short_text,factual
+HB_EXP1_0014,factual_v2_history_0028,Elizabeth I,short_text,factual
+HB_EXP1_0015,factual_v2_science_0018,Fossils,short_text,factual
+HB_EXP1_0016,factual_v2_cross_domain_trivia_0044,Igneous rock,short_text,factual
+HB_EXP1_0017,factual_v2_culture_0032,Ludwig van Beethoven,short_text,factual
+HB_EXP1_0018,factual_v2_geography_0008,Beijing,short_text,factual
+HB_EXP1_0019,factual_v2_history_0024,Chiang Kai-shek,short_text,factual
+HB_EXP1_0020,factual_v2_science_0017,CO2,short_text,factual
+HB_EXP1_0021,linguistic_v2_ambiguity_resolution_0023,(1) The woman heard the man who was using a phone; (2) The woman heard the man by using a phone.,short_text,linguistic
+HB_EXP1_0022,linguistic_v2_grammar_correction_0043,"No, the sentence is grammatically correct.",short_text,linguistic
+HB_EXP1_0023,linguistic_v2_morphology_0018,non- + conform + -ity,short_text,linguistic
+HB_EXP1_0024,linguistic_v2_register_formality_0032,No,short_text,linguistic
+HB_EXP1_0025,linguistic_v2_syntax_parsing_0002,organization,short_text,linguistic
+HB_EXP1_0026,linguistic_v2_ambiguity_resolution_0021,The researcher is studying a report while on the plane.,short_text,linguistic
+HB_EXP1_0027,linguistic_v2_grammar_correction_0043,"'was' should be 'were' — 'if' clause requires the subjunctive mood, 'were' is the correct form for the subjunctive",short_text,linguistic
+HB_EXP1_0028,linguistic_v2_morphology_0014,dis- + enthusiasm + -atic + -ally,short_text,linguistic
+HB_EXP1_0029,linguistic_v2_register_formality_0033,I'm super excited to announce my colleague's upcoming wedding!,short_text,linguistic
+HB_EXP1_0030,linguistic_v2_syntax_parsing_0004,song,short_text,linguistic
+HB_EXP1_0031,logical_v2_conditional_reasoning_0037,No,short_text,logical
+HB_EXP1_0032,logical_v2_proof_evaluation_0043,Not all countries in Europe use the Euro — the UK uses the Pound Sterling.,short_text,logical
+HB_EXP1_0033,logical_v2_propositional_logic_0015,Yes,short_text,logical
+HB_EXP1_0034,logical_v2_set_relations_0008,Yes,short_text,logical
+HB_EXP1_0035,logical_v2_syllogisms_0009,a string instrument,short_text,logical
+HB_EXP1_0036,logical_v2_conditional_reasoning_0032,Yes,short_text,logical
+HB_EXP1_0037,logical_v2_proof_evaluation_0044,"The premise is correct, but the first part of the second premise is incorrect as bikes are not cars.",short_text,logical
+HB_EXP1_0038,logical_v2_propositional_logic_0016,Yes,short_text,logical
+HB_EXP1_0039,logical_v2_set_relations_0021,No,short_text,logical
+HB_EXP1_0040,logical_v2_syllogisms_0006,produce,short_text,logical
+HB_EXP1_0041,procedural_v2_algorithm_execution_0006,"[2, 1, 0, 0, 0, 0, 1, 0, 1]",short_text,procedural
+HB_EXP1_0042,procedural_v2_error_recovery_0046,"Immediately halt production, inspect and isolate all potentially substandard fabrics, and implement a manual quality assurance process until the system is repaired.",short_text,procedural
+HB_EXP1_0043,procedural_v2_multistep_planning_0032,"1. Use 'useradd' to create the new user, 2. Set the user's password with 'passwd'.",short_text,procedural
+HB_EXP1_0044,procedural_v2_protocol_compliance_0020,"Ask the parent about the child's location and the substance ingested, and dispatch emergency services immediately if necessary, while continuing to assess the situation over the phone.",short_text,procedural
+HB_EXP1_0045,procedural_v2_recipe_following_0013,Increase baking time by 2 minutes.,short_text,procedural
+HB_EXP1_0046,procedural_v2_algorithm_execution_0000,5,short_text,procedural
+HB_EXP1_0047,procedural_v2_error_recovery_0040,Close the app to free up memory.,short_text,procedural
+HB_EXP1_0048,procedural_v2_multistep_planning_0034,"1. Boot from the macOS installation USB, 2. Select the 'Disk Utility' option, 3. Open the Terminal, 4. Use the 'passwd' command to reset the password",short_text,procedural
+HB_EXP1_0049,procedural_v2_protocol_compliance_0023,"Reject submission, display an inline validation error on the password field, and provide feedback on the password requirements.",short_text,procedural
+HB_EXP1_0050,procedural_v2_recipe_following_0019,"No adjustment needed, as pastry flour does not affect the sweetness of the cookies.",short_text,procedural
+HB_EXP1_0051,social_v2_implicature_0003,You are unwilling to let them use the gaming console.,short_text,social
+HB_EXP1_0052,social_v2_pragmatic_inference_0024,Make the sandwich themselves or ask someone else,short_text,social
+HB_EXP1_0053,social_v2_sarcasm_detection_0031,Sarcastic,short_text,social
+HB_EXP1_0054,social_v2_social_norm_violation_0043,Yes,short_text,social
+HB_EXP1_0055,social_v2_theory_of_mind_0019,In the backpack,short_text,social
+HB_EXP1_0056,social_v2_implicature_0009,"You're not impressed by the artwork, but are focusing on a positive aspect.",short_text,social
+HB_EXP1_0057,social_v2_pragmatic_inference_0027,Wait for C to finish their phone call or find someone else,short_text,social
+HB_EXP1_0058,social_v2_sarcasm_detection_0036,Sarcastic,short_text,social
+HB_EXP1_0059,social_v2_social_norm_violation_0040,Yes,short_text,social
+HB_EXP1_0060,social_v2_theory_of_mind_0019,In the bag.,short_text,social
+HB_EXP1_0061,spatial_v2_2d_geometry_0006,9,exact_numeric,spatial
+HB_EXP1_0062,spatial_v2_3d_visualization_0043,6,exact_numeric,spatial
+HB_EXP1_0063,spatial_v2_distance_direction_0016,Chris,short_text,spatial
+HB_EXP1_0064,spatial_v2_relative_positioning_0024,the shelf,short_text,spatial
+HB_EXP1_0065,spatial_v2_spatial_transformation_0037,upwards and to the right,short_text,spatial
+HB_EXP1_0066,spatial_v2_2d_geometry_0007,54,exact_numeric,spatial
+HB_EXP1_0067,spatial_v2_3d_visualization_0049,2,exact_numeric,spatial
+HB_EXP1_0068,spatial_v2_distance_direction_0015,Moped,short_text,spatial
+HB_EXP1_0069,spatial_v2_relative_positioning_0028,the block,short_text,spatial
+HB_EXP1_0070,spatial_v2_spatial_transformation_0033,south,short_text,spatial
+HB_EXP1_0071,temporal_v2_duration_estimation_0019,Wednesday at 3:00 PM,short_text,temporal
+HB_EXP1_0072,temporal_v2_ordering_events_0006,"first mobile phone call, then Apple introduces the Macintosh computer, then first Space Shuttle disaster",short_text,temporal
+HB_EXP1_0073,temporal_v2_scheduling_0039,11:30 AM,short_text,temporal
+HB_EXP1_0074,temporal_v2_temporal_paradoxes_0043,"No, the director would have been 10 years old when the film was released",short_text,temporal
+HB_EXP1_0075,temporal_v2_timezone_arithmetic_0025,10 PM (previous day),short_text,temporal
+HB_EXP1_0076,temporal_v2_duration_estimation_0016,2:00 PM the next day,short_text,temporal
+HB_EXP1_0077,temporal_v2_ordering_events_0001,The sinking of the Titanic occurred before the start of World War I and the discovery of King Tut's tomb.,short_text,temporal
+HB_EXP1_0078,temporal_v2_scheduling_0035,10:30 AM,short_text,temporal
+HB_EXP1_0079,temporal_v2_temporal_paradoxes_0017,"Yes, if the first play occurred 3 days ago and the second play occurred 1 day before that, then the second play occurred 4 days ago.",short_text,temporal
+HB_EXP1_0080,temporal_v2_timezone_arithmetic_0028,10 PM,short_text,temporal

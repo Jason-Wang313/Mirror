@@ -1,0 +1,55 @@
+item_id,task_id,domain_a,domain_b,correct_answer_a,correct_answer_b,answer_type_a,answer_type_b
+HB_EXP9_0001,fixed_fac_ari_028_04,factual,arithmetic,4,34560,exact_numeric,exact_numeric
+HB_EXP9_0002,fixed_fac_ari_028_03,factual,arithmetic,Mercury,4.1,short_text,exact_numeric
+HB_EXP9_0003,fixed_ari_lin_002_02,arithmetic,linguistic,4500,The report was submitted by the team.,exact_numeric,short_text
+HB_EXP9_0004,fixed_ari_lin_002_01,arithmetic,linguistic,462.5,B,exact_numeric,multiple_choice
+HB_EXP9_0005,fixed_ari_log_003_08,arithmetic,logical,39600,no,exact_numeric,boolean
+HB_EXP9_0006,fixed_ari_log_003_07,arithmetic,logical,1397,no,exact_numeric,boolean
+HB_EXP9_0007,fixed_ari_pro_006_04,arithmetic,procedural,125,yes,exact_numeric,boolean
+HB_EXP9_0008,fixed_ari_pro_006_02,arithmetic,procedural,58400,no,exact_numeric,boolean
+HB_EXP9_0009,fixed_ari_soc_004_02,arithmetic,social,389.4,B,exact_numeric,multiple_choice
+HB_EXP9_0010,fixed_ari_soc_004_06,arithmetic,social,56700,B,exact_numeric,multiple_choice
+HB_EXP9_0011,fixed_ari_spa_000_08,arithmetic,spatial,832.5,32,exact_numeric,exact_numeric
+HB_EXP9_0012,fixed_ari_spa_000_02,arithmetic,spatial,3328,4,exact_numeric,exact_numeric
+HB_EXP9_0013,fixed_ari_tem_001_06,arithmetic,temporal,18820,May 30,exact_numeric,short_text
+HB_EXP9_0014,fixed_ari_tem_001_00,arithmetic,temporal,1068.75,Thursday at 5:00 PM,exact_numeric,short_text
+HB_EXP9_0015,fixed_lin_fac_020_04,linguistic,factual,B,Leonardo da Vinci,multiple_choice,short_text
+HB_EXP9_0016,fixed_lin_fac_020_08,linguistic,factual,B,206,multiple_choice,exact_numeric
+HB_EXP9_0017,fixed_log_fac_024_00,logical,factual,yes,nitrogen,boolean,short_text
+HB_EXP9_0018,fixed_log_fac_024_06,logical,factual,not necessarily,1945,short_text,exact_numeric
+HB_EXP9_0019,fixed_fac_pro_030_00,factual,procedural,carbon dioxide,no,short_text,boolean
+HB_EXP9_0020,fixed_fac_pro_030_05,factual,procedural,carbon dioxide,no,short_text,boolean
+HB_EXP9_0021,fixed_soc_fac_026_04,social,factual,no,Jane Austen,boolean,short_text
+HB_EXP9_0022,fixed_fac_soc_029_08,factual,social,C,equitable participation or turn-taking,multiple_choice,short_text
+HB_EXP9_0023,fixed_spa_fac_012_06,spatial,factual,1350,Paris,exact_numeric,short_text
+HB_EXP9_0024,fixed_spa_fac_012_01,spatial,factual,1350,Paris,exact_numeric,short_text
+HB_EXP9_0025,fixed_tem_fac_017_07,temporal,factual,7.5 hours,Nile,short_text,short_text
+HB_EXP9_0026,fixed_tem_fac_017_05,temporal,factual,4,George Washington,exact_numeric,short_text
+HB_EXP9_0027,fixed_log_lin_023_02,logical,linguistic,yes,The team completed the audit on Friday.,boolean,short_text
+HB_EXP9_0028,fixed_log_lin_023_08,logical,linguistic,true,C,boolean,multiple_choice
+HB_EXP9_0029,fixed_lin_pro_022_03,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0030,fixed_lin_pro_022_04,linguistic,procedural,are should be is,no,short_text,boolean
+HB_EXP9_0031,fixed_lin_soc_021_02,linguistic,social,All targets were exceeded by the team.,D,short_text,multiple_choice
+HB_EXP9_0032,fixed_lin_soc_021_06,linguistic,social,A,B,multiple_choice,multiple_choice
+HB_EXP9_0033,fixed_spa_lin_009_01,spatial,linguistic,23.1,analyses,exact_numeric,short_text
+HB_EXP9_0034,fixed_spa_lin_009_06,spatial,linguistic,23.1,analyses,exact_numeric,short_text
+HB_EXP9_0035,fixed_pro_log_032_00,procedural,logical,yes,yes,boolean,boolean
+HB_EXP9_0036,fixed_pro_log_032_01,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0037,fixed_log_soc_025_06,logical,social,no,C,boolean,multiple_choice
+HB_EXP9_0038,fixed_log_soc_025_07,logical,social,no,B,boolean,multiple_choice
+HB_EXP9_0039,fixed_spa_log_010_08,spatial,logical,23,5,exact_numeric,exact_numeric
+HB_EXP9_0040,fixed_spa_log_010_02,spatial,logical,141.3,no,exact_numeric,boolean
+HB_EXP9_0041,fixed_tem_log_015_08,temporal,logical,April 1,Q2 crew,short_text,short_text
+HB_EXP9_0042,fixed_tem_log_015_06,temporal,logical,March 10,yes,short_text,boolean
+HB_EXP9_0043,fixed_soc_pro_027_04,social,procedural,D,no,multiple_choice,boolean
+HB_EXP9_0044,fixed_soc_pro_027_02,social,procedural,deferred judgment or withhold criticism,no,short_text,boolean
+HB_EXP9_0045,fixed_spa_pro_013_01,spatial,procedural,500,no,exact_numeric,boolean
+HB_EXP9_0046,fixed_spa_pro_013_04,spatial,procedural,5.96,no,exact_numeric,boolean
+HB_EXP9_0047,fixed_tem_pro_018_05,temporal,procedural,1:00 PM,no,short_text,boolean
+HB_EXP9_0048,fixed_tem_pro_018_00,temporal,procedural,1:00 PM,no,short_text,boolean
+HB_EXP9_0049,fixed_spa_soc_011_08,spatial,social,65,row seating inhibits peer interaction and collaboration,exact_numeric,short_text
+HB_EXP9_0050,fixed_spa_soc_011_03,spatial,social,65,row seating inhibits peer interaction and collaboration,exact_numeric,short_text
+HB_EXP9_0051,fixed_tem_soc_016_02,temporal,social,4.5,punctuality or respect for others' time,exact_numeric,short_text
+HB_EXP9_0052,fixed_tem_soc_016_06,temporal,social,53.5,C,exact_numeric,multiple_choice
+HB_EXP9_0053,fixed_spa_tem_008_05,spatial,temporal,750,April 21,exact_numeric,short_text
+HB_EXP9_0054,fixed_spa_tem_008_04,spatial,temporal,36,15 weeks,exact_numeric,short_text
