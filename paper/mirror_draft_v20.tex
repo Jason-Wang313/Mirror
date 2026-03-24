@@ -64,7 +64,7 @@ models cannot predict their own performance on multi-domain tasks, and (2)~model
 exhibit above-chance but imperfect domain-specific self-knowledge yet systematically
 fail to translate even this partial awareness into appropriate agentic
 action-selection---external metacognitive control reduces the Confident Failure Rate
-from 0.600 to 0.143 (76\% reduction at temperature~0; 66\% at temperature~0.7).
+from 0.600 to 0.143 (76\% reduction at temperature~0; mean 35\% at temperature~0.7 across 3 models).
 Providing models with their own calibration scores produces no significant
 improvement ($p > 0.05$); only architectural constraint is effective. This suggests
 that external metacognitive scaffolding---not improved self-knowledge---is the path
@@ -382,6 +382,12 @@ benchmark requires only API access---no local GPU, no model weights, no fine-tun
 covering the core findings (Experiment~1 natural channel + Experiment~9 C1/C4)
 requires $\sim$5,000 calls ($\sim$2 hours).
 
+\begin{quote}\small\ttfamily
+\$ pip install mirror-bench \\
+\$ mirror-eval --model <model-name> --output results.json \\
+\$ mirror-analyze results.json --latex --figures
+\end{quote}
+
 \textbf{Scoring and output parsing.} Each channel uses structured output formats
 (Appendix~\ref{app:prompts-full} shows all prompt templates). Response parsing uses
 regex extraction with fallback heuristics for malformed outputs. Across all experiments and models, the overall parse failure rate is 5.9\%
@@ -454,7 +460,7 @@ wagering channel: Experiment~9 measures action-selection behavior (tool use,
 deferral, proceeding), not wager values. Second, \CFR{}
 in the uninformed condition ranges from 0.387 to 0.937---even the best model fails
 on 39\% of weak-domain agentic tasks when proceeding autonomously. Third, \KDI{}
-is negative for 9 of 11 models evaluated in Experiment~9, confirming that
+is negative for 13 of 16 models evaluated in Experiment~9, confirming that
 self-knowledge systematically fails to translate into appropriate action.
 
 \input{tables/table1_main_results}
@@ -491,9 +497,9 @@ control ($n = 16$ models, all paradigms; see Figure~\ref{fig:escalation}).
 Mean \CFR{} values: C1~=~0.600 (SD=0.176), C2~=~0.605 (SD=0.181), C3~=~0.514 (SD=0.215), C4~=~0.143 (SD=0.239).
 
 Total \CFR{} reduction C1$\to$C4: \textbf{76\%} (45.7~percentage points).
-This reduction is measured at temperature~0; at temperature~0.7 on 5 models from 4 labs, C4
-still reduces CFR by a mean 66\% (range 33--96\%;
-Appendix~\ref{app:temp}), confirming the effect is robust under stochastic decoding. The
+This reduction is measured at temperature~0; at temperature~0.7 on 3 models from 2 labs, C4
+still reduces CFR by a mean 35\% (range 18--45\%;
+Appendix~\ref{app:temp}), confirming the effect persists under stochastic decoding, albeit attenuated. The
 shape is the finding: providing self-knowledge alone (C2) does not reduce failures---\CFR{}
 increases by a non-significant 0.5~pp, suggesting that explicit
 self-knowledge adds no actionable value. Adding normative
@@ -537,13 +543,12 @@ autonomy rate.
 
 \paragraph{Universal Negative \KDI{}.}
 The Knowing-Doing Dissociation (\KDI{}~= \mirror{} gap $-$ $(1 - \text{CFR})$,
-Eq.~\ref{eq:kdi}) is negative for 14 of 16 models, ranging from $-$0.528 (llama-3.1-405b) to
-$+$0.267 (deepseek-v3). Figure~\ref{fig:kdi} shows per-model values. The two
+Eq.~\ref{eq:kdi}) is negative for 13 of 16 models, ranging from $-$0.558 (llama-3.2-3b) to
+$+$0.279 (deepseek-v3). Figure~\ref{fig:kdi} shows per-model values. The three
 positive outliers are driven by extreme domain-specific miscalibration:
-llama-3.3-70b proceeds autonomously on 70\% of procedural tasks despite
-$\text{nat\_acc} = 0.059$; gemini-2.5-pro shows the highest C1 \CFR{} (0.937)
-despite moderate overall accuracy, reflecting near-universal autonomous
-proceeding on weak-domain tasks.
+deepseek-v3 has \CFR{}~=~1.000 (universal autonomous proceeding on all weak-domain tasks), so $(1 - \text{CFR}) = 0$ and \KDI{} reduces to the \mirror{} gap;
+gemini-2.5-pro shows the highest C1 \CFR{} (0.937) despite moderate overall accuracy, reflecting near-universal autonomous proceeding on weak-domain tasks;
+llama-3.3-70b shows the highest wagering accuracy but normal natural accuracy, creating a large \mirror{} gap (0.267) that offsets its moderate CFR (0.547).
 KDI is a summary diagnostic, not a calibrated statistical construct: it combines
 self-knowledge quality (MIRROR gap) with action-appropriateness ($1 - \text{CFR}$)
 to provide a single-number indicator of the monitoring--control dissociation.
@@ -555,9 +560,10 @@ psychometric construct.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.85\linewidth]{fig3_kdi_distribution}
-  \caption{\KDI{} distribution across 11 models. Nine models show uniformly
+  \caption{\KDI{} distribution across 16 models. Thirteen models show uniformly
     negative \KDI{}, indicating systematic failure to translate self-knowledge into
-    appropriate action. Two positive outliers (gemini-2.5-pro, $\KDI{}\!=\!+0.084$;
+    appropriate action. Three positive outliers (deepseek-v3, $\KDI{}\!=\!+0.279$;
+    gemini-2.5-pro, $\KDI{}\!=\!+0.084$;
     llama-3.3-70b, $\KDI{}\!=\!+0.049$) reflect extreme domain-specific miscalibration.}
   \label{fig:kdi}
 \end{figure}
@@ -621,7 +627,7 @@ domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed rout
 \mirror{} requires only API access, enabling scale but preventing mechanistic
 analysis. Whether the knowing-doing gap reflects an information deficit or a
 control failure at the representation level remains open for hidden-state probing.
-All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablation (Appendix~\ref{app:temp}) shows the C1$\to$C4 CFR reduction attenuates from 76\% to 66\% at temperature~0.7 (mean across 5 models from 4 labs). The knowing-doing gap persists under stochastic decoding but is substantially narrower, likely because stochastic sampling produces occasional correct answers on deterministically-failed questions. The 76\% reduction reported throughout should be interpreted as a temperature-0 upper bound.
+All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablation (Appendix~\ref{app:temp}) on 5 models from 4 labs shows the \mirror{} gap persists under stochastic decoding. The C1$\to$C4 CFR reduction attenuates from 76\% to a mean of 35\% at temperature~0.7 (across 3 models with Experiment~9 data at $t=0.7$). The knowing-doing gap persists but is substantially narrower, likely because stochastic sampling produces occasional correct answers on deterministically-failed questions. The 76\% reduction reported throughout should be interpreted as a temperature-0 upper bound.
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
@@ -1109,11 +1115,11 @@ No additional instructions. Behavioral signals (hedging count, response length, 
 \label{app:temp}
 % =============================================================================
 
-All main experiments use temperature $= 0$ for reproducibility. To assess robustness to stochastic decoding, we reran Experiment~1 (200 questions, Channels 1 and 5) and Experiment~9 (100 fixed tasks, C1 and C4) at temperature $= 0.7$ on 3 models spanning 2 labs and a $100\times$ size range.
+All main experiments use temperature $= 0$ for reproducibility. To assess robustness to stochastic decoding, we reran Experiment~1 (200 questions, Channels 1 and 5) at temperature $= 0.7$ on 5 models from 4 labs spanning a $100\times$ size range, and additionally reran Experiment~9 (100 fixed tasks, C1 and C4) at temperature~0.7 on 3 of these models.
 
 \begin{table}[h]
 \centering
-\caption{Temperature ablation. \mirror{} gap and CFR at temperature 0 vs.\ 0.7. The knowing-doing gap persists under stochastic decoding: C4 reduces CFR by 18--45\% at $t=0.7$.}
+\caption{Temperature ablation. \mirror{} gap and CFR at temperature 0 vs.\ 0.7. The \mirror{} gap persists under stochastic decoding across all 5 models. C4 reduces CFR by 18--45\% at $t=0.7$ for the 3 models with Exp9 data. ``---'' = Experiment~9 not yet run at $t=0.7$.}
 \label{tab:temp-ablation}
 \small
 \begin{tabular}{lcccccc}
@@ -1124,11 +1130,13 @@ Model & $t{=}0$ & $t{=}0.7$ & $t{=}0$ & $t{=}0.7$ & $t{=}0$ & $t{=}0.7$ \\
 llama-3.1-8b & 0.186 & 0.110 & 0.787 & 0.390 & 62\% & 43\% \\
 llama-3.1-70b & 0.212 & 0.145 & 0.550 & 0.270 & 62\% & 18\% \\
 mistral-large & 0.113 & 0.150 & 0.907 & 0.260 & 62\% & 45\% \\
+gemma-3-27b & 0.150 & 0.262 & 0.688 & --- & --- & --- \\
+kimi-k2 & 0.191 & 0.031 & 0.625 & --- & --- & --- \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The knowing-doing gap persists under stochastic decoding: C4 external routing reduces CFR at temperature 0.7 (mean reduction 35\%), though the effect is attenuated relative to temperature 0 (62\%). \mirror{} gap is moderately stable across temperatures (mean $|\Delta| = 0.035$). C1 CFR at temperature 0.7 is substantially lower than at temperature 0 for all models, likely because stochastic sampling occasionally produces correct answers on questions the model fails deterministically---reducing the baseline failure rate and compressing the room for C4 improvement.
+The \mirror{} gap persists under stochastic decoding across all 5 models. For the 3 models with Experiment~9 data at $t=0.7$, C4 external routing reduces CFR (mean reduction 35\%), though the effect is attenuated relative to temperature~0 (62\%). \mirror{} gap is moderately stable across temperatures for most models (mean $|\Delta| = 0.057$ across 5 models). C1 CFR at temperature 0.7 is substantially lower than at temperature 0 for all 3 tested models, likely because stochastic sampling occasionally produces correct answers on questions the model fails deterministically---reducing the baseline failure rate and compressing the room for C4 improvement.
 
 % =============================================================================
 \section{Format-Matched Control for MIRROR Gap}
