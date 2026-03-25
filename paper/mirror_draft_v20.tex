@@ -61,7 +61,8 @@ self-knowledge to make better decisions. We evaluate 16 models from 8 labs acros
 approximately 250,000 evaluation instances using five independent behavioral
 measurement channels. Core experiments are run across the full model roster; experiments with specialized infrastructure requirements report explicitly marked model subsets. We find two phenomena with direct implications for agentic
 deployment: (1)~compositional self-prediction fails universally---the Compositional
-Calibration Error ranges from 0.500 to 0.943 across 15 models, indicating that
+Calibration Error ranges from 0.500 to 0.943 on the original 15-model Exp3-v1 set
+(and 0.434 to 0.758 on the balanced 16-model Exp3-v2 expansion), indicating that
 models cannot predict their own performance on multi-domain tasks, and (2)~models
 exhibit above-chance but imperfect domain-specific self-knowledge yet systematically
 fail to translate even this partial awareness into appropriate agentic
@@ -100,8 +101,7 @@ adaptive self-regulation), eight experiments, and five independent behavioral
 measurement channels. We evaluate 16 models from 8 labs across approximately
 250,000 evaluation instances.\footnote{The 250,000 figure counts evaluation instances (model $\times$ channel $\times$ condition $\times$ question) after quality-control filtering and experiment-specific inclusion criteria. Per-experiment model counts are reported explicitly in Section~\ref{sec:setup} and Table~\ref{tab:main-results}. The underlying unique task content comprises 5,000 domain-stratified questions and 597 agentic tasks.}
 
-Three findings emerge. First, compositional self-prediction fails universally: the Compositional Calibration Error (\CCE{}) ranges from 0.500 to 0.943 across
-15 models---models that calibrate accurately in individual domains completely fail to
+Three findings emerge. First, compositional self-prediction fails universally: the Compositional Calibration Error (\CCE{}) ranges from 0.500 to 0.943 on the original 15-model Exp3-v1 set and 0.434 to 0.758 on the balanced 16-model Exp3-v2 expansion---models that calibrate accurately in individual domains completely fail to
 compose those calibrations for multi-domain tasks. Second, the knowing-doing gap:
 models exhibit partial but above-chance self-knowledge---accurately identifying
 relative domain strengths and weaknesses---yet do not act on it. External constraint
@@ -337,8 +337,7 @@ hidden domain. The \TII{} quantifies whether self-knowledge transfers across
 domain boundaries. 11 models; \TII{} range: 0.019--0.175 (weak-to-minimal transfer).
 
 \paragraph{Experiment 3: Compositional Self-Prediction (Level~2).}
-${\sim}$25 multi-domain tasks per model. The \CCE{} measures predicted vs.\ actual
-composite accuracy. 15 models evaluated. Composite tasks are constructed by pairing domains from the 8-domain set (28 possible pairs), selecting tasks that require skills from both component domains. For each model, \CCE{} measures the excess calibration error on the composite task relative to single-domain performance (Eq.~\ref{eq:cce}). Primary metric: \CCE{} (see Section~5.2 for results and bootstrap CIs). \MCI{} is also reported but limited by composite-task diversity (Section~\ref{sec:discussion}).
+${\sim}$25 multi-domain tasks per model in the original v1 set (15 models), plus a balanced v2 expansion (112 tasks over all 28 domain pairs) with 16-model coverage. The \CCE{} measures predicted vs.\ actual composite accuracy. Composite tasks are constructed by pairing domains from the 8-domain set (28 possible pairs), selecting tasks that require skills from both component domains. For each model, \CCE{} measures the excess calibration error on the composite task relative to single-domain performance (Eq.~\ref{eq:cce}). Primary metric: \CCE{} (see Section~5.2 for results and bootstrap CIs). \MCI{} is also reported with explicit stability diagnostics (Section~\ref{sec:discussion}).
 
 \paragraph{Experiment 4: Adaptation Crucible (Level~3).}
 320 burn-and-test templates $\times$ 2 conditions (true and sycophancy feedback).
@@ -484,10 +483,10 @@ reliable CCE estimates with bootstrap confidence intervals. The \CCE{} result is
 the more reliable measure: models that calibrate their
 confidence in individual domains fail to compose those calibrations for
 multi-domain tasks. An expanded v2 evaluation with 112 composite tasks covering all 28 domain pairs
-confirms these results: CCE ranges from 0.434 to 0.758 across 15 models (vs.\
+confirms these results: CCE ranges from 0.434 to 0.758 across 16 models (vs.\
 0.500--0.943 on the original 25-item set), with all models showing mean
-confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{One model (deepseek-r1) is excluded from the v2 expansion due to DeepSeek API credit exhaustion during the expanded run. All other models are included in v2.}
-The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 15 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
+confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{The refreshed v2 run includes deepseek-r1 via a NIM-backed route, restoring full 16-model coverage for the expanded composite analysis.}
+The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 16 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
 Bootstrap 95\% CIs (BCa, 10{,}000 iterations) on per-model v2 CCE confirm that no model's interval includes zero (Table~\ref{tab:exp3v2-ci} in Appendix~\ref{app:exp3v2}).
 
 \subsection{Finding 2: The Knowing-Doing Gap}
