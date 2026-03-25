@@ -184,6 +184,14 @@ when self-correction will fail. Selective classification
 methods~\citep{geifman2017selective} provide formal frameworks for deciding when
 to defer; \mirror{}'s escalation curve evaluates domain-informed selective
 classification in agentic settings.
+Recent abstention and metacognitive-control architectures reinforce this framing:
+Monitor-Generate-Verify (MGV) formalizes explicit monitoring before generation
+and verification after generation~\citep{oh2025mgv}; MEDCOG uses
+meta-cognitive regulation for high-stakes medical reasoning~\citep{zhao2026medcog};
+and MetaCLASS studies adaptive self-regulation with explicit intervention
+decisions in educational settings~\citep{liu2026metaclass}. MIRROR complements
+these by providing a shared benchmark protocol for measuring whether monitoring
+signals are translated into safer control decisions.
 Recent work on explicit safety scaffolding~\citep{mosaic2026} demonstrates that
 externalized check-and-refuse loops outperform implicit reasoning for
 safety-critical decisions, aligning with \mirror{}'s finding that architectural
@@ -199,6 +207,12 @@ strategy revision across reasoning models. \mirror{} extends this by connecting
 metacognitive assessment to agentic deployment through the Experiment~9 escalation
 design, providing the first benchmark-scale empirical test linking metacognitive
 assessment to agentic deployment outcomes.
+This perspective aligns with recent evidence on metacognitive myopia in LLMs
+(\citealp{scholten2024metacognitivemyopia}), verification bottlenecks in human-AI
+problem-solving (\citealp{huemmer2026verificationbottleneck}), and
+performance--metacognition disconnect in human-AI interaction
+(\citealp{fernandes2024disconnect}): monitoring signals alone do not reliably
+induce safer control without explicit decision policies.
 
 % =============================================================================
 \section{The \mirror{} Benchmark}
@@ -373,6 +387,7 @@ score-based constraints). Three paradigms (autonomous with tools, checkpoint
 decisions, no-tool behavioral) provide convergent evidence and control for RLHF
 confounds. Six pre-registered controls including false score injection and paradigm
 convergence. Weak and strong domains are identified from Experiment~1 calibration profiles using a pre-specified \texttt{median\_or\_bottom\_k} policy: a domain is classified as ``weak'' for model $m$ if $\text{Nat.Acc}(m, d)$ falls below the model's median accuracy across all 8 domains; if strict median split yields no weak domains, a deterministic bottom-2 fallback is applied. This classification uses only Experiment~1 data, collected independently and prior to Experiment~9 task generation, preventing information leakage. Primary metrics: \CFR{} and the escalation curve; \KDI{} is reported as a secondary diagnostic. \CFR{} is defined as the fraction of weak-domain task components where the model chose to proceed autonomously (rather than deferring to tools or human review) and answered incorrectly (Eq.~\ref{eq:cfr} in Appendix~\ref{app:metrics}). Abstentions and tool delegations are not counted as failures. Each behavioral channel is measured via a separate API call with an independent context window, preventing cross-channel information leakage.
+We also run explicit Exp9 \textit{domain-component verification} on the full fixed-task bank: static schema/domain checks pass for 297/297 tasks, and cross-verifier auditing covers all 297 with 54 flagged tasks (18.18\%) for manual review triage (Appendix~\ref{app:exp9-mapping-validity}).
 
 \subsection{Evaluation Infrastructure and Usage}
 
@@ -393,7 +408,7 @@ requires $\sim$5,000 calls ($\sim$2 hours).
 \textbf{Scoring and output parsing.} Each channel uses structured output formats
 (Appendix~\ref{app:prompts-full} shows all prompt templates). Response parsing uses
 regex extraction with fallback heuristics for malformed outputs. Across all experiments and models, the overall parse failure rate is 5.9\%
-(range 0\%--16\% across models). An early gemini-2.5-pro run had 70\% parse failure due to API quota exhaustion; the model was re-run with corrected configurations (thinking-model output budget adjustment) and achieves standard parse rates in the reported results. Failed parses are excluded from analysis and logged for inspection.
+(range 0\%--16\% across models). An early gemini-2.5-pro run had 70\% parse failure due to API quota exhaustion; the model was re-run with corrected configurations (thinking-model output budget adjustment) and achieves standard parse rates in the reported results. Beyond complete-case reporting, we run explicit parse/API \textit{missingness} diagnostics with MCAR/MNAR checks (Appendix~\ref{app:missingness}): chi-square association tests and logistic missingness models indicate non-MCAR patterns in both Exp1 and Exp9, so we additionally report conservative failure-as-incorrect and inverse-probability-weighted (IPW) sensitivities for primary metrics.
 
 \textbf{Checkpoint, resume, and outputs.} All experiments write JSONL with
 per-record \texttt{fsync}; interrupted runs resume from the last checkpoint.
@@ -488,6 +503,12 @@ confirms these results: CCE ranges from 0.434 to 0.758 across 16 models (vs.\
 confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{The refreshed v2 run includes deepseek-r1 via a NIM-backed route, restoring full 16-model coverage for the expanded composite analysis.}
 The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 16 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
 Bootstrap 95\% CIs (BCa, 10{,}000 iterations) on per-model v2 CCE confirm that no model's interval includes zero (Table~\ref{tab:exp3v2-ci} in Appendix~\ref{app:exp3v2}).
+To isolate difficulty-mixture confounding, we additionally run a controlled
+ablation that balances strong--strong, strong--weak, and weak--weak strata per
+model on the v2 bank. The difficulty-controlled, pair-balanced estimate remains
+large (mean balanced CCE~=~0.529 across 16 models): all 16 models remain
+overconfident and all 16 remain above 0.30 CCE, with 14/16 still at or above
+0.434 (Appendix artifacts; summary in Appendix~\ref{app:exp3v2}).
 
 \subsection{Finding 2: The Knowing-Doing Gap}
 
@@ -539,10 +560,13 @@ unnecessarily blocked successes. The 76\% CFR reduction thus reflects a favorabl
 cost-benefit ratio: the system prevents approximately 1.6 failures for every
 unnecessary escalation (mean across 6 models with complete data).
 \textbf{Important caveat:} C4 assumes escalated tasks are resolved correctly by an
-external oracle. In production, escalated tasks would go to fallible tools or
-human reviewers. The 76\% CFR reduction represents an upper bound; under a
-hypothetical 80\%-accurate external system, the effective reduction would be
-approximately 50\%.
+external oracle. In production, escalated tasks go to fallible tools or
+human reviewers. We therefore report resolver-quality sensitivity directly: using
+the observed deployment-packet resolver correctness (50.2\% on 540 escalated
+components), C4 still improves system success by +10.2\,pp over C1
+(0.475 vs.\ 0.373). At 80\% resolver correctness, the system-success gain rises
+to +25.1\,pp (0.623 vs.\ 0.373). Thus the oracle curve is an upper bound, but the
+non-oracle gain remains positive across the tested resolver range.
 We note that CFR by construction decreases when escalation increases, since
 escalated tasks are excluded from the failure count. The net utility metric
 accounts for this by penalizing false escalations. Appendix~\ref{app:e2e}
@@ -655,7 +679,7 @@ the gap it measures is an important direction for future work.
 External routing that uses \mirror{}
 domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed routing uses per-domain scores to determine which components require external constraints.
 
-\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We additionally run a direct head-to-head on the same Exp9 frame (Condition~1, Paradigm~3, API-success subset) against three instance-level baselines: confidence-threshold routing, self-consistency-proxy routing, and conformal-style thresholding (Appendix~\ref{app:instance-baselines}). Across all 16 models with complete weak-domain-policy coverage, MIRROR domain routing at 48.6\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing). Budget-matched instance-level baselines reduce weak-domain CFR to 31.4\% (confidence threshold) and 31.4\% (self-consistency proxy), i.e., 56.0--56.1\% reduction vs no-routing. Conformal-style thresholding reaches 3.7\% weak-domain CFR but only by escalating 85.3\% of components (autonomy 14.7\%). These comparisons support the same practical conclusion: domain-level weak-domain routing provides a stronger reliability floor at practical escalation budgets, while strict risk-control methods can reduce failures further at substantially lower autonomy.
+\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We report three head-to-head frames against confidence-threshold routing, self-consistency-proxy routing, and conformal-style thresholding (Appendix~\ref{app:instance-baselines}): (i) legacy C1/P3 for continuity, (ii) C1 across all paradigms, and (iii) C1+C2 sensitivity across all paradigms. In the expanded C1 all-paradigm frame (16/16 models), MIRROR domain routing at 48.4\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing), while budget-matched instance-level baselines reduce to 31.7\% (confidence threshold) and 32.3\% (self-consistency proxy). In the C1+C2 frame, corresponding values are 31.6\% and 31.0\% at the same 48.3\% escalation budget. Conformal-style thresholding reaches 1.6\% weak-domain CFR but only by escalating 93.8\% of components (autonomy 6.2\%). These results preserve the same practical conclusion: domain-level routing gives a stronger reliability floor at practical escalation budgets, while strict conformal-style risk control can reduce failures further at much lower autonomy.
 
 \subsection{Limitations}
 
@@ -664,6 +688,13 @@ domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed rout
 analysis. Whether the knowing-doing gap reflects an information deficit or a
 control failure at the representation level remains open for hidden-state probing.
 All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablation (Appendix~\ref{app:temp}) on 5 models from 4 labs shows the knowing-doing gap persists under stochastic decoding. C4 reduces CFR by a mean 70\% at temperature~0.7 (range 44--96\%), compared to 76\% at temperature~0. The effect is robust but slightly attenuated, likely because stochastic sampling produces occasional correct answers on deterministically-failed questions, reducing the baseline failure rate.
+
+\paragraph{Parse/API missingness.}
+Because parse/API failures are not guaranteed MCAR, we run explicit MCAR/MNAR
+diagnostics and report sensitivity estimates under complete-case, conservative
+failure-as-incorrect, and IPW correction (Appendix~\ref{app:missingness}). In the
+canonical Exp9 slice, C1$\to$C4 weak-domain CFR reduction remains large across
+assumptions: 73.5\% (complete), 55.9\% (conservative), and 73.5\% (IPW).
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
@@ -685,11 +716,15 @@ Experiment~9 uses constructed agentic scenarios, not production deployments. To 
 MCI's use of rank correlations across heterogeneous channels may under-represent
 some non-linear dependence structures; we therefore report both Spearman's $\rho$
 and Kendall's $\tau$ diagnostics (Appendix~\ref{app:mci-robust}) and keep headline
-claims anchored to escalation-curve and \CCE{} outcomes.
+claims anchored to escalation-curve and \CCE{} outcomes. We also run
+\textit{no-wagering} and \textit{leave-one-channel-out} robustness checks:
+rank stability remains high (full-vs-no-wagering Spearman rank
+$\rho=0.77$; leave-one-natural $\rho=0.79$; leave-one-layer2 $\rho=0.70$),
+with only one sign shift under full$\to$no-wagering.
 The pre-specified \texttt{median\_or\_bottom\_k} weak-domain definition is robust to alternatives (Appendix~\ref{app:threshold}).
-Experiment~3 composite tasks are not balanced across difficulty combinations;
-a controlled ablation with balanced strong--strong, strong--weak, and weak--weak
-mixtures would strengthen the Level~2 conclusions.
+Experiment~3 composite tasks are additionally analyzed under a controlled
+difficulty-mixture ablation with balanced strong--strong, strong--weak, and
+weak--weak strata; the universal compositional-failure direction remains intact.
 The wagering channel uses a symmetric linear scoring rule, which is not strictly
 proper. To mitigate scoring-rule dependence in the evidentiary path, we report
 strictly proper scoring (Brier and log score) as primary calibration summaries
@@ -999,17 +1034,51 @@ Absolute ($< 0.40$) & 0.530 & 0.206 & 61.2\% & 4{,}515 \\
 \end{table}
 
 % =============================================================================
+\section{Parse/API Missingness Diagnostics}
+\label{app:missingness}
+% =============================================================================
+
+We run a dedicated missingness analyzer over canonical Exp1/Exp9 result slices to
+test whether parse/API failures are plausibly MCAR. Diagnostics include feature-wise
+association tests (model, channel/paradigm, domain, difficulty, response-length bins)
+and logistic missingness models; these support a non-MCAR mechanism (MCAR/MNAR
+diagnostics in released artifacts). We therefore report complete-case, conservative,
+and inverse-probability-weighted (IPW) sensitivity estimates for the primary Exp9
+weak-domain CFR reduction.
+
+\begin{table}[h]
+\centering
+\caption{Parse/API missingness sensitivity summary (canonical slices).}
+\label{tab:missingness}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Mode & Mean C1 Weak CFR & Mean C4 Weak CFR & Mean C1$\rightarrow$C4 Reduction \\
+\midrule
+Complete-case & 0.6469 & 0.1860 & 73.5\% \\
+Conservative (missing as incorrect) & 0.7077 & 0.3462 & 55.9\% \\
+IPW correction & 0.6483 & 0.1860 & 73.5\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Observed rates in this slice are 4.96\% parse missingness in Exp1 and 28.02\%
+API missingness in Exp9 components. The conservative bound attenuates effect size
+but does not reverse the headline direction.
+
+% =============================================================================
 \section{Instance-Level Abstention Baseline Comparison}
 \label{app:instance-baselines}
 % =============================================================================
 
 To contextualize MIRROR domain routing against instance-level alternatives, we
-run a crash-safe head-to-head analysis on Exp9 Condition~1, Paradigm~3, restricted
-to API-success rows. Weak domains are recomputed per model using the same
-pre-specified \texttt{median\_or\_bottom\_k} policy used in the main paper.
-We compare five strategies: no routing, MIRROR domain routing, confidence-threshold
-routing at matched escalation budget, self-consistency-proxy routing at matched
-budget, and conformal-style thresholding.
+run crash-safe head-to-head analyses on three Exp9 frames (all with 16/16 model
+coverage on API-success rows): (i) legacy C1/P3, (ii) C1 across all paradigms,
+and (iii) C1+C2 across all paradigms. Weak domains are recomputed per model
+using the same pre-specified \texttt{median\_or\_bottom\_k} policy used in the
+main paper. We compare five strategies: no routing, MIRROR domain routing,
+confidence-threshold routing at matched escalation budget, self-consistency-proxy
+routing at matched budget, and conformal-style thresholding.
 
 \begin{table}[h]
 \centering
@@ -1029,9 +1098,65 @@ Conformal-style thresholding & 3.7\% & 87.1\% & 14.7\% & 85.3\% \\
 \end{tabular}
 \end{table}
 
+\begin{table}[h]
+\centering
+\caption{Expanded instance-level comparison frames (macro means, 16 models).}
+\label{tab:instance-baselines-expanded}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Frame & Strategy & Weak CFR & CFR Red. vs No-Routing & Autonomy & Escalation \\
+\midrule
+C1 all paradigms & MIRROR domain routing & 0.0\% & 100.0\% & 51.6\% & 48.4\% \\
+C1 all paradigms & Confidence threshold (budget-matched) & 31.7\% & 49.8\% & 51.6\% & 48.4\% \\
+C1 all paradigms & Self-consistency proxy (budget-matched) & 32.3\% & 48.9\% & 51.6\% & 48.4\% \\
+C1 all paradigms & Conformal-style thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
+\midrule
+C1+C2 all paradigms & MIRROR domain routing & 0.0\% & 100.0\% & 51.7\% & 48.3\% \\
+C1+C2 all paradigms & Confidence threshold (budget-matched) & 31.6\% & 50.7\% & 51.7\% & 48.3\% \\
+C1+C2 all paradigms & Self-consistency proxy (budget-matched) & 31.0\% & 52.1\% & 51.7\% & 48.3\% \\
+C1+C2 all paradigms & Conformal-style thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 At practical escalation budgets (domain-routing matched), domain-level weak-domain
-routing outperforms instance-level proxy baselines on weak-domain CFR. Conformal-style
-risk control can further reduce CFR but requires substantially lower autonomy.
+routing consistently outperforms confidence-threshold and self-consistency proxy
+baselines across all three frames. Conformal-style risk control reduces weak CFR
+further but requires substantially lower autonomy.
+
+% =============================================================================
+\section{Exp9 Domain-Component Verification}
+\label{app:exp9-mapping-validity}
+% =============================================================================
+
+To verify that Exp9 domain-component labels are structurally valid and not
+circular with downstream scoring, we run two layers: (i) static schema/domain
+checks on the full fixed-task bank and (ii) cross-verifier auditing with an
+independent verifier model over the same task set.
+
+\begin{table}[h]
+\centering
+\caption{Exp9 domain-component verification summary.}
+\label{tab:exp9-mapping-validity}
+\small
+\begin{tabular}{lr}
+\toprule
+Metric & Value \\
+\midrule
+Fixed tasks audited (static) & 297 \\
+Static checks passed & 297/297 (100\%) \\
+Cross-verifier tasks covered & 297 \\
+Cross-verifier flagged tasks & 54 (18.18\%) \\
+Flagged part-A components & 37 \\
+Flagged part-B components & 20 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The static layer validates schema integrity and domain-slot coverage; the
+cross-verifier layer provides triage signals for manual review without altering
+the fixed-task identity set used in primary Exp9 analyses.
 
 % =============================================================================
 \section{Deployment Realism and Goodhart Stress Packets}
@@ -1136,7 +1261,7 @@ Cohen's $\kappa$ ranges 0.765--0.916 (Table~\ref{tab:human-audit-multirater}).
 \label{app:mci-robust}
 % =============================================================================
 
-Table~\ref{tab:mci-robustness} reports MCI computed with Kendall's $\tau$ alongside Spearman's $\rho$. Kendall's $\tau$ closely tracks Spearman (slightly attenuated), preserving the rank ordering of models. For Experiment~1 (single-domain) data, MCI is nonzero and varies across models, indicating genuine inter-channel agreement on which questions are hard. For Experiment~3 v2, balanced pair coverage and estimator-concordance diagnostics (Appendix artifacts) show stable MCI behavior for 14/15 evaluated models; one model is variance-degenerate and therefore retained as diagnostic-only in Level~2 interpretation.
+Table~\ref{tab:mci-robustness} reports MCI computed with Kendall's $\tau$ alongside Spearman's $\rho$. Kendall's $\tau$ closely tracks Spearman (slightly attenuated), preserving the rank ordering of models. For Experiment~1 (single-domain) data, MCI is nonzero and varies across models, indicating genuine inter-channel agreement on which questions are hard. For Experiment~3 v2, balanced pair coverage and estimator-concordance diagnostics (Appendix artifacts) show stable MCI behavior for 14/15 evaluated models; one model is variance-degenerate and therefore retained as diagnostic-only in Level~2 interpretation. Channel-disagreement diagnostics show that headline ordering is not driven by a single channel: full-vs-no-wagering rank Spearman is 0.771, full-vs-leave-one-natural is 0.793, and full-vs-leave-one-layer2 is 0.701, with only one full$\rightarrow$no-wagering sign shift across models.
 
 \begin{table}[h]
 \centering
@@ -1164,7 +1289,9 @@ gemini-2.5-pro & $-$0.061 & $-$0.057 \\
 \label{app:e2e}
 % =============================================================================
 
-Table~\ref{tab:e2e} reports system-level metrics beyond CFR. C4 trades autonomy for reliability: autonomy drops from 89.8\% to 45.7\%, but system success rises from 42.6\% to 75.3\%.
+Table~\ref{tab:e2e} reports system-level metrics beyond CFR under an oracle
+resolver assumption. C4 trades autonomy for reliability: autonomy drops from
+89.8\% to 45.7\%, but system success rises from 42.6\% to 75.3\%.
 
 \begin{table}[h]
 \centering
@@ -1182,6 +1309,26 @@ C4 Constrained & 45.7\% & 21.0\% & 54.3\% & 75.3\% \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{table}[h]
+\centering
+\caption{Fallible-resolver sensitivity for C1 vs C4 system success (Exp9 sensitivity packet).}
+\label{tab:e2e-fallible}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Resolver correctness $q$ & C1 Sys.Success & C4 Sys.Success & C4$-$C1 Delta \\
+\midrule
+0.50 & 0.3725 & 0.4745 & +0.1020 \\
+0.70 & 0.3725 & 0.5732 & +0.2007 \\
+0.80 & 0.3725 & 0.6231 & +0.2506 \\
+1.00 & 0.3725 & 0.7229 & +0.3504 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Using observed resolver correctness from the deployment packet (50.2\% over 540
+escalated components), C4 retains a positive system-success delta over C1.
 
 The cost of C4 is operational, not accuracy: 54.3\% of task components require external resolution, imposing human-review or tool-invocation overhead. Whether this trade-off is favorable depends on the deployment's cost function---\mirror{} provides the decision data; threshold selection is application-specific.
 
