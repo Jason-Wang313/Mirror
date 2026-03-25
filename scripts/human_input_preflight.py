@@ -12,6 +12,7 @@ import argparse
 import csv
 import hashlib
 import json
+import statistics
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,6 +21,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PACKET_DIR = ROOT / "audit" / "human_baseline_packet"
 RUNS_DIR = PACKET_DIR / "runs"
+COHORT_DIR = PACKET_DIR / "cohort"
+AUDIT_MULTI_DIR = PACKET_DIR / "audit_multirater"
+DEPLOY_DIR = PACKET_DIR / "deployment"
+REDTEAM_DIR = PACKET_DIR / "redteam"
 
 VALID_DECISIONS = {"PROCEED", "USE_TOOL", "FLAG_FOR_REVIEW"}
 VALID_LABELS = {"correct", "incorrect", "ambiguous"}
@@ -40,6 +45,10 @@ def sha256_file(path: Path) -> str:
 def read_csv(path: Path) -> list[dict]:
     with path.open("r", encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
+
+
+def row_count_csv(path: Path) -> int:
+    return len(read_csv(path))
 
 
 @dataclass
@@ -144,25 +153,108 @@ def append_jsonl(path: Path, event: dict) -> None:
         f.flush()
 
 
+def sorted_paths(pattern: str, base: Path) -> list[Path]:
+    return sorted(base.glob(pattern), key=lambda p: p.name.lower())
+
+
+def default_exp1_files() -> list[Path]:
+    cohort = sorted_paths("exp1_response_sheet_H*.csv", COHORT_DIR)
+    if cohort:
+        return cohort
+    return [
+        PACKET_DIR / "templates" / "exp1_response_sheet_P1.csv",
+        PACKET_DIR / "templates" / "exp1_response_sheet_P2.csv",
+        PACKET_DIR / "templates" / "exp1_response_sheet_P3.csv",
+    ]
+
+
+def default_exp9_files() -> list[Path]:
+    cohort = sorted_paths("exp9_response_sheet_H*.csv", COHORT_DIR)
+    if cohort:
+        return cohort
+    return [
+        PACKET_DIR / "templates" / "exp9_response_sheet_P1.csv",
+        PACKET_DIR / "templates" / "exp9_response_sheet_P2.csv",
+        PACKET_DIR / "templates" / "exp9_response_sheet_P3.csv",
+    ]
+
+
+def default_audit_files() -> list[Path]:
+    raters = sorted_paths("real_human_audit_600_R*.csv", AUDIT_MULTI_DIR)
+    if raters:
+        return raters
+    return [
+        ROOT / "audit" / "real_human_audit_100_R1.csv",
+        ROOT / "audit" / "real_human_audit_100_R2.csv",
+        ROOT / "audit" / "real_human_audit_100_R3.csv",
+    ]
+
+
+def default_supporting_locked_files() -> list[Path]:
+    files = [
+        COHORT_DIR / "hard_packet_manifest.json",
+        COHORT_DIR / "human_collection_manifest.json",
+        DEPLOY_DIR / "ecological_validity_tasks.csv",
+        DEPLOY_DIR / "ecological_validity_gold.csv",
+        DEPLOY_DIR / "escalation_oracle_eval.csv",
+        REDTEAM_DIR / "goodhart_attack_set.csv",
+    ]
+    return [p for p in files if p.exists()]
+
+
+def manifest_expected_rows() -> dict[str, int]:
+    out: dict[str, int] = {}
+    hard_manifest = COHORT_DIR / "hard_packet_manifest.json"
+    if hard_manifest.exists():
+        payload = json.loads(hard_manifest.read_text(encoding="utf-8"))
+        exp1_rows = payload.get("exp1_rows")
+        exp9_rows = payload.get("exp9_rows")
+        if isinstance(exp1_rows, int) and exp1_rows > 0:
+            out["exp1"] = exp1_rows
+        if isinstance(exp9_rows, int) and exp9_rows > 0:
+            out["exp9"] = exp9_rows
+
+    coll_manifest = COHORT_DIR / "human_collection_manifest.json"
+    if coll_manifest.exists():
+        payload = json.loads(coll_manifest.read_text(encoding="utf-8"))
+        row_counts = payload.get("file_row_counts", {})
+        if isinstance(row_counts, dict):
+            audit_rows = [
+                int(v) for k, v in row_counts.items()
+                if isinstance(v, int) and "real_human_audit_600_R" in str(k)
+            ]
+            if audit_rows:
+                out["audit"] = int(statistics.mode(audit_rows))
+    return out
+
+
+def infer_expected_rows(kind: str, user_value: int | None, files: list[Path]) -> int:
+    if user_value is not None:
+        return user_value
+
+    manifest_rows = manifest_expected_rows().get(kind)
+    if isinstance(manifest_rows, int) and manifest_rows > 0:
+        return manifest_rows
+
+    if files:
+        # Fallback: use first file's row count if manifests are absent.
+        return row_count_csv(files[0])
+
+    # Conservative legacy defaults.
+    if kind == "exp1":
+        return 192
+    if kind == "exp9":
+        return 162
+    return 100
+
+
 def default_paths(kind: str) -> list[Path]:
     if kind == "exp1":
-        return [
-            PACKET_DIR / "templates" / "exp1_response_sheet_P1.csv",
-            PACKET_DIR / "templates" / "exp1_response_sheet_P2.csv",
-            PACKET_DIR / "templates" / "exp1_response_sheet_P3.csv",
-        ]
+        return default_exp1_files()
     if kind == "exp9":
-        return [
-            PACKET_DIR / "templates" / "exp9_response_sheet_P1.csv",
-            PACKET_DIR / "templates" / "exp9_response_sheet_P2.csv",
-            PACKET_DIR / "templates" / "exp9_response_sheet_P3.csv",
-        ]
+        return default_exp9_files()
     if kind == "audit":
-        return [
-            ROOT / "audit" / "real_human_audit_100_R1.csv",
-            ROOT / "audit" / "real_human_audit_100_R2.csv",
-            ROOT / "audit" / "real_human_audit_100_R3.csv",
-        ]
+        return default_audit_files()
     raise ValueError(f"Unknown kind: {kind}")
 
 
@@ -229,9 +321,15 @@ def main() -> None:
             PACKET_DIR / "answer_keys" / "exp9_answer_key.csv",
         ],
     )
-    parser.add_argument("--exp1-rows", type=int, default=192)
-    parser.add_argument("--exp9-rows", type=int, default=162)
-    parser.add_argument("--audit-rows", type=int, default=100)
+    parser.add_argument(
+        "--extra-locked-files",
+        nargs="+",
+        type=Path,
+        default=default_supporting_locked_files(),
+    )
+    parser.add_argument("--exp1-rows", type=int, default=None)
+    parser.add_argument("--exp9-rows", type=int, default=None)
+    parser.add_argument("--audit-rows", type=int, default=None)
     parser.add_argument("--verify-against-manifest", type=Path, default=None)
     args = parser.parse_args()
 
@@ -242,33 +340,46 @@ def main() -> None:
     run_dir.mkdir(parents=True, exist_ok=True)
     log_path = run_dir / "progress_log.jsonl"
 
-    for p in [*args.exp1_files, *args.exp9_files, *args.audit_files, *args.immutable_files]:
+    for p in [
+        *args.exp1_files,
+        *args.exp9_files,
+        *args.audit_files,
+        *args.immutable_files,
+        *args.extra_locked_files,
+    ]:
         if not p.exists():
             raise FileNotFoundError(f"Required file not found: {p}")
+
+    exp1_rows_expected = infer_expected_rows("exp1", args.exp1_rows, args.exp1_files)
+    exp9_rows_expected = infer_expected_rows("exp9", args.exp9_rows, args.exp9_files)
+    audit_rows_expected = infer_expected_rows("audit", args.audit_rows, args.audit_files)
 
     locked_inputs: list[dict] = []
     validation_failed = []
 
     for p in args.exp1_files:
-        v = validate_exp1(p, args.exp1_rows)
+        v = validate_exp1(p, exp1_rows_expected)
         entry = file_entry(p, role="exp1_participant", validation=v)
         locked_inputs.append(entry)
         if not v.ok:
             validation_failed.append(entry)
 
     for p in args.exp9_files:
-        v = validate_exp9(p, args.exp9_rows)
+        v = validate_exp9(p, exp9_rows_expected)
         entry = file_entry(p, role="exp9_participant", validation=v)
         locked_inputs.append(entry)
         if not v.ok:
             validation_failed.append(entry)
 
     for p in args.audit_files:
-        v = validate_audit(p, args.audit_rows)
+        v = validate_audit(p, audit_rows_expected)
         entry = file_entry(p, role="audit_rater", validation=v)
         locked_inputs.append(entry)
         if not v.ok:
             validation_failed.append(entry)
+
+    for p in args.extra_locked_files:
+        locked_inputs.append(file_entry(p, role="supporting_locked_input"))
 
     immutable_files = [file_entry(p, role="immutable_answer_key") for p in args.immutable_files]
 
@@ -277,9 +388,9 @@ def main() -> None:
         "generated_at_utc": utc_now_iso(),
         "policy": {
             "human_data_legitimacy": "accepted_by_user",
-            "exp1_expected_rows": args.exp1_rows,
-            "exp9_expected_rows": args.exp9_rows,
-            "audit_expected_rows": args.audit_rows,
+            "exp1_expected_rows": exp1_rows_expected,
+            "exp9_expected_rows": exp9_rows_expected,
+            "audit_expected_rows": audit_rows_expected,
             "valid_exp9_decisions": sorted(VALID_DECISIONS),
             "valid_human_labels": sorted(VALID_LABELS),
         },

@@ -1,5 +1,5 @@
 """
-Score multi-rater agreement for the 100-item human audit packet.
+Score multi-rater agreement for a shared-item human audit packet.
 """
 
 from __future__ import annotations
@@ -83,7 +83,7 @@ def format_table_md(rows: list[list[str]]) -> list[str]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Score 3-rater agreement on 100-item human audit.")
+    parser = argparse.ArgumentParser(description="Score multi-rater agreement on a shared-item human audit.")
     parser.add_argument(
         "--rater-files",
         nargs="+",
@@ -261,8 +261,9 @@ def main() -> None:
             "## Manuscript Insert (Draft)",
             "",
             (
-                f"A 3-rater audit on 100 items yielded unanimous agreement on {unanimous}/{len(shared_ids)} items "
-                f"({unanimous_rate:.1%}) with Fleiss' $\\kappa={fleiss:.3f}$. Pairwise Cohen's $\\kappa$ ranged from "
+                f"A {len(rater_ids)}-rater audit on {len(shared_ids)} shared items yielded unanimous agreement on "
+                f"{unanimous}/{len(shared_ids)} items ({unanimous_rate:.1%}) with Fleiss' "
+                f"$\\kappa={fleiss:.3f}$. Pairwise Cohen's $\\kappa$ ranged from "
                 f"{min(p['cohen_kappa'] for p in pairwise):.3f} to {max(p['cohen_kappa'] for p in pairwise):.3f}."
             ),
             "",

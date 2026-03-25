@@ -5,6 +5,7 @@ Run the MIRROR v20 human-data hardening pipeline with checkpoint/resume support.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import os
 import shutil
@@ -19,6 +20,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PACKET_DIR = ROOT / "audit" / "human_baseline_packet"
 RUNS_DIR = PACKET_DIR / "runs"
+COHORT_DIR = PACKET_DIR / "cohort"
+AUDIT_MULTI_DIR = PACKET_DIR / "audit_multirater"
+DEPLOY_DIR = PACKET_DIR / "deployment"
+REDTEAM_DIR = PACKET_DIR / "redteam"
 
 
 def utc_now_iso() -> str:
@@ -42,7 +47,19 @@ def append_jsonl(path: Path, event: dict) -> None:
         os.fsync(f.fileno())
 
 
+def row_count_csv(path: Path) -> int:
+    with path.open("r", encoding="utf-8", newline="") as f:
+        return sum(1 for _ in csv.DictReader(f))
+
+
+def sorted_paths(pattern: str, base: Path) -> list[Path]:
+    return sorted(base.glob(pattern), key=lambda p: p.name.lower())
+
+
 def default_exp1_files() -> list[Path]:
+    cohort = sorted_paths("exp1_response_sheet_H*.csv", COHORT_DIR)
+    if cohort:
+        return cohort
     return [
         PACKET_DIR / "templates" / "exp1_response_sheet_P1.csv",
         PACKET_DIR / "templates" / "exp1_response_sheet_P2.csv",
@@ -51,6 +68,9 @@ def default_exp1_files() -> list[Path]:
 
 
 def default_exp9_files() -> list[Path]:
+    cohort = sorted_paths("exp9_response_sheet_H*.csv", COHORT_DIR)
+    if cohort:
+        return cohort
     return [
         PACKET_DIR / "templates" / "exp9_response_sheet_P1.csv",
         PACKET_DIR / "templates" / "exp9_response_sheet_P2.csv",
@@ -59,11 +79,49 @@ def default_exp9_files() -> list[Path]:
 
 
 def default_audit_files() -> list[Path]:
+    raters = sorted_paths("real_human_audit_600_R*.csv", AUDIT_MULTI_DIR)
+    if raters:
+        return raters
     return [
         ROOT / "audit" / "real_human_audit_100_R1.csv",
         ROOT / "audit" / "real_human_audit_100_R2.csv",
         ROOT / "audit" / "real_human_audit_100_R3.csv",
     ]
+
+
+def default_supporting_locked_files() -> list[Path]:
+    files = [
+        COHORT_DIR / "hard_packet_manifest.json",
+        COHORT_DIR / "human_collection_manifest.json",
+        DEPLOY_DIR / "ecological_validity_tasks.csv",
+        DEPLOY_DIR / "ecological_validity_gold.csv",
+        DEPLOY_DIR / "escalation_oracle_eval.csv",
+        REDTEAM_DIR / "goodhart_attack_set.csv",
+    ]
+    return [p for p in files if p.exists()]
+
+
+def participant_id_from_path(path: Path) -> str:
+    stem = path.stem
+    if "_H" in stem:
+        return "H" + stem.rsplit("_H", 1)[1]
+    if "_P" in stem:
+        return "P" + stem.rsplit("_P", 1)[1]
+    return stem
+
+
+def default_participant_ids(exp1_files: list[Path]) -> list[str]:
+    return [participant_id_from_path(p) for p in exp1_files]
+
+
+def default_summary_stem(participant_ids: list[str]) -> str:
+    if participant_ids and all(pid.startswith("H") for pid in participant_ids):
+        return f"human_baseline_human{len(participant_ids)}_summary"
+    return f"human_baseline_{len(participant_ids)}p_summary"
+
+
+def default_cohort_label(participant_ids: list[str]) -> str:
+    return f"Human Baseline ({len(participant_ids)} Participants)"
 
 
 @dataclass
@@ -73,6 +131,9 @@ class Runner:
     exp9_files: list[Path]
     audit_files: list[Path]
     participant_ids: list[str]
+    extra_locked_files: list[Path]
+    summary_stem: str
+    cohort_label: str
     max_workers: int
     checkpoint_path: Path
     log_path: Path
@@ -152,10 +213,15 @@ class Runner:
             "--audit-files",
             *[str(p) for p in self.audit_files],
         ]
+        if self.extra_locked_files:
+            cmd.extend(["--extra-locked-files", *[str(p) for p in self.extra_locked_files]])
         proc = self.run_cmd(cmd, step=step)
         if proc.returncode != 0:
             raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
         state["manifest_path"] = str(self.run_dir / "human_input_manifest.json")
+        manifest = read_json(Path(state["manifest_path"]))
+        policy = manifest.get("policy", {})
+        state["audit_expected_rows"] = int(policy.get("audit_expected_rows", 100))
         self.mark_step_complete(state, step)
 
     def step_score_participant_shards(self, state: dict) -> None:
@@ -235,9 +301,9 @@ class Runner:
             "--out-dir",
             str(self.results_dir),
             "--summary-stem",
-            "human_baseline_human3_summary",
+            self.summary_stem,
             "--cohort-label",
-            "Human Baseline (3 Participants)",
+            self.cohort_label,
             "--weak-domain-rule",
             "median_or_bottom_k",
             "--fallback-bottom-k",
@@ -260,7 +326,7 @@ class Runner:
             "--rater-files",
             *[str(p) for p in self.audit_files],
             "--expected-rows",
-            "100",
+            str(int(state.get("audit_expected_rows", row_count_csv(self.audit_files[0])))),
             "--out-dir",
             str(self.results_dir),
             "--summary-stem",
@@ -287,6 +353,44 @@ class Runner:
             raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
         self.mark_step_complete(state, step)
 
+    def step_context_hardening(self, state: dict) -> None:
+        step = "context_hardening"
+        if step in state["completed_steps"]:
+            return
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_human_packet_context.py"),
+            "--out-dir",
+            str(self.results_dir),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        self.mark_step_complete(state, step)
+
+    def step_instance_baselines(self, state: dict) -> None:
+        step = "instance_baselines"
+        if step in state["completed_steps"]:
+            return
+        instance_run_id = f"{self.run_id}_instance"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "exp9_instance_abstention_baselines.py"),
+            "--run-id",
+            instance_run_id,
+            "--max-workers",
+            str(max(2, self.max_workers)),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        instance_dir = ROOT / "data" / "results" / "exp9_instance_baselines" / instance_run_id
+        state["instance_baseline_run_id"] = instance_run_id
+        state["instance_baseline_summary_json"] = str(instance_dir / "instance_baseline_summary.json")
+        state["instance_baseline_summary_md"] = str(instance_dir / "instance_baseline_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
     def step_promote_outputs(self, state: dict) -> None:
         step = "promote_outputs"
         if step in state["completed_steps"]:
@@ -295,10 +399,14 @@ class Runner:
         stable_results.mkdir(parents=True, exist_ok=True)
 
         promote_files = [
-            "human_baseline_human3_summary.json",
-            "human_baseline_human3_summary.md",
+            f"{self.summary_stem}.json",
+            f"{self.summary_stem}.md",
             "human_audit_multirater_summary.json",
             "human_audit_multirater_summary.md",
+            "ecological_validity_summary.json",
+            "oracle_realism_sensitivity.json",
+            "goodhart_redteam_summary.json",
+            "context_hardening_summary.md",
         ]
         for name in promote_files:
             src = self.results_dir / name
@@ -306,6 +414,23 @@ class Runner:
             if not src.exists():
                 raise FileNotFoundError(f"Expected output missing: {src}")
             shutil.copy2(src, dst)
+
+        instance_json = Path(state.get("instance_baseline_summary_json", ""))
+        instance_md = Path(state.get("instance_baseline_summary_md", ""))
+        if instance_json.exists():
+            shutil.copy2(instance_json, stable_results / "exp9_instance_baseline_summary.json")
+        if instance_md.exists():
+            shutil.copy2(instance_md, stable_results / "exp9_instance_baseline_summary.md")
+
+        # Stable aliases for downstream manuscript tooling.
+        shutil.copy2(
+            self.results_dir / f"{self.summary_stem}.json",
+            stable_results / "human_baseline_summary_latest.json",
+        )
+        shutil.copy2(
+            self.results_dir / f"{self.summary_stem}.md",
+            stable_results / "human_baseline_summary_latest.md",
+        )
 
         self.mark_step_complete(state, step)
 
@@ -318,6 +443,8 @@ class Runner:
         self.step_score_aggregate(state)
         self.step_score_multirater_audit(state)
         self.step_verify_immutable(state)
+        self.step_context_hardening(state)
+        self.step_instance_baselines(state)
         self.step_promote_outputs(state)
 
         append_jsonl(
@@ -337,17 +464,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--exp1-files", nargs="+", type=Path, default=default_exp1_files())
     parser.add_argument("--exp9-files", nargs="+", type=Path, default=default_exp9_files())
     parser.add_argument("--audit-files", nargs="+", type=Path, default=default_audit_files())
-    parser.add_argument("--participant-ids", nargs="+", type=str, default=["P1", "P2", "P3"])
-    parser.add_argument("--max-workers", type=int, default=2)
+    parser.add_argument("--participant-ids", nargs="+", type=str, default=None)
+    parser.add_argument("--summary-stem", type=str, default=None)
+    parser.add_argument("--cohort-label", type=str, default=None)
+    parser.add_argument("--extra-locked-files", nargs="+", type=Path, default=default_supporting_locked_files())
+    parser.add_argument("--max-workers", type=int, default=min(8, max(2, (os.cpu_count() or 4) // 2)))
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    participant_ids = args.participant_ids if args.participant_ids is not None else default_participant_ids(args.exp1_files)
     if len(args.exp1_files) != len(args.exp9_files):
         raise ValueError("exp1 and exp9 file lists must have equal length.")
-    if len(args.participant_ids) != len(args.exp1_files):
+    if len(participant_ids) != len(args.exp1_files):
         raise ValueError("participant_ids length must match response files.")
+    summary_stem = args.summary_stem or default_summary_stem(participant_ids)
+    cohort_label = args.cohort_label or default_cohort_label(participant_ids)
 
     run_dir = RUNS_DIR / args.run_id
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -359,7 +492,10 @@ def main() -> None:
         exp1_files=args.exp1_files,
         exp9_files=args.exp9_files,
         audit_files=args.audit_files,
-        participant_ids=args.participant_ids,
+        participant_ids=participant_ids,
+        extra_locked_files=args.extra_locked_files,
+        summary_stem=summary_stem,
+        cohort_label=cohort_label,
         max_workers=max(1, args.max_workers),
         checkpoint_path=run_dir / "checkpoint.json",
         log_path=run_dir / "progress_log.jsonl",

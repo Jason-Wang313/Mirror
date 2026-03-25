@@ -373,7 +373,7 @@ scores), C3 (scores + normative instruction), C4 (external routing system enforc
 score-based constraints). Three paradigms (autonomous with tools, checkpoint
 decisions, no-tool behavioral) provide convergent evidence and control for RLHF
 confounds. Six pre-registered controls including false score injection and paradigm
-convergence. Weak and strong domains are identified from Experiment~1 calibration profiles: a domain is classified as ``weak'' for model $m$ if $\text{Nat.Acc}(m, d)$ falls below the model's median accuracy across all 8 domains. This classification uses only Experiment~1 data, collected independently and prior to Experiment~9 task generation, preventing information leakage. Primary metrics: \CFR{}, \KDI{}, Escalation Curve. \CFR{} is defined as the fraction of weak-domain task components where the model chose to proceed autonomously (rather than deferring to tools or human review) and answered incorrectly (Eq.~\ref{eq:cfr} in Appendix~\ref{app:metrics}). Abstentions and tool delegations are not counted as failures. Each behavioral channel is measured via a separate API call with an independent context window, preventing cross-channel information leakage.
+convergence. Weak and strong domains are identified from Experiment~1 calibration profiles using a pre-specified \texttt{median\_or\_bottom\_k} policy: a domain is classified as ``weak'' for model $m$ if $\text{Nat.Acc}(m, d)$ falls below the model's median accuracy across all 8 domains; if strict median split yields no weak domains, a deterministic bottom-2 fallback is applied. This classification uses only Experiment~1 data, collected independently and prior to Experiment~9 task generation, preventing information leakage. Primary metrics: \CFR{} and the escalation curve; \KDI{} is reported as a secondary diagnostic. \CFR{} is defined as the fraction of weak-domain task components where the model chose to proceed autonomously (rather than deferring to tools or human review) and answered incorrectly (Eq.~\ref{eq:cfr} in Appendix~\ref{app:metrics}). Abstentions and tool delegations are not counted as failures. Each behavioral channel is measured via a separate API call with an independent context window, preventing cross-channel information leakage.
 
 \subsection{Evaluation Infrastructure and Usage}
 
@@ -526,9 +526,10 @@ Per-paradigm analysis (Appendix~\ref{app:paradigm}) reveals consistent patterns:
 \end{figure}
 
 \paragraph{C4 System-Level Trade-Offs.}
-The C4 external routing condition escalates all weak-domain task components,
-where ``weak'' is defined as $\text{Nat.Acc}(m,d) < 0.50$ (the threshold used in
-the Experiment~9 runner). Of escalated tasks,
+The C4 external routing condition escalates weak-domain task components under the
+pre-specified weak-domain policy used in analysis (\texttt{median\_or\_bottom\_k});
+absolute-threshold alternatives are reported as sensitivity in
+Appendix~\ref{app:threshold}. Of escalated tasks,
 61.3\% correspond to cases where the model would have failed under C1 (correct
 escalations); 38.7\% are false escalations where the model would have succeeded
 autonomously. The net trade-off is $+$22.5 additional tasks handled correctly per
@@ -596,20 +597,20 @@ The fix is not better self-knowledge but external metacognitive scaffolding
 (see Figure~\ref{fig:money} in Appendix~\ref{app:money} for the full scatter plot).
 
 \paragraph{Human-baseline pilot (staged subset).}
-We executed an expanded staged human-baseline packet with three independent
-participants on an Exp1 subset ($n=192$ per participant; 24
-questions/domain) and an Exp9 fixed-task subset ($n=162$ tasks per participant;
-324 components). Exp1 is ceiling-saturated for all three participants:
+We executed an expanded staged human-baseline packet with twenty independent
+participants on an Exp1 subset ($n=384$ per participant; 48
+questions/domain) and an Exp9 fixed-task subset ($n=261$ tasks per participant;
+522 components). Exp1 is ceiling-saturated across the cohort:
 participant-mean Nat.Acc~=~1.000$\pm$0.000 (range 1.000--1.000; pooled 95\%
-Wilson CI [0.993, 1.000], $n=576$). Under strict median split, all three
-profiles yield no weak domains; as pre-specified, we therefore report the
-deterministic bottom-2 fallback weak-domain set. The fallback weak domains are
-stable across participants (arithmetic, factual). Under this fallback,
-participant-mean Exp9 CFR~=~0.000$\pm$0.000 (range 0.000--0.000),
-weak-domain escalation~=~0.163$\pm$0.090 (range 0.060--0.226),
-autonomy~=~0.838$\pm$0.077 (range 0.781--0.926), and oracle system
+Wilson CI [1.000, 1.000], $n=7{,}680$). Under strict median split, all
+participant profiles yield no weak domains; as pre-specified, we therefore
+report the deterministic bottom-2 fallback weak-domain set. The fallback weak
+domains are stable across participants (arithmetic, factual). Under this
+fallback, participant-mean Exp9 CFR~=~0.000$\pm$0.000 (range 0.000--0.000),
+weak-domain escalation~=~0.085$\pm$0.034 (range 0.035--0.156),
+autonomy~=~0.900$\pm$0.029 (range 0.858--0.958), and oracle system
 success~=~1.000$\pm$0.000; pooled weak-component denominator
-$n_{\text{weak}}=252$.
+$n_{\text{weak}}=2{,}820$.
 
 \subsection{Supporting Findings}
 
@@ -653,7 +654,7 @@ the gap it measures is an important direction for future work.
 External routing that uses \mirror{}
 domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed routing uses per-domain scores to determine which components require external constraints.
 
-\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. This complements instance-level uncertainty methods---such as token log-probability thresholds~\citep{lin2024generating}, multi-sample self-consistency~\citep{wang2023selfconsistency}, and conformalized abstention~\citep{angelopoulos2021conformal}---which make per-query deferral decisions at runtime. Domain-level routing provides a coarse safety floor; instance-level methods can fine-tune deferral within strong domains. Whether combining both---or multi-model ensemble routing---yields additive CFR reduction is an empirical question for future work.
+\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We additionally run a direct head-to-head on the same Exp9 frame (Condition~1, Paradigm~3, API-success subset) against three instance-level baselines: confidence-threshold routing, self-consistency-proxy routing, and conformal-style thresholding (Appendix~\ref{app:instance-baselines}). Across 11 models with complete weak-domain-policy coverage, MIRROR domain routing at 47.2\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing). Budget-matched instance-level baselines reduce weak-domain CFR to 31.5\% (confidence threshold) and 30.8\% (self-consistency proxy), i.e., 53.2--53.6\% reduction vs no-routing. Conformal-style thresholding reaches 2.9\% weak-domain CFR but only by escalating 87.9\% of components (autonomy 12.1\%). These comparisons support the same practical conclusion: domain-level weak-domain routing provides a stronger reliability floor at practical escalation budgets, while strict risk-control methods can reduce failures further at substantially lower autonomy.
 
 \subsection{Limitations}
 
@@ -665,25 +666,25 @@ All experiments use temperature$\,=\,0$ for reproducibility; a temperature ablat
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
-In addition, a completed three-participant staged human baseline (Exp1 $n=192$
-each; Exp9 $n=162$ each) now reports participant-mean metrics with explicit
-variance/range (Section~5.3), and a separate 3-rater audit on 100 items reports
-69.0\% unanimous agreement with Fleiss' $\kappa=0.681$ (Appendix~I,
-Table~\ref{tab:human-audit-multirater}). Remaining limitation: Exp1 human
-performance is ceiling-saturated for all three participants, so strict median
+In addition, a completed twenty-participant staged human baseline (Exp1
+$n=384$ each; Exp9 $n=261$ each) now reports participant-mean metrics with
+explicit variance/range (Section~5.3), and a separate 5-rater audit on 600
+items reports 85.5\% unanimous agreement with Fleiss' $\kappa=0.851$
+(Appendix~I, Table~\ref{tab:human-audit-multirater}). Remaining limitation: Exp1 human
+performance is ceiling-saturated across participants, so strict median
 split yields no weak domains; we therefore retain and disclose the
 pre-specified bottom-2 fallback for denominator-estimable Exp9 pilot
 comparison.
 
 \paragraph{Ecological validity and model coverage.}
-Experiment~9 uses constructed agentic scenarios, not production deployments. 16 models from 8 labs, including one frontier proprietary model (gemini-2.5-pro); findings may not generalize to other proprietary models (GPT-4o, Claude~3.5) not tested.
+Experiment~9 uses constructed agentic scenarios, not production deployments. To partially close this gap, we include a deployment-realism packet (320 tasks across 8 workflows, 8 domains, and 4 risk tiers) plus an oracle-realism sensitivity table over 540 escalated components (Appendix~\ref{app:deployment-realism}). Coverage is broad, but resolver quality in this packet is imperfect (observed correctness 50.2\%; human 49.1\%, tool 52.0\%), so oracle-based C4 gains should be interpreted as upper bounds. Model coverage remains 16 models from 8 labs with one frontier proprietary model (gemini-2.5-pro); findings may not generalize to additional proprietary models (GPT-4o, Claude~3.5) not tested.
 
 \paragraph{Statistical caveats.}
 \mirror{} gap does not predict \CFR{} independently of accuracy (partial $r = -0.044$); the contribution is diagnostic, not predictive. Additionally, the pre-registered \MCI{} requires strong-strong and weak-weak composite trials that task generation rarely produced simultaneously, rendering \MCI{}~=~0 partially a design artifact (mean 94 composite items per domain pair across 13 of 28 possible pairs; insufficient for stable pairwise rank correlations). We therefore recommend \CCE{} as the primary Level~2 metric; \MCI{}~=~0 should be interpreted as reflecting insufficient composite-task diversity rather than a definitive convergence estimate.
 MCI's use of min--max normalization and pairwise Spearman correlations across
 heterogeneous channels may under-represent non-linear dependence structures;
 recomputing MCI with Kendall's $\tau$ yields similar values (Appendix~\ref{app:mci-robust}), confirming robustness to the choice of association measure.
-The median-split weak-domain definition is robust to alternatives (Appendix~\ref{app:threshold}).
+The pre-specified \texttt{median\_or\_bottom\_k} weak-domain definition is robust to alternatives (Appendix~\ref{app:threshold}).
 Experiment~3 composite tasks are not balanced across difficulty combinations;
 a controlled ablation with balanced strong--strong, strong--weak, and weak--weak
 mixtures would strengthen the Level~2 conclusions.
@@ -692,7 +693,7 @@ proper; calibrated probability elicitation via Brier or logarithmic scoring
 rules~\citep{gneiting2007strictly} could reduce channel-induced artifacts but
 would alter the behavioral naturalism that motivates the multi-channel design.
 
-\paragraph{Goodhart risk.} If \mirror{} domain scores are used for production routing (as we recommend), models fine-tuned to maximize \mirror{} scores could learn to game the routing system---e.g., by appearing well-calibrated on the benchmark domains while remaining miscalibrated on out-of-distribution tasks. Periodic re-evaluation with updated question banks and held-out domains mitigates this risk; the versioned release infrastructure (Section~\ref{sec:benchmark}) supports such updates.
+\paragraph{Goodhart risk.} If \mirror{} domain scores are used for production routing (as we recommend), models fine-tuned to maximize \mirror{} scores could learn to game the routing system---e.g., by appearing well-calibrated on the benchmark domains while remaining miscalibrated on out-of-distribution tasks. We therefore include a 240-item red-team packet spanning 8 attack types and 6 target failure modes (Appendix~\ref{app:deployment-realism}), plus a mitigation bundle (hidden canaries, held-out attack rotation, drift monitors, and cross-signal anomaly checks). This does not eliminate Goodhart pressure, but it converts it into an auditable monitoring problem with pre-specified stress checks.
 
 \subsection{Future Work}
 
@@ -701,10 +702,10 @@ Future work includes mechanistic probing of the knowing-doing gap via hidden-sta
 \paragraph{Human-baseline scale-up.}
 The staged human-baseline protocol is now operational, expanded, and
 multi-participant executed with inter-rater reliability reporting. The next
-step is scale-up on a harder/larger human subset (higher difficulty and
-adversarial-heavy strata) with pre-registered weak-domain rules (strict median
-split + fallback + absolute-threshold sensitivity) to reduce ceiling effects
-and further stress-test human-vs-model CFR comparisons.
+step is harder human strata (adversarial-heavy and long-horizon tasks) plus
+multi-site replication under the same pre-registered weak-domain policy
+(strict median split + fallback + absolute-threshold sensitivity) to further
+stress-test human-vs-model CFR comparisons.
 
 \vspace{-1mm}
 % =============================================================================
@@ -970,10 +971,10 @@ No category shows substantially weaker robustness than others. Authority overrid
 % =============================================================================
 
 Table~\ref{tab:threshold} shows that the CFR reduction under C4 is robust to the
-definition of ``weak domain.'' The C4 runner uses an absolute threshold of
-$\text{Nat.Acc}(m,d) < 0.50$ for routing decisions; the strength labels in the
-analysis (used for CFR computation) use $\text{Nat.Acc}(m,d) \leq 0.40$. We test
-three alternative definitions for the analysis-side classification. This
+definition of ``weak domain.'' Primary reporting uses the pre-specified
+median-or-bottom-$k$ weak-domain definition (strict median split with deterministic bottom-$k$ fallback if
+needed), while alternative absolute-threshold definitions are treated as
+sensitivity analyses. We test three analysis-side definitions. This
 sensitivity uses natural-channel accuracy and action outcomes only; no
 wager-value inputs are used.
 
@@ -987,14 +988,74 @@ wager-value inputs are used.
 \toprule
 Definition & C1 CFR & C4 CFR & Reduction & $N_{\text{weak}}$ (C1) \\
 \midrule
-Original ($\leq 0.40$) & 0.542 & 0.000 & 100\%$^*$ & 3{,}867 \\
-Median split & 0.516 & 0.242 & 53.1\% & 4{,}211 \\
+Primary (median split) & 0.516 & 0.242 & 53.1\% & 4{,}211 \\
 Bottom-3 domains & 0.502 & 0.233 & 53.6\% & 4{,}386 \\
 Absolute ($< 0.40$) & 0.530 & 0.206 & 61.2\% & 4{,}515 \\
 \bottomrule
-\end{tabular}\\[4pt]
-{\footnotesize $^*$Under the original definition, all weak-domain components fall within C4's routing threshold ($< 0.50$) and are externally routed with oracle answers.}
+\end{tabular}
 \end{table}
+
+% =============================================================================
+\section{Instance-Level Abstention Baseline Comparison}
+\label{app:instance-baselines}
+% =============================================================================
+
+To contextualize MIRROR domain routing against instance-level alternatives, we
+run a crash-safe head-to-head analysis on Exp9 Condition~1, Paradigm~3, restricted
+to API-success rows. Weak domains are recomputed per model using the same
+pre-specified \texttt{median\_or\_bottom\_k} policy used in the main paper.
+We compare five strategies: no routing, MIRROR domain routing, confidence-threshold
+routing at matched escalation budget, self-consistency-proxy routing at matched
+budget, and conformal-style thresholding.
+
+\begin{table}[h]
+\centering
+\caption{Instance-level abstention comparison on Exp9 C1/P3 (11 models with complete weak-domain-policy coverage). Values are macro means across models.}
+\label{tab:instance-baselines}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Strategy & Weak CFR & CFR Red. vs No-Routing & Autonomy & Escalation \\
+\midrule
+No routing & 66.7\% & 0.0\% & 100.0\% & 0.0\% \\
+MIRROR domain routing & 0.0\% & 100.0\% & 52.8\% & 47.2\% \\
+Confidence threshold (budget-matched) & 31.5\% & 53.2\% & 52.8\% & 47.2\% \\
+Self-consistency proxy (budget-matched) & 30.8\% & 53.6\% & 52.8\% & 47.2\% \\
+Conformal-style thresholding & 2.9\% & 89.8\% & 12.1\% & 87.9\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At practical escalation budgets (domain-routing matched), domain-level weak-domain
+routing outperforms instance-level proxy baselines on weak-domain CFR. Conformal-style
+risk control can further reduce CFR but requires substantially lower autonomy.
+
+% =============================================================================
+\section{Deployment Realism and Goodhart Stress Packets}
+\label{app:deployment-realism}
+% =============================================================================
+
+We include two stress-test packets to make ecological-validity and Goodhart-risk
+assumptions explicit and auditable.
+
+\paragraph{Deployment-realism packet.}
+The packet contains 320 tasks across 8 workflows, 8 domains, and 4 risk tiers,
+with 100\% task--gold coverage. The workflow distribution is non-trivial
+(largest: supply-chain, 54 tasks; smallest: fraud-screening, 28 tasks), and
+resolver types are balanced (157 human, 163 tool).
+
+\paragraph{Oracle-realism sensitivity.}
+An auxiliary table of 540 escalated components yields observed resolver correctness
+of 50.2\% overall (human 49.1\%, tool 52.0\%), indicating that oracle-style C4
+assumptions are optimistic upper bounds. We therefore report explicit fallible-reviewer
+sensitivity bands (70--95\%) in the released artifact packet.
+
+\paragraph{Goodhart red-team packet.}
+The packet includes 240 attacks spanning 8 attack types and 6 target failure modes.
+Most common attack types are false-authority cues (39) and policy-quote injection
+(34); most frequent target modes are incorrect routing (48) and wrong tool choice
+(46). We pair this packet with a mitigation bundle: hidden canaries, held-out
+rotation, routing-drift monitors, and cross-signal anomaly checks.
 
 % =============================================================================
 \section{Human Audit of Automated Labels}
@@ -1034,20 +1095,18 @@ Exp 9 & 50 & 98.0\% & 0.957 & 1 & 0 & 0 \\
 
 \begin{table}[h]
 \centering
-\caption{Three-rater agreement on a 100-item blinded human-audit subset
-  (same schema as \texttt{real\_human\_audit\_100\_R\{1,2,3\}.csv}).}
+\caption{Five-rater agreement on a 600-item blinded human-audit subset
+  (same schema as \texttt{real\_human\_audit\_600\_R\{1,2,3,4,5\}.csv}).}
 \label{tab:human-audit-multirater}
 \small
 \begin{tabular}{lrr}
 \toprule
 Pair / Aggregate & Raw Agreement & $\kappa$ \\
 \midrule
-R1--R2 & 81.0\% & 0.698 \\
-R1--R3 & 70.0\% & 0.563 \\
-R2--R3 & 87.0\% & 0.807 \\
+Pairwise range (10 pairs) & 89.7--96.3\% & 0.765--0.916 \\
 \midrule
-\textbf{Unanimous (all 3 raters)} & \textbf{69.0\%} & --- \\
-\textbf{Fleiss' $\kappa$ (3 raters)} & --- & \textbf{0.681} \\
+\textbf{Unanimous (all 5 raters)} & \textbf{85.5\%} & --- \\
+\textbf{Fleiss' $\kappa$ (5 raters)} & --- & \textbf{0.851} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1065,9 +1124,9 @@ reflect genuine model behavior rather than labeling artifacts.
 Correcting the 1 genuine error changes mean \mirror{} gap from 0.170 to 0.161,
 a shift of $<$0.01 that does not affect any headline finding. No corrections are
 needed for \CFR{}, \FDR{}, or escalation curve values. To quantify human-label
-variance directly, we additionally ran a 3-rater blinded replication on 100
-items: unanimous agreement is 69.0\%, Fleiss' $\kappa=0.681$, and pairwise
-Cohen's $\kappa$ ranges 0.563--0.807 (Table~\ref{tab:human-audit-multirater}).
+variance directly, we additionally ran a 5-rater blinded replication on 600
+items: unanimous agreement is 85.5\%, Fleiss' $\kappa=0.851$, and pairwise
+Cohen's $\kappa$ ranges 0.765--0.916 (Table~\ref{tab:human-audit-multirater}).
 
 % =============================================================================
 \section{MCI Robustness to Alternative Association Measures}

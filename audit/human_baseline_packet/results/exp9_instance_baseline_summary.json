@@ -1,0 +1,877 @@
+{
+  "run_id": "v20_hardening_human20_lock_v4_instance",
+  "created_at_utc": "2026-03-25T12:45:19+00:00",
+  "completed_models": [
+    "deepseek-r1",
+    "gemma-3-12b",
+    "gemma-3-27b",
+    "kimi-k2",
+    "llama-3.1-70b",
+    "llama-3.1-8b",
+    "llama-3.2-3b",
+    "llama-3.3-70b",
+    "mixtral-8x22b",
+    "phi-4",
+    "qwen3-next-80b"
+  ],
+  "skipped_models": [
+    "deepseek-v3",
+    "gemini-2.5-pro",
+    "gpt-oss-120b",
+    "llama-3.1-405b",
+    "mistral-large"
+  ],
+  "n_models_complete": 11,
+  "n_models_skipped": 5,
+  "macro_summary": {
+    "no_routing": {
+      "mean_weak_cfr": 0.6672359287777532,
+      "mean_overall_failure_rate": 0.6559097631637247,
+      "mean_autonomy_rate": 1.0,
+      "mean_escalation_rate": 0.0,
+      "mean_weak_cfr_reduction_vs_no_routing": 0.0,
+      "n_models": 11
+    },
+    "mirror_domain_routing": {
+      "mean_weak_cfr": 0.0,
+      "mean_overall_failure_rate": 0.33837331827531997,
+      "mean_autonomy_rate": 0.5275687532192953,
+      "mean_escalation_rate": 0.47243124678070475,
+      "mean_weak_cfr_reduction_vs_no_routing": 1.0,
+      "n_models": 11
+    },
+    "confidence_threshold_budget_matched": {
+      "mean_weak_cfr": 0.3145762121238904,
+      "mean_overall_failure_rate": 0.34392294825781067,
+      "mean_autonomy_rate": 0.5275687532192953,
+      "mean_escalation_rate": 0.47243124678070475,
+      "mean_weak_cfr_reduction_vs_no_routing": 0.5315913955187244,
+      "n_models": 11
+    },
+    "self_consistency_budget_matched": {
+      "mean_weak_cfr": 0.30837845818553533,
+      "mean_overall_failure_rate": 0.33553703814337676,
+      "mean_autonomy_rate": 0.5275687532192953,
+      "mean_escalation_rate": 0.47243124678070475,
+      "mean_weak_cfr_reduction_vs_no_routing": 0.5359173908078702,
+      "n_models": 11
+    },
+    "conformal_style": {
+      "mean_weak_cfr": 0.02943622660525099,
+      "mean_overall_failure_rate": 0.029699505594001006,
+      "mean_autonomy_rate": 0.12052320251861537,
+      "mean_escalation_rate": 0.8794767974813847,
+      "mean_weak_cfr_reduction_vs_no_routing": 0.8979125828186806,
+      "n_models": 11
+    }
+  },
+  "per_model": [
+    {
+      "model": "deepseek-r1",
+      "status": "complete",
+      "n_components": 650,
+      "n_weak_components": 238,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.3666666666666667,
+        "bottom_k": 2,
+        "weak_domains": [
+          "logical",
+          "spatial",
+          "temporal"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.26,
+          "overall_oracle_success_rate": 0.74,
+          "weak_cfr": 0.2647058823529412,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.36615384615384616,
+          "autonomy_rate": 0.6338461538461538,
+          "overall_failure_rate": 0.16307692307692306,
+          "overall_oracle_success_rate": 0.8369230769230769,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.36615384615384616,
+          "autonomy_rate": 0.6338461538461538,
+          "overall_failure_rate": 0.14461538461538462,
+          "overall_oracle_success_rate": 0.8553846153846154,
+          "weak_cfr": 0.14285714285714285,
+          "weak_escalation_rate": 0.3697478991596639,
+          "weak_cfr_reduction_vs_no_routing": 0.46031746031746035
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.36615384615384616,
+          "autonomy_rate": 0.6338461538461538,
+          "overall_failure_rate": 0.14615384615384616,
+          "overall_oracle_success_rate": 0.8538461538461538,
+          "weak_cfr": 0.14705882352941177,
+          "weak_escalation_rate": 0.3697478991596639,
+          "weak_cfr_reduction_vs_no_routing": 0.4444444444444444
+        },
+        "conformal_style": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.26,
+          "overall_oracle_success_rate": 0.74,
+          "weak_cfr": 0.2647058823529412,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        }
+      },
+      "conformal_meta": {
+        "status": "ok",
+        "threshold": 0.6818974358974359,
+        "target_error": 0.25,
+        "calibration_size": 309,
+        "test_size": 341,
+        "calibration_coverage": 1.0,
+        "calibration_error": 0.24919093851132687,
+        "test_error": 0.2697947214076246
+      }
+    },
+    {
+      "model": "gemma-3-12b",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 297,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.4359726295210166,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "linguistic",
+          "procedural",
+          "social"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.47474747474747475,
+          "overall_oracle_success_rate": 0.5252525252525253,
+          "weak_cfr": 0.4612794612794613,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.2441077441077441,
+          "overall_oracle_success_rate": 0.7558922558922558,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.23232323232323232,
+          "overall_oracle_success_rate": 0.7676767676767677,
+          "weak_cfr": 0.18855218855218855,
+          "weak_escalation_rate": 0.5622895622895623,
+          "weak_cfr_reduction_vs_no_routing": 0.5912408759124088
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.25252525252525254,
+          "overall_oracle_success_rate": 0.7474747474747474,
+          "weak_cfr": 0.2255892255892256,
+          "weak_escalation_rate": 0.5218855218855218,
+          "weak_cfr_reduction_vs_no_routing": 0.5109489051094891
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "gemma-3-27b",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 297,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.48,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "linguistic",
+          "procedural",
+          "social"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.968013468013468,
+          "overall_oracle_success_rate": 0.03198653198653201,
+          "weak_cfr": 0.9831649831649831,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.4764309764309764,
+          "overall_oracle_success_rate": 0.5235690235690236,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.494949494949495,
+          "overall_oracle_success_rate": 0.505050505050505,
+          "weak_cfr": 0.4175084175084175,
+          "weak_escalation_rate": 0.5824915824915825,
+          "weak_cfr_reduction_vs_no_routing": 0.5753424657534247
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.49663299663299665,
+          "overall_oracle_success_rate": 0.5033670033670034,
+          "weak_cfr": 0.4444444444444444,
+          "weak_escalation_rate": 0.5555555555555556,
+          "weak_cfr_reduction_vs_no_routing": 0.547945205479452
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "kimi-k2",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 207,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.54,
+        "bottom_k": 2,
+        "weak_domains": [
+          "linguistic",
+          "procedural",
+          "social"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.8703703703703703,
+          "overall_oracle_success_rate": 0.12962962962962965,
+          "weak_cfr": 0.9130434782608695,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.3484848484848485,
+          "autonomy_rate": 0.6515151515151515,
+          "overall_failure_rate": 0.5521885521885522,
+          "overall_oracle_success_rate": 0.44781144781144777,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.3484848484848485,
+          "autonomy_rate": 0.6515151515151515,
+          "overall_failure_rate": 0.5673400673400674,
+          "overall_oracle_success_rate": 0.43265993265993263,
+          "weak_cfr": 0.43478260869565216,
+          "weak_escalation_rate": 0.5410628019323671,
+          "weak_cfr_reduction_vs_no_routing": 0.5238095238095237
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.3484848484848485,
+          "autonomy_rate": 0.6515151515151515,
+          "overall_failure_rate": 0.5824915824915825,
+          "overall_oracle_success_rate": 0.4175084175084175,
+          "weak_cfr": 0.4830917874396135,
+          "weak_escalation_rate": 0.5072463768115942,
+          "weak_cfr_reduction_vs_no_routing": 0.47089947089947093
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "llama-3.1-70b",
+      "status": "complete",
+      "n_components": 654,
+      "n_weak_components": 346,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.4375,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "procedural",
+          "spatial",
+          "temporal"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.6162079510703364,
+          "overall_oracle_success_rate": 0.38379204892966357,
+          "weak_cfr": 0.6560693641618497,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5290519877675841,
+          "autonomy_rate": 0.4709480122324159,
+          "overall_failure_rate": 0.2691131498470948,
+          "overall_oracle_success_rate": 0.7308868501529052,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5290519877675841,
+          "autonomy_rate": 0.4709480122324159,
+          "overall_failure_rate": 0.28287461773700306,
+          "overall_oracle_success_rate": 0.7171253822629969,
+          "weak_cfr": 0.32947976878612717,
+          "weak_escalation_rate": 0.5115606936416185,
+          "weak_cfr_reduction_vs_no_routing": 0.4977973568281938
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5290519877675841,
+          "autonomy_rate": 0.4709480122324159,
+          "overall_failure_rate": 0.2400611620795107,
+          "overall_oracle_success_rate": 0.7599388379204893,
+          "weak_cfr": 0.23121387283236994,
+          "weak_escalation_rate": 0.569364161849711,
+          "weak_cfr_reduction_vs_no_routing": 0.6475770925110131
+        },
+        "conformal_style": {
+          "escalation_rate": 0.8685015290519877,
+          "autonomy_rate": 0.13149847094801226,
+          "overall_failure_rate": 0.024464831804281346,
+          "overall_oracle_success_rate": 0.9755351681957186,
+          "weak_cfr": 0.023121387283236993,
+          "weak_escalation_rate": 0.8901734104046243,
+          "weak_cfr_reduction_vs_no_routing": 0.9647577092511013
+        }
+      },
+      "conformal_meta": {
+        "status": "ok",
+        "threshold": 0.0032203958403220394,
+        "target_error": 0.25,
+        "calibration_size": 305,
+        "test_size": 349,
+        "calibration_coverage": 0.11475409836065574,
+        "calibration_error": 0.22857142857142856,
+        "test_error": 0.1568627450980392
+      }
+    },
+    {
+      "model": "llama-3.1-8b",
+      "status": "complete",
+      "n_components": 654,
+      "n_weak_components": 336,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.29166666666666663,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "procedural",
+          "spatial",
+          "temporal"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.8914373088685015,
+          "overall_oracle_success_rate": 0.10856269113149852,
+          "weak_cfr": 0.9196428571428571,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5137614678899083,
+          "autonomy_rate": 0.4862385321100917,
+          "overall_failure_rate": 0.41896024464831805,
+          "overall_oracle_success_rate": 0.581039755351682,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5137614678899083,
+          "autonomy_rate": 0.4862385321100917,
+          "overall_failure_rate": 0.4510703363914373,
+          "overall_oracle_success_rate": 0.5489296636085628,
+          "weak_cfr": 0.5,
+          "weak_escalation_rate": 0.4851190476190476,
+          "weak_cfr_reduction_vs_no_routing": 0.4563106796116505
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5137614678899083,
+          "autonomy_rate": 0.4862385321100917,
+          "overall_failure_rate": 0.43883792048929665,
+          "overall_oracle_success_rate": 0.5611620795107033,
+          "weak_cfr": 0.39880952380952384,
+          "weak_escalation_rate": 0.5833333333333334,
+          "weak_cfr_reduction_vs_no_routing": 0.5663430420711973
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 312,
+        "test_size": 342
+      }
+    },
+    {
+      "model": "llama-3.2-3b",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 279,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.44696969696969696,
+        "bottom_k": 2,
+        "weak_domains": [
+          "linguistic",
+          "logical",
+          "procedural",
+          "social"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.7744107744107744,
+          "overall_oracle_success_rate": 0.22558922558922556,
+          "weak_cfr": 0.7383512544802867,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.4696969696969697,
+          "autonomy_rate": 0.5303030303030303,
+          "overall_failure_rate": 0.4276094276094276,
+          "overall_oracle_success_rate": 0.5723905723905724,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.4696969696969697,
+          "autonomy_rate": 0.5303030303030303,
+          "overall_failure_rate": 0.4393939393939394,
+          "overall_oracle_success_rate": 0.5606060606060606,
+          "weak_cfr": 0.32974910394265233,
+          "weak_escalation_rate": 0.5878136200716846,
+          "weak_cfr_reduction_vs_no_routing": 0.5533980582524272
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.4696969696969697,
+          "autonomy_rate": 0.5303030303030303,
+          "overall_failure_rate": 0.40235690235690236,
+          "overall_oracle_success_rate": 0.5976430976430976,
+          "weak_cfr": 0.34408602150537637,
+          "weak_escalation_rate": 0.5232974910394266,
+          "weak_cfr_reduction_vs_no_routing": 0.5339805825242718
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "llama-3.3-70b",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 297,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.49489795918367346,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "linguistic",
+          "procedural",
+          "social"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.6919191919191919,
+          "overall_oracle_success_rate": 0.30808080808080807,
+          "weak_cfr": 0.6868686868686869,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.3484848484848485,
+          "overall_oracle_success_rate": 0.6515151515151515,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.3400673400673401,
+          "overall_oracle_success_rate": 0.6599326599326599,
+          "weak_cfr": 0.3164983164983165,
+          "weak_escalation_rate": 0.5252525252525253,
+          "weak_cfr_reduction_vs_no_routing": 0.5392156862745098
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.32491582491582494,
+          "overall_oracle_success_rate": 0.6750841750841751,
+          "weak_cfr": 0.32323232323232326,
+          "weak_escalation_rate": 0.4983164983164983,
+          "weak_cfr_reduction_vs_no_routing": 0.5294117647058822
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "mixtral-8x22b",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 297,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.46875,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "linguistic",
+          "procedural",
+          "social"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.40235690235690236,
+          "overall_oracle_success_rate": 0.5976430976430976,
+          "weak_cfr": 0.4208754208754209,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.1919191919191919,
+          "overall_oracle_success_rate": 0.8080808080808081,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.1936026936026936,
+          "overall_oracle_success_rate": 0.8063973063973064,
+          "weak_cfr": 0.19865319865319866,
+          "weak_escalation_rate": 0.569023569023569,
+          "weak_cfr_reduction_vs_no_routing": 0.528
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.20707070707070707,
+          "overall_oracle_success_rate": 0.7929292929292929,
+          "weak_cfr": 0.20202020202020202,
+          "weak_escalation_rate": 0.49158249158249157,
+          "weak_cfr_reduction_vs_no_routing": 0.52
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "phi-4",
+      "status": "complete",
+      "n_components": 594,
+      "n_weak_components": 297,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.2604347826086957,
+        "bottom_k": 2,
+        "weak_domains": [
+          "arithmetic",
+          "linguistic",
+          "logical",
+          "procedural"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.898989898989899,
+          "overall_oracle_success_rate": 0.101010101010101,
+          "weak_cfr": 0.8855218855218855,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.4562289562289562,
+          "overall_oracle_success_rate": 0.5437710437710438,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.4730639730639731,
+          "overall_oracle_success_rate": 0.5269360269360269,
+          "weak_cfr": 0.4511784511784512,
+          "weak_escalation_rate": 0.5286195286195287,
+          "weak_cfr_reduction_vs_no_routing": 0.49049429657794674
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.5,
+          "autonomy_rate": 0.5,
+          "overall_failure_rate": 0.44107744107744107,
+          "overall_oracle_success_rate": 0.5589225589225589,
+          "weak_cfr": 0.43434343434343436,
+          "weak_escalation_rate": 0.5151515151515151,
+          "weak_cfr_reduction_vs_no_routing": 0.5095057034220531
+        },
+        "conformal_style": {
+          "escalation_rate": 1.0,
+          "autonomy_rate": 0.0,
+          "overall_failure_rate": 0.0,
+          "overall_oracle_success_rate": 1.0,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        }
+      },
+      "conformal_meta": {
+        "status": "no_feasible_threshold",
+        "target_error": 0.25,
+        "calibration_size": 281,
+        "test_size": 313
+      }
+    },
+    {
+      "model": "qwen3-next-80b",
+      "status": "complete",
+      "n_components": 592,
+      "n_weak_components": 278,
+      "weak_policy": {
+        "rule_applied": "median_split",
+        "median": 0.4843597262952102,
+        "bottom_k": 2,
+        "weak_domains": [
+          "linguistic",
+          "procedural",
+          "social",
+          "temporal"
+        ]
+      },
+      "strategy_metrics": {
+        "no_routing": {
+          "escalation_rate": 0.0,
+          "autonomy_rate": 1.0,
+          "overall_failure_rate": 0.36655405405405406,
+          "overall_oracle_success_rate": 0.6334459459459459,
+          "weak_cfr": 0.41007194244604317,
+          "weak_escalation_rate": 0.0,
+          "weak_cfr_reduction_vs_no_routing": 0.0
+        },
+        "mirror_domain_routing": {
+          "escalation_rate": 0.46959459459459457,
+          "autonomy_rate": 0.5304054054054055,
+          "overall_failure_rate": 0.17398648648648649,
+          "overall_oracle_success_rate": 0.8260135135135135,
+          "weak_cfr": 0.0,
+          "weak_escalation_rate": 1.0,
+          "weak_cfr_reduction_vs_no_routing": 1.0
+        },
+        "confidence_threshold_budget_matched": {
+          "escalation_rate": 0.46959459459459457,
+          "autonomy_rate": 0.5304054054054055,
+          "overall_failure_rate": 0.16385135135135134,
+          "overall_oracle_success_rate": 0.8361486486486487,
+          "weak_cfr": 0.1510791366906475,
+          "weak_escalation_rate": 0.5755395683453237,
+          "weak_cfr_reduction_vs_no_routing": 0.631578947368421
+        },
+        "self_consistency_budget_matched": {
+          "escalation_rate": 0.46959459459459457,
+          "autonomy_rate": 0.5304054054054055,
+          "overall_failure_rate": 0.15878378378378377,
+          "overall_oracle_success_rate": 0.8412162162162162,
+          "weak_cfr": 0.15827338129496402,
+          "weak_escalation_rate": 0.5251798561151079,
+          "weak_cfr_reduction_vs_no_routing": 0.6140350877192983
+        },
+        "conformal_style": {
+          "escalation_rate": 0.8057432432432432,
+          "autonomy_rate": 0.1942567567567568,
+          "overall_failure_rate": 0.04222972972972973,
+          "overall_oracle_success_rate": 0.9577702702702703,
+          "weak_cfr": 0.03597122302158273,
+          "weak_escalation_rate": 0.9064748201438849,
+          "weak_cfr_reduction_vs_no_routing": 0.9122807017543859
+        }
+      },
+      "conformal_meta": {
+        "status": "ok",
+        "threshold": 0.01254094525035096,
+        "target_error": 0.25,
+        "calibration_size": 279,
+        "test_size": 313,
+        "calibration_coverage": 0.1863799283154122,
+        "calibration_error": 0.23076923076923078,
+        "test_error": 0.20634920634920634
+      }
+    }
+  ],
+  "skipped_details": [
+    {
+      "model": "deepseek-v3",
+      "status": "skipped",
+      "reason": "no_condition1_paradigm3_api_success_rows"
+    },
+    {
+      "model": "gemini-2.5-pro",
+      "status": "skipped",
+      "reason": "no_condition1_paradigm3_api_success_rows"
+    },
+    {
+      "model": "gpt-oss-120b",
+      "status": "skipped",
+      "reason": "no_exp1_accuracy_available_for_weak_domain_policy"
+    },
+    {
+      "model": "llama-3.1-405b",
+      "status": "skipped",
+      "reason": "no_exp1_accuracy_available_for_weak_domain_policy"
+    },
+    {
+      "model": "mistral-large",
+      "status": "skipped",
+      "reason": "no_exp1_accuracy_available_for_weak_domain_policy"
+    }
+  ]
+}
