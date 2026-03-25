@@ -1,0 +1,346 @@
+{
+  "run_id": "v20_bulletproof_hardening_v3_proper",
+  "created_at_utc": "2026-03-25T16:42:49+00:00",
+  "generated_at_utc": "2026-03-25T16:44:05+00:00",
+  "primary_scoring_rule": "brier",
+  "secondary_scoring_rule": "log_score",
+  "n_models": 16,
+  "source": {
+    "files": [
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191417_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191510_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191544_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T192257_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T193341_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T193923_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260218T092956_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T210412_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260220T090109_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260312T140842_exp1supp_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T093713_deepseek-v3_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T093713_llama-3-3-70b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_gemma-3-27b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T103301_kimi-k2_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T103301_llama-3-3-70b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T104746_kimi-k2_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T104746_llama-3-3-70b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_llama-3-3-70b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_phi-4_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_qwen3-235b-nim_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_kimi-k2_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T135957_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T140238_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T140826_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_counterfactual_20260313T210032_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_deepseek-v3_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_gemma-3-27b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_kimi-k2_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_phi-4_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_llama-3-3-70b_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_gemini_fixed_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260323_gemini_gemini-2-5-pro_fast_shard.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260315T154652_results.jsonl"
+    ],
+    "file_rows": {
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191417_results.jsonl": 2,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191510_results.jsonl": 4,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191544_results.jsonl": 53,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T192257_results.jsonl": 53,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T193341_results.jsonl": 53,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T193923_results.jsonl": 486,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260218T092956_results.jsonl": 28,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T210412_results.jsonl": 23926,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260220T090109_results.jsonl": 23869,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260312T140842_exp1supp_results.jsonl": 3853,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T093713_deepseek-v3_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T093713_llama-3-3-70b_fast_shard.jsonl": 613,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_gemma-3-27b_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T103301_kimi-k2_fast_shard.jsonl": 142,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T103301_llama-3-3-70b_fast_shard.jsonl": 772,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T104746_kimi-k2_fast_shard.jsonl": 404,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T104746_llama-3-3-70b_fast_shard.jsonl": 694,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_llama-3-3-70b_fast_shard.jsonl": 582,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_phi-4_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_qwen3-235b-nim_fast_shard.jsonl": 4,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T102526_kimi-k2_fast_shard.jsonl": 760,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T135957_results.jsonl": 53,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T140238_results.jsonl": 53,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T140826_results.jsonl": 573,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_counterfactual_20260313T210032_results.jsonl": 1248,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_deepseek-v3_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_gemma-3-27b_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_kimi-k2_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_phi-4_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260314T112812_llama-3-3-70b_fast_shard.jsonl": 712,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_gemini_fixed_results.jsonl": 907,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260323_gemini_gemini-2-5-pro_fast_shard.jsonl": 800,
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260315T154652_results.jsonl": 13063
+    },
+    "kept_channel1_rows": 9742,
+    "target_model_list_file": "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_combined_16model_escalation.json",
+    "target_models_used": [
+      "deepseek-r1",
+      "deepseek-v3",
+      "gemini-2.5-pro",
+      "gemma-3-12b",
+      "gemma-3-27b",
+      "gpt-oss-120b",
+      "kimi-k2",
+      "llama-3.1-405b",
+      "llama-3.1-70b",
+      "llama-3.1-8b",
+      "llama-3.2-3b",
+      "llama-3.3-70b",
+      "mistral-large",
+      "mixtral-8x22b",
+      "phi-4",
+      "qwen3-next-80b"
+    ]
+  },
+  "macro_summary": {
+    "mean_brier": 0.3151161048062672,
+    "mean_log_score": 2.2354485328454543
+  },
+  "per_model": {
+    "deepseek-r1": {
+      "n": 474,
+      "brier": 0.33894514767932465,
+      "brier_ci95": [
+        0.30105485232067525,
+        0.37618143459915593
+      ],
+      "log_score": 3.212286622681434,
+      "log_score_ci95": [
+        2.7171942169044407,
+        3.7256616996201717
+      ],
+      "mean_confidence": 0.9316455696202528,
+      "mean_accuracy": 0.580168776371308
+    },
+    "deepseek-v3": {
+      "n": 830,
+      "brier": 0.359554216867468,
+      "brier_ci95": [
+        0.3333493975903602,
+        0.3850240963855408
+      ],
+      "log_score": 1.813264111551818,
+      "log_score_ci95": [
+        1.5842135439145983,
+        2.046576820652439
+      ],
+      "mean_confidence": 0.8902409638554161,
+      "mean_accuracy": 0.5096385542168674
+    },
+    "gemini-2.5-pro": {
+      "n": 474,
+      "brier": 0.3378059071729958,
+      "brier_ci95": [
+        0.2989662447257384,
+        0.38388185654008444
+      ],
+      "log_score": 4.479313263222822,
+      "log_score_ci95": [
+        3.915811449326837,
+        5.086312740243927
+      ],
+      "mean_confidence": 0.9957805907172993,
+      "mean_accuracy": 0.6561181434599156
+    },
+    "gemma-3-12b": {
+      "n": 521,
+      "brier": 0.2829174664107482,
+      "brier_ci95": [
+        0.25483685220729413,
+        0.3140690978886753
+      ],
+      "log_score": 1.3134400604939926,
+      "log_score_ci95": [
+        1.0769275287238993,
+        1.5762066007331816
+      ],
+      "mean_confidence": 0.8495201535508645,
+      "mean_accuracy": 0.6026871401151631
+    },
+    "gemma-3-27b": {
+      "n": 569,
+      "brier": 0.28066783831282976,
+      "brier_ci95": [
+        0.251230228471002,
+        0.30775043936731017
+      ],
+      "log_score": 1.4816506156645985,
+      "log_score_ci95": [
+        1.2073412737451106,
+        1.7541430152817965
+      ],
+      "mean_confidence": 0.8731107205623923,
+      "mean_accuracy": 0.6063268892794376
+    },
+    "gpt-oss-120b": {
+      "n": 667,
+      "brier": 0.35074962518740294,
+      "brier_ci95": [
+        0.32880059970014813,
+        0.3735532233883035
+      ],
+      "log_score": 0.9713491710896107,
+      "log_score_ci95": [
+        0.8983722333870648,
+        1.0481826612432634
+      ],
+      "mean_confidence": 0.7944527736131936,
+      "mean_accuracy": 0.4572713643178411
+    },
+    "kimi-k2": {
+      "n": 567,
+      "brier": 0.29633156966490337,
+      "brier_ci95": [
+        0.2607583774250442,
+        0.32899470899470895
+      ],
+      "log_score": 2.813385356477163,
+      "log_score_ci95": [
+        2.361569148542013,
+        3.236845707283046
+      ],
+      "mean_confidence": 0.9396825396825386,
+      "mean_accuracy": 0.6419753086419753
+    },
+    "llama-3.1-405b": {
+      "n": 671,
+      "brier": 0.4004023845007439,
+      "brier_ci95": [
+        0.36879284649776245,
+        0.43087928464977393
+      ],
+      "log_score": 3.3987431943984703,
+      "log_score_ci95": [
+        3.0067004420141354,
+        3.792521085863514
+      ],
+      "mean_confidence": 0.9023845007451562,
+      "mean_accuracy": 0.4828614008941878
+    },
+    "llama-3.1-70b": {
+      "n": 669,
+      "brier": 0.3455904334828069,
+      "brier_ci95": [
+        0.3192526158445418,
+        0.3694917787742867
+      ],
+      "log_score": 1.5987334447428654,
+      "log_score_ci95": [
+        1.3682663781387439,
+        1.8421370529304195
+      ],
+      "mean_confidence": 0.8415545590433512,
+      "mean_accuracy": 0.4992526158445441
+    },
+    "llama-3.1-8b": {
+      "n": 674,
+      "brier": 0.27007418397626093,
+      "brier_ci95": [
+        0.2613798219584568,
+        0.2795548961424328
+      ],
+      "log_score": 0.7910794491552428,
+      "log_score_ci95": [
+        0.7339955991153788,
+        0.8623850824217013
+      ],
+      "mean_confidence": 0.5408011869436208,
+      "mean_accuracy": 0.443620178041543
+    },
+    "llama-3.2-3b": {
+      "n": 520,
+      "brier": 0.2500769230769231,
+      "brier_ci95": [
+        0.24815384615384614,
+        0.2520576923076923
+      ],
+      "log_score": 0.6931015737779913,
+      "log_score_ci95": [
+        0.6882444071543238,
+        0.6983878645388029
+      ],
+      "mean_confidence": 0.5023076923076923,
+      "mean_accuracy": 0.5807692307692308
+    },
+    "llama-3.3-70b": {
+      "n": 524,
+      "brier": 0.20958015267175648,
+      "brier_ci95": [
+        0.1854770992366418,
+        0.23540076335877935
+      ],
+      "log_score": 1.1655742045720658,
+      "log_score_ci95": [
+        0.9238906890865044,
+        1.4403730216617112
+      ],
+      "mean_confidence": 0.8896946564885537,
+      "mean_accuracy": 0.7118320610687023
+    },
+    "mistral-large": {
+      "n": 678,
+      "brier": 0.3528171091445427,
+      "brier_ci95": [
+        0.32834808259587056,
+        0.3770943952802362
+      ],
+      "log_score": 2.280358247184871,
+      "log_score_ci95": [
+        1.9635253593622186,
+        2.636285236841593
+      ],
+      "mean_confidence": 0.7874631268436568,
+      "mean_accuracy": 0.47935103244837757
+    },
+    "mixtral-8x22b": {
+      "n": 520,
+      "brier": 0.3573461538461538,
+      "brier_ci95": [
+        0.31786538461538455,
+        0.39503846153846134
+      ],
+      "log_score": 4.336190252532516,
+      "log_score_ci95": [
+        3.819794026356906,
+        4.863106266107631
+      ],
+      "mean_confidence": 0.9592307692307694,
+      "mean_accuracy": 0.5942307692307692
+    },
+    "phi-4": {
+      "n": 219,
+      "brier": 0.2862557077625573,
+      "brier_ci95": [
+        0.24237442922374458,
+        0.33054794520547987
+      ],
+      "log_score": 1.9210425978759542,
+      "log_score_ci95": [
+        1.4427725813275656,
+        2.491016134137896
+      ],
+      "mean_confidence": 0.6808219178082189,
+      "mean_accuracy": 0.6529680365296804
+    },
+    "qwen3-next-80b": {
+      "n": 525,
+      "brier": 0.32274285714285667,
+      "brier_ci95": [
+        0.2862666666666667,
+        0.3617714285714282
+      ],
+      "log_score": 3.497664360105852,
+      "log_score_ci95": [
+        3.026322338513401,
+        4.019536293488095
+      ],
+      "mean_confidence": 0.9714285714285711,
+      "mean_accuracy": 0.638095238095238
+    }
+  }
+}

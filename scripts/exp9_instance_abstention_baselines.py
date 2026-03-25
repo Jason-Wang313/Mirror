@@ -26,11 +26,8 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = ROOT / "data" / "results"
-DEFAULT_RESULT_FILES = [
-    RESULTS_DIR / "exp9_20260312T140842_results_clean.jsonl",
-    RESULTS_DIR / "exp9_20260323T203013_results.jsonl",
-    RESULTS_DIR / "exp9_20260323_gemini_results.jsonl",
-]
+DEFAULT_RESULT_FILES = []
+DEFAULT_RESULT_GLOB = "exp9*_results*.jsonl"
 DEFAULT_MODEL_LIST_FILE = RESULTS_DIR / "exp9_combined_16model_escalation.json"
 DEFAULT_OUT_ROOT = RESULTS_DIR / "exp9_instance_baselines"
 
@@ -62,6 +59,20 @@ def nan_to_none(v: float) -> float | None:
     if isinstance(v, float) and math.isnan(v):
         return None
     return v
+
+
+def resolve_result_files(explicit_files: list[Path], result_glob: str | None) -> list[Path]:
+    files: list[Path] = []
+    if explicit_files:
+        files.extend(explicit_files)
+    if result_glob:
+        files.extend(RESULTS_DIR.glob(result_glob))
+    # Keep only extant files; sort by mtime for deterministic "latest wins" behavior.
+    uniq: dict[str, Path] = {}
+    for p in files:
+        if p.exists():
+            uniq[str(p.resolve())] = p
+    return sorted(uniq.values(), key=lambda p: (p.stat().st_mtime, p.name.lower()))
 
 
 def normalize_0_1(values: list[float]) -> list[float]:
@@ -231,30 +242,33 @@ def derive_weak_domains(acc_by_domain: dict[str, float], bottom_k: int = 2) -> t
 
 def load_exp1_natural_accuracy() -> dict[str, dict[str, float]]:
     files = sorted(RESULTS_DIR.glob("exp1_*_accuracy.json"), key=lambda p: p.stat().st_mtime)
-    merged: dict[str, Any] = {}
+    out: dict[str, dict[str, float]] = {}
     for path in files:
         try:
             obj = json.loads(path.read_text(encoding="utf-8"))
-            if isinstance(obj, dict):
-                merged.update(obj)
         except Exception:
             continue
 
-    out: dict[str, dict[str, float]] = {}
-    for model, domains in merged.items():
-        if not isinstance(domains, dict):
+        if not isinstance(obj, dict):
             continue
-        acc: dict[str, float] = {}
-        for domain, channel_metrics in domains.items():
-            if not isinstance(channel_metrics, dict):
+        # Only ingest model/domain payloads that actually contain domain-level natural_acc.
+        # This avoids accidental overwrite from ranking/meta blobs that also match *_accuracy.json.
+        for model, domains in obj.items():
+            if not isinstance(domains, dict):
                 continue
-            nat = channel_metrics.get("natural_acc")
-            if nat is None:
-                continue
-            acc[domain] = float(nat)
-        if acc:
-            out[model] = acc
-    return out
+            model_acc = out.setdefault(model, {})
+            for domain, channel_metrics in domains.items():
+                if not isinstance(channel_metrics, dict):
+                    continue
+                nat = channel_metrics.get("natural_acc")
+                if nat is None:
+                    continue
+                try:
+                    model_acc[domain] = float(nat)
+                except Exception:
+                    continue
+
+    return {m: d for m, d in out.items() if d}
 
 
 def load_target_models(model_list_file: Path) -> list[str]:
@@ -269,6 +283,7 @@ def load_target_models(model_list_file: Path) -> list[str]:
 
 def iter_model_components(model: str, result_files: list[Path]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, int, int, str, str]] = set()
     for file_path in result_files:
         if not file_path.exists():
             continue
@@ -292,6 +307,16 @@ def iter_model_components(model: str, result_files: list[Path]) -> list[dict[str
                     domain = trial.get(f"domain_{slot}")
                     if not domain:
                         continue
+                    key = (
+                        model,
+                        int(trial.get("condition", -1)),
+                        int(trial.get("paradigm", -1)),
+                        task_id,
+                        slot,
+                    )
+                    if key in seen:
+                        continue
+                    seen.add(key)
                     rows.append(
                         {
                             "task_id": task_id,
@@ -315,6 +340,7 @@ class Runner:
     bottom_k: int
     conformal_target_error: float
     max_workers: int
+    result_glob: str | None
 
     def __post_init__(self) -> None:
         self.run_dir = self.out_root / self.run_id
@@ -371,6 +397,7 @@ class Runner:
             "created_at_utc": utc_now_iso(),
             "result_files": [str(p) for p in self.result_files],
             "existing_result_files": [str(p) for p in self.result_files if p.exists()],
+            "result_glob": self.result_glob,
             "model_list_file": str(self.model_list_file),
             "target_models_from_list": target_models,
             "exp1_models_available": sorted(exp1_acc.keys()),
@@ -637,6 +664,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Crash-safe Exp9 instance-level abstention baseline comparison.")
     parser.add_argument("--run-id", type=str, default=datetime.now().strftime("exp9_instance_baselines_%Y%m%dT%H%M%S"))
     parser.add_argument("--result-files", nargs="+", type=Path, default=DEFAULT_RESULT_FILES)
+    parser.add_argument("--result-glob", type=str, default=DEFAULT_RESULT_GLOB)
     parser.add_argument("--model-list-file", type=Path, default=DEFAULT_MODEL_LIST_FILE)
     parser.add_argument("--out-root", type=Path, default=DEFAULT_OUT_ROOT)
     parser.add_argument("--bottom-k", type=int, default=2)
@@ -647,14 +675,20 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    result_files = resolve_result_files(args.result_files, args.result_glob)
+    if not result_files:
+        raise FileNotFoundError(
+            f"No Exp9 result files found from --result-files and --result-glob={args.result_glob!r}"
+        )
     runner = Runner(
         run_id=args.run_id,
-        result_files=args.result_files,
+        result_files=result_files,
         model_list_file=args.model_list_file,
         out_root=args.out_root,
         bottom_k=max(1, args.bottom_k),
         conformal_target_error=args.conformal_target_error,
         max_workers=max(1, args.max_workers),
+        result_glob=args.result_glob,
     )
     runner.run()
     print(f"Done: {runner.run_dir}")
@@ -662,4 +696,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

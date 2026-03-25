@@ -72,8 +72,9 @@ MODEL_REGISTRY = {
     },
     # --- Additional models for expanded experiments ---
     "deepseek-v3": {
-        "provider": "deepseek",
-        "model_id": "deepseek-chat",
+        # Route through NIM mirror to avoid DeepSeek-credit outages during reruns.
+        "provider": "nvidia_nim",
+        "model_id": "deepseek-ai/deepseek-v3.1",
         "display_name": "DeepSeek V3",
         "lab": "DeepSeek",
         "open_weight": False,

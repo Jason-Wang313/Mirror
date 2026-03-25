@@ -1,18 +1,18 @@
 # Exp9 Instance-Level Abstention Baseline Comparison
 
-- Run ID: `v20_hardening_human20_lock_v4_instance`
-- Completed models: 11
-- Skipped models: 5
+- Run ID: `v20_bulletproof_hardening_v3_instance`
+- Completed models: 16
+- Skipped models: 0
 
 ## Macro Summary (Across Completed Models)
 
 | Strategy | Mean Weak CFR | Mean Weak CFR Reduction vs No Routing | Mean Autonomy | Mean Escalation | Mean Overall Failure | N Models |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `no_routing` | 66.7% | 0.0% | 100.0% | 0.0% | 65.6% | 11 |
-| `mirror_domain_routing` | 0.0% | 100.0% | 52.8% | 47.2% | 33.8% | 11 |
-| `confidence_threshold_budget_matched` | 31.5% | 53.2% | 52.8% | 47.2% | 34.4% | 11 |
-| `self_consistency_budget_matched` | 30.8% | 53.6% | 52.8% | 47.2% | 33.6% | 11 |
-| `conformal_style` | 2.9% | 89.8% | 12.1% | 87.9% | 3.0% | 11 |
+| `no_routing` | 70.0% | 0.0% | 100.0% | 0.0% | 68.5% | 16 |
+| `mirror_domain_routing` | 0.0% | 100.0% | 51.4% | 48.6% | 34.6% | 16 |
+| `confidence_threshold_budget_matched` | 31.4% | 56.0% | 51.4% | 48.6% | 35.5% | 16 |
+| `self_consistency_budget_matched` | 31.4% | 56.1% | 51.4% | 48.6% | 34.8% | 16 |
+| `conformal_style` | 3.7% | 87.1% | 14.7% | 85.3% | 3.3% | 16 |
 
 ## Notes
 

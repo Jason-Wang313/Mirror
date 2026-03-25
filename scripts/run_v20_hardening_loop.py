@@ -24,6 +24,7 @@ COHORT_DIR = PACKET_DIR / "cohort"
 AUDIT_MULTI_DIR = PACKET_DIR / "audit_multirater"
 DEPLOY_DIR = PACKET_DIR / "deployment"
 REDTEAM_DIR = PACKET_DIR / "redteam"
+DEPLOYMENT_PACKET_DIR = ROOT / "deployment_packet"
 
 
 def utc_now_iso() -> str:
@@ -391,6 +392,66 @@ class Runner:
         self.save_state(state)
         self.mark_step_complete(state, step)
 
+    def step_proper_scoring_primary(self, state: dict) -> None:
+        step = "proper_scoring_primary"
+        if step in state["completed_steps"]:
+            return
+        proper_run_id = f"{self.run_id}_proper"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "exp1_proper_scoring_primary.py"),
+            "--run-id",
+            proper_run_id,
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        proper_dir = ROOT / "data" / "results" / "exp1_proper_scoring" / proper_run_id
+        state["proper_scoring_run_id"] = proper_run_id
+        state["proper_scoring_summary_json"] = str(proper_dir / "proper_scoring_primary_summary.json")
+        state["proper_scoring_summary_md"] = str(proper_dir / "proper_scoring_primary_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_exp3_mci_stability(self, state: dict) -> None:
+        step = "exp3_mci_stability"
+        if step in state["completed_steps"]:
+            return
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_exp3_mci_stability.py"),
+            "--out-dir",
+            str(self.results_dir),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        state["exp3_mci_stability_json"] = str(self.results_dir / "exp3_mci_stability_summary.json")
+        state["exp3_mci_stability_md"] = str(self.results_dir / "exp3_mci_stability_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_deployment_packet_validation(self, state: dict) -> None:
+        step = "deployment_packet_validation"
+        if step in state["completed_steps"]:
+            return
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "validate_deployment_packet.py"),
+            "--packet-dir",
+            str(DEPLOYMENT_PACKET_DIR),
+            "--out-dir",
+            str(self.results_dir),
+            "--allow-missing",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        state["deployment_packet_summary_json"] = str(self.results_dir / "deployment_packet_summary.json")
+        state["deployment_packet_validation_md"] = str(self.results_dir / "validation_report.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
     def step_promote_outputs(self, state: dict) -> None:
         step = "promote_outputs"
         if step in state["completed_steps"]:
@@ -407,6 +468,12 @@ class Runner:
             "oracle_realism_sensitivity.json",
             "goodhart_redteam_summary.json",
             "context_hardening_summary.md",
+            "exp3_mci_stability_summary.json",
+            "exp3_mci_stability_summary.md",
+            "deployment_packet_summary.json",
+            "validation_report.md",
+            "source_manifest.json",
+            "data_profile.json",
         ]
         for name in promote_files:
             src = self.results_dir / name
@@ -421,6 +488,13 @@ class Runner:
             shutil.copy2(instance_json, stable_results / "exp9_instance_baseline_summary.json")
         if instance_md.exists():
             shutil.copy2(instance_md, stable_results / "exp9_instance_baseline_summary.md")
+
+        proper_json = Path(state.get("proper_scoring_summary_json", ""))
+        proper_md = Path(state.get("proper_scoring_summary_md", ""))
+        if proper_json.exists():
+            shutil.copy2(proper_json, stable_results / "exp1_proper_scoring_primary_summary.json")
+        if proper_md.exists():
+            shutil.copy2(proper_md, stable_results / "exp1_proper_scoring_primary_summary.md")
 
         # Stable aliases for downstream manuscript tooling.
         shutil.copy2(
@@ -445,6 +519,9 @@ class Runner:
         self.step_verify_immutable(state)
         self.step_context_hardening(state)
         self.step_instance_baselines(state)
+        self.step_proper_scoring_primary(state)
+        self.step_exp3_mci_stability(state)
+        self.step_deployment_packet_validation(state)
         self.step_promote_outputs(state)
 
         append_jsonl(

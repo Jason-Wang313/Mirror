@@ -16,15 +16,11 @@ from mirror.experiments.channels import build_channel5_prompt, parse_channel5
 from mirror.scoring.answer_matcher import match_answer_robust
 import re
 
-# Models still needing v2 runs (11 models, excluding gemini-2.5-pro due to 70% parse failure)
+# Models still needing v2 runs.
 MODELS = [
-    "deepseek-r1", "deepseek-v3",
-    "gemma-3-12b", "gemma-3-27b",
-    "kimi-k2",
-    "llama-3.2-3b", "llama-3.3-70b",
-    "mixtral-8x22b",
-    "phi-4",
-    "qwen3-next-80b",
+    # Keep backfill focused on currently missing v2 coverage.
+    "deepseek-v3",
+    "gemini-2.5-pro",
 ]
 
 TASKS_PATH = Path("data/exp3/intersection_tasks_v2.jsonl")

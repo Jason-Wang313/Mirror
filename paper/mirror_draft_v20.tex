@@ -448,7 +448,8 @@ experiments. All metrics are formally defined in Appendix~\ref{app:metrics}. Thr
 universally positive (mean~=~0.170, range 0.074--0.267): all models are
 overconfident in the wagering channel relative to natural accuracy.
 Standard calibration metrics confirm this pattern: Expected Calibration Error (ECE)
-ranges from 0.083 to 0.526 across models, and the mean Brier score is 0.291
+rates from 0.083 to 0.526 across models. Under strictly proper scoring on the
+same 16-model roster, the mean Brier score is 0.315 and mean log score is 2.235
 (Appendix~\ref{app:metrics}). ECE and \mirror{} gap show a significant negative
 rank correlation ($\rho_s = -0.594$, $p = 0.006$), reflecting their
 complementary foci: ECE measures within-channel confidence-correctness alignment,
@@ -477,15 +478,16 @@ Across all 15 models tested in Experiment~3, compositional self-prediction fails
 the Compositional Calibration Error (\CCE{}) ranges from 0.500 (gemma-3-12b,
 llama-3.1-405b) to 0.943 (mistral-large), meaning mistral-large's expressed
 composite confidence sits 0.94 probability units above floor-level actual
-performance. The Metacognitive Convergence Index is 0.000, though this partly
-reflects insufficient composite-task diversity (mean 94 items per domain pair
-across 13 of 28 pairs; see Section~\ref{sec:discussion}). Note that the v1 evaluation uses only ${\sim}$25 tasks per model; the expanded v2 evaluation below (112 tasks, all 28 domain pairs) provides more reliable CCE estimates with bootstrap confidence intervals. The \CCE{} result is the more reliable measure: models that calibrate their
+performance. Note that the v1 evaluation uses only ${\sim}$25 tasks per model;
+the expanded v2 evaluation below (112 tasks, all 28 domain pairs) provides more
+reliable CCE estimates with bootstrap confidence intervals. The \CCE{} result is
+the more reliable measure: models that calibrate their
 confidence in individual domains fail to compose those calibrations for
 multi-domain tasks. An expanded v2 evaluation with 112 composite tasks covering all 28 domain pairs
-confirms these results: CCE ranges from 0.434 to 0.758 across 12 models (vs.\
+confirms these results: CCE ranges from 0.434 to 0.758 across 15 models (vs.\
 0.500--0.943 on the original 25-item set), with all models showing mean
-confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{Two models (deepseek-r1, deepseek-v3) are excluded from the v2 evaluation due to API balance exhaustion during the expanded run (0\% valid response rate). One additional model (phi-4) could not be evaluated due to API endpoint unavailability at submission time. All three models are included in the v1 evaluation.}
-The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 12 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
+confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{One model (deepseek-r1) is excluded from the v2 expansion due to DeepSeek API credit exhaustion during the expanded run. All other models are included in v2.}
+The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 15 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
 Bootstrap 95\% CIs (BCa, 10{,}000 iterations) on per-model v2 CCE confirm that no model's interval includes zero (Table~\ref{tab:exp3v2-ci} in Appendix~\ref{app:exp3v2}).
 
 \subsection{Finding 2: The Knowing-Doing Gap}
@@ -654,7 +656,7 @@ the gap it measures is an important direction for future work.
 External routing that uses \mirror{}
 domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed routing uses per-domain scores to determine which components require external constraints.
 
-\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We additionally run a direct head-to-head on the same Exp9 frame (Condition~1, Paradigm~3, API-success subset) against three instance-level baselines: confidence-threshold routing, self-consistency-proxy routing, and conformal-style thresholding (Appendix~\ref{app:instance-baselines}). Across 11 models with complete weak-domain-policy coverage, MIRROR domain routing at 47.2\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing). Budget-matched instance-level baselines reduce weak-domain CFR to 31.5\% (confidence threshold) and 30.8\% (self-consistency proxy), i.e., 53.2--53.6\% reduction vs no-routing. Conformal-style thresholding reaches 2.9\% weak-domain CFR but only by escalating 87.9\% of components (autonomy 12.1\%). These comparisons support the same practical conclusion: domain-level weak-domain routing provides a stronger reliability floor at practical escalation budgets, while strict risk-control methods can reduce failures further at substantially lower autonomy.
+\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We additionally run a direct head-to-head on the same Exp9 frame (Condition~1, Paradigm~3, API-success subset) against three instance-level baselines: confidence-threshold routing, self-consistency-proxy routing, and conformal-style thresholding (Appendix~\ref{app:instance-baselines}). Across all 16 models with complete weak-domain-policy coverage, MIRROR domain routing at 48.6\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing). Budget-matched instance-level baselines reduce weak-domain CFR to 31.4\% (confidence threshold) and 31.4\% (self-consistency proxy), i.e., 56.0--56.1\% reduction vs no-routing. Conformal-style thresholding reaches 3.7\% weak-domain CFR but only by escalating 85.3\% of components (autonomy 14.7\%). These comparisons support the same practical conclusion: domain-level weak-domain routing provides a stronger reliability floor at practical escalation budgets, while strict risk-control methods can reduce failures further at substantially lower autonomy.
 
 \subsection{Limitations}
 
@@ -680,18 +682,20 @@ comparison.
 Experiment~9 uses constructed agentic scenarios, not production deployments. To partially close this gap, we include a deployment-realism packet (320 tasks across 8 workflows, 8 domains, and 4 risk tiers) plus an oracle-realism sensitivity table over 540 escalated components (Appendix~\ref{app:deployment-realism}). Coverage is broad, but resolver quality in this packet is imperfect (observed correctness 50.2\%; human 49.1\%, tool 52.0\%), so oracle-based C4 gains should be interpreted as upper bounds. Model coverage remains 16 models from 8 labs with one frontier proprietary model (gemini-2.5-pro); findings may not generalize to additional proprietary models (GPT-4o, Claude~3.5) not tested.
 
 \paragraph{Statistical caveats.}
-\mirror{} gap does not predict \CFR{} independently of accuracy (partial $r = -0.044$); the contribution is diagnostic, not predictive. Additionally, the pre-registered \MCI{} requires strong-strong and weak-weak composite trials that task generation rarely produced simultaneously, rendering \MCI{}~=~0 partially a design artifact (mean 94 composite items per domain pair across 13 of 28 possible pairs; insufficient for stable pairwise rank correlations). We therefore recommend \CCE{} as the primary Level~2 metric; \MCI{}~=~0 should be interpreted as reflecting insufficient composite-task diversity rather than a definitive convergence estimate.
-MCI's use of min--max normalization and pairwise Spearman correlations across
-heterogeneous channels may under-represent non-linear dependence structures;
-recomputing MCI with Kendall's $\tau$ yields similar values (Appendix~\ref{app:mci-robust}), confirming robustness to the choice of association measure.
+\mirror{} gap does not predict \CFR{} independently of accuracy (partial $r = -0.044$); the contribution is diagnostic, not predictive. For Level~2, we now use a balanced v2 composite bank (112 tasks, all 28 domain pairs) and run explicit MCI stability diagnostics (pair-quota + estimator-concordance checks): 14/15 evaluated models pass, while one model (phi-4) remains variance-degenerate on this task bank and is therefore kept diagnostic-only. We still recommend \CCE{} as the primary Level~2 metric and treat \MCI{} as secondary corroborative evidence.
+MCI's use of rank correlations across heterogeneous channels may under-represent
+some non-linear dependence structures; we therefore report both Spearman's $\rho$
+and Kendall's $\tau$ diagnostics (Appendix~\ref{app:mci-robust}) and keep headline
+claims anchored to escalation-curve and \CCE{} outcomes.
 The pre-specified \texttt{median\_or\_bottom\_k} weak-domain definition is robust to alternatives (Appendix~\ref{app:threshold}).
 Experiment~3 composite tasks are not balanced across difficulty combinations;
 a controlled ablation with balanced strong--strong, strong--weak, and weak--weak
 mixtures would strengthen the Level~2 conclusions.
 The wagering channel uses a symmetric linear scoring rule, which is not strictly
-proper; calibrated probability elicitation via Brier or logarithmic scoring
-rules~\citep{gneiting2007strictly} could reduce channel-induced artifacts but
-would alter the behavioral naturalism that motivates the multi-channel design.
+proper. To mitigate scoring-rule dependence in the evidentiary path, we report
+strictly proper scoring (Brier and log score) as primary calibration summaries
+on the same 16-model roster, with wagering-rule results treated as behavioral
+sensitivity.
 
 \paragraph{Goodhart risk.} If \mirror{} domain scores are used for production routing (as we recommend), models fine-tuned to maximize \mirror{} scores could learn to game the routing system---e.g., by appearing well-calibrated on the benchmark domains while remaining miscalibrated on out-of-distribution tasks. We therefore include a 240-item red-team packet spanning 8 attack types and 6 target failure modes (Appendix~\ref{app:deployment-realism}), plus a mitigation bundle (hidden canaries, held-out attack rotation, drift monitors, and cross-signal anomaly checks). This does not eliminate Goodhart pressure, but it converts it into an auditable monitoring problem with pre-specified stress checks.
 
@@ -1010,18 +1014,18 @@ budget, and conformal-style thresholding.
 
 \begin{table}[h]
 \centering
-\caption{Instance-level abstention comparison on Exp9 C1/P3 (11 models with complete weak-domain-policy coverage). Values are macro means across models.}
+\caption{Instance-level abstention comparison on Exp9 C1/P3 (16 models with complete weak-domain-policy coverage). Values are macro means across models.}
 \label{tab:instance-baselines}
 \small
 \begin{tabular}{lrrrr}
 \toprule
 Strategy & Weak CFR & CFR Red. vs No-Routing & Autonomy & Escalation \\
 \midrule
-No routing & 66.7\% & 0.0\% & 100.0\% & 0.0\% \\
-MIRROR domain routing & 0.0\% & 100.0\% & 52.8\% & 47.2\% \\
-Confidence threshold (budget-matched) & 31.5\% & 53.2\% & 52.8\% & 47.2\% \\
-Self-consistency proxy (budget-matched) & 30.8\% & 53.6\% & 52.8\% & 47.2\% \\
-Conformal-style thresholding & 2.9\% & 89.8\% & 12.1\% & 87.9\% \\
+No routing & 70.0\% & 0.0\% & 100.0\% & 0.0\% \\
+MIRROR domain routing & 0.0\% & 100.0\% & 51.4\% & 48.6\% \\
+Confidence threshold (budget-matched) & 31.4\% & 56.0\% & 51.4\% & 48.6\% \\
+Self-consistency proxy (budget-matched) & 31.4\% & 56.1\% & 51.4\% & 48.6\% \\
+Conformal-style thresholding & 3.7\% & 87.1\% & 14.7\% & 85.3\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1133,7 +1137,7 @@ Cohen's $\kappa$ ranges 0.765--0.916 (Table~\ref{tab:human-audit-multirater}).
 \label{app:mci-robust}
 % =============================================================================
 
-Table~\ref{tab:mci-robustness} reports MCI computed with Kendall's $\tau$ alongside Spearman's $\rho$. Kendall's $\tau$ closely tracks Spearman (slightly attenuated), preserving the rank ordering of models. For Experiment~1 (single-domain) data, MCI is nonzero and varies across models, indicating genuine inter-channel agreement on which questions are hard. The Experiment~3 MCI~=~0 result (Section~5.2) reflects the insufficient composite-task diversity noted in Section~6.2, not a failure of the MCI measure itself.
+Table~\ref{tab:mci-robustness} reports MCI computed with Kendall's $\tau$ alongside Spearman's $\rho$. Kendall's $\tau$ closely tracks Spearman (slightly attenuated), preserving the rank ordering of models. For Experiment~1 (single-domain) data, MCI is nonzero and varies across models, indicating genuine inter-channel agreement on which questions are hard. For Experiment~3 v2, balanced pair coverage and estimator-concordance diagnostics (Appendix artifacts) show stable MCI behavior for 14/15 evaluated models; one model is variance-degenerate and therefore retained as diagnostic-only in Level~2 interpretation.
 
 \begin{table}[h]
 \centering
