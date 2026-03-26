@@ -1,0 +1,10 @@
+{
+  "generated_at_utc": "2026-03-26T16:33:00+00:00",
+  "manifest_path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\hard_v2\\packet_manifest.json",
+  "exp1_items_total": 512,
+  "exp9_items_total": 336,
+  "exp1_per_domain": 64,
+  "exp9_per_pair": 12,
+  "status": "packet_prepared",
+  "note": "Hard packet v2 prepared for immediate collection; participant-mean reporting remains primary."
+}

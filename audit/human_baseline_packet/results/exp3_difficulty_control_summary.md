@@ -1,7 +1,7 @@
 # Exp3 Difficulty-Controlled Ablation
 
-- Run ID: `v20_final_hardening_20260326A_exp3_difficulty`
-- Generated (UTC): 2026-03-26T10:45:27+00:00
+- Run ID: `v20_final_hardening_20260326B_exp3_difficulty`
+- Generated (UTC): 2026-03-26T16:57:58+00:00
 - Models analyzed: 16
 - Bootstrap samples: 1200
 

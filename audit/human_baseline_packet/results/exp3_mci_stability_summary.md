@@ -1,8 +1,8 @@
 # Exp3 MCI Stability Summary
 
-- Generated: 2026-03-25T16:44:10+00:00
-- Models analyzed: 15
-- Stability pass: 14/15
+- Generated: 2026-03-26T16:59:22+00:00
+- Models analyzed: 16
+- Stability pass: 14/16
 
 ## Criteria
 
@@ -15,6 +15,7 @@
 
 | Model | Tasks | Pairs | Min/Pair | Strata (SS/SW/WW) | MCI-S | MCI-K | Gap | Stability |
 | --- | ---: | ---: | ---: | --- | ---: | ---: | ---: | --- |
+| `deepseek-r1` | 112 | 28 | 4 | 24/64/24 | 0.208 | 0.208 | 0.104 | FAIL |
 | `deepseek-v3` | 112 | 28 | 4 | 24/64/24 | 0.382 | 0.360 | 0.157 | PASS |
 | `gemini-2.5-pro` | 112 | 28 | 4 | 24/64/24 | 0.279 | 0.279 | 0.140 | PASS |
 | `gemma-3-12b` | 112 | 28 | 4 | 24/64/24 | 0.347 | 0.333 | 0.153 | PASS |

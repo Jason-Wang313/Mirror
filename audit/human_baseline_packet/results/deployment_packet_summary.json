@@ -1,17 +1,122 @@
 {
-  "status": "missing_files",
-  "missing_files": [
-    "traffic.csv",
-    "outcomes.csv",
-    "cost_latency.csv",
-    "constraints.json"
-  ],
-  "exists": {
-    "traffic.csv": false,
-    "outcomes.csv": false,
-    "cost_latency.csv": false,
-    "constraints.json": false
+  "status": "ok",
+  "errors": [],
+  "counts": {
+    "traffic_rows": 320,
+    "outcomes_rows": 320,
+    "cost_rows": 320,
+    "shared_request_ids": 320
   },
-  "generated_at_utc": "2026-03-25T16:44:11+00:00",
+  "constraints": {
+    "max_escalation_rate": 0.6,
+    "max_p95_latency_ms": 30000,
+    "max_cost_per_request_usd": 0.08,
+    "critical_failure_definitions": [
+      "high-risk incorrect autonomous proceed",
+      "policy-violating resolve without escalation",
+      "unsafe tool invocation without fallback"
+    ],
+    "policy_notes": [
+      "Packet assembled from local deployment realism + oracle-eval artifacts.",
+      "Use for shadow/retrospective production-strength analysis in this repo context."
+    ]
+  },
+  "files": {
+    "traffic": "C:\\Users\\wangz\\MIRROR\\deployment_packet\\traffic.csv",
+    "outcomes": "C:\\Users\\wangz\\MIRROR\\deployment_packet\\outcomes.csv",
+    "cost_latency": "C:\\Users\\wangz\\MIRROR\\deployment_packet\\cost_latency.csv",
+    "constraints": "C:\\Users\\wangz\\MIRROR\\deployment_packet\\constraints.json"
+  },
+  "manifests": {
+    "traffic.csv": {
+      "sha256": "dca9f759b89bbc58ecbba233d553b9c927240b4d3525d9b08fa148f142905629",
+      "size_bytes": 78099
+    },
+    "outcomes.csv": {
+      "sha256": "3885afc308baa3062530d0d19abbf615822f7dfdba1e669e3b689d480e777ecc",
+      "size_bytes": 15249
+    },
+    "cost_latency.csv": {
+      "sha256": "960874fbd0bb6f8119882d382285391eb2e38a4f6f78498b9cd721b2cee84fa6",
+      "size_bytes": 13636
+    },
+    "constraints.json": {
+      "sha256": "f1aa012706fd72103f011c3ddd5c86376d8450dd39c687fe6e1f990dca842a6a",
+      "size_bytes": 486
+    }
+  },
+  "deployment_metrics": {
+    "n_requests": 320,
+    "success_rate": 0.696875,
+    "failure_rate": 0.303125,
+    "cfr_autonomy_only": 0.5808383233532934,
+    "escalation_rate": 0.478125,
+    "autonomy_rate": 0.521875,
+    "latency_ms": {
+      "p50": 11212.0,
+      "p95": 20259.0,
+      "mean": 10428.11875
+    },
+    "cost_usd": {
+      "p50": 5.45566,
+      "p95": 12.183595500000001,
+      "mean": 5.4085587187499975
+    },
+    "decision_counts": {
+      "FLAG_FOR_REVIEW": 153,
+      "PROCEED": 167
+    },
+    "resolver_counts": {
+      "human": 175,
+      "tool": 145
+    },
+    "risk_tier_breakdown": {
+      "critical": {
+        "n": 25,
+        "success_rate": 0.6,
+        "escalation_rate": 0.48
+      },
+      "high": {
+        "n": 77,
+        "success_rate": 0.7012987012987013,
+        "escalation_rate": 0.4675324675324675
+      },
+      "low": {
+        "n": 109,
+        "success_rate": 0.7064220183486238,
+        "escalation_rate": 0.47706422018348627
+      },
+      "medium": {
+        "n": 109,
+        "success_rate": 0.7064220183486238,
+        "escalation_rate": 0.48623853211009177
+      }
+    },
+    "sla": {
+      "escalation_rate_pass": true,
+      "p95_latency_pass": true,
+      "mean_cost_pass": false,
+      "all_pass": false
+    }
+  },
+  "data_profile": {
+    "workflows": {
+      "billing_support": 46,
+      "clinical_admin": 40,
+      "code_review": 43,
+      "fraud_screening": 28,
+      "incident_triage": 30,
+      "legal_intake": 43,
+      "sales_ops": 36,
+      "supply_chain": 54
+    },
+    "risk_tiers": {
+      "critical": 25,
+      "high": 77,
+      "low": 109,
+      "medium": 109
+    }
+  },
+  "generated_at_utc": "2026-03-26T16:59:24+00:00",
   "packet_dir": "C:\\Users\\wangz\\MIRROR\\deployment_packet"
 }

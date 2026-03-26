@@ -1,7 +1,7 @@
 # MCI Channel Robustness (Exp3 v2)
 
-- Run ID: `v20_final_hardening_20260326A_mci_robustness`
-- Generated (UTC): 2026-03-26T10:45:32+00:00
+- Run ID: `v20_final_hardening_20260326B_mci_robustness`
+- Generated (UTC): 2026-03-26T16:58:06+00:00
 - Models analyzed: 15
 
 ## Per-Model Variant MCI (Spearman)

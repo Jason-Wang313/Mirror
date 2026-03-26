@@ -29,6 +29,7 @@ PAPER_DIR = ROOT / "paper"
 PAPER_TEX = PAPER_DIR / "mirror_draft_v20.tex"
 PAPER_PDF = PAPER_DIR / "mirror_draft_v20.pdf"
 CALIBRATION_REPORT_PATH = Path(r"C:\Users\wangz\neurlips benchmark reviewing\data\mirror_v20_review_calibration_prompt_final.md")
+HARD_V2_MANIFEST = PACKET_DIR / "hard_v2" / "packet_manifest.json"
 
 
 def utc_now_iso() -> str:
@@ -142,6 +143,9 @@ class Runner:
     max_workers: int
     verify_mapping_with_api: bool
     build_pdf: bool
+    expected_exp1_rows: int | None
+    expected_exp9_rows: int | None
+    expected_audit_rows: int | None
     checkpoint_path: Path
     log_path: Path
     retry_queue_path: Path
@@ -222,6 +226,12 @@ class Runner:
         ]
         if self.extra_locked_files:
             cmd.extend(["--extra-locked-files", *[str(p) for p in self.extra_locked_files]])
+        if self.expected_exp1_rows is not None:
+            cmd.extend(["--exp1-rows", str(int(self.expected_exp1_rows))])
+        if self.expected_exp9_rows is not None:
+            cmd.extend(["--exp9-rows", str(int(self.expected_exp9_rows))])
+        if self.expected_audit_rows is not None:
+            cmd.extend(["--audit-rows", str(int(self.expected_audit_rows))])
         proc = self.run_cmd(cmd, step=step)
         if proc.returncode != 0:
             raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
@@ -373,6 +383,52 @@ class Runner:
         proc = self.run_cmd(cmd, step=step)
         if proc.returncode != 0:
             raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        self.mark_step_complete(state, step)
+
+    def step_hard_packet_v2_summary(self, state: dict) -> None:
+        step = "hard_packet_v2_summary"
+        if step in state["completed_steps"]:
+            return
+        if not HARD_V2_MANIFEST.exists():
+            raise FileNotFoundError(f"Missing hard-v2 manifest: {HARD_V2_MANIFEST}")
+
+        manifest = read_json(HARD_V2_MANIFEST)
+        summary = {
+            "run_id": self.run_id,
+            "generated_at_utc": utc_now_iso(),
+            "manifest_path": str(HARD_V2_MANIFEST),
+            "exp1_items_total": manifest.get("exp1_items_total"),
+            "exp9_items_total": manifest.get("exp9_items_total"),
+            "exp1_per_domain": manifest.get("exp1_per_domain"),
+            "exp9_per_pair": manifest.get("exp9_per_pair"),
+            "exp1_empirical_hardness": manifest.get("exp1_empirical_hardness", {}),
+            "exp9_bank_expansion": manifest.get("exp9_bank_expansion", {}),
+            "status": "packet_prepared",
+            "note": "Hard packet v2 is prepared and ready for participant collection/scoring.",
+        }
+        out_json = self.results_dir / "human_baseline_hardv2_summary.json"
+        out_md = self.results_dir / "human_baseline_hardv2_summary.md"
+        write_json(out_json, summary)
+        md_lines = [
+            "# Human Baseline Hard Packet v2 Summary",
+            "",
+            f"- Run ID: `{self.run_id}`",
+            f"- Manifest: `{HARD_V2_MANIFEST}`",
+            f"- Exp1 items total: {summary.get('exp1_items_total')}",
+            f"- Exp9 items total: {summary.get('exp9_items_total')}",
+            f"- Exp1 per-domain target: {summary.get('exp1_per_domain')}",
+            f"- Exp9 per-pair target: {summary.get('exp9_per_pair')}",
+            "",
+            "## Packet Status",
+            "",
+            "- Hard packet v2 prepared with empirical-hardness Exp1 sampling and expanded Exp9 bank.",
+            "- Reporting policy remains participant-mean primary, pooled sensitivity secondary after collection.",
+            "",
+        ]
+        out_md.write_text("\n".join(md_lines), encoding="utf-8")
+        state["hard_packet_v2_summary_json"] = str(out_json)
+        state["hard_packet_v2_summary_md"] = str(out_md)
+        self.save_state(state)
         self.mark_step_complete(state, step)
 
     def step_instance_baselines(self, state: dict) -> None:
@@ -590,6 +646,63 @@ class Runner:
         self.save_state(state)
         self.mark_step_complete(state, step)
 
+    def step_weak_domain_policy_frontier(self, state: dict) -> None:
+        step = "weak_domain_policy_frontier"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_policy_frontier"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_exp9_weak_domain_policy_frontier.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--conditions",
+            "1",
+            "--paradigms",
+            "1",
+            "2",
+            "3",
+            "--fallback-bottom-k",
+            "2",
+            "--bottom-k-grid",
+            "1",
+            "2",
+            "3",
+            "4",
+            "--absolute-grid",
+            "0.35",
+            "0.40",
+            "0.45",
+            "0.50",
+            "0.55",
+            "0.60",
+            "--quantile-grid",
+            "0.20",
+            "0.25",
+            "0.30",
+            "0.40",
+            "0.50",
+            "--deployment-packet-dir",
+            str(DEPLOYMENT_PACKET_DIR),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["policy_frontier_run_id"] = run_id
+        state["policy_frontier_summary_json"] = str(out_dir / "exp9_policy_frontier_summary.json")
+        state["policy_frontier_summary_md"] = str(out_dir / "exp9_policy_frontier_summary.md")
+        frontier_json = Path(state["policy_frontier_summary_json"])
+        frontier_md = Path(state["policy_frontier_summary_md"])
+        if frontier_json.exists():
+            shutil.copy2(frontier_json, self.results_dir / "exp9_policy_frontier_summary.json")
+        if frontier_md.exists():
+            shutil.copy2(frontier_md, self.results_dir / "exp9_policy_frontier_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
     def step_build_pdf(self, state: dict) -> None:
         step = "build_pdf"
         if step in state["completed_steps"]:
@@ -754,6 +867,8 @@ class Runner:
             run_id,
             "--out-root",
             str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--results-dir",
+            str(self.results_dir),
         ]
         proc = self.run_cmd(cmd, step=step)
         if proc.returncode != 0:
@@ -868,6 +983,8 @@ class Runner:
             ("mci_channel_robustness_summary_md", "mci_channel_robustness_summary.md"),
             ("non_oracle_utility_summary_json", "non_oracle_utility_summary.json"),
             ("non_oracle_utility_summary_md", "non_oracle_utility_summary.md"),
+            ("policy_frontier_summary_json", "exp9_policy_frontier_summary.json"),
+            ("policy_frontier_summary_md", "exp9_policy_frontier_summary.md"),
             ("exp9_mapping_validity_summary_json", "exp9_mapping_validity_summary.json"),
             ("exp9_mapping_validity_summary_md", "exp9_mapping_validity_summary.md"),
             ("stanford_checklist_json", "stanford_feedback_checklist.json"),
@@ -900,12 +1017,14 @@ class Runner:
         self.step_score_multirater_audit(state)
         self.step_verify_immutable(state)
         self.step_context_hardening(state)
+        self.step_hard_packet_v2_summary(state)
         self.step_instance_baselines(state)
         self.step_proper_scoring_primary(state)
         self.step_parse_missingness(state)
         self.step_exp3_difficulty_control(state)
         self.step_mci_channel_robustness(state)
         self.step_non_oracle_utility(state)
+        self.step_weak_domain_policy_frontier(state)
         self.step_exp9_mapping_validity(state)
         self.step_exp3_mci_stability(state)
         self.step_deployment_packet_validation(state)
@@ -938,6 +1057,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-workers", type=int, default=min(8, max(2, (os.cpu_count() or 4) // 2)))
     parser.add_argument("--verify-mapping-with-api", action="store_true", default=False)
     parser.add_argument("--skip-pdf-build", action="store_true", default=False)
+    parser.add_argument("--exp1-rows", type=int, default=None)
+    parser.add_argument("--exp9-rows", type=int, default=None)
+    parser.add_argument("--audit-rows", type=int, default=None)
     return parser.parse_args()
 
 
@@ -968,6 +1090,9 @@ def main() -> None:
         max_workers=max(1, args.max_workers),
         verify_mapping_with_api=bool(args.verify_mapping_with_api),
         build_pdf=not bool(args.skip_pdf_build),
+        expected_exp1_rows=args.exp1_rows,
+        expected_exp9_rows=args.exp9_rows,
+        expected_audit_rows=args.audit_rows,
         checkpoint_path=run_dir / "checkpoint.json",
         log_path=run_dir / "progress_log.jsonl",
         retry_queue_path=run_dir / "retry_queue.json",

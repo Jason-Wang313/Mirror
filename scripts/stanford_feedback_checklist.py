@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PAPER_TEX = ROOT / "paper" / "mirror_draft_v20.tex"
 DEFAULT_OUT_ROOT = ROOT / "audit" / "human_baseline_packet" / "results"
+DEFAULT_RESULTS_DIR = ROOT / "audit" / "human_baseline_packet" / "results"
 
 
 def utc_now_iso() -> str:
@@ -32,6 +33,7 @@ def main() -> None:
     parser.add_argument("--run-id", type=str, default=datetime.now().strftime("stanford_gate_%Y%m%dT%H%M%S"))
     parser.add_argument("--paper-tex", type=Path, default=PAPER_TEX)
     parser.add_argument("--out-root", type=Path, default=DEFAULT_OUT_ROOT)
+    parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS_DIR)
     args = parser.parse_args()
 
     out_dir = args.out_root / args.run_id
@@ -40,6 +42,8 @@ def main() -> None:
     out_md = out_dir / "stanford_feedback_checklist.md"
 
     tex = args.paper_tex.read_text(encoding="utf-8") if args.paper_tex.exists() else ""
+    frontier_md = (args.results_dir / "exp9_policy_frontier_summary.md").read_text(encoding="utf-8", errors="ignore") if (args.results_dir / "exp9_policy_frontier_summary.md").exists() else ""
+    hard_v2_md = (args.results_dir / "human_baseline_hardv2_summary.md").read_text(encoding="utf-8", errors="ignore") if (args.results_dir / "human_baseline_hardv2_summary.md").exists() else ""
 
     checks = [
         {
@@ -107,6 +111,30 @@ def main() -> None:
             "description": "Recent metacognitive-control/abstention related work is integrated in main text.",
             "pass": contains_all(tex, ["monitor-generate-verify"]) or contains_all(tex, ["medcog"]) or contains_all(tex, ["metaclass"]),
             "evidence_hint": "Look for added related-work anchors in main section.",
+        },
+        {
+            "id": "baseline_main_text_prominence",
+            "description": "Main text explicitly foregrounds budget-matched and frontier baseline comparisons.",
+            "pass": contains_all(tex, ["budget-matched", "risk-coverage", "instance-level"]),
+            "evidence_hint": "Look for compact main-text baseline summary (not appendix-only framing).",
+        },
+        {
+            "id": "weak_domain_frontier_reporting",
+            "description": "Weak-domain policy-family frontier (median/bottom-k/absolute/quantile) is reported.",
+            "pass": contains_all(frontier_md, ["median_or_bottom_k", "matched_escalation", "matched_autonomy"]) and contains_all(frontier_md, ["absolute_threshold", "quantile_threshold"]),
+            "evidence_hint": "Look for exp9_policy_frontier_summary.md with matched-escalation/autonomy slices.",
+        },
+        {
+            "id": "exp3_expanded_sample_size_disclosure",
+            "description": "Manuscript discloses expanded Exp3 pair-level scale beyond the 112-task v2 bank.",
+            "pass": contains_all(tex, ["16 tasks per pair"]) or contains_all(tex, ["448-task"]) or contains_all(tex, ["448 task"]),
+            "evidence_hint": "Look for explicit expanded-pair sample-size statement in Exp3 results/discussion.",
+        },
+        {
+            "id": "hard_packet_v2_integration",
+            "description": "Hard human packet v2 evidence is integrated (summary artifact + manuscript mention).",
+            "pass": (contains_all(hard_v2_md, ["512", "336"]) or contains_all(hard_v2_md, ["hard", "participant-mean"])) and contains_all(tex, ["hard packet", "human baseline"]),
+            "evidence_hint": "Expect human_baseline_hardv2_summary.md and main-text reference to harder packet execution.",
         },
     ]
 

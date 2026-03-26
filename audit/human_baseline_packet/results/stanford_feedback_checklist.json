@@ -1,9 +1,9 @@
 {
-  "run_id": "v20_final_hardening_postbuild",
-  "generated_at_utc": "2026-03-26T11:02:42+00:00",
+  "run_id": "v20_final_hardening_20260326B_stanford_gate",
+  "generated_at_utc": "2026-03-26T17:00:07+00:00",
   "paper_tex": "C:\\Users\\wangz\\MIRROR\\paper\\mirror_draft_v20.tex",
-  "n_checks": 11,
-  "n_pass": 11,
+  "n_checks": 15,
+  "n_pass": 15,
   "n_fail": 0,
   "checks": [
     {
@@ -71,6 +71,30 @@
       "description": "Recent metacognitive-control/abstention related work is integrated in main text.",
       "pass": true,
       "evidence_hint": "Look for added related-work anchors in main section."
+    },
+    {
+      "id": "baseline_main_text_prominence",
+      "description": "Main text explicitly foregrounds budget-matched and frontier baseline comparisons.",
+      "pass": true,
+      "evidence_hint": "Look for compact main-text baseline summary (not appendix-only framing)."
+    },
+    {
+      "id": "weak_domain_frontier_reporting",
+      "description": "Weak-domain policy-family frontier (median/bottom-k/absolute/quantile) is reported.",
+      "pass": true,
+      "evidence_hint": "Look for exp9_policy_frontier_summary.md with matched-escalation/autonomy slices."
+    },
+    {
+      "id": "exp3_expanded_sample_size_disclosure",
+      "description": "Manuscript discloses expanded Exp3 pair-level scale beyond the 112-task v2 bank.",
+      "pass": true,
+      "evidence_hint": "Look for explicit expanded-pair sample-size statement in Exp3 results/discussion."
+    },
+    {
+      "id": "hard_packet_v2_integration",
+      "description": "Hard human packet v2 evidence is integrated (summary artifact + manuscript mention).",
+      "pass": true,
+      "evidence_hint": "Expect human_baseline_hardv2_summary.md and main-text reference to harder packet execution."
     }
   ],
   "actionable_items": []

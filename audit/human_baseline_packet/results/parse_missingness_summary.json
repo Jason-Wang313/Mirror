@@ -1,6 +1,6 @@
 {
-  "run_id": "v20_final_hardening_20260326A_parse_missingness_v2",
-  "created_at_utc": "2026-03-26T10:53:10+00:00",
+  "run_id": "v20_final_hardening_20260326B_parse_missingness",
+  "created_at_utc": "2026-03-26T16:57:32+00:00",
   "imputation_mode": "all",
   "mnar_bound_mode": "moderate",
   "mnar_assumed_fraction": 0.5,
@@ -3592,7 +3592,7 @@
   },
   "cce_anchor": {
     "available": true,
-    "path": "audit\\human_baseline_packet\\results\\exp3_difficulty_control_summary.json",
+    "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\results\\exp3_difficulty_control_summary.json",
     "baseline_mean_balanced_cce": 0.5292951388888889,
     "mnar_bound_delta_low": 0.0,
     "mnar_bound_delta_high": 0.0,

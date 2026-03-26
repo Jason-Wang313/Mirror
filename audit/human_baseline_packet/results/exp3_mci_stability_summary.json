@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-03-25T16:44:10+00:00",
+  "generated_at_utc": "2026-03-26T16:59:22+00:00",
   "input_files": [
     "C:\\Users\\wangz\\MIRROR\\data\\results\\exp3_v2_expanded_results.jsonl"
   ],
-  "n_models": 15,
+  "n_models": 16,
   "criteria": {
     "required_domain_pairs": 28,
     "min_pair_quota": 4,
@@ -14,9 +14,54 @@
   },
   "pass_counts": {
     "stability_pass": 14,
-    "stability_fail": 1
+    "stability_fail": 2
   },
   "per_model": {
+    "deepseek-r1": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "logical",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.20815011066340325,
+          "kendall_tau": 0.20815011066340325
+        }
+      ],
+      "mci_spearman": 0.20815011066340325,
+      "mci_kendall": 0.20815011066340325,
+      "rho_tau_gap": 0.10407505533170161,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": false,
+      "stability_pass": false
+    },
     "deepseek-v3": {
       "n_tasks": 112,
       "n_domain_pairs": 28,

@@ -1,11 +1,12 @@
 {
   "source_path": "C:\\Users\\wangz\\neurlips benchmark reviewing\\data\\mirror_v20_review_calibration_prompt_final.md",
   "found": true,
-  "status": "ok",
+  "generated_at_utc": "2026-03-26T17:00:06+00:00",
   "actionable_items": [
     "### 1. Add one additional frontier proprietary model in Exp1 + Exp9 (execution-blocked)",
     "### 2. Optional full production-log closure (scope-blocked this cycle)"
   ],
+  "status": "ok",
   "blocked_items": [
     "### 1. Add one additional frontier proprietary model in Exp1 + Exp9 (execution-blocked)",
     "### 2. Optional full production-log closure (scope-blocked this cycle)"

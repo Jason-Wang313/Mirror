@@ -1,4 +1,21 @@
 {
   "packet_dir": "C:\\Users\\wangz\\MIRROR\\deployment_packet",
-  "manifests": {}
+  "manifests": {
+    "traffic.csv": {
+      "sha256": "dca9f759b89bbc58ecbba233d553b9c927240b4d3525d9b08fa148f142905629",
+      "size_bytes": 78099
+    },
+    "outcomes.csv": {
+      "sha256": "3885afc308baa3062530d0d19abbf615822f7dfdba1e669e3b689d480e777ecc",
+      "size_bytes": 15249
+    },
+    "cost_latency.csv": {
+      "sha256": "960874fbd0bb6f8119882d382285391eb2e38a4f6f78498b9cd721b2cee84fa6",
+      "size_bytes": 13636
+    },
+    "constraints.json": {
+      "sha256": "f1aa012706fd72103f011c3ddd5c86376d8450dd39c687fe6e1f990dca842a6a",
+      "size_bytes": 486
+    }
+  }
 }
