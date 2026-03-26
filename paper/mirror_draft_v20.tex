@@ -196,6 +196,12 @@ Recent work on explicit safety scaffolding~\citep{mosaic2026} demonstrates that
 externalized check-and-refuse loops outperform implicit reasoning for
 safety-critical decisions, aligning with \mirror{}'s finding that architectural
 constraint outperforms self-knowledge exposure.
+In this revision, we separate \textit{direct empirical comparison} from
+\textit{conceptual positioning}: direct head-to-head results are against
+confidence-threshold, self-consistency, transformed-Platt calibrated confidence,
+and conformal target-error routing in Exp9; MGV/MEDCOG/MetaCLASS and related
+frameworks are cited as conceptual alignment rather than benchmark-matched
+numerical baselines.
 
 \textbf{Metacognition in AI.}
 Metacognitive prompting~\citep{wang2024metacognitive} uses metacognitive strategies
@@ -351,7 +357,12 @@ hidden domain. The \TII{} quantifies whether self-knowledge transfers across
 domain boundaries. 11 models; \TII{} range: 0.019--0.175 (weak-to-minimal transfer).
 
 \paragraph{Experiment 3: Compositional Self-Prediction (Level~2).}
-${\sim}$25 multi-domain tasks per model in the original v1 set (15 models), plus a balanced v2 expansion (112 tasks over all 28 domain pairs) with 16-model coverage. The \CCE{} measures predicted vs.\ actual composite accuracy. Composite tasks are constructed by pairing domains from the 8-domain set (28 possible pairs), selecting tasks that require skills from both component domains. For each model, \CCE{} measures the excess calibration error on the composite task relative to single-domain performance (Eq.~\ref{eq:cce}). Primary metric: \CCE{} (see Section~5.2 for results and bootstrap CIs). \MCI{} is also reported with explicit stability diagnostics (Section~\ref{sec:discussion}).
+${\sim}$25 multi-domain tasks per model in the original v1 set (15 models), plus a balanced v2 expansion (112 tasks over all 28 domain pairs) with 16-model coverage. The \CCE{} measures predicted vs.\ actual composite accuracy. Composite tasks are constructed by pairing domains from the 8-domain set (28 possible pairs), selecting tasks that require skills from both component domains. For each model, \CCE{} measures the excess calibration error on the composite task relative to single-domain performance:
+\begin{equation}
+\text{CCE}(m) = \frac{1}{|\mathcal{T}|} \sum_{t \in \mathcal{T}} \bigl(|\hat{p}_{\cap}(m,t) - \text{Acc}_{\cap}(m,t)| - |\hat{p}_{a}(m,t) - \text{Acc}_{a}(m,t)|\bigr)
+\label{eq:cce-main}
+\end{equation}
+\textbf{Worked example (main text).} If a model predicts 0.80 confidence on a composite item but gets it wrong ($\text{Acc}_{\cap}=0$), the composite absolute error is 0.80. If the same model's single-domain baseline error is 0.20, that item contributes $0.80 - 0.20 = 0.60$ to \CCE{}. Positive values therefore indicate excess compositional miscalibration beyond single-domain baseline error. Primary metric: \CCE{} (see Section~5.2 for results and bootstrap CIs). \MCI{} is reported as secondary corroboration with explicit stability diagnostics (Section~\ref{sec:discussion}).
 
 \paragraph{Experiment 4: Adaptation Crucible (Level~3).}
 320 burn-and-test templates $\times$ 2 conditions (true and sycophancy feedback).
@@ -483,6 +494,7 @@ on 39\% of weak-domain agentic tasks when proceeding autonomously. As a
 secondary diagnostic (not a headline claim), \KDI{} is negative for 13 of 16
 models evaluated in Experiment~9, consistent with a monitoring--control
 dissociation.
+\textbf{Primary metrics only (claim path).} The core evidentiary path uses four quantities: (i) \CCE{} for compositional calibration (Finding~1), (ii) the Exp9 escalation-curve \CFR{} deltas for monitoring$\rightarrow$control dissociation (Finding~2), (iii) fallible-resolver system-success deltas (non-oracle utility), and (iv) autonomy--cost--latency trade-offs via a cost-aware Pareto frontier (Appendix~\ref{app:e2e}). Secondary diagnostics (\KDI{}, extended ratio indices) are retained for interpretability but are not required for the headline claims.
 
 \input{tables/table1_main_results}
 
@@ -503,6 +515,7 @@ confirms these results: CCE ranges from 0.434 to 0.758 across 16 models (vs.\
 confidence $>$ 0.73 despite actual composite accuracy $<$ 0.54.\footnote{The refreshed v2 run includes deepseek-r1 via a NIM-backed route, restoring full 16-model coverage for the expanded composite analysis.}
 The tighter v2 range reflects the larger and more balanced task set (112 tasks spanning all 28 domain pairs vs.\ ${\sim}$25 tasks with uneven pair coverage in v1); the universal overconfidence finding---all 16 evaluated models show CCE~$\geq$~0.434---holds across both evaluations.
 Bootstrap 95\% CIs (BCa, 10{,}000 iterations) on per-model v2 CCE confirm that no model's interval includes zero (Table~\ref{tab:exp3v2-ci} in Appendix~\ref{app:exp3v2}).
+We explicitly scope ``universal'' to this evaluated setting: 16 models and the balanced 112-task v2 composite bank. Pair-level CCE-contribution diagnostics across all 28 domain pairs (Appendix~\ref{app:exp3v2}, Table~\ref{tab:exp3-pair-contrib}) show that the result is broad-based rather than driven by a single pair.
 To isolate difficulty-mixture confounding, we additionally run a controlled
 ablation that balances strong--strong, strong--weak, and weak--weak strata per
 model on the v2 bank. The difficulty-controlled, pair-balanced estimate remains
@@ -570,8 +583,11 @@ non-oracle gain remains positive across the tested resolver range.
 We note that CFR by construction decreases when escalation increases, since
 escalated tasks are excluded from the failure count. The net utility metric
 accounts for this by penalizing false escalations. Appendix~\ref{app:e2e}
-reports complementary end-to-end metrics including system success rate and
-autonomy rate.
+reports complementary end-to-end metrics including system success rate,
+autonomy rate, and a cost-aware Pareto view (success vs autonomy vs expected
+cost/latency). This prevents over-escalation from appearing favorable purely on
+\CFR{}: operating points are compared under joint reliability and operational
+overhead constraints, not failure-rate reduction alone.
 
 \paragraph{Wager-independent sensitivity.}
 The escalation result is robust without wagering-dependent quantities.
@@ -679,7 +695,7 @@ the gap it measures is an important direction for future work.
 External routing that uses \mirror{}
 domain scores as decision inputs reduces \CFR{} by 76\%. \mirror{}-informed routing uses per-domain scores to determine which components require external constraints.
 
-\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We report three head-to-head frames against confidence-threshold routing, self-consistency-proxy routing, and conformal-style thresholding (Appendix~\ref{app:instance-baselines}): (i) legacy C1/P3 for continuity, (ii) C1 across all paradigms, and (iii) C1+C2 sensitivity across all paradigms. In the expanded C1 all-paradigm frame (16/16 models), MIRROR domain routing at 48.4\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing), while budget-matched instance-level baselines reduce to 31.7\% (confidence threshold) and 32.3\% (self-consistency proxy). In the C1+C2 frame, corresponding values are 31.6\% and 31.0\% at the same 48.3\% escalation budget. Conformal-style thresholding reaches 1.6\% weak-domain CFR but only by escalating 93.8\% of components (autonomy 6.2\%). These results preserve the same practical conclusion: domain-level routing gives a stronger reliability floor at practical escalation budgets, while strict conformal-style risk control can reduce failures further at much lower autonomy.
+\textbf{Comparison to instance-level uncertainty methods.} \mirror{}'s C4 routing operates at the \textit{domain level}: it uses pre-deployment calibration profiles to classify entire task domains as strong or weak, then routes all weak-domain components externally. We report three head-to-head frames against confidence-threshold routing, self-consistency-proxy routing, transformed-Platt calibrated confidence routing, and conformal-style target-error control (Appendix~\ref{app:instance-baselines}): (i) legacy C1/P3 for continuity, (ii) C1 across all paradigms, and (iii) C1+C2 sensitivity across all paradigms. In the expanded C1 all-paradigm frame (16/16 models), MIRROR domain routing at 48.4\% mean escalation drives weak-domain CFR to 0.0\% (100\% reduction vs no-routing), while budget-matched instance-level baselines reduce to 31.7\% (confidence threshold), 32.3\% (self-consistency proxy), and 30.2\% (transformed-Platt calibrated confidence). The calibrated variant improves over raw confidence in this frame but remains materially above domain routing at comparable autonomy. Conformal-style thresholding reaches low weak-domain CFR only at very high escalation, producing the expected risk-coverage trade-off. Reporting both budget-matched and target-error grid results makes the CAP/HCMA/SCOPE-style comparison explicit: strict risk control can be stronger on CFR at low autonomy, while MIRROR domain routing gives a stronger reliability floor at practical autonomy/cost budgets.
 
 \subsection{Limitations}
 
@@ -695,6 +711,9 @@ diagnostics and report sensitivity estimates under complete-case, conservative
 failure-as-incorrect, and IPW correction (Appendix~\ref{app:missingness}). In the
 canonical Exp9 slice, C1$\to$C4 weak-domain CFR reduction remains large across
 assumptions: 73.5\% (complete), 55.9\% (conservative), and 73.5\% (IPW).
+We additionally report explicit MNAR bound scenarios (weak/moderate/strong
+adversarial missingness assumptions) and summarize the implied C1$\to$C4
+reduction interval directly in Appendix~\ref{app:missingness}.
 
 \paragraph{Limited human annotations.}
 \mirror{} is primarily automated: questions generated and verified by LLM ensembles. A stratified human audit of 420 items---including full verification of all 220 Experiment~6b items---finds 89.8\% raw agreement with an estimated genuine auto-labeling error rate of 0.24\% (1/420; Appendix~I, Table~\ref{tab:human-audit}). The four experiments central to the headline findings (Exp3, 4, 5, 9) achieve 98--100\% agreement ($\kappa \geq 0.957$). The low genuine error rate confirms that automated labels are reliable for the reported analyses.
@@ -1055,16 +1074,20 @@ weak-domain CFR reduction.
 \toprule
 Mode & Mean C1 Weak CFR & Mean C4 Weak CFR & Mean C1$\rightarrow$C4 Reduction \\
 \midrule
-Complete-case & 0.6469 & 0.1860 & 73.5\% \\
-Conservative (missing as incorrect) & 0.7077 & 0.3462 & 55.9\% \\
-IPW correction & 0.6483 & 0.1860 & 73.5\% \\
+Complete-case & 0.6450 & 0.1890 & 72.9\% \\
+Conservative (missing as incorrect) & 0.7059 & 0.3485 & 55.5\% \\
+IPW correction & 0.6463 & 0.1889 & 72.9\% \\
+MNAR bound (moderate, $\alpha=0.5$) & NA & NA & [12.3\%, 77.8\%] \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Observed rates in this slice are 4.96\% parse missingness in Exp1 and 28.02\%
 API missingness in Exp9 components. The conservative bound attenuates effect size
-but does not reverse the headline direction.
+but does not reverse the headline direction. For headline traceability, the
+complete-case C1$\rightarrow$C4 reduction delta is $-17.4$\,pp under the
+conservative treatment and $+0.03$\,pp under IPW; the Exp3 CCE anchor
+(0.529, balanced v2) is unchanged under this Exp1/Exp9 missingness stress path.
 
 % =============================================================================
 \section{Instance-Level Abstention Baseline Comparison}
@@ -1078,7 +1101,8 @@ and (iii) C1+C2 across all paradigms. Weak domains are recomputed per model
 using the same pre-specified \texttt{median\_or\_bottom\_k} policy used in the
 main paper. We compare five strategies: no routing, MIRROR domain routing,
 confidence-threshold routing at matched escalation budget, self-consistency-proxy
-routing at matched budget, and conformal-style thresholding.
+routing at matched budget, transformed-Platt calibrated confidence routing at
+matched budget, and conformal-style target-error thresholding (risk-coverage grid).
 
 \begin{table}[h]
 \centering
@@ -1093,7 +1117,8 @@ No routing & 70.0\% & 0.0\% & 100.0\% & 0.0\% \\
 MIRROR domain routing & 0.0\% & 100.0\% & 51.4\% & 48.6\% \\
 Confidence threshold (budget-matched) & 31.4\% & 56.0\% & 51.4\% & 48.6\% \\
 Self-consistency proxy (budget-matched) & 31.4\% & 56.1\% & 51.4\% & 48.6\% \\
-Conformal-style thresholding & 3.7\% & 87.1\% & 14.7\% & 85.3\% \\
+Calibrated confidence (transformed-Platt, budget-matched) & 37.1\% & 48.6\% & 51.4\% & 48.6\% \\
+Conformal-style target-error thresholding & 3.7\% & 87.1\% & 14.7\% & 85.3\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1110,20 +1135,23 @@ Frame & Strategy & Weak CFR & CFR Red. vs No-Routing & Autonomy & Escalation \\
 C1 all paradigms & MIRROR domain routing & 0.0\% & 100.0\% & 51.6\% & 48.4\% \\
 C1 all paradigms & Confidence threshold (budget-matched) & 31.7\% & 49.8\% & 51.6\% & 48.4\% \\
 C1 all paradigms & Self-consistency proxy (budget-matched) & 32.3\% & 48.9\% & 51.6\% & 48.4\% \\
-C1 all paradigms & Conformal-style thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
+C1 all paradigms & Calibrated confidence (transformed-Platt, budget-matched) & 30.2\% & 52.1\% & 51.6\% & 48.4\% \\
+C1 all paradigms & Conformal-style target-error thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
 \midrule
 C1+C2 all paradigms & MIRROR domain routing & 0.0\% & 100.0\% & 51.7\% & 48.3\% \\
 C1+C2 all paradigms & Confidence threshold (budget-matched) & 31.6\% & 50.7\% & 51.7\% & 48.3\% \\
 C1+C2 all paradigms & Self-consistency proxy (budget-matched) & 31.0\% & 52.1\% & 51.7\% & 48.3\% \\
-C1+C2 all paradigms & Conformal-style thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
+C1+C2 all paradigms & Calibrated confidence (transformed-Platt, budget-matched) & 30.5\% & 52.0\% & 51.7\% & 48.3\% \\
+C1+C2 all paradigms & Conformal-style target-error thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 At practical escalation budgets (domain-routing matched), domain-level weak-domain
-routing consistently outperforms confidence-threshold and self-consistency proxy
-baselines across all three frames. Conformal-style risk control reduces weak CFR
-further but requires substantially lower autonomy.
+routing consistently outperforms confidence-threshold, self-consistency proxy,
+and calibrated-confidence baselines across the expanded frames. Conformal-style
+risk control further reduces weak CFR but only on a low-autonomy part of the
+risk-coverage frontier.
 
 % =============================================================================
 \section{Exp9 Domain-Component Verification}
@@ -1330,7 +1358,24 @@ Resolver correctness $q$ & C1 Sys.Success & C4 Sys.Success & C4$-$C1 Delta \\
 Using observed resolver correctness from the deployment packet (50.2\% over 540
 escalated components), C4 retains a positive system-success delta over C1.
 
-The cost of C4 is operational, not accuracy: 54.3\% of task components require external resolution, imposing human-review or tool-invocation overhead. Whether this trade-off is favorable depends on the deployment's cost function---\mirror{} provides the decision data; threshold selection is application-specific.
+\begin{table}[h]
+\centering
+\caption{Cost-aware Pareto slice from the non-oracle utility frontier (deployment-packet cost/latency model).}
+\label{tab:e2e-pareto}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Operating point & Sys.Success & Autonomy & Escalation & Exp. Cost (\$) & Exp. Latency (ms) \\
+\midrule
+C1 baseline & 0.3725 & 1.0000 & 0.0000 & 5.3941 & 10{,}256.2 \\
+C4 ($q=0.50$) & 0.4735 & 0.5013 & 0.4987 & 5.4092 & 10{,}435.5 \\
+C4 ($q=0.80$) & 0.6231 & 0.5013 & 0.4987 & 5.4092 & 10{,}435.5 \\
+C4 ($q=1.00$) & 0.7229 & 0.5013 & 0.4987 & 5.4092 & 10{,}435.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The cost of C4 is operational, not accuracy: 54.3\% of task components require external resolution, imposing human-review or tool-invocation overhead. Under the packet-derived cost/latency model, moving from C1 to C4 raises expected cost by about 0.28\% and expected latency by about 1.75\% while preserving a large reliability gain; whether this trade-off is favorable depends on the deployment's cost function---\mirror{} provides the decision data; threshold selection is application-specific.
 
 \textbf{Provider analysis (subset).} For the fixed-task Exp9 subset with complete
 provider-attributed records ($n=10$ models), 9 are accessed via NVIDIA NIM and 1
@@ -1492,6 +1537,35 @@ llama-3.3-70b   & 0.446 & 0.375 & 0.514 & 112 \\
 mistral-large   & 0.642 & 0.560 & 0.714 & 112 \\
 mixtral-8x22b   & 0.758 & 0.673 & 0.829 & 112 \\
 qwen3-next-80b  & 0.480 & 0.392 & 0.566 & 112 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:exp3-pair-contrib} summarizes pair-level CCE-term diagnostics on
+the balanced v2 bank. High-error and low-error pairs both span multiple domain
+families, indicating that compositional miscalibration is not concentrated in a
+single pair type.
+
+\begin{table}[h]
+\centering
+\caption{Exp3 v2 pair-level CCE-term diagnostics (top and bottom 5 of 28 domain pairs). Values are mean per-pair CCE contribution terms; all remain positive.}
+\label{tab:exp3-pair-contrib}
+\small
+\begin{tabular}{lrr}
+\toprule
+Domain pair & Mean CCE term & $n$ \\
+\midrule
+linguistic$\vert$social & 0.728 & 62 \\
+linguistic$\vert$procedural & 0.711 & 62 \\
+spatial$\vert$temporal & 0.644 & 62 \\
+factual$\vert$temporal & 0.628 & 63 \\
+procedural$\vert$spatial & 0.618 & 60 \\
+\midrule
+arithmetic$\vert$factual & 0.331 & 62 \\
+linguistic$\vert$temporal & 0.271 & 64 \\
+arithmetic$\vert$temporal & 0.256 & 61 \\
+arithmetic$\vert$logical & 0.249 & 62 \\
+procedural$\vert$social & 0.216 & 64 \\
 \bottomrule
 \end{tabular}
 \end{table}

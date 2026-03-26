@@ -23,6 +23,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+try:
+    from sklearn.linear_model import LogisticRegression
+except Exception:
+    LogisticRegression = None
+
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = ROOT / "data" / "results"
@@ -59,6 +64,10 @@ def nan_to_none(v: float) -> float | None:
     if isinstance(v, float) and math.isnan(v):
         return None
     return v
+
+
+def clamp01(v: float) -> float:
+    return max(0.0, min(1.0, float(v)))
 
 
 def resolve_result_files(explicit_files: list[Path], result_glob: str | None) -> list[Path]:
@@ -100,9 +109,79 @@ def top_k_mask(scores: list[float], rate: float) -> list[bool]:
     return mask
 
 
+def threshold_mask(scores: list[float], threshold: float) -> list[bool]:
+    return [s > threshold for s in scores]
+
+
+def budget_matched_mask(scores: list[float], target_rate: float, mode: str) -> list[bool]:
+    if not scores:
+        return []
+    target_rate = clamp01(target_rate)
+    if mode == "domain_budget":
+        return top_k_mask(scores, target_rate)
+
+    # matched_autonomy: choose threshold giving escalation rate closest to target.
+    uniq = sorted(set(scores))
+    candidates = [uniq[0] - 1e-12, *uniq, uniq[-1] + 1e-12]
+    best_mask = top_k_mask(scores, target_rate)
+    best_gap = 1e9
+    for t in candidates:
+        m = threshold_mask(scores, t)
+        r = sum(1 for x in m if x) / len(m)
+        gap = abs(r - target_rate)
+        if gap < best_gap:
+            best_gap = gap
+            best_mask = m
+    return best_mask
+
+
 def hash_split(task_id: str, slot: str) -> int:
     digest = hashlib.sha1(f"{task_id}|{slot}".encode("utf-8")).hexdigest()
     return int(digest[:8], 16) % 2
+
+
+def transformed_platt_uncertainty(
+    raw_uncertainty: list[float],
+    correct: list[bool],
+    task_ids: list[str],
+    slots: list[str],
+) -> tuple[list[float], dict[str, Any]]:
+    if not raw_uncertainty:
+        return [], {"status": "empty"}
+    if LogisticRegression is None:
+        return raw_uncertainty, {"status": "sklearn_unavailable_fallback_raw"}
+
+    calib_idx = [i for i in range(len(raw_uncertainty)) if hash_split(task_ids[i], slots[i]) == 0]
+    test_idx = [i for i in range(len(raw_uncertainty)) if hash_split(task_ids[i], slots[i]) == 1]
+    if len(calib_idx) < 20 or len(test_idx) < 20:
+        return raw_uncertainty, {"status": "insufficient_split_fallback_raw", "calibration_size": len(calib_idx), "test_size": len(test_idx)}
+
+    # Convert uncertainty u to confidence c, then fit a logistic map (Platt-style) on logit(c).
+    def to_x(u: float) -> float:
+        c = clamp01(1.0 - u)
+        c = min(1.0 - 1e-6, max(1e-6, c))
+        return math.log(c / (1.0 - c))
+
+    X = [[to_x(raw_uncertainty[i])] for i in calib_idx]
+    y = [1 if correct[i] else 0 for i in calib_idx]
+    if len(set(y)) < 2:
+        return raw_uncertainty, {"status": "degenerate_target_fallback_raw", "calibration_size": len(calib_idx), "test_size": len(test_idx)}
+
+    try:
+        clf = LogisticRegression(max_iter=500, solver="liblinear", n_jobs=1)
+        clf.fit(X, y)
+        X_all = [[to_x(u)] for u in raw_uncertainty]
+        p_correct = clf.predict_proba(X_all)[:, 1]
+        calibrated_uncertainty = [float(clamp01(1.0 - p)) for p in p_correct]
+        return calibrated_uncertainty, {
+            "status": "ok",
+            "calibration_size": len(calib_idx),
+            "test_size": len(test_idx),
+            "coef": float(clf.coef_[0][0]),
+            "intercept": float(clf.intercept_[0]),
+        }
+    except Exception as e:
+        return raw_uncertainty, {"status": "fit_error_fallback_raw", "error": str(e)}
 
 
 def evaluate_strategy(mask_escalate: list[bool], weak: list[bool], correct: list[bool]) -> dict[str, float]:
@@ -281,9 +360,14 @@ def load_target_models(model_list_file: Path) -> list[str]:
     return []
 
 
-def iter_model_components(model: str, result_files: list[Path]) -> list[dict[str, Any]]:
+def iter_model_components(
+    model: str,
+    result_files: list[Path],
+    conditions: set[int],
+    paradigms: set[int],
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    seen: set[tuple[str, str, int, int, str, str]] = set()
+    seen: set[tuple[str, str, int, int, str]] = set()
     for file_path in result_files:
         if not file_path.exists():
             continue
@@ -298,7 +382,9 @@ def iter_model_components(model: str, result_files: list[Path]) -> list[dict[str
                     continue
                 if trial.get("model") != model:
                     continue
-                if trial.get("condition") != 1 or trial.get("paradigm") != 3:
+                cond = int(trial.get("condition", -1))
+                par = int(trial.get("paradigm", -1))
+                if cond not in conditions or par not in paradigms:
                     continue
                 if not trial.get("api_success", False):
                     continue
@@ -309,8 +395,8 @@ def iter_model_components(model: str, result_files: list[Path]) -> list[dict[str
                         continue
                     key = (
                         model,
-                        int(trial.get("condition", -1)),
-                        int(trial.get("paradigm", -1)),
+                        cond,
+                        par,
                         task_id,
                         slot,
                     )
@@ -341,6 +427,14 @@ class Runner:
     conformal_target_error: float
     max_workers: int
     result_glob: str | None
+    conditions: list[int]
+    paradigms: list[int]
+    frame_label: str
+    strategy_set: str
+    autonomy_grid: list[float]
+    conformal_target_grid: list[float]
+    calibration_method: str
+    matched_budget_mode: str
 
     def __post_init__(self) -> None:
         self.run_dir = self.out_root / self.run_id
@@ -404,6 +498,14 @@ class Runner:
             "bottom_k": self.bottom_k,
             "conformal_target_error": self.conformal_target_error,
             "max_workers": self.max_workers,
+            "conditions": self.conditions,
+            "paradigms": self.paradigms,
+            "frame_label": self.frame_label,
+            "strategy_set": self.strategy_set,
+            "autonomy_grid": self.autonomy_grid,
+            "conformal_target_grid": self.conformal_target_grid,
+            "calibration_method": self.calibration_method,
+            "matched_budget_mode": self.matched_budget_mode,
         }
         write_json(self.run_dir / "manifest.json", manifest)
         self.log_event("manifest_written", {"path": str(self.run_dir / "manifest.json")})
@@ -411,14 +513,21 @@ class Runner:
 
     def evaluate_one_model(self, model: str, exp1_acc: dict[str, dict[str, float]]) -> tuple[str, int, str]:
         try:
-            rows = iter_model_components(model, self.result_files)
+            rows = iter_model_components(
+                model,
+                self.result_files,
+                conditions=set(self.conditions),
+                paradigms=set(self.paradigms),
+            )
             if not rows:
                 write_json(
                     self.shards_dir / f"{model}.json",
                     {
                         "model": model,
                         "status": "skipped",
-                        "reason": "no_condition1_paradigm3_api_success_rows",
+                        "reason": "no_rows_in_requested_frame_with_api_success",
+                        "requested_conditions": self.conditions,
+                        "requested_paradigms": self.paradigms,
                     },
                 )
                 return model, 0, ""
@@ -455,15 +564,23 @@ class Runner:
                 for i in range(len(rows))
             ]
             self_consistency_uncertainty = decomp_n
+            if self.calibration_method == "transformed_platt":
+                calibrated_uncertainty, calibration_meta = transformed_platt_uncertainty(
+                    confidence_uncertainty, correct, task_ids, slots
+                )
+            else:
+                calibrated_uncertainty = list(confidence_uncertainty)
+                calibration_meta = {"status": "identity_raw"}
 
             domain_mask = [is_weak for is_weak in weak]
             domain_budget = sum(1 for x in domain_mask if x) / len(domain_mask) if domain_mask else 0.0
 
             no_mask = [False] * len(rows)
-            conf_mask = top_k_mask(confidence_uncertainty, domain_budget)
-            sc_mask = top_k_mask(self_consistency_uncertainty, domain_budget)
+            conf_mask = budget_matched_mask(confidence_uncertainty, domain_budget, self.matched_budget_mode)
+            sc_mask = budget_matched_mask(self_consistency_uncertainty, domain_budget, self.matched_budget_mode)
+            cal_mask = budget_matched_mask(calibrated_uncertainty, domain_budget, self.matched_budget_mode)
             conformal_mask, conformal_meta = conformal_style_mask(
-                confidence_uncertainty,
+                calibrated_uncertainty if self.calibration_method == "transformed_platt" else confidence_uncertainty,
                 correct,
                 task_ids,
                 slots,
@@ -475,8 +592,50 @@ class Runner:
                 "mirror_domain_routing": evaluate_strategy(domain_mask, weak, correct),
                 "confidence_threshold_budget_matched": evaluate_strategy(conf_mask, weak, correct),
                 "self_consistency_budget_matched": evaluate_strategy(sc_mask, weak, correct),
-                "conformal_style": evaluate_strategy(conformal_mask, weak, correct),
+                "calibrated_confidence_budget_matched": evaluate_strategy(cal_mask, weak, correct),
+                "conformal_style_budget_matched": evaluate_strategy(conformal_mask, weak, correct),
             }
+
+            frontier: dict[str, list[dict[str, Any]]] = {}
+            if self.strategy_set == "robust_v2":
+                frontier_strats = {
+                    "confidence_threshold_frontier": confidence_uncertainty,
+                    "self_consistency_frontier": self_consistency_uncertainty,
+                    "calibrated_confidence_frontier": calibrated_uncertainty,
+                }
+                for name, score_vec in frontier_strats.items():
+                    pts = []
+                    for autonomy in self.autonomy_grid:
+                        a = clamp01(autonomy)
+                        esc = 1.0 - a
+                        m = top_k_mask(score_vec, esc)
+                        ev = evaluate_strategy(m, weak, correct)
+                        pts.append(
+                            {
+                                "autonomy_target": a,
+                                "escalation_target": esc,
+                                **{k: nan_to_none(v) for k, v in ev.items()},
+                            }
+                        )
+                    frontier[name] = pts
+            conformal_grid_rows: list[dict[str, Any]] = []
+            if self.strategy_set == "robust_v2":
+                for te in self.conformal_target_grid:
+                    mask_t, meta_t = conformal_style_mask(
+                        calibrated_uncertainty if self.calibration_method == "transformed_platt" else confidence_uncertainty,
+                        correct,
+                        task_ids,
+                        slots,
+                        float(te),
+                    )
+                    ev_t = evaluate_strategy(mask_t, weak, correct)
+                    conformal_grid_rows.append(
+                        {
+                            "target_error": float(te),
+                            "metrics": {k: nan_to_none(v) for k, v in ev_t.items()},
+                            "meta": {k: nan_to_none(v) if isinstance(v, float) else v for k, v in meta_t.items()},
+                        }
+                    )
 
             weak_cfr_no = strategies["no_routing"]["weak_cfr"]
             for name, metrics in strategies.items():
@@ -501,6 +660,9 @@ class Runner:
                     k: {kk: nan_to_none(vv) for kk, vv in m.items()} for k, m in strategies.items()
                 },
                 "conformal_meta": {k: nan_to_none(v) if isinstance(v, float) else v for k, v in conformal_meta.items()},
+                "calibration_meta": calibration_meta,
+                "frontier": frontier,
+                "conformal_grid": conformal_grid_rows,
             }
             write_json(self.shards_dir / f"{model}.json", out)
             return model, 0, ""
@@ -557,8 +719,17 @@ class Runner:
             "mirror_domain_routing",
             "confidence_threshold_budget_matched",
             "self_consistency_budget_matched",
-            "conformal_style",
+            "calibrated_confidence_budget_matched",
+            "conformal_style_budget_matched",
         ]
+        if self.strategy_set != "robust_v2":
+            strategies = [
+                "no_routing",
+                "mirror_domain_routing",
+                "confidence_threshold_budget_matched",
+                "self_consistency_budget_matched",
+                "conformal_style_budget_matched",
+            ]
 
         macro: dict[str, dict[str, float | None]] = {}
         for strategy in strategies:
@@ -598,6 +769,69 @@ class Runner:
                 "n_models": len(weak_cfr_vals),
             }
 
+        frontier_macro: dict[str, list[dict[str, float | None]]] = {}
+        if self.strategy_set == "robust_v2":
+            frontier_names = [
+                "confidence_threshold_frontier",
+                "self_consistency_frontier",
+                "calibrated_confidence_frontier",
+            ]
+            for fname in frontier_names:
+                pts = []
+                for autonomy in self.autonomy_grid:
+                    a = clamp01(autonomy)
+                    vals = {"weak_cfr": [], "overall_failure_rate": [], "autonomy_rate": [], "escalation_rate": []}
+                    for r in completed:
+                        for p in r.get("frontier", {}).get(fname, []):
+                            if abs(float(p.get("autonomy_target", -1.0)) - a) < 1e-9:
+                                for k in vals:
+                                    v = p.get(k)
+                                    if v is not None:
+                                        vals[k].append(float(v))
+                                break
+                    pts.append(
+                        {
+                            "autonomy_target": a,
+                            "mean_weak_cfr": (sum(vals["weak_cfr"]) / len(vals["weak_cfr"])) if vals["weak_cfr"] else None,
+                            "mean_overall_failure_rate": (sum(vals["overall_failure_rate"]) / len(vals["overall_failure_rate"])) if vals["overall_failure_rate"] else None,
+                            "mean_autonomy_rate": (sum(vals["autonomy_rate"]) / len(vals["autonomy_rate"])) if vals["autonomy_rate"] else None,
+                            "mean_escalation_rate": (sum(vals["escalation_rate"]) / len(vals["escalation_rate"])) if vals["escalation_rate"] else None,
+                            "n_models": len(vals["weak_cfr"]),
+                        }
+                    )
+                frontier_macro[fname] = pts
+
+        conformal_grid_macro: list[dict[str, Any]] = []
+        if self.strategy_set == "robust_v2":
+            for te in self.conformal_target_grid:
+                weak_vals = []
+                aut_vals = []
+                esc_vals = []
+                fail_vals = []
+                for r in completed:
+                    for row in r.get("conformal_grid", []):
+                        if abs(float(row.get("target_error", -1.0)) - float(te)) < 1e-9:
+                            m = row.get("metrics", {})
+                            if m.get("weak_cfr") is not None:
+                                weak_vals.append(float(m["weak_cfr"]))
+                            if m.get("autonomy_rate") is not None:
+                                aut_vals.append(float(m["autonomy_rate"]))
+                            if m.get("escalation_rate") is not None:
+                                esc_vals.append(float(m["escalation_rate"]))
+                            if m.get("overall_failure_rate") is not None:
+                                fail_vals.append(float(m["overall_failure_rate"]))
+                            break
+                conformal_grid_macro.append(
+                    {
+                        "target_error": float(te),
+                        "mean_weak_cfr": (sum(weak_vals) / len(weak_vals)) if weak_vals else None,
+                        "mean_autonomy_rate": (sum(aut_vals) / len(aut_vals)) if aut_vals else None,
+                        "mean_escalation_rate": (sum(esc_vals) / len(esc_vals)) if esc_vals else None,
+                        "mean_overall_failure_rate": (sum(fail_vals) / len(fail_vals)) if fail_vals else None,
+                        "n_models": len(weak_vals),
+                    }
+                )
+
         summary = {
             "run_id": self.run_id,
             "created_at_utc": read_json(self.run_dir / "manifest.json").get("created_at_utc"),
@@ -606,6 +840,8 @@ class Runner:
             "n_models_complete": len(completed),
             "n_models_skipped": len(skipped),
             "macro_summary": {k: {kk: nan_to_none(vv) for kk, vv in v.items()} for k, v in macro.items()},
+            "frontier_macro_summary": frontier_macro,
+            "conformal_grid_macro_summary": conformal_grid_macro,
             "per_model": completed,
             "skipped_details": skipped,
         }
@@ -639,14 +875,46 @@ class Runner:
                 "",
                 "## Notes",
                 "",
-                "- Frame: Condition 1, Paradigm 3, `api_success=true` rows only.",
+                f"- Frame label: `{self.frame_label}`",
+                f"- Conditions: `{self.conditions}` | Paradigms: `{self.paradigms}` | `api_success=true` rows only.",
                 "- Weak-domain policy: `median_or_bottom_k` (fallback `k=2`) from merged Exp1 natural accuracy.",
                 "- `mirror_domain_routing` escalates all weak-domain components.",
+                f"- Strategy set: `{self.strategy_set}` | Calibration: `{self.calibration_method}` | Matched-budget mode: `{self.matched_budget_mode}`.",
                 "- `confidence_threshold_budget_matched` and `self_consistency_budget_matched` match MIRROR domain-routing escalation budget per model.",
-                "- `conformal_style` is a split-calibrated thresholding baseline over the confidence-uncertainty proxy.",
+                "- `calibrated_confidence_budget_matched` uses transformed-Platt calibrated confidence uncertainty when enabled.",
+                "- `conformal_style_budget_matched` is a split-calibrated thresholding baseline over confidence uncertainty.",
+                f"- Conformal target grid: `{self.conformal_target_grid}`.",
                 "",
             ]
         )
+        if self.strategy_set == "robust_v2":
+            lines.extend(
+                [
+                    "## Robust Frontier Summary (Macro)",
+                    "",
+                    "| Strategy | Autonomy Target | Mean Weak CFR | Mean Escalation | N Models |",
+                    "| --- | ---: | ---: | ---: | ---: |",
+                ]
+            )
+            for strat, pts in frontier_macro.items():
+                for p in pts:
+                    aw = "NA" if p.get("mean_weak_cfr") is None else f"{100.0 * float(p['mean_weak_cfr']):.1f}%"
+                    ae = "NA" if p.get("mean_escalation_rate") is None else f"{100.0 * float(p['mean_escalation_rate']):.1f}%"
+                    lines.append(f"| `{strat}` | {100.0 * float(p['autonomy_target']):.1f}% | {aw} | {ae} | {p.get('n_models', 0)} |")
+            lines.extend(
+                [
+                    "",
+                    "## Conformal Target-Error Grid (Macro)",
+                    "",
+                    "| Target Error | Mean Weak CFR | Mean Autonomy | Mean Escalation | N Models |",
+                    "| ---: | ---: | ---: | ---: | ---: |",
+                ]
+            )
+            for p in conformal_grid_macro:
+                wc = "NA" if p.get("mean_weak_cfr") is None else f"{100.0 * float(p['mean_weak_cfr']):.1f}%"
+                au = "NA" if p.get("mean_autonomy_rate") is None else f"{100.0 * float(p['mean_autonomy_rate']):.1f}%"
+                es = "NA" if p.get("mean_escalation_rate") is None else f"{100.0 * float(p['mean_escalation_rate']):.1f}%"
+                lines.append(f"| {float(p['target_error']):.2f} | {wc} | {au} | {es} | {p.get('n_models', 0)} |")
         self.summary_md.write_text("\n".join(lines), encoding="utf-8")
         self.log_event("aggregate_written", {"summary_json": str(self.summary_json), "summary_md": str(self.summary_md)})
         self.mark_step(state, step)
@@ -670,6 +938,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bottom-k", type=int, default=2)
     parser.add_argument("--conformal-target-error", type=float, default=0.25)
     parser.add_argument("--max-workers", type=int, default=max(2, min(8, (os.cpu_count() or 4) // 2)))
+    parser.add_argument("--conditions", nargs="+", type=int, default=[1])
+    parser.add_argument("--paradigms", nargs="+", type=int, default=[3])
+    parser.add_argument("--frame-label", type=str, default="Condition 1 / Paradigm 3 (Legacy)")
+    parser.add_argument("--strategy-set", type=str, default="legacy", choices=["legacy", "robust_v2"])
+    parser.add_argument("--autonomy-grid", nargs="+", type=float, default=[0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90])
+    parser.add_argument("--conformal-target-grid", nargs="+", type=float, default=[0.10, 0.15, 0.20, 0.25, 0.30])
+    parser.add_argument("--calibration-method", type=str, default="none", choices=["none", "transformed_platt"])
+    parser.add_argument("--matched-budget-mode", type=str, default="domain_budget", choices=["domain_budget", "matched_autonomy"])
     return parser.parse_args()
 
 
@@ -689,6 +965,14 @@ def main() -> None:
         conformal_target_error=args.conformal_target_error,
         max_workers=max(1, args.max_workers),
         result_glob=args.result_glob,
+        conditions=sorted(set(args.conditions)),
+        paradigms=sorted(set(args.paradigms)),
+        frame_label=args.frame_label,
+        strategy_set=args.strategy_set,
+        autonomy_grid=sorted(set(clamp01(v) for v in args.autonomy_grid)),
+        conformal_target_grid=sorted(set(clamp01(v) for v in args.conformal_target_grid)),
+        calibration_method=args.calibration_method,
+        matched_budget_mode=args.matched_budget_mode,
     )
     runner.run()
     print(f"Done: {runner.run_dir}")

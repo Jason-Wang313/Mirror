@@ -25,6 +25,10 @@ AUDIT_MULTI_DIR = PACKET_DIR / "audit_multirater"
 DEPLOY_DIR = PACKET_DIR / "deployment"
 REDTEAM_DIR = PACKET_DIR / "redteam"
 DEPLOYMENT_PACKET_DIR = ROOT / "deployment_packet"
+PAPER_DIR = ROOT / "paper"
+PAPER_TEX = PAPER_DIR / "mirror_draft_v20.tex"
+PAPER_PDF = PAPER_DIR / "mirror_draft_v20.pdf"
+CALIBRATION_REPORT_PATH = Path(r"C:\Users\wangz\neurlips benchmark reviewing\data\mirror_v20_review_calibration_prompt_final.md")
 
 
 def utc_now_iso() -> str:
@@ -136,6 +140,8 @@ class Runner:
     summary_stem: str
     cohort_label: str
     max_workers: int
+    verify_mapping_with_api: bool
+    build_pdf: bool
     checkpoint_path: Path
     log_path: Path
     retry_queue_path: Path
@@ -373,22 +379,78 @@ class Runner:
         step = "instance_baselines"
         if step in state["completed_steps"]:
             return
-        instance_run_id = f"{self.run_id}_instance"
-        cmd = [
-            sys.executable,
-            str(ROOT / "scripts" / "exp9_instance_abstention_baselines.py"),
-            "--run-id",
-            instance_run_id,
-            "--max-workers",
-            str(max(2, self.max_workers)),
+        frames = [
+            {
+                "name": "legacy_c1_p3",
+                "conditions": ["1"],
+                "paradigms": ["3"],
+                "label": "Condition 1 / Paradigm 3 (Legacy)",
+            },
+            {
+                "name": "c1_all_paradigms",
+                "conditions": ["1"],
+                "paradigms": ["1", "2", "3"],
+                "label": "Condition 1 / Paradigms 1-3",
+            },
+            {
+                "name": "c1c2_all_paradigms",
+                "conditions": ["1", "2"],
+                "paradigms": ["1", "2", "3"],
+                "label": "Condition 1-2 / Paradigms 1-3",
+            },
         ]
-        proc = self.run_cmd(cmd, step=step)
-        if proc.returncode != 0:
-            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
-        instance_dir = ROOT / "data" / "results" / "exp9_instance_baselines" / instance_run_id
-        state["instance_baseline_run_id"] = instance_run_id
-        state["instance_baseline_summary_json"] = str(instance_dir / "instance_baseline_summary.json")
-        state["instance_baseline_summary_md"] = str(instance_dir / "instance_baseline_summary.md")
+        state["instance_baseline_runs"] = {}
+        for frame in frames:
+            frame_run_id = f"{self.run_id}_instance_{frame['name']}"
+            cmd = [
+                sys.executable,
+                str(ROOT / "scripts" / "exp9_instance_abstention_baselines.py"),
+                "--run-id",
+                frame_run_id,
+                "--max-workers",
+                str(max(2, self.max_workers)),
+                "--frame-label",
+                frame["label"],
+                "--conditions",
+                *frame["conditions"],
+                "--paradigms",
+                *frame["paradigms"],
+                "--strategy-set",
+                "robust_v2",
+                "--autonomy-grid",
+                "0.30",
+                "0.40",
+                "0.50",
+                "0.60",
+                "0.70",
+                "0.80",
+                "0.90",
+                "--conformal-target-grid",
+                "0.10",
+                "0.15",
+                "0.20",
+                "0.25",
+                "0.30",
+                "--calibration-method",
+                "transformed_platt",
+                "--matched-budget-mode",
+                "domain_budget",
+            ]
+            proc = self.run_cmd(cmd, step=f"{step}:{frame['name']}")
+            if proc.returncode != 0:
+                raise RuntimeError(f"{step} failed for frame {frame['name']}:\n{proc.stderr}\n{proc.stdout}")
+            instance_dir = ROOT / "data" / "results" / "exp9_instance_baselines" / frame_run_id
+            state["instance_baseline_runs"][frame["name"]] = {
+                "run_id": frame_run_id,
+                "summary_json": str(instance_dir / "instance_baseline_summary.json"),
+                "summary_md": str(instance_dir / "instance_baseline_summary.md"),
+            }
+
+        # Backward-compatible aliases point to the expanded C1 all-paradigm frame.
+        primary = state["instance_baseline_runs"]["c1_all_paradigms"]
+        state["instance_baseline_run_id"] = primary["run_id"]
+        state["instance_baseline_summary_json"] = primary["summary_json"]
+        state["instance_baseline_summary_md"] = primary["summary_md"]
         self.save_state(state)
         self.mark_step_complete(state, step)
 
@@ -410,6 +472,296 @@ class Runner:
         state["proper_scoring_run_id"] = proper_run_id
         state["proper_scoring_summary_json"] = str(proper_dir / "proper_scoring_primary_summary.json")
         state["proper_scoring_summary_md"] = str(proper_dir / "proper_scoring_primary_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_parse_missingness(self, state: dict) -> None:
+        step = "parse_missingness"
+        if step in state["completed_steps"]:
+            return
+        parse_run_id = f"{self.run_id}_parse_missingness"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_parse_missingness.py"),
+            "--run-id",
+            parse_run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--imputation",
+            "all",
+            "--mnar-bound-mode",
+            "moderate",
+            "--exp3-cce-path",
+            str(ROOT / "audit" / "human_baseline_packet" / "results" / "exp3_difficulty_control_summary.json"),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        parse_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / parse_run_id
+        state["parse_missingness_run_id"] = parse_run_id
+        state["parse_missingness_summary_json"] = str(parse_dir / "parse_missingness_summary.json")
+        state["parse_missingness_summary_md"] = str(parse_dir / "parse_missingness_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_exp3_difficulty_control(self, state: dict) -> None:
+        step = "exp3_difficulty_control"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_exp3_difficulty"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_exp3_difficulty_control.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--bootstrap-samples",
+            "1200",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["exp3_difficulty_control_run_id"] = run_id
+        state["exp3_difficulty_control_summary_json"] = str(out_dir / "exp3_difficulty_control_summary.json")
+        state["exp3_difficulty_control_summary_md"] = str(out_dir / "exp3_difficulty_control_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_mci_channel_robustness(self, state: dict) -> None:
+        step = "mci_channel_robustness"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_mci_robustness"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_mci_channel_robustness.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--min-shared-for-corr",
+            "30",
+            "--leave-one-out",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["mci_channel_robustness_run_id"] = run_id
+        state["mci_channel_robustness_summary_json"] = str(out_dir / "mci_channel_robustness_summary.json")
+        state["mci_channel_robustness_summary_md"] = str(out_dir / "mci_channel_robustness_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_non_oracle_utility(self, state: dict) -> None:
+        step = "non_oracle_utility"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_non_oracle"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_non_oracle_utility.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--emit-pareto",
+            "--cost-column",
+            "cost_usd",
+            "--latency-column",
+            "total_latency_ms",
+            "--resolver-q-grid",
+            "0.50",
+            "0.60",
+            "0.70",
+            "0.80",
+            "0.90",
+            "1.00",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["non_oracle_utility_run_id"] = run_id
+        state["non_oracle_utility_summary_json"] = str(out_dir / "non_oracle_utility_summary.json")
+        state["non_oracle_utility_summary_md"] = str(out_dir / "non_oracle_utility_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_build_pdf(self, state: dict) -> None:
+        step = "build_pdf"
+        if step in state["completed_steps"]:
+            return
+        if not self.build_pdf:
+            self.mark_step_complete(state, step)
+            return
+
+        pdflatex_exe = shutil.which("pdflatex")
+        if not pdflatex_exe:
+            candidate = Path.home() / ".local" / "bin" / "pdflatex.cmd"
+            if candidate.exists():
+                pdflatex_exe = str(candidate)
+        if not pdflatex_exe:
+            raise FileNotFoundError("pdflatex executable not found in PATH or ~/.local/bin/pdflatex.cmd")
+
+        bibtex_exe = shutil.which("bibtex")
+        if not bibtex_exe:
+            candidate_bib = Path.home() / ".local" / "bin" / "bibtex.cmd"
+            if candidate_bib.exists():
+                bibtex_exe = str(candidate_bib)
+
+        pdflatex_cmd = [pdflatex_exe, "-interaction=nonstopmode", "-halt-on-error", PAPER_TEX.name]
+        proc1 = self.run_cmd(pdflatex_cmd, step=f"{step}:pass1", cwd=PAPER_DIR)
+        if proc1.returncode != 0:
+            raise RuntimeError(f"{step} pass1 failed:\n{proc1.stderr}\n{proc1.stdout}")
+
+        aux = PAPER_DIR / "mirror_draft_v20.aux"
+        if aux.exists() and "\\citation" in aux.read_text(encoding="utf-8", errors="ignore"):
+            if bibtex_exe:
+                bib_proc = self.run_cmd([bibtex_exe, "mirror_draft_v20"], step=f"{step}:bibtex", cwd=PAPER_DIR)
+                if bib_proc.returncode != 0:
+                    raise RuntimeError(f"{step} bibtex failed:\n{bib_proc.stderr}\n{bib_proc.stdout}")
+            else:
+                append_jsonl(
+                    self.log_path,
+                    {
+                        "ts_utc": utc_now_iso(),
+                        "event": "step_warning",
+                        "step": f"{step}:bibtex",
+                        "warning": "bibtex executable not found; continuing with pdflatex-only passes",
+                    },
+                )
+
+        proc2 = self.run_cmd(pdflatex_cmd, step=f"{step}:pass2", cwd=PAPER_DIR)
+        if proc2.returncode != 0:
+            raise RuntimeError(f"{step} pass2 failed:\n{proc2.stderr}\n{proc2.stdout}")
+        proc3 = self.run_cmd(pdflatex_cmd, step=f"{step}:pass3", cwd=PAPER_DIR)
+        if proc3.returncode != 0:
+            raise RuntimeError(f"{step} pass3 failed:\n{proc3.stderr}\n{proc3.stdout}")
+
+        if not PAPER_PDF.exists():
+            raise FileNotFoundError(f"Expected PDF missing after build: {PAPER_PDF}")
+        state["paper_pdf_path"] = str(PAPER_PDF)
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_exp9_mapping_validity(self, state: dict) -> None:
+        step = "exp9_mapping_validity"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_mapping"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_exp9_mapping_validity.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--checkpoint-dir",
+            str(ROOT / "data" / "exp9_verification_runs"),
+            "--max-workers",
+            str(max(2, self.max_workers)),
+            "--fixed-only",
+            "--resume",
+        ]
+        if self.verify_mapping_with_api:
+            cmd.append("--verify-with-api")
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["exp9_mapping_validity_run_id"] = run_id
+        state["exp9_mapping_validity_summary_json"] = str(out_dir / "exp9_mapping_validity_summary.json")
+        state["exp9_mapping_validity_summary_md"] = str(out_dir / "exp9_mapping_validity_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_calibration_gate(self, state: dict) -> None:
+        step = "calibration_gate"
+        if step in state["completed_steps"]:
+            return
+        out = {
+            "source_path": str(CALIBRATION_REPORT_PATH),
+            "found": CALIBRATION_REPORT_PATH.exists(),
+            "generated_at_utc": utc_now_iso(),
+            "actionable_items": [],
+            "status": "missing_source",
+        }
+        if CALIBRATION_REPORT_PATH.exists():
+            text = CALIBRATION_REPORT_PATH.read_text(encoding="utf-8", errors="ignore")
+            action_section = ""
+            if "## Step 5: Actionable revision list" in text:
+                action_section = text.split("## Step 5: Actionable revision list", 1)[1]
+                action_section = action_section.split("## Constraints compliance check", 1)[0]
+            lines = [ln.strip() for ln in action_section.splitlines() if ln.strip()]
+            items = [ln for ln in lines if ln.startswith("### ")]
+            blocked = [
+                ln for ln in items
+                if any(tok in ln.lower() for tok in ["blocked", "scope-blocked", "execution-blocked", "requires api", "requires real log"])
+            ]
+            fixable_now = [ln for ln in items if ln not in blocked]
+            out["actionable_items"] = items
+            out["blocked_items"] = blocked
+            out["fixable_now_items"] = fixable_now
+            out["status"] = "ok"
+            out["n_actionable_items"] = len(items)
+            out["n_blocked_items"] = len(blocked)
+            out["n_fixable_now_items"] = len(fixable_now)
+        gate_json = self.results_dir / "calibration_gate_summary.json"
+        gate_md = self.results_dir / "calibration_gate_summary.md"
+        write_json(gate_json, out)
+        md_lines = [
+            "# Calibration Gate Summary",
+            "",
+            f"- Source found: {out['found']}",
+            f"- Source path: `{out['source_path']}`",
+            f"- Status: {out['status']}",
+            f"- Actionable items: {out.get('n_actionable_items', 0)}",
+            f"- Fixable-now items: {out.get('n_fixable_now_items', 0)}",
+            f"- Blocked items: {out.get('n_blocked_items', 0)}",
+            "",
+        ]
+        if out.get("actionable_items"):
+            md_lines.append("## Parsed Items")
+            md_lines.append("")
+            for item in out["actionable_items"]:
+                md_lines.append(f"- {item}")
+        if out.get("fixable_now_items"):
+            md_lines.extend(["", "## Fixable-Now", ""])
+            for item in out["fixable_now_items"]:
+                md_lines.append(f"- {item}")
+        if out.get("blocked_items"):
+            md_lines.extend(["", "## Blocked", ""])
+            for item in out["blocked_items"]:
+                md_lines.append(f"- {item}")
+        gate_md.write_text("\n".join(md_lines), encoding="utf-8")
+        state["calibration_gate_summary_json"] = str(gate_json)
+        state["calibration_gate_summary_md"] = str(gate_md)
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_stanford_checklist_gate(self, state: dict) -> None:
+        step = "stanford_checklist_gate"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_stanford_gate"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "stanford_feedback_checklist.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["stanford_checklist_run_id"] = run_id
+        state["stanford_checklist_json"] = str(out_dir / "stanford_feedback_checklist.json")
+        state["stanford_checklist_md"] = str(out_dir / "stanford_feedback_checklist.md")
         self.save_state(state)
         self.mark_step_complete(state, step)
 
@@ -474,6 +826,8 @@ class Runner:
             "validation_report.md",
             "source_manifest.json",
             "data_profile.json",
+            "calibration_gate_summary.json",
+            "calibration_gate_summary.md",
         ]
         for name in promote_files:
             src = self.results_dir / name
@@ -489,12 +843,40 @@ class Runner:
         if instance_md.exists():
             shutil.copy2(instance_md, stable_results / "exp9_instance_baseline_summary.md")
 
+        # Promote all instance-baseline frames.
+        for frame_name, meta in state.get("instance_baseline_runs", {}).items():
+            j = Path(meta.get("summary_json", ""))
+            m = Path(meta.get("summary_md", ""))
+            if j.exists():
+                shutil.copy2(j, stable_results / f"exp9_instance_baseline_summary_{frame_name}.json")
+            if m.exists():
+                shutil.copy2(m, stable_results / f"exp9_instance_baseline_summary_{frame_name}.md")
+
         proper_json = Path(state.get("proper_scoring_summary_json", ""))
         proper_md = Path(state.get("proper_scoring_summary_md", ""))
         if proper_json.exists():
             shutil.copy2(proper_json, stable_results / "exp1_proper_scoring_primary_summary.json")
         if proper_md.exists():
             shutil.copy2(proper_md, stable_results / "exp1_proper_scoring_primary_summary.md")
+
+        extra_promotions = [
+            ("parse_missingness_summary_json", "parse_missingness_summary.json"),
+            ("parse_missingness_summary_md", "parse_missingness_summary.md"),
+            ("exp3_difficulty_control_summary_json", "exp3_difficulty_control_summary.json"),
+            ("exp3_difficulty_control_summary_md", "exp3_difficulty_control_summary.md"),
+            ("mci_channel_robustness_summary_json", "mci_channel_robustness_summary.json"),
+            ("mci_channel_robustness_summary_md", "mci_channel_robustness_summary.md"),
+            ("non_oracle_utility_summary_json", "non_oracle_utility_summary.json"),
+            ("non_oracle_utility_summary_md", "non_oracle_utility_summary.md"),
+            ("exp9_mapping_validity_summary_json", "exp9_mapping_validity_summary.json"),
+            ("exp9_mapping_validity_summary_md", "exp9_mapping_validity_summary.md"),
+            ("stanford_checklist_json", "stanford_feedback_checklist.json"),
+            ("stanford_checklist_md", "stanford_feedback_checklist.md"),
+        ]
+        for state_key, dst_name in extra_promotions:
+            src = Path(state.get(state_key, ""))
+            if src.exists():
+                shutil.copy2(src, stable_results / dst_name)
 
         # Stable aliases for downstream manuscript tooling.
         shutil.copy2(
@@ -520,8 +902,16 @@ class Runner:
         self.step_context_hardening(state)
         self.step_instance_baselines(state)
         self.step_proper_scoring_primary(state)
+        self.step_parse_missingness(state)
+        self.step_exp3_difficulty_control(state)
+        self.step_mci_channel_robustness(state)
+        self.step_non_oracle_utility(state)
+        self.step_exp9_mapping_validity(state)
         self.step_exp3_mci_stability(state)
         self.step_deployment_packet_validation(state)
+        self.step_build_pdf(state)
+        self.step_calibration_gate(state)
+        self.step_stanford_checklist_gate(state)
         self.step_promote_outputs(state)
 
         append_jsonl(
@@ -546,6 +936,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--cohort-label", type=str, default=None)
     parser.add_argument("--extra-locked-files", nargs="+", type=Path, default=default_supporting_locked_files())
     parser.add_argument("--max-workers", type=int, default=min(8, max(2, (os.cpu_count() or 4) // 2)))
+    parser.add_argument("--verify-mapping-with-api", action="store_true", default=False)
+    parser.add_argument("--skip-pdf-build", action="store_true", default=False)
     return parser.parse_args()
 
 
@@ -574,6 +966,8 @@ def main() -> None:
         summary_stem=summary_stem,
         cohort_label=cohort_label,
         max_workers=max(1, args.max_workers),
+        verify_mapping_with_api=bool(args.verify_mapping_with_api),
+        build_pdf=not bool(args.skip_pdf_build),
         checkpoint_path=run_dir / "checkpoint.json",
         log_path=run_dir / "progress_log.jsonl",
         retry_queue_path=run_dir / "retry_queue.json",
