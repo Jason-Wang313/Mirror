@@ -144,16 +144,9 @@ def main():
 
         model_mins.append((i, min(vals), med, color))
 
-    # Annotate median values in the empty top region with leader lines
-    # Stagger into two rows to avoid horizontal crowding
-    label_y_even = 0.50  # even-indexed models
-    label_y_odd  = 0.44  # odd-indexed models
+    # Annotate median values below the lowest data point for each model
     for i, val_min, med, color in model_mins:
-        label_y = label_y_even if i % 2 == 0 else label_y_odd
-        # Thin leader line from label down to median
-        ax.plot([i, i], [label_y - 0.02, med + 0.02],
-                color=color, linewidth=0.5, alpha=0.4, zorder=1)
-        ax.text(i, label_y, f"{med:.3f}", ha="center", va="bottom",
+        ax.text(i, val_min - 0.05, f"{med:.3f}", ha="center", va="top",
                 fontsize=7.5, color=color, fontweight="bold")
 
     # Zero reference line
@@ -193,11 +186,10 @@ def main():
     ax.axhspan(y_min, 0, alpha=0.04, color="#D32F2F", zorder=0)
     ax.axhspan(0, max(y_max, 0.05), alpha=0.04, color="#388E3C", zorder=0)
 
-    # Callout in upper-right corner, clear of violins
-    ax.text(0.98, 0.97,
-            "13/16 models below 0\n(fail to act on knowledge)",
-            transform=ax.transAxes,
-            ha="right", va="top", fontsize=9, color="#C62828", style="italic")
+    # Callout on the right side of the KDI = 0 line
+    ax.text(n_models - 0.5, 0.02,
+            "  13/16 models below 0 (fail to act on knowledge)",
+            ha="right", va="bottom", fontsize=8, color="#C62828", style="italic")
 
     ax.legend(loc="upper left", fontsize=10)
     fig.tight_layout()
