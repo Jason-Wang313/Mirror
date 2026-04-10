@@ -208,10 +208,12 @@ def plot_escalation(stats: dict, title: str, out_stem: str) -> None:
 
     fig, ax = plt.subplots(figsize=(7, 5))
 
-    colors = ["#2196F3", "#FF9800", "#4CAF50", "#9C27B0"]
+    # Colorblind-safe escalation gradient: bad (coral) → good (teal)
+    colors = ["#E8655A", "#EDA247", "#A3C96B", "#2A9D8F"]
     x_pos = np.arange(len(conditions))
 
-    bars = ax.bar(x_pos, means, color=colors, alpha=0.85, width=0.55, zorder=3)
+    bars = ax.bar(x_pos, means, color=colors, alpha=0.90, width=0.55, zorder=3,
+                  edgecolor="white", linewidth=0.8)
     ax.errorbar(x_pos, means,
                 yerr=[yerr_lo, yerr_hi],
                 fmt="none", color="black", capsize=5, capthick=1.5,
@@ -268,12 +270,13 @@ def plot_per_paradigm(all_stats: dict[int, dict], out_stem: str) -> None:
     paradigm_labels = {1: "P1: Autonomous Tool Use",
                        2: "P2: Checkpoint Decisions",
                        3: "P3: No-Tool Behavioral"}
-    colors = ["#2196F3", "#FF9800", "#4CAF50", "#9C27B0"]
+    # Colorblind-safe escalation gradient matching Figure 2
+    colors = ["#E8655A", "#EDA247", "#A3C96B", "#2A9D8F"]
     conditions = [1, 2, 3, 4]
     x_labels = ["C1", "C2", "C3", "C4"]
     x_pos = np.arange(4)
 
-    fig, axes = plt.subplots(1, 3, figsize=(14, 4.5), sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5.5), sharey=True)
 
     for ax, (pid, s) in zip(axes, sorted(all_stats.items())):
         by_cond = s["by_condition"]
@@ -286,7 +289,8 @@ def plot_per_paradigm(all_stats: dict[int, dict], out_stem: str) -> None:
         yerr_hi = [h - m if means_raw[i] is not None and h is not None else 0
                    for i, (m, h) in enumerate(zip(means, hi))]
 
-        ax.bar(x_pos, means, color=colors, alpha=0.8, width=0.55, zorder=3)
+        ax.bar(x_pos, means, color=colors, alpha=0.85, width=0.55, zorder=3,
+               edgecolor="white", linewidth=0.8)
         ax.errorbar(x_pos, means,
                     yerr=[yerr_lo, yerr_hi],
                     fmt="none", color="black", capsize=4, linewidth=1.2, zorder=4)
@@ -298,18 +302,19 @@ def plot_per_paradigm(all_stats: dict[int, dict], out_stem: str) -> None:
             if model_vals:
                 jitter = np.random.default_rng(42).uniform(-0.1, 0.1, len(model_vals))
                 ax.scatter(ci + jitter, model_vals, color="black", alpha=0.4,
-                           s=18, zorder=5)
+                           s=28, zorder=5)
 
         ax.set_xticks(x_pos)
-        ax.set_xticklabels(x_labels)
-        ax.set_title(paradigm_labels[pid], fontsize=10)
+        ax.set_xticklabels(x_labels, fontsize=9)
+        ax.set_title(paradigm_labels[pid], fontsize=11)
         ax.set_ylim(0, 1.0)
+        ax.tick_params(axis='y', labelsize=9)
         ax.yaxis.grid(True, alpha=0.3, zorder=0)
         ax.set_axisbelow(True)
         if pid == 1:
-            ax.set_ylabel("Confident Failure Rate (CFR)", fontsize=11)
+            ax.set_ylabel("Confident Failure Rate (CFR)", fontsize=10)
 
-    fig.suptitle("Escalation Curve: CFR by Condition, Per Paradigm", fontsize=12, y=1.02)
+    fig.suptitle("Escalation Curve: CFR by Condition, Per Paradigm", fontsize=13, y=1.02)
     plt.tight_layout()
     for ext in ("pdf", "png"):
         path = FIGURES_DIR / f"{out_stem}.{ext}"

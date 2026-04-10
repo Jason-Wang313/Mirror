@@ -108,7 +108,7 @@ def main():
     n_models = len(sorted_models)
     print(f"\nModels in figure: {n_models}")
 
-    fig, ax = plt.subplots(figsize=(10.0, 4.5))
+    fig, ax = plt.subplots(figsize=(13.0, 5.5))
     positions = list(range(n_models))
 
     for i, model in enumerate(sorted_models):
@@ -131,7 +131,7 @@ def main():
         # Strip plot (jittered)
         jitter = np.random.default_rng(42 + i).uniform(-0.12, 0.12, len(vals))
         ax.scatter(np.full(len(vals), i) + jitter, vals,
-                   color=color, alpha=0.75, s=28, zorder=4,
+                   color=color, alpha=0.75, s=32, zorder=4,
                    edgecolors="white", linewidths=0.3)
 
         # Median line
@@ -141,7 +141,7 @@ def main():
 
         # Annotate median
         ax.text(i, med - 0.03, f"{med:.3f}", ha="center", va="top",
-                fontsize=6.5, color=color, fontweight="bold")
+                fontsize=8, color=color, fontweight="bold")
 
     # Zero reference line
     ax.axhline(0, color="#888888", linewidth=1.0, linestyle="--",
@@ -167,11 +167,13 @@ def main():
             name = "gemini\n2.5-pro"
         short_names.append(name)
 
-    ax.set_xticklabels(short_names, fontsize=7.5, rotation=0)
-    ax.set_ylabel("Knowing-Doing Index (KDI)", fontsize=11)
+    ax.set_xticklabels(short_names, fontsize=9.5, rotation=35, ha="right")
+    ax.set_ylabel("Knowing-Doing Index (KDI)", fontsize=12)
     ax.set_title("KDI Distribution per Model (16 models)\n"
-                 "(KDI = MIRROR gap − appropriate action rate; lower = worse)", pad=8)
+                 "(KDI = MIRROR gap − appropriate action rate; lower = worse)",
+                 fontsize=13, pad=10)
     ax.set_xlim(-0.6, n_models - 0.4)
+    ax.tick_params(axis='y', labelsize=10)
 
     # Shading
     y_min, y_max = ax.get_ylim()
@@ -179,9 +181,9 @@ def main():
     ax.axhspan(0, max(y_max, 0.05), alpha=0.04, color="#388E3C", zorder=0)
     ax.text(n_models - 0.55, -0.01,
             "13/16 models below 0\n(fail to act on knowledge)",
-            ha="right", va="top", fontsize=8, color="#C62828", style="italic")
+            ha="right", va="top", fontsize=10, color="#C62828", style="italic")
 
-    ax.legend(loc="upper left", fontsize=9)
+    ax.legend(loc="upper left", fontsize=10)
     fig.tight_layout()
 
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
