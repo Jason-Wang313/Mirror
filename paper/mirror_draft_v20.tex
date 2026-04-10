@@ -256,33 +256,62 @@ feedback adaptation, ecosystem interactions, and agentic decision-making.
 % --- Framework Figure ---
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}
-  \tikzstyle{block} = [draw, rounded corners=3pt, minimum width=12.5cm,
-    minimum height=0.7cm, align=center, font=\small]
-  \tikzstyle{blockhi} = [draw, rounded corners=3pt, minimum width=12.5cm,
-    minimum height=1.15cm, align=center, font=\small]
+\begin{tikzpicture}[
+    drop shadow/.style={fill=black!12, rounded corners=5pt,
+      xshift=0.6mm, yshift=-0.6mm},
+  ]
+  % Colour definitions — distinct per level, colourblind safe
+  \definecolor{L0fill}{HTML}{D6EAF8}   % soft blue
+  \definecolor{L0bdr}{HTML}{5DADE2}
+  \definecolor{L1fill}{HTML}{D1F2EB}   % soft teal
+  \definecolor{L1bdr}{HTML}{48C9B0}
+  \definecolor{L2fill}{HTML}{FEF5E7}   % soft amber
+  \definecolor{L2bdr}{HTML}{F0B27A}
+  \definecolor{L3fill}{HTML}{FADBD8}   % soft coral
+  \definecolor{L3bdr}{HTML}{E74C3C}
 
-  \node[block, fill=blue!5] (l0) at (0,0)
-    {\textbf{Level 0: Atomic Self-Knowledge}
+  \tikzstyle{block} = [draw, rounded corners=5pt, minimum width=12.5cm,
+    minimum height=0.78cm, align=center, font=\small, line width=0.7pt]
+  \tikzstyle{blockhi} = [draw, rounded corners=5pt, minimum width=12.5cm,
+    minimum height=1.20cm, align=center, font=\small, line width=0.7pt]
+
+  % Drop shadows (drawn first, behind the boxes)
+  \fill[black!8, rounded corners=5pt] ([xshift=0.7mm, yshift=-0.7mm]-6.25,-0.39)
+    rectangle ([xshift=0.7mm, yshift=-0.7mm]6.25,0.39);
+  \fill[black!8, rounded corners=5pt] ([xshift=0.7mm, yshift=-0.7mm]-6.25,0.81)
+    rectangle ([xshift=0.7mm, yshift=-0.7mm]6.25,1.59);
+  \fill[black!8, rounded corners=5pt] ([xshift=0.7mm, yshift=-0.7mm]-6.25,2.01)
+    rectangle ([xshift=0.7mm, yshift=-0.7mm]6.25,2.79);
+  \fill[black!8, rounded corners=5pt] ([xshift=0.7mm, yshift=-0.7mm]-6.25,3.25)
+    rectangle ([xshift=0.7mm, yshift=-0.7mm]6.25,4.45);
+
+  % Level boxes
+  \node[block, fill=L0fill, draw=L0bdr] (l0) at (0,0)
+    {{\fontseries{b}\selectfont Level~0: Atomic Self-Knowledge}
      \quad Exp~1: Calibration Atlas (\textit{MIRROR Gap})};
-  \node[block, fill=blue!12] (l1) at (0,1.2)
-    {\textbf{Level 1: Cross-Domain Transfer}
+  \node[block, fill=L1fill, draw=L1bdr] (l1) at (0,1.2)
+    {{\fontseries{b}\selectfont Level~1: Cross-Domain Transfer}
      \quad Exp~2: Transfer Influence (\textit{TII})};
-  \node[block, fill=blue!20] (l2) at (0,2.4)
-    {\textbf{Level 2: Compositional Prediction}
+  \node[block, fill=L2fill, draw=L2bdr] (l2) at (0,2.4)
+    {{\fontseries{b}\selectfont Level~2: Compositional Prediction}
      \quad Exp~3: Composition (\textit{CCE, MCI})};
-  \node[blockhi, fill=blue!28] (l3) at (0,3.85)
-    {\textbf{Level 3: Adaptive Self-Regulation}\\[-2pt]
+  \node[blockhi, fill=L3fill, draw=L3bdr] (l3) at (0,3.85)
+    {{\fontseries{b}\selectfont Level~3: Adaptive Self-Regulation}\\[-2pt]
      {\footnotesize Exp~4: Feedback (\textit{AI})
       ~$\vert$~ Exp~5: Adversarial (\textit{ARS})
       ~$\vert$~ Exp~6: Ecosystem (\textit{SSR, FDR})
-      ~$\vert$~ \textbf{Exp~9}: \textit{CFR (primary), KDI (diagnostic)}}};
+      ~$\vert$~ \fcolorbox{L3bdr}{L3fill!40!white}{\fontseries{b}\selectfont\normalsize Exp~9}\,: \textit{CFR (primary), KDI (diagnostic)}}};
 
-  \draw[-stealth, thick, gray!60] (l0) -- (l1);
-  \draw[-stealth, thick, gray!60] (l1) -- (l2);
-  \draw[-stealth, thick, gray!60] (l2) -- (l3);
-  \node[font=\scriptsize\itshape, gray] at (5.2,-0.6)
-    {Exp~8: Scaling (cross-cutting)};
+  % Upward arrows — thicker, dark gray
+  \draw[-stealth, line width=1.8pt, color=black!65] (l0) -- (l1);
+  \draw[-stealth, line width=1.8pt, color=black!65] (l1) -- (l2);
+  \draw[-stealth, line width=1.8pt, color=black!65] (l2) -- (l3);
+
+  % Exp 8 cross-cutting sidebar
+  \draw[line width=1.0pt, color=black!35, rounded corners=3pt]
+    (6.6,-0.39) rectangle (8.0,4.45);
+  \node[font=\footnotesize\itshape, text=black!60, rotate=90, anchor=south]
+    at (7.3,2.03) {Exp~8: Scaling (cross-cutting)};
 \end{tikzpicture}
 \caption{The \mirror{} experimental hierarchy. Each level builds on measurements
 from the level below. Experiment~1 produces per-model calibration profiles consumed
