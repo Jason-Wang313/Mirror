@@ -111,6 +111,9 @@ def main():
     fig, ax = plt.subplots(figsize=(7.5, 4.5))
     positions = list(range(n_models))
 
+    # Track per-model min for annotation placement
+    model_mins = []
+
     for i, model in enumerate(sorted_models):
         vals = model_kdi[model]
         color = MODEL_COLORS.get(model, DEFAULT_COLOR)
@@ -139,9 +142,12 @@ def main():
         ax.hlines(med, i - 0.22, i + 0.22, colors=color,
                   linewidths=2.2, zorder=5)
 
-        # Annotate median
-        ax.text(i, med - 0.03, f"{med:.3f}", ha="center", va="top",
-                fontsize=8, color=color, fontweight="bold")
+        model_mins.append((i, min(vals), med, color))
+
+    # Annotate median values below the lowest data point for each model
+    for i, val_min, med, color in model_mins:
+        ax.text(i, val_min - 0.05, f"{med:.3f}", ha="center", va="top",
+                fontsize=7.5, color=color, fontweight="bold")
 
     # Zero reference line
     ax.axhline(0, color="#888888", linewidth=1.0, linestyle="--",
@@ -179,9 +185,12 @@ def main():
     y_min, y_max = ax.get_ylim()
     ax.axhspan(y_min, 0, alpha=0.04, color="#D32F2F", zorder=0)
     ax.axhspan(0, max(y_max, 0.05), alpha=0.04, color="#388E3C", zorder=0)
-    ax.text(n_models - 0.55, -0.01,
+
+    # Callout in upper-right corner, clear of violins
+    ax.text(0.98, 0.97,
             "13/16 models below 0\n(fail to act on knowledge)",
-            ha="right", va="top", fontsize=10, color="#C62828", style="italic")
+            transform=ax.transAxes,
+            ha="right", va="top", fontsize=9, color="#C62828", style="italic")
 
     ax.legend(loc="upper left", fontsize=10)
     fig.tight_layout()
