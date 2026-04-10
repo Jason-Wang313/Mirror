@@ -108,7 +108,7 @@ def main():
     n_models = len(sorted_models)
     print(f"\nModels in figure: {n_models}")
 
-    fig, ax = plt.subplots(figsize=(13.0, 5.5))
+    fig, ax = plt.subplots(figsize=(7.5, 4.5))
     positions = list(range(n_models))
 
     for i, model in enumerate(sorted_models):

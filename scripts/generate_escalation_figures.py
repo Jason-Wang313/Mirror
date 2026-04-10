@@ -276,7 +276,7 @@ def plot_per_paradigm(all_stats: dict[int, dict], out_stem: str) -> None:
     x_labels = ["C1", "C2", "C3", "C4"]
     x_pos = np.arange(4)
 
-    fig, axes = plt.subplots(1, 3, figsize=(15, 5.5), sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(7.5, 3.5), sharey=True)
 
     for ax, (pid, s) in zip(axes, sorted(all_stats.items())):
         by_cond = s["by_condition"]
