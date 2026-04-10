@@ -186,10 +186,10 @@ def main():
     ax.axhspan(y_min, 0, alpha=0.04, color="#D32F2F", zorder=0)
     ax.axhspan(0, max(y_max, 0.05), alpha=0.04, color="#388E3C", zorder=0)
 
-    # Callout on the right side of the KDI = 0 line
-    ax.text(n_models - 0.5, 0.02,
-            "  13/16 models below 0 (fail to act on knowledge)",
-            ha="right", va="bottom", fontsize=8, color="#C62828", style="italic")
+    # Callout in the empty bottom-right area
+    ax.text(n_models - 0.5, -0.35,
+            "13/16 models below 0\n(fail to act on knowledge)",
+            ha="right", va="top", fontsize=8, color="#C62828", style="italic")
 
     ax.legend(loc="upper left", fontsize=10)
     fig.tight_layout()
