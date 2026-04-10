@@ -144,9 +144,16 @@ def main():
 
         model_mins.append((i, min(vals), med, color))
 
-    # Annotate median values below the lowest data point for each model
+    # Annotate median values in the empty top region with leader lines
+    # Stagger into two rows to avoid horizontal crowding
+    label_y_even = 0.50  # even-indexed models
+    label_y_odd  = 0.44  # odd-indexed models
     for i, val_min, med, color in model_mins:
-        ax.text(i, val_min - 0.05, f"{med:.3f}", ha="center", va="top",
+        label_y = label_y_even if i % 2 == 0 else label_y_odd
+        # Thin leader line from label down to median
+        ax.plot([i, i], [label_y - 0.02, med + 0.02],
+                color=color, linewidth=0.5, alpha=0.4, zorder=1)
+        ax.text(i, label_y, f"{med:.3f}", ha="center", va="bottom",
                 fontsize=7.5, color=color, fontweight="bold")
 
     # Zero reference line
