@@ -198,6 +198,9 @@ feedback adaptation, ecosystem interactions, and agentic decision-making.
     drop shadow/.style={fill=black!12, rounded corners=5pt,
       xshift=0.6mm, yshift=-0.6mm},
   ]
+  % Keep the framework on a symmetric bounding box so the figure stays centered.
+  \useasboundingbox (-6.55,-1.00) rectangle (6.55,4.50);
+
   % Colour definitions — distinct per level, colourblind safe
   \definecolor{L0fill}{HTML}{D6EAF8}   % soft blue
   \definecolor{L0bdr}{HTML}{5DADE2}
@@ -245,8 +248,8 @@ feedback adaptation, ecosystem interactions, and agentic decision-making.
   \draw[-stealth, line width=1.8pt, color=black!65] (l1) -- (l2);
   \draw[-stealth, line width=1.8pt, color=black!65] (l2) -- (l3);
 
-  % Exp 8 note below Level 0
-  \node[font=\small\itshape, text=black!55] at (0,-0.75)
+  % Exp 8 note centered below Level 0
+  \node[font=\normalsize\itshape, text=black!70] at (0,-0.70)
     {Exp~8: Scaling (cross-cutting) spans all levels.};
 \end{tikzpicture}
 \caption{The \mirror{} experimental hierarchy. Each level builds on measurements
@@ -513,6 +516,7 @@ Redacted for review.
 \FloatBarrier
 
 % =============================================================================
+\bibliographystyle{plainnat}
 \bibliography{references}
 % =============================================================================
 
