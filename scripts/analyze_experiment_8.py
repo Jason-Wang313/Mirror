@@ -425,8 +425,8 @@ def generate_hero_figure(hero: dict, run_id: str):
     ax.set_ylabel("Metric Value (normalized)", fontsize=13)
     ax.set_title("Experiment 8: MIRROR Level Performance vs Scale\n"
                  "(L0=Self-Knowledge, L1=Transfer, L2=Compositional, L3=Adaptation)",
-                 fontsize=12)
-    ax.legend(fontsize=9, loc="upper left")
+                 fontsize=13)
+    ax.legend(fontsize=10, loc="upper left")
     ax.grid(True, linestyle="--", alpha=0.4)
     ax.set_ylim(bottom=0)
 
@@ -434,7 +434,7 @@ def generate_hero_figure(hero: dict, run_id: str):
     ax.text(0.98, 0.02,
             "Predicted: L0 rises, L1-L3 plateau near zero",
             transform=ax.transAxes, ha="right", va="bottom",
-            fontsize=8, color="gray", style="italic")
+            fontsize=10, color="gray", style="italic")
 
     fig.tight_layout()
 

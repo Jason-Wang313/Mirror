@@ -3,6 +3,7 @@
 \usepackage[eandd]{neurips_2026}
 
 \usepackage{amsmath,amssymb}
+\usepackage{array}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{xcolor}
@@ -197,6 +198,8 @@ feedback adaptation, ecosystem interactions, and agentic decision-making.
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[
+    scale=0.91,
+    transform shape,
     drop shadow/.style={fill=black!12, rounded corners=5pt,
       xshift=0.6mm, yshift=-0.6mm},
   ]
@@ -251,10 +254,9 @@ feedback adaptation, ecosystem interactions, and agentic decision-making.
   \node[font=\normalsize\itshape, text=black!70] at (0,-0.70)
     {Exp~8: Scaling (cross-cutting) spans all levels.};
 \end{tikzpicture}
-\caption{The \mirror{} experimental hierarchy. Each level builds on measurements
-from the level below. Experiment~1 produces per-model calibration profiles consumed
-by all subsequent experiments. The capstone (Experiment~9) tests whether
-self-knowledge translates to appropriate agentic decisions.}
+\caption{The \mirror{} experimental hierarchy. Each level builds on lower-level
+measurements. Exp.~1 calibrates later experiments. Exp.~9 tests whether
+self-knowledge guides action.}
 \label{fig:framework}
 \end{figure}
 
@@ -716,9 +718,9 @@ not (slope~$\approx$~0, $R^2\!=\!0.000$). The generation comparison
 $+$21.2~pp wagering accuracy) without closing the calibration gap
 ($+$0.010 \mirror{} gap increase).
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=0.9\linewidth]{exp8_20260313T192852_hero_figure}
+  \includegraphics[width=\textwidth]{exp8_20260313T192852_hero_figure}
   \caption{Scaling analysis: \mirror{} metrics across model size (Llama~3.1
     family) and generation (3.1 vs.\ 3.3 at 70B). Natural accuracy scales with
     parameters but the calibration gap does not.}
@@ -736,7 +738,7 @@ aggregate pattern (C4 cuts \CFR{} by $\sim$60\%). P3 (behavioral, no tools) has
 no C4 condition. The aggregate 76\% reduction is driven by both tool-enabled
 paradigms.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{exp9_escalation_per_paradigm}
   \caption{Per-paradigm \CFR{} escalation curves. P1 (autonomous) and P2
@@ -762,9 +764,9 @@ The wager-independent sensitivity analysis confirms robustness: weak-domain sets
 \label{app:money}
 % =============================================================================
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\linewidth]{fig2_money_plot}
+  \includegraphics[width=0.9\linewidth]{fig2_money_plot}
   \caption{\mirror{} gap vs.\ \CFR{} at the subcategory level. The shown P1
     fixed-task correlation ($r = -0.123$, $p = 0.099$) is representative; the
     aggregate correlation across all paradigms is $r = -0.100$. Calibration gap
@@ -976,9 +978,10 @@ matched budget, and conformal-style target-error thresholding (risk-coverage gri
 \caption{Instance-level abstention comparison on Exp9 C1/P3 (16 models with complete weak-domain-policy coverage). Values are macro means across models.}
 \label{tab:instance-baselines}
 \small
-\begin{tabular}{lrrrr}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.45\linewidth}rrrr}
 \toprule
-Strategy & Weak CFR & CFR Red. vs No-Routing & Autonomy & Escalation \\
+Strategy & Weak CFR & \shortstack{CFR Red.\\vs No-Routing} & Autonomy & Escalation \\
 \midrule
 No routing & 70.0\% & 0.0\% & 100.0\% & 0.0\% \\
 MIRROR domain routing & 0.0\% & 100.0\% & 51.4\% & 48.6\% \\
@@ -987,7 +990,7 @@ Self-consistency proxy (budget-matched) & 31.4\% & 56.1\% & 51.4\% & 48.6\% \\
 Calibrated confidence (transformed-Platt, budget-matched) & 37.1\% & 48.6\% & 51.4\% & 48.6\% \\
 Conformal-style target-error thresholding & 3.7\% & 87.1\% & 14.7\% & 85.3\% \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{table}[h]
@@ -995,9 +998,10 @@ Conformal-style target-error thresholding & 3.7\% & 87.1\% & 14.7\% & 85.3\% \\
 \caption{Expanded instance-level comparison frames (macro means, 16 models).}
 \label{tab:instance-baselines-expanded}
 \small
-\begin{tabular}{llrrrr}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}rrrr}
 \toprule
-Frame & Strategy & Weak CFR & CFR Red. vs No-Routing & Autonomy & Escalation \\
+Frame & Strategy & Weak CFR & \shortstack{CFR Red.\\vs No-Routing} & Autonomy & Escalation \\
 \midrule
 C1 all paradigms & MIRROR domain routing & 0.0\% & 100.0\% & 51.6\% & 48.4\% \\
 C1 all paradigms & Confidence threshold (budget-matched) & 31.7\% & 49.8\% & 51.6\% & 48.4\% \\
@@ -1011,7 +1015,7 @@ C1+C2 all paradigms & Self-consistency proxy (budget-matched) & 31.0\% & 52.1\% 
 C1+C2 all paradigms & Calibrated confidence (transformed-Platt, budget-matched) & 30.5\% & 52.0\% & 51.7\% & 48.3\% \\
 C1+C2 all paradigms & Conformal-style target-error thresholding & 1.6\% & 93.8\% & 6.2\% & 93.8\% \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 At practical escalation budgets (domain-routing matched), domain-level weak-domain
@@ -1038,9 +1042,9 @@ weak-domain CFR reduction.
 \caption{Parse/API missingness sensitivity summary (canonical slices).}
 \label{tab:missingness}
 \small
-\begin{tabular}{lrrr}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.36\linewidth}rrr}
 \toprule
-Mode & Mean C1 Weak CFR & Mean C4 Weak CFR & Mean C1$\rightarrow$C4 Reduction \\
+Mode & \shortstack{Mean C1\\Weak CFR} & \shortstack{Mean C4\\Weak CFR} & \shortstack{Mean C1$\rightarrow$C4\\Reduction} \\
 \midrule
 Complete-case & 0.6450 & 0.1890 & 72.9\% \\
 Conservative (missing as incorrect) & 0.7059 & 0.3485 & 55.5\% \\
@@ -1322,7 +1326,7 @@ Exp 9 & 50 & 98.0\% & 0.957 & 1 & 0 & 0 \\
 \begin{table}[h]
 \centering
 \caption{Five-rater agreement on a 600-item blinded human-audit subset
-  (same schema as \texttt{real\_human\_audit\_600\_R\{1,2,3,4,5\}.csv}).}
+  (same schema as the five \texttt{real\_human\_audit\_600\_R*.csv} files).}
 \label{tab:human-audit-multirater}
 \small
 \begin{tabular}{lrr}

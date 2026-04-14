@@ -1,8 +1,8 @@
-\begin{table*}[t]
+\begin{table}[t]
 \centering
 \caption{Comparison of MIRROR with prior benchmarks for LLM self-knowledge and metacognition.}
 \label{tab:comparison}
-\resizebox{\textwidth}{!}{%
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{l c c c c c}
 \toprule
 \textbf{Feature} & \textbf{SAD} & \textbf{Barkan et al.} & \textbf{Kadavath et al.} & \textbf{Steyvers et al.} & \textbf{MIRROR} \\
@@ -23,6 +23,6 @@ Headline finding & Partial sit. & LLMs over- & \emph{Mostly} & Task-specific & K
 Public dataset & Yes & No & No & No & Yes \\
 \bottomrule
 \end{tabular}}\\[4pt]
-{\footnotesize $\dagger$5,000 domain questions + 597 agentic tasks. Evaluated across 16 models, 5 channels, and multiple conditions, yielding $\sim$250K total evaluation instances.\\
+\parbox{\linewidth}{\footnotesize $\dagger$5,000 domain questions + 597 agentic tasks. Evaluated across 16 models, 5 channels, and multiple conditions, yielding $\sim$250K total evaluation instances.\\
 $\ddagger$Workshop paper; included for comparison as the most directly relevant prior work on LLM self-capability prediction.}
-\end{table*}
+\end{table}
