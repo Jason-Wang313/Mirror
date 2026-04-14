@@ -23,10 +23,10 @@ behavioral outcomes in agentic task settings. It was created to support the Neur
 Large Language Models'' and subsequent research.
 
 \textbf{Who created the dataset and on behalf of which entity?}
-The dataset was created by the \mirror{} project team. Details provided after review.
+The dataset was created by the \mirror{} project authors and repository maintainers.
 
 \textbf{Who funded the creation of the dataset?}
-Details provided after review. API costs were funded by research compute credits.
+API costs were funded by research compute credits used for the project experiments.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \subsection*{Composition}
@@ -249,11 +249,13 @@ Yes. All preprocessing scripts are released in \texttt{scripts/} and
 
 \textbf{Has the dataset been used for any tasks already?}
 Yes. The dataset has been used to produce all results reported in the accompanying
-NeurIPS 2026 paper. Pre-registered analysis plans are archived at \todo{OSF URL}.
+NeurIPS 2026 paper. The pre-registered analysis plans and completion reports are
+documented in the review materials and experiment reports.
 
 \textbf{Is there a repository that links to any or all papers or systems that use the dataset?}
-The repository is at \todo{GitHub URL}. All paper code and data are released under
-the MIT License (code) and CC BY 4.0 (data).
+Yes. An anonymized reviewer-access repository accompanies the submission. The benchmark
+artifacts and code are distributed under the MIT License, consistent with the
+repository license and Croissant metadata.
 
 \textbf{What (other) tasks could the dataset be used for?}
 \begin{itemize}
@@ -295,20 +297,24 @@ contamination concern).
 
 \textbf{Will the dataset be distributed to third parties outside of the entity on
 behalf of which the dataset was created?}
-Yes. The full dataset will be publicly released upon paper acceptance.
+Yes. The dataset is accessible to reviewers at submission via an anonymized
+reviewer-access repository and supplementary archive.
 
 \textbf{How will the dataset be distributed?}
-Via GitHub (\todo{URL}) and Hugging Face Datasets (\todo{HF URL}).
-The question bank and task bank are distributed as JSONL files.
-Trial records are distributed as compressed JSONL archives (one per experiment).
+Via the anonymized reviewer-access repository that accompanies the submission. The
+question bank and task bank are distributed as JSONL files under \texttt{data/};
+trial records are distributed as JSONL or compressed JSONL archives (one per
+experiment). The Croissant metadata file is included as
+\texttt{data/croissant\_metadata.json}.
 
 \textbf{When will the dataset be distributed?}
-Upon NeurIPS 2026 acceptance or camera-ready deadline, whichever comes first.
+It is already accessible to reviewers at submission. A public release will remain
+hosted after the review period.
 
 \textbf{Will the dataset be distributed under a copyright or other intellectual
 property (IP) license, and if so, which one?}
-Data: Creative Commons Attribution 4.0 International (CC BY 4.0).
-Code: MIT License.
+Repository contents are distributed under the MIT License, as specified in the
+repository root and mirrored in the Croissant metadata.
 
 \textbf{Have any third parties imposed IP-based or other restrictions on the data
 associated with the instances?}
@@ -325,14 +331,15 @@ No.
 % ─────────────────────────────────────────────────────────────────────────────
 
 \textbf{Who will be supporting/hosting/maintaining the dataset?}
-The research team. Contact details provided after review.
+The \mirror{} project authors and release maintainers.
 
 \textbf{How can the owner/curator/manager of the dataset be contacted?}
-Via the GitHub repository issue tracker (\todo{URL}).
+Via the reviewer contact channel and issue-tracking instructions included in the
+anonymized review package.
 
 \textbf{Is there an erratum?}
 Not at time of initial release. An erratum section will be maintained in the
-GitHub repository README.
+release documentation.
 
 \textbf{Will the dataset be updated?}
 Yes. Planned updates:
@@ -350,10 +357,11 @@ retention of the data associated with the instances?}
 Not applicable. The dataset does not contain personal data.
 
 \textbf{Will older versions of the dataset continue to be supported/hosted/maintained?}
-Yes. All versions will be tagged in the GitHub repository and archived on Zenodo.
+Yes. All versions will be versioned in the release repository and archived on
+Zenodo.
 
 \textbf{If others want to extend/augment/build on/contribute to the dataset, is
 there a mechanism for them to do so?}
-Yes. Contributions via GitHub pull requests are welcome. Guidelines for contributing
-new questions (format, verification requirements) will be provided in the repository
-CONTRIBUTING.md.
+Yes. Contributions will be accepted through the public release repository after the
+review period. Guidelines for contributing new questions (format, verification
+requirements) will be provided in the release \texttt{CONTRIBUTING.md}.
