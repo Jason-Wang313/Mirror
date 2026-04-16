@@ -19,6 +19,7 @@ import re
 # Models still needing v2 runs.
 MODELS = [
     # Keep backfill focused on currently missing v2 coverage.
+    "deepseek-r1",
     "deepseek-v3",
     "gemini-2.5-pro",
 ]

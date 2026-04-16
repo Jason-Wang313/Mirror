@@ -1,0 +1,73 @@
+{
+  "run_id": "v20_final_hardening_20260326B",
+  "generated_at_utc": "2026-03-26T16:38:01+00:00",
+  "manifest_path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\hard_v2\\packet_manifest.json",
+  "exp1_items_total": 512,
+  "exp9_items_total": 336,
+  "exp1_per_domain": 64,
+  "exp9_per_pair": 12,
+  "exp1_empirical_hardness": {
+    "enabled": true,
+    "result_files_used": [
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191417_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191510_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T191544_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T192257_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T193341_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T193923_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260217T210412_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260218T092956_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260220T090109_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260312T140842_exp1supp_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T135957_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T140238_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260313T140826_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_20260315T154652_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_counterfactual_20260313T210032_results.jsonl",
+      "C:\\Users\\wangz\\MIRROR\\data\\results\\exp1_gemini_fixed_results.jsonl"
+    ],
+    "channels": [
+      "natural"
+    ],
+    "n_questions_with_empirical_hardness": 870,
+    "hardness_quantile": 0.8
+  },
+  "exp9_bank_expansion": {
+    "pairs_total": 28,
+    "target_per_pair": 12,
+    "total_rows": 372,
+    "augmentation_counts_by_pair": {
+      "arithmetic+factual": 0,
+      "arithmetic+linguistic": 3,
+      "arithmetic+logical": 3,
+      "arithmetic+procedural": 3,
+      "arithmetic+social": 3,
+      "arithmetic+spatial": 0,
+      "arithmetic+temporal": 0,
+      "factual+linguistic": 3,
+      "factual+logical": 3,
+      "factual+procedural": 3,
+      "factual+social": 0,
+      "factual+spatial": 3,
+      "factual+temporal": 3,
+      "linguistic+logical": 0,
+      "linguistic+procedural": 3,
+      "linguistic+social": 3,
+      "linguistic+spatial": 3,
+      "linguistic+temporal": 12,
+      "logical+procedural": 3,
+      "logical+social": 3,
+      "logical+spatial": 3,
+      "logical+temporal": 3,
+      "procedural+social": 3,
+      "procedural+spatial": 3,
+      "procedural+temporal": 0,
+      "social+spatial": 3,
+      "social+temporal": 3,
+      "spatial+temporal": 3
+    },
+    "n_pairs_augmented": 22
+  },
+  "status": "packet_prepared",
+  "note": "Hard packet v2 is prepared and ready for participant collection/scoring."
+}

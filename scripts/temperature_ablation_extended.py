@@ -20,10 +20,10 @@ from mirror.experiments.channels import build_channel5_prompt, parse_channel5
 from mirror.scoring.answer_matcher import match_answer_robust
 
 # Only the NEW 6 models (existing 3 already done)
-# deepseek-r1 removed — API balance exhausted
+# Models with confirmed working NIM endpoints
 MODELS = [
     "gemma-3-27b", "kimi-k2",
-    "phi-4", "gpt-oss-120b", "llama-3.3-70b",
+    "gpt-oss-120b", "llama-3.3-70b",
 ]
 TEMPERATURE = 0.7
 N_QUESTIONS = 200

@@ -1,0 +1,2 @@
+{"ts_utc": "2026-03-25T22:28:24+00:00", "event": "data_loaded", "n_models_exp3": 16, "n_models_exp1": 17}
+{"ts_utc": "2026-03-25T22:28:48+00:00", "event": "summary_written", "json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_stanford_hardening_20260325T2130Z_exp3_difficulty\\exp3_difficulty_control_summary.json", "md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_stanford_hardening_20260325T2130Z_exp3_difficulty\\exp3_difficulty_control_summary.md"}

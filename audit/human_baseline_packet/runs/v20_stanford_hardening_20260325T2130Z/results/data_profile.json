@@ -1,0 +1,18 @@
+{
+  "workflows": {
+    "billing_support": 46,
+    "clinical_admin": 40,
+    "code_review": 43,
+    "fraud_screening": 28,
+    "incident_triage": 30,
+    "legal_intake": 43,
+    "sales_ops": 36,
+    "supply_chain": 54
+  },
+  "risk_tiers": {
+    "critical": 25,
+    "high": 77,
+    "low": 109,
+    "medium": 109
+  }
+}

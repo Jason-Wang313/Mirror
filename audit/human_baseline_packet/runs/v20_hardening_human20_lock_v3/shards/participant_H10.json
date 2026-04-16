@@ -1,0 +1,219 @@
+{
+  "inputs": {
+    "exp1_responses": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H10.csv",
+    "exp9_responses": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H10.csv",
+    "exp1_key": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp1_answer_key.csv",
+    "exp9_key": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp9_answer_key.csv"
+  },
+  "exp1": {
+    "overall": {
+      "n_items": 384,
+      "n_correct": 384,
+      "n_missing": 0,
+      "nat_acc": 1.0,
+      "nat_acc_ci95": [
+        0.9900949253509681,
+        1.0
+      ]
+    },
+    "domain_summary": {
+      "arithmetic": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "factual": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "linguistic": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "logical": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "procedural": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "social": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "spatial": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      },
+      "temporal": {
+        "n": 48,
+        "correct": 48,
+        "missing": 0,
+        "nat_acc": 1.0
+      }
+    },
+    "median_domain_nat_acc": 1.0,
+    "weak_domain_rule_requested": "median_or_bottom_k",
+    "weak_domain_rule_applied": "bottom_k_fallback",
+    "weak_domain_fallback_bottom_k": 2,
+    "weak_domains_median": [],
+    "weak_domains_bottom_k": [
+      "arithmetic",
+      "factual"
+    ],
+    "weak_domains": [
+      "arithmetic",
+      "factual"
+    ],
+    "strong_domains": [
+      "linguistic",
+      "logical",
+      "procedural",
+      "social",
+      "spatial",
+      "temporal"
+    ]
+  },
+  "exp9": {
+    "overall": {
+      "n_components": 522,
+      "n_weak_components": 141,
+      "n_strong_components": 381,
+      "n_proceed": 448,
+      "n_escalate": 74,
+      "n_correct_proceed": 448,
+      "unknown_decisions": 0
+    },
+    "metrics": {
+      "cfr_c1_style": 0.0,
+      "escalation_rate_weak": 0.1347517730496454,
+      "autonomy_rate": 0.8582375478927203,
+      "weak_proceed_rate": 0.8652482269503546,
+      "system_success_oracle": 1.0
+    }
+  },
+  "participants": [
+    {
+      "participant_id": "H10",
+      "inputs": {
+        "exp1_responses": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H10.csv",
+        "exp9_responses": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H10.csv"
+      },
+      "exp1": {
+        "overall": {
+          "n_items": 384,
+          "n_correct": 384,
+          "n_missing": 0,
+          "nat_acc": 1.0,
+          "nat_acc_ci95": [
+            0.9900949253509681,
+            1.0
+          ]
+        },
+        "domain_summary": {
+          "arithmetic": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "factual": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "linguistic": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "logical": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "procedural": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "social": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "spatial": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          },
+          "temporal": {
+            "n": 48,
+            "correct": 48,
+            "missing": 0,
+            "nat_acc": 1.0
+          }
+        },
+        "median_domain_nat_acc": 1.0,
+        "weak_domain_rule_requested": "median_or_bottom_k",
+        "weak_domain_rule_applied": "bottom_k_fallback",
+        "weak_domain_fallback_bottom_k": 2,
+        "weak_domains_median": [],
+        "weak_domains_bottom_k": [
+          "arithmetic",
+          "factual"
+        ],
+        "weak_domains": [
+          "arithmetic",
+          "factual"
+        ],
+        "strong_domains": [
+          "linguistic",
+          "logical",
+          "procedural",
+          "social",
+          "spatial",
+          "temporal"
+        ]
+      },
+      "exp9": {
+        "overall": {
+          "n_components": 522,
+          "n_weak_components": 141,
+          "n_strong_components": 381,
+          "n_proceed": 448,
+          "n_escalate": 74,
+          "n_correct_proceed": 448,
+          "unknown_decisions": 0
+        },
+        "metrics": {
+          "cfr_c1_style": 0.0,
+          "escalation_rate_weak": 0.1347517730496454,
+          "autonomy_rate": 0.8582375478927203,
+          "weak_proceed_rate": 0.8652482269503546,
+          "system_success_oracle": 1.0
+        }
+      }
+    }
+  ]
+}

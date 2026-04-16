@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering
+\caption{Comparison of MIRROR with prior benchmarks for LLM self-knowledge and metacognition.}
+\label{tab:comparison}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{l c c c c c}
+\toprule
+\textbf{Feature} & \textbf{SAD} & \textbf{Barkan et al.} & \textbf{Kadavath et al.} & \textbf{Steyvers et al.} & \textbf{MIRROR} \\
+& \textbf{(Laine 2024)} & \textbf{(2025)}$^\ddagger$ & \textbf{(2022)} & \textbf{(2025)} & \textbf{(Ours)} \\
+\midrule
+Venue & NeurIPS D\&B '24 & NeurIPS WS '25 & arXiv & arXiv & NeurIPS E\&D '26 \\
+Focus & Situational & Self-capability & Calibration & Metacognition + & Metacognitive cal. \\
+ & awareness & prediction & (P(IK)) & uncertainty & $\rightarrow$ agentic action \\
+Models & 16 & $\sim$15 & $\sim$10 & 2 families & 16 \\
+Task categories & 7 & 3 & --- & 6 datasets & 8 experiments \\
+Total items & 13K questions & $\sim$1K tasks & --- & 12K+ items & 5{,}597 tasks$^\dagger$ \\
+Metacognitive levels & 1 (awareness) & 1 (confidence) & 1 (calibration) & 1 (calibration) & 4 (L0--L3) \\
+Behavioral channels & 1 (MC/free) & 1 (verbal) & 1 (verbal) & 1 (verbal) & 5 (wager, opt-out, \\
+ &  &  &  &  & tool, diff., natural) \\
+Agentic connection & No & Yes (SWE-bench) & No & No & Yes (4 cond., 3 par.) \\
+Headline finding & Partial sit. & LLMs over- & \emph{Mostly} & Task-specific & Knowing-doing gap \\
+ & awareness & confident & calibrated & metacognition & (62\% CFR reduction) \\
+Public dataset & Yes & No & No & No & Yes \\
+\bottomrule
+\end{tabular}}\\[4pt]
+\parbox{\linewidth}{\footnotesize $\dagger$5,000 domain questions + 597 agentic tasks. Evaluated across 16 models, 5 channels, and multiple conditions, yielding $\sim$250K total evaluation instances.\\
+$\ddagger$Workshop paper; included for comparison as the most directly relevant prior work on LLM self-capability prediction.}
+\end{table}

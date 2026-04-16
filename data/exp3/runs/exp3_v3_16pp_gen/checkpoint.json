@@ -1,0 +1,13 @@
+{
+  "run_id": "exp3_v3_16pp_gen",
+  "generated_at_utc": "2026-03-26T13:14:34+00:00",
+  "tasks_per_pair": 16,
+  "pairs": 28,
+  "targets": 448,
+  "n_generated_records": 448,
+  "n_verified_records": 448,
+  "n_pass_both_verifications": 76,
+  "generator_model": "mistral-large",
+  "verifier_model": "mistral-large",
+  "output_path": "data\\exp3\\intersection_tasks_v3_16pp.jsonl"
+}

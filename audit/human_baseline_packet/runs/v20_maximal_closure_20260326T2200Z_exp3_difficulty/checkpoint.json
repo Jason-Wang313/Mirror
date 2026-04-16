@@ -1,0 +1,24 @@
+{
+  "run_id": "v20_maximal_closure_20260326T2200Z_exp3_difficulty",
+  "created_at_utc": "2026-03-26T18:10:32+00:00",
+  "completed_models": [
+    "deepseek-r1",
+    "deepseek-v3",
+    "gemini-2.5-pro",
+    "gemma-3-12b",
+    "gemma-3-27b",
+    "gpt-oss-120b",
+    "kimi-k2",
+    "llama-3.1-405b",
+    "llama-3.1-70b",
+    "llama-3.1-8b",
+    "llama-3.2-3b",
+    "llama-3.3-70b",
+    "mistral-large",
+    "mixtral-8x22b",
+    "phi-4",
+    "qwen3-next-80b"
+  ],
+  "steps_completed": [],
+  "updated_at_utc": "2026-03-26T18:11:04+00:00"
+}

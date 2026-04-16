@@ -1,0 +1,2 @@
+{"ts_utc": "2026-03-26T16:58:05+00:00", "event": "data_loaded", "n_models": 16}
+{"ts_utc": "2026-03-26T16:58:06+00:00", "event": "summary_written", "json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_final_hardening_20260326B_mci_robustness\\mci_channel_robustness_summary.json", "md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_final_hardening_20260326B_mci_robustness\\mci_channel_robustness_summary.md"}

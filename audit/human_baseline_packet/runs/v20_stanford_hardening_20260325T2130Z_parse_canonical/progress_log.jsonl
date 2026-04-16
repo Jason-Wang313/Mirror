@@ -1,0 +1,4 @@
+{"ts_utc": "2026-03-25T22:54:35+00:00", "event": "files_resolved", "exp1_files": 2, "exp9_files": 5}
+{"ts_utc": "2026-03-25T22:54:48+00:00", "event": "rows_loaded", "exp1_rows": 10996, "exp9_rows": 123552}
+{"ts_utc": "2026-03-25T22:55:00+00:00", "event": "logistic_fit_done", "exp1_status": "ok", "exp9_status": "ok"}
+{"ts_utc": "2026-03-25T22:55:02+00:00", "event": "summary_written", "json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_stanford_hardening_20260325T2130Z_parse_canonical\\parse_missingness_summary.json", "md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_stanford_hardening_20260325T2130Z_parse_canonical\\parse_missingness_summary.md"}

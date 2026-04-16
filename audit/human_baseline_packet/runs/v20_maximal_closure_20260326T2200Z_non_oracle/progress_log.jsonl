@@ -1,0 +1,2 @@
+{"ts_utc": "2026-03-26T18:11:43+00:00", "event": "data_loaded", "n_files": 13, "n_components": 98744}
+{"ts_utc": "2026-03-26T18:11:48+00:00", "event": "summary_written", "json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_non_oracle\\non_oracle_utility_summary.json", "md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_non_oracle\\non_oracle_utility_summary.md"}

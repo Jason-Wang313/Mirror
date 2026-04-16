@@ -30,6 +30,7 @@ PAPER_TEX = PAPER_DIR / "mirror_draft_v20.tex"
 PAPER_PDF = PAPER_DIR / "mirror_draft_v20.pdf"
 CALIBRATION_REPORT_PATH = Path(r"C:\Users\wangz\neurlips benchmark reviewing\data\mirror_v20_review_calibration_prompt_final.md")
 HARD_V2_MANIFEST = PACKET_DIR / "hard_v2" / "packet_manifest.json"
+HARD_V2_DIR = PACKET_DIR / "hard_v2"
 
 
 def utc_now_iso() -> str:
@@ -431,6 +432,44 @@ class Runner:
         self.save_state(state)
         self.mark_step_complete(state, step)
 
+    def step_hard_v2_cohort_completion(self, state: dict) -> None:
+        step = "hard_v2_cohort_completion"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_hard_v2_cohort"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "score_hard_v2_cohort.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--hard-v2-dir",
+            str(HARD_V2_DIR),
+            "--min-participants",
+            "20",
+            "--summary-stem",
+            "human_baseline_hardv2_summary",
+            "--cohort-label",
+            "Human Baseline Hard-v2 Cohort (N>=20)",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["hard_v2_cohort_run_id"] = run_id
+        state["hard_v2_cohort_summary_json"] = str(out_dir / "human_baseline_hardv2_cohort_summary.json")
+        state["hard_v2_cohort_summary_md"] = str(out_dir / "human_baseline_hardv2_cohort_summary.md")
+        state["hard_v2_cohort_scored_dir"] = str(out_dir / "scored")
+        hard_json = Path(state["hard_v2_cohort_summary_json"])
+        hard_md = Path(state["hard_v2_cohort_summary_md"])
+        if hard_json.exists():
+            shutil.copy2(hard_json, self.results_dir / "human_baseline_hardv2_cohort_summary.json")
+        if hard_md.exists():
+            shutil.copy2(hard_md, self.results_dir / "human_baseline_hardv2_cohort_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
     def step_instance_baselines(self, state: dict) -> None:
         step = "instance_baselines"
         if step in state["completed_steps"]:
@@ -703,6 +742,115 @@ class Runner:
         self.save_state(state)
         self.mark_step_complete(state, step)
 
+    def step_ood_holdout(self, state: dict) -> None:
+        step = "ood_holdout"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_ood_holdout"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_exp9_ood_holdout.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--conditions",
+            "1",
+            "--paradigms",
+            "1",
+            "2",
+            "3",
+            "--fallback-bottom-k",
+            "2",
+            "--resume",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["ood_holdout_run_id"] = run_id
+        state["ood_holdout_summary_json"] = str(out_dir / "exp9_ood_holdout_summary.json")
+        state["ood_holdout_summary_md"] = str(out_dir / "exp9_ood_holdout_summary.md")
+        ood_json = Path(state["ood_holdout_summary_json"])
+        ood_md = Path(state["ood_holdout_summary_md"])
+        if ood_json.exists():
+            shutil.copy2(ood_json, self.results_dir / "exp9_ood_holdout_summary.json")
+        if ood_md.exists():
+            shutil.copy2(ood_md, self.results_dir / "exp9_ood_holdout_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_mechanistic_probe(self, state: dict) -> None:
+        step = "mechanistic_probe"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_mechanistic_probe"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "analyze_mechanistic_probe_openweight.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--conditions",
+            "1",
+            "2",
+            "3",
+            "4",
+            "--paradigms",
+            "1",
+            "2",
+            "3",
+            "--exclude-externally-routed",
+            "--resume",
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["mechanistic_probe_run_id"] = run_id
+        state["mechanistic_probe_summary_json"] = str(out_dir / "mechanistic_probe_summary.json")
+        state["mechanistic_probe_summary_md"] = str(out_dir / "mechanistic_probe_summary.md")
+        mech_json = Path(state["mechanistic_probe_summary_json"])
+        mech_md = Path(state["mechanistic_probe_summary_md"])
+        if mech_json.exists():
+            shutil.copy2(mech_json, self.results_dir / "mechanistic_probe_summary.json")
+        if mech_md.exists():
+            shutil.copy2(mech_md, self.results_dir / "mechanistic_probe_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
+    def step_verification_coverage(self, state: dict) -> None:
+        step = "verification_coverage"
+        if step in state["completed_steps"]:
+            return
+        run_id = f"{self.run_id}_verification_coverage"
+        cmd = [
+            sys.executable,
+            str(ROOT / "scripts" / "report_generation_verification_coverage.py"),
+            "--run-id",
+            run_id,
+            "--out-root",
+            str(ROOT / "audit" / "human_baseline_packet" / "runs"),
+            "--results-dir",
+            str(self.results_dir),
+        ]
+        proc = self.run_cmd(cmd, step=step)
+        if proc.returncode != 0:
+            raise RuntimeError(f"{step} failed:\n{proc.stderr}\n{proc.stdout}")
+        out_dir = ROOT / "audit" / "human_baseline_packet" / "runs" / run_id
+        state["verification_coverage_run_id"] = run_id
+        state["verification_coverage_summary_json"] = str(out_dir / "generation_verification_coverage_summary.json")
+        state["verification_coverage_summary_md"] = str(out_dir / "generation_verification_coverage_summary.md")
+        cov_json = Path(state["verification_coverage_summary_json"])
+        cov_md = Path(state["verification_coverage_summary_md"])
+        if cov_json.exists():
+            shutil.copy2(cov_json, self.results_dir / "generation_verification_coverage_summary.json")
+        if cov_md.exists():
+            shutil.copy2(cov_md, self.results_dir / "generation_verification_coverage_summary.md")
+        self.save_state(state)
+        self.mark_step_complete(state, step)
+
     def step_build_pdf(self, state: dict) -> None:
         step = "build_pdf"
         if step in state["completed_steps"]:
@@ -788,6 +936,12 @@ class Runner:
         state["exp9_mapping_validity_run_id"] = run_id
         state["exp9_mapping_validity_summary_json"] = str(out_dir / "exp9_mapping_validity_summary.json")
         state["exp9_mapping_validity_summary_md"] = str(out_dir / "exp9_mapping_validity_summary.md")
+        map_json = Path(state["exp9_mapping_validity_summary_json"])
+        map_md = Path(state["exp9_mapping_validity_summary_md"])
+        if map_json.exists():
+            shutil.copy2(map_json, self.results_dir / "exp9_mapping_validity_summary.json")
+        if map_md.exists():
+            shutil.copy2(map_md, self.results_dir / "exp9_mapping_validity_summary.md")
         self.save_state(state)
         self.mark_step_complete(state, step)
 
@@ -985,8 +1139,16 @@ class Runner:
             ("non_oracle_utility_summary_md", "non_oracle_utility_summary.md"),
             ("policy_frontier_summary_json", "exp9_policy_frontier_summary.json"),
             ("policy_frontier_summary_md", "exp9_policy_frontier_summary.md"),
+            ("ood_holdout_summary_json", "exp9_ood_holdout_summary.json"),
+            ("ood_holdout_summary_md", "exp9_ood_holdout_summary.md"),
+            ("mechanistic_probe_summary_json", "mechanistic_probe_summary.json"),
+            ("mechanistic_probe_summary_md", "mechanistic_probe_summary.md"),
+            ("verification_coverage_summary_json", "generation_verification_coverage_summary.json"),
+            ("verification_coverage_summary_md", "generation_verification_coverage_summary.md"),
             ("exp9_mapping_validity_summary_json", "exp9_mapping_validity_summary.json"),
             ("exp9_mapping_validity_summary_md", "exp9_mapping_validity_summary.md"),
+            ("hard_v2_cohort_summary_json", "human_baseline_hardv2_cohort_summary.json"),
+            ("hard_v2_cohort_summary_md", "human_baseline_hardv2_cohort_summary.md"),
             ("stanford_checklist_json", "stanford_feedback_checklist.json"),
             ("stanford_checklist_md", "stanford_feedback_checklist.md"),
         ]
@@ -1018,6 +1180,7 @@ class Runner:
         self.step_verify_immutable(state)
         self.step_context_hardening(state)
         self.step_hard_packet_v2_summary(state)
+        self.step_hard_v2_cohort_completion(state)
         self.step_instance_baselines(state)
         self.step_proper_scoring_primary(state)
         self.step_parse_missingness(state)
@@ -1025,7 +1188,10 @@ class Runner:
         self.step_mci_channel_robustness(state)
         self.step_non_oracle_utility(state)
         self.step_weak_domain_policy_frontier(state)
+        self.step_ood_holdout(state)
+        self.step_mechanistic_probe(state)
         self.step_exp9_mapping_validity(state)
+        self.step_verification_coverage(state)
         self.step_exp3_mci_stability(state)
         self.step_deployment_packet_validation(state)
         self.step_build_pdf(state)

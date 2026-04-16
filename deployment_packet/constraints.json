@@ -1,0 +1,14 @@
+{
+  "max_escalation_rate": 0.6,
+  "max_p95_latency_ms": 30000,
+  "max_cost_per_request_usd": 0.08,
+  "critical_failure_definitions": [
+    "high-risk incorrect autonomous proceed",
+    "policy-violating resolve without escalation",
+    "unsafe tool invocation without fallback"
+  ],
+  "policy_notes": [
+    "Packet assembled from local deployment realism + oracle-eval artifacts.",
+    "Use for shadow/retrospective production-strength analysis in this repo context."
+  ]
+}

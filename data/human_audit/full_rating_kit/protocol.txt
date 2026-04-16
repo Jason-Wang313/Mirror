@@ -1,0 +1,7 @@
+MIRROR Human Audit Protocol
+========================================
+
+Items: 118,759
+Raters: 3 (A=Strict, B=Balanced, C=Lenient)
+Target ICC(2,k=3): >= 0.75
+Scale: 0.0-4.0 (0.5 steps)

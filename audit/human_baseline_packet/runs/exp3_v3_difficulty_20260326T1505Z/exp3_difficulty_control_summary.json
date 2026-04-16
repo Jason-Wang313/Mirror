@@ -1,0 +1,3130 @@
+{
+  "run_id": "exp3_v3_difficulty_20260326T1505Z",
+  "generated_at_utc": "2026-03-26T16:31:10+00:00",
+  "input_files": [
+    "data\\results\\exp3_v3_layer2_results.jsonl",
+    "data\\results\\exp3_v3_layer2_shard_a.jsonl",
+    "data\\results\\exp3_v3_layer2_shard_b.jsonl",
+    "data\\results\\exp3_v3_layer2_gemma12.jsonl",
+    "data\\results\\exp3_v3_layer2_gemma27.jsonl",
+    "data\\results\\exp3_v3_layer2_kimik2.jsonl",
+    "data\\results\\exp3_v3_layer2_llama33.jsonl",
+    "data\\results\\exp3_v3_layer2_mixtral.jsonl",
+    "data\\results\\exp3_v3_layer2_qwen80.jsonl",
+    "data\\results\\exp3_v3_layer2_phi4.jsonl",
+    "data\\results\\exp3_v3_layer2_dsv3.jsonl",
+    "data\\results\\exp3_v3_layer2_gemini25.jsonl",
+    "data\\results\\exp3_v3_layer2_dsr1.jsonl"
+  ],
+  "n_models": 15,
+  "bootstrap_samples": 800,
+  "min_stratum_n": null,
+  "per_model": {
+    "deepseek-r1": {
+      "weak_domains": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.503125,
+      "balanced_cce_ci95": [
+        0.4916666666666667,
+        0.5184343434343434
+      ],
+      "mean_confidence": 0.515625,
+      "mean_accuracy": 0.21180555555555555,
+      "overconfidence_gap": 0.3038194444444444,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "factual|procedural": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|linguistic": 16,
+              "temporal|logical": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "arithmetic|temporal": 16,
+              "social|procedural": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|linguistic": {
+            "n": 9,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.03125
+          },
+          "arithmetic|logical": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|spatial": {
+            "n": 9,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.03125
+          },
+          "arithmetic|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "factual|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "linguistic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.5625,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "linguistic|social": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.528125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 3,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "logical|social": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|factual": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.528125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|social": {
+            "n": 7,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|temporal": {
+            "n": 7,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "temporal|factual": {
+            "n": 2,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "temporal|linguistic": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "temporal|logical": {
+            "n": 8,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 16,
+            "mean_abs_error": 0.46875,
+            "share_of_balanced_rows": 0.05555555555555555
+          }
+        }
+      }
+    },
+    "deepseek-v3": {
+      "weak_domains": [
+        "logical",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "n_raw": 423,
+      "n_balanced": 252,
+      "balanced_cce": 0.513293650793651,
+      "balanced_cce_ci95": [
+        0.4699999999999998,
+        0.5868055555555557
+      ],
+      "mean_confidence": 0.7898809523809504,
+      "mean_accuracy": 0.3492063492063492,
+      "overconfidence_gap": 0.44067460317460116,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 14,
+            "n_rows": 84,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|linguistic": 16,
+              "arithmetic|spatial": 14,
+              "linguistic|factual": 16,
+              "spatial|factual": 16,
+              "spatial|linguistic": 15
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 9,
+            "n_rows": 144,
+            "pair_counts_before": {
+              "arithmetic|logical": 16,
+              "arithmetic|procedural": 9,
+              "arithmetic|social": 12,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 15,
+              "linguistic|logical": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 15,
+              "logical|factual": 15,
+              "social|factual": 16,
+              "spatial|logical": 15,
+              "spatial|procedural": 15,
+              "spatial|social": 14,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|linguistic": 15
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 14,
+            "n_rows": 84,
+            "pair_counts_before": {
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|procedural": 16,
+              "temporal|logical": 16,
+              "temporal|procedural": 14,
+              "temporal|social": 15
+            }
+          }
+        },
+        "n_per_stratum": 84,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 14,
+            "mean_abs_error": 0.3892857142857143,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|linguistic": {
+            "n": 14,
+            "mean_abs_error": 0.6071428571428571,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|logical": {
+            "n": 7,
+            "mean_abs_error": 0.6357142857142858,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.7,
+            "share_of_balanced_rows": 0.01984126984126984
+          },
+          "arithmetic|social": {
+            "n": 5,
+            "mean_abs_error": 0.7699999999999999,
+            "share_of_balanced_rows": 0.01984126984126984
+          },
+          "arithmetic|spatial": {
+            "n": 14,
+            "mean_abs_error": 0.33214285714285713,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 8,
+            "mean_abs_error": 0.15000000000000002,
+            "share_of_balanced_rows": 0.031746031746031744
+          },
+          "factual|procedural": {
+            "n": 3,
+            "mean_abs_error": 0.3833333333333333,
+            "share_of_balanced_rows": 0.011904761904761904
+          },
+          "linguistic|factual": {
+            "n": 14,
+            "mean_abs_error": 0.525,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|logical": {
+            "n": 6,
+            "mean_abs_error": 0.8083333333333332,
+            "share_of_balanced_rows": 0.023809523809523808
+          },
+          "linguistic|procedural": {
+            "n": 4,
+            "mean_abs_error": 0.2875,
+            "share_of_balanced_rows": 0.015873015873015872
+          },
+          "linguistic|social": {
+            "n": 6,
+            "mean_abs_error": 0.5666666666666667,
+            "share_of_balanced_rows": 0.023809523809523808
+          },
+          "logical|factual": {
+            "n": 5,
+            "mean_abs_error": 0.5700000000000001,
+            "share_of_balanced_rows": 0.01984126984126984
+          },
+          "logical|procedural": {
+            "n": 14,
+            "mean_abs_error": 0.6035714285714285,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|social": {
+            "n": 14,
+            "mean_abs_error": 0.5035714285714287,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|factual": {
+            "n": 5,
+            "mean_abs_error": 0.4699999999999999,
+            "share_of_balanced_rows": 0.01984126984126984
+          },
+          "social|procedural": {
+            "n": 14,
+            "mean_abs_error": 0.45,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 14,
+            "mean_abs_error": 0.5142857142857143,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 14,
+            "mean_abs_error": 0.5607142857142858,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|logical": {
+            "n": 5,
+            "mean_abs_error": 0.58,
+            "share_of_balanced_rows": 0.01984126984126984
+          },
+          "spatial|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.73,
+            "share_of_balanced_rows": 0.01984126984126984
+          },
+          "spatial|social": {
+            "n": 6,
+            "mean_abs_error": 0.36666666666666664,
+            "share_of_balanced_rows": 0.023809523809523808
+          },
+          "spatial|temporal": {
+            "n": 4,
+            "mean_abs_error": 0.7,
+            "share_of_balanced_rows": 0.015873015873015872
+          },
+          "temporal|factual": {
+            "n": 6,
+            "mean_abs_error": 0.49166666666666664,
+            "share_of_balanced_rows": 0.023809523809523808
+          },
+          "temporal|linguistic": {
+            "n": 4,
+            "mean_abs_error": 0.7,
+            "share_of_balanced_rows": 0.015873015873015872
+          },
+          "temporal|logical": {
+            "n": 14,
+            "mean_abs_error": 0.5821428571428572,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|procedural": {
+            "n": 14,
+            "mean_abs_error": 0.49642857142857144,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 14,
+            "mean_abs_error": 0.3857142857142857,
+            "share_of_balanced_rows": 0.05555555555555555
+          }
+        }
+      }
+    },
+    "gemini-2.5-pro": {
+      "weak_domains": [
+        "linguistic",
+        "logical",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 446,
+      "n_balanced": 288,
+      "balanced_cce": 0.6686805555555556,
+      "balanced_cce_ci95": [
+        0.5878472222222222,
+        0.7219444444444444
+      ],
+      "mean_confidence": 0.8565277777777774,
+      "mean_accuracy": 0.3541666666666667,
+      "overconfidence_gap": 0.5023611111111108,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "spatial|factual": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 14,
+            "n_rows": 224,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "logical|factual": 14,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|logical": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "temporal|linguistic": 16,
+              "temporal|logical": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|logical": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.71875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|linguistic": {
+            "n": 8,
+            "mean_abs_error": 0.75,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|logical": {
+            "n": 6,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.75,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|social": {
+            "n": 6,
+            "mean_abs_error": 0.8333333333333334,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|spatial": {
+            "n": 16,
+            "mean_abs_error": 0.684375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.5625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "factual|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.7777777777777778,
+            "share_of_balanced_rows": 0.03125
+          },
+          "linguistic|factual": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "linguistic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.534375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.6875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.6843750000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 7,
+            "mean_abs_error": 0.5071428571428571,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "logical|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.65625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|social": {
+            "n": 16,
+            "mean_abs_error": 0.61875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|factual": {
+            "n": 7,
+            "mean_abs_error": 0.6971428571428572,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.6312500000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.803125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 7,
+            "mean_abs_error": 0.7071428571428572,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|logical": {
+            "n": 3,
+            "mean_abs_error": 0.48333333333333334,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "spatial|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.6900000000000001,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "spatial|social": {
+            "n": 6,
+            "mean_abs_error": 0.8333333333333334,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.6875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|linguistic": {
+            "n": 6,
+            "mean_abs_error": 0.25,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "temporal|logical": {
+            "n": 4,
+            "mean_abs_error": 0.75,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "temporal|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.875,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|social": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          }
+        }
+      }
+    },
+    "gemma-3-12b": {
+      "weak_domains": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.55625,
+      "balanced_cce_ci95": [
+        0.523263888888889,
+        0.6080246913580248
+      ],
+      "mean_confidence": 0.7284722222222214,
+      "mean_accuracy": 0.1875,
+      "overconfidence_gap": 0.5409722222222214,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|logical": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "temporal|linguistic": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "social|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 3,
+            "mean_abs_error": 0.65,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "arithmetic|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.53125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|logical": {
+            "n": 3,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|spatial": {
+            "n": 3,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "arithmetic|temporal": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "factual|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.625,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "linguistic|factual": {
+            "n": 9,
+            "mean_abs_error": 0.6444444444444444,
+            "share_of_balanced_rows": 0.03125
+          },
+          "linguistic|logical": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.6625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.7062499999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 11,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.03819444444444445
+          },
+          "logical|social": {
+            "n": 7,
+            "mean_abs_error": 0.42857142857142855,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "social|factual": {
+            "n": 6,
+            "mean_abs_error": 0.19166666666666665,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.446875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 6,
+            "mean_abs_error": 0.5916666666666667,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.69375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.59375,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "spatial|social": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "spatial|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.7187499999999998,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 16,
+            "mean_abs_error": 0.609375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|linguistic": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "temporal|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.5900000000000001,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "temporal|social": {
+            "n": 6,
+            "mean_abs_error": 0.525,
+            "share_of_balanced_rows": 0.020833333333333332
+          }
+        }
+      }
+    },
+    "gemma-3-27b": {
+      "weak_domains": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.5556944444444442,
+      "balanced_cce_ci95": [
+        0.5068981481481482,
+        0.6070370370370374
+      ],
+      "mean_confidence": 0.7674999999999984,
+      "mean_accuracy": 0.3576388888888889,
+      "overconfidence_gap": 0.4098611111111095,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|logical": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "temporal|linguistic": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "social|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 4,
+            "mean_abs_error": 0.9624999999999999,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "arithmetic|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.38125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|logical": {
+            "n": 7,
+            "mean_abs_error": 0.7571428571428571,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.8625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 16,
+            "mean_abs_error": 0.7812499999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|spatial": {
+            "n": 4,
+            "mean_abs_error": 0.1625,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "arithmetic|temporal": {
+            "n": 7,
+            "mean_abs_error": 0.1357142857142857,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "factual|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.6055555555555556,
+            "share_of_balanced_rows": 0.03125
+          },
+          "linguistic|factual": {
+            "n": 3,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "linguistic|logical": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.54375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.58125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.66875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.5625,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "logical|social": {
+            "n": 6,
+            "mean_abs_error": 0.5750000000000001,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|factual": {
+            "n": 9,
+            "mean_abs_error": 0.55,
+            "share_of_balanced_rows": 0.03125
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.46875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.484375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 4,
+            "mean_abs_error": 0.725,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5843750000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 7,
+            "mean_abs_error": 0.45,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|social": {
+            "n": 5,
+            "mean_abs_error": 0.6,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "spatial|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.528125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 16,
+            "mean_abs_error": 0.6024999999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|linguistic": {
+            "n": 5,
+            "mean_abs_error": 0.43000000000000005,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "temporal|logical": {
+            "n": 16,
+            "mean_abs_error": 0.35625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|procedural": {
+            "n": 7,
+            "mean_abs_error": 0.5571428571428572,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "temporal|social": {
+            "n": 7,
+            "mean_abs_error": 0.4071428571428571,
+            "share_of_balanced_rows": 0.024305555555555556
+          }
+        }
+      }
+    },
+    "gpt-oss-120b": {
+      "weak_domains": [
+        "linguistic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.42788194444444455,
+      "balanced_cce_ci95": [
+        0.38555555555555576,
+        0.4793518518518518
+      ],
+      "mean_confidence": 0.5077430555555548,
+      "mean_accuracy": 0.28125,
+      "overconfidence_gap": 0.22649305555555477,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|logical": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "social|procedural": 16,
+              "temporal|linguistic": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.26625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|linguistic": {
+            "n": 6,
+            "mean_abs_error": 0.34,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.315625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.5016666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|social": {
+            "n": 7,
+            "mean_abs_error": 0.6642857142857144,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "arithmetic|spatial": {
+            "n": 16,
+            "mean_abs_error": 0.49875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 5,
+            "mean_abs_error": 0.20600000000000002,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "factual|procedural": {
+            "n": 10,
+            "mean_abs_error": 0.40099999999999997,
+            "share_of_balanced_rows": 0.034722222222222224
+          },
+          "linguistic|factual": {
+            "n": 2,
+            "mean_abs_error": 0.47000000000000003,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "linguistic|logical": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.38499999999999995,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.5325,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.45875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.28750000000000003,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "logical|social": {
+            "n": 5,
+            "mean_abs_error": 0.4,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "social|factual": {
+            "n": 7,
+            "mean_abs_error": 0.6714285714285715,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.394375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.44,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 7,
+            "mean_abs_error": 0.42857142857142855,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.29444444444444445,
+            "share_of_balanced_rows": 0.03125
+          },
+          "spatial|social": {
+            "n": 4,
+            "mean_abs_error": 0.5750000000000001,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "spatial|temporal": {
+            "n": 3,
+            "mean_abs_error": 0.3666666666666667,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "temporal|factual": {
+            "n": 6,
+            "mean_abs_error": 0.5750000000000001,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "temporal|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.5293749999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|logical": {
+            "n": 6,
+            "mean_abs_error": 0.2366666666666667,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "temporal|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.503125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 16,
+            "mean_abs_error": 0.434375,
+            "share_of_balanced_rows": 0.05555555555555555
+          }
+        }
+      }
+    },
+    "kimi-k2": {
+      "weak_domains": [
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 448,
+      "n_balanced": 144,
+      "balanced_cce": 0.5763888888888892,
+      "balanced_cce_ci95": [
+        0.465079365079365,
+        0.6358974358974363
+      ],
+      "mean_confidence": 0.9368055555555558,
+      "mean_accuracy": 0.3958333333333333,
+      "overconfidence_gap": 0.5409722222222224,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 10,
+            "pair_quota": 16,
+            "n_rows": 160,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|logical": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 15,
+            "pair_quota": 16,
+            "n_rows": 240,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "temporal|linguistic": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 3,
+            "pair_quota": 16,
+            "n_rows": 48,
+            "pair_counts_before": {
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "social|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 48,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 5,
+            "mean_abs_error": 0.4,
+            "share_of_balanced_rows": 0.034722222222222224
+          },
+          "arithmetic|linguistic": {
+            "n": 2,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "arithmetic|logical": {
+            "n": 5,
+            "mean_abs_error": 0.6,
+            "share_of_balanced_rows": 0.034722222222222224
+          },
+          "arithmetic|procedural": {
+            "n": 4,
+            "mean_abs_error": 0.75,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|social": {
+            "n": 4,
+            "mean_abs_error": 0.725,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|spatial": {
+            "n": 2,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "arithmetic|temporal": {
+            "n": 4,
+            "mean_abs_error": 0.0,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "factual|procedural": {
+            "n": 3,
+            "mean_abs_error": 0.35000000000000003,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "linguistic|factual": {
+            "n": 7,
+            "mean_abs_error": 0.55,
+            "share_of_balanced_rows": 0.04861111111111111
+          },
+          "linguistic|logical": {
+            "n": 1,
+            "mean_abs_error": 0.050000000000000044,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.578125,
+            "share_of_balanced_rows": 0.1111111111111111
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.6156250000000001,
+            "share_of_balanced_rows": 0.1111111111111111
+          },
+          "logical|factual": {
+            "n": 5,
+            "mean_abs_error": 0.8,
+            "share_of_balanced_rows": 0.034722222222222224
+          },
+          "logical|procedural": {
+            "n": 3,
+            "mean_abs_error": 0.6666666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "logical|social": {
+            "n": 5,
+            "mean_abs_error": 0.6,
+            "share_of_balanced_rows": 0.034722222222222224
+          },
+          "social|factual": {
+            "n": 3,
+            "mean_abs_error": 0.6666666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.546875,
+            "share_of_balanced_rows": 0.1111111111111111
+          },
+          "spatial|factual": {
+            "n": 7,
+            "mean_abs_error": 0.5428571428571428,
+            "share_of_balanced_rows": 0.04861111111111111
+          },
+          "spatial|linguistic": {
+            "n": 3,
+            "mean_abs_error": 0.5166666666666667,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|logical": {
+            "n": 4,
+            "mean_abs_error": 0.9624999999999999,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "spatial|procedural": {
+            "n": 1,
+            "mean_abs_error": 0.95,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "spatial|social": {
+            "n": 4,
+            "mean_abs_error": 0.6749999999999999,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "spatial|temporal": {
+            "n": 6,
+            "mean_abs_error": 0.5833333333333334,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "temporal|factual": {
+            "n": 6,
+            "mean_abs_error": 0.3333333333333333,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "temporal|linguistic": {
+            "n": 1,
+            "mean_abs_error": 0.95,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "temporal|logical": {
+            "n": 4,
+            "mean_abs_error": 0.7124999999999999,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|procedural": {
+            "n": 4,
+            "mean_abs_error": 0.4875,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|social": {
+            "n": 3,
+            "mean_abs_error": 0.39999999999999997,
+            "share_of_balanced_rows": 0.020833333333333332
+          }
+        }
+      }
+    },
+    "llama-3.1-405b": {
+      "weak_domains": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.508159722222222,
+      "balanced_cce_ci95": [
+        0.47638888888888886,
+        0.56
+      ],
+      "mean_confidence": 0.6730902777777784,
+      "mean_accuracy": 0.2881944444444444,
+      "overconfidence_gap": 0.384895833333334,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "factual|procedural": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|linguistic": 16,
+              "temporal|logical": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "arithmetic|temporal": 16,
+              "social|procedural": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 5,
+            "mean_abs_error": 0.21000000000000002,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|linguistic": {
+            "n": 5,
+            "mean_abs_error": 0.44000000000000006,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|logical": {
+            "n": 5,
+            "mean_abs_error": 0.4,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.715625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 16,
+            "mean_abs_error": 0.58125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|spatial": {
+            "n": 5,
+            "mean_abs_error": 0.4,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.26875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "factual|procedural": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "linguistic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.54375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5218750000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.03125
+          },
+          "linguistic|social": {
+            "n": 7,
+            "mean_abs_error": 0.5714285714285714,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.4125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.6611111111111111,
+            "share_of_balanced_rows": 0.03125
+          },
+          "logical|social": {
+            "n": 7,
+            "mean_abs_error": 0.4428571428571429,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "social|factual": {
+            "n": 4,
+            "mean_abs_error": 0.7499999999999999,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.46875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.6,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.55625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.6,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "spatial|social": {
+            "n": 6,
+            "mean_abs_error": 0.5499999999999999,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|temporal": {
+            "n": 4,
+            "mean_abs_error": 0.375,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "temporal|factual": {
+            "n": 8,
+            "mean_abs_error": 0.5249999999999999,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|linguistic": {
+            "n": 7,
+            "mean_abs_error": 0.4571428571428572,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "temporal|logical": {
+            "n": 3,
+            "mean_abs_error": 0.0,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "temporal|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.621875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 16,
+            "mean_abs_error": 0.36874999999999997,
+            "share_of_balanced_rows": 0.05555555555555555
+          }
+        }
+      }
+    },
+    "llama-3.1-70b": {
+      "weak_domains": [
+        "arithmetic",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.5034722222222222,
+      "balanced_cce_ci95": [
+        0.4912037037037037,
+        0.5092592592592593
+      ],
+      "mean_confidence": 0.5065972222222223,
+      "mean_accuracy": 0.003472222222222222,
+      "overconfidence_gap": 0.503125,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "linguistic|social": 16,
+              "logical|factual": 16,
+              "logical|social": 16,
+              "social|factual": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|social": 16,
+              "factual|procedural": 16,
+              "linguistic|procedural": 16,
+              "logical|procedural": 16,
+              "social|procedural": 16,
+              "spatial|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|logical": 16,
+              "spatial|social": 16,
+              "temporal|factual": 16,
+              "temporal|linguistic": 16,
+              "temporal|logical": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|procedural": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "spatial|procedural": 16,
+              "spatial|temporal": 16,
+              "temporal|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 5,
+            "mean_abs_error": 0.7,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|linguistic": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|logical": {
+            "n": 8,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 8,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|spatial": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "factual|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "linguistic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "logical|social": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|procedural": {
+            "n": 8,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "spatial|factual": {
+            "n": 2,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "spatial|linguistic": {
+            "n": 9,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.03125
+          },
+          "spatial|logical": {
+            "n": 9,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.03125
+          },
+          "spatial|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|social": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "spatial|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "temporal|linguistic": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "temporal|logical": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "temporal|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 5,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.017361111111111112
+          }
+        }
+      }
+    },
+    "llama-3.1-8b": {
+      "weak_domains": [
+        "arithmetic",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.6180555555555567,
+      "balanced_cce_ci95": [
+        0.5838888888888886,
+        0.6588383838383837
+      ],
+      "mean_confidence": 0.7260416666666684,
+      "mean_accuracy": 0.2743055555555556,
+      "overconfidence_gap": 0.4517361111111128,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "linguistic|social": 16,
+              "logical|factual": 16,
+              "logical|social": 16,
+              "social|factual": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|social": 16,
+              "factual|procedural": 16,
+              "linguistic|procedural": 16,
+              "logical|procedural": 16,
+              "social|procedural": 16,
+              "spatial|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|logical": 16,
+              "spatial|social": 16,
+              "temporal|factual": 16,
+              "temporal|linguistic": 16,
+              "temporal|logical": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|procedural": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "spatial|procedural": 16,
+              "spatial|temporal": 16,
+              "temporal|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 4,
+            "mean_abs_error": 0.7250000000000001,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "arithmetic|linguistic": {
+            "n": 8,
+            "mean_abs_error": 0.7562500000000001,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "arithmetic|logical": {
+            "n": 7,
+            "mean_abs_error": 0.6571428571428573,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.703125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 5,
+            "mean_abs_error": 0.68,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|spatial": {
+            "n": 16,
+            "mean_abs_error": 0.7031250000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.475,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "factual|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.68,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "linguistic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.70625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.6875000000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.49000000000000005,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.5375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.621875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.6666666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "logical|social": {
+            "n": 16,
+            "mean_abs_error": 0.575,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|factual": {
+            "n": 16,
+            "mean_abs_error": 0.665625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|procedural": {
+            "n": 7,
+            "mean_abs_error": 0.4142857142857143,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|factual": {
+            "n": 6,
+            "mean_abs_error": 0.5499999999999999,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|linguistic": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "spatial|logical": {
+            "n": 6,
+            "mean_abs_error": 0.5499999999999999,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.58125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|social": {
+            "n": 5,
+            "mean_abs_error": 0.5599999999999999,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "spatial|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.6875000000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 7,
+            "mean_abs_error": 0.7428571428571429,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "temporal|linguistic": {
+            "n": 8,
+            "mean_abs_error": 0.5625,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|logical": {
+            "n": 7,
+            "mean_abs_error": 0.42857142857142855,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "temporal|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.6375000000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 6,
+            "mean_abs_error": 0.48333333333333334,
+            "share_of_balanced_rows": 0.020833333333333332
+          }
+        }
+      }
+    },
+    "llama-3.2-3b": {
+      "weak_domains": [
+        "linguistic",
+        "logical",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 367,
+      "n_balanced": 72,
+      "balanced_cce": 0.5486111111111112,
+      "balanced_cce_ci95": [
+        0.425925925925926,
+        0.6425925925925926
+      ],
+      "mean_confidence": 0.476388888888889,
+      "mean_accuracy": 0.3888888888888889,
+      "overconfidence_gap": 0.08750000000000008,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 4,
+            "n_rows": 24,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "spatial|factual": 11,
+              "spatial|temporal": 4,
+              "temporal|factual": 10
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 4,
+            "n_rows": 64,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "logical|factual": 16,
+              "social|factual": 15,
+              "spatial|linguistic": 14,
+              "spatial|logical": 13,
+              "spatial|procedural": 11,
+              "spatial|social": 11,
+              "temporal|linguistic": 7,
+              "temporal|logical": 10,
+              "temporal|procedural": 8,
+              "temporal|social": 4
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 9,
+            "n_rows": 54,
+            "pair_counts_before": {
+              "linguistic|logical": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|procedural": 9
+            }
+          }
+        },
+        "n_per_stratum": 24,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 4,
+            "mean_abs_error": 0.65,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|logical": {
+            "n": 3,
+            "mean_abs_error": 0.8333333333333334,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "arithmetic|procedural": {
+            "n": 1,
+            "mean_abs_error": 0.9,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "arithmetic|spatial": {
+            "n": 4,
+            "mean_abs_error": 0.45,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 4,
+            "mean_abs_error": 0.7499999999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "factual|procedural": {
+            "n": 1,
+            "mean_abs_error": 0.8,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "linguistic|factual": {
+            "n": 3,
+            "mean_abs_error": 0.8000000000000002,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "linguistic|logical": {
+            "n": 4,
+            "mean_abs_error": 0.65,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 2,
+            "mean_abs_error": 0.4,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "linguistic|social": {
+            "n": 5,
+            "mean_abs_error": 0.16,
+            "share_of_balanced_rows": 0.06944444444444445
+          },
+          "logical|factual": {
+            "n": 3,
+            "mean_abs_error": 0.6,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "logical|procedural": {
+            "n": 4,
+            "mean_abs_error": 0.75,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|social": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "social|factual": {
+            "n": 2,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "social|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.24,
+            "share_of_balanced_rows": 0.06944444444444445
+          },
+          "spatial|factual": {
+            "n": 4,
+            "mean_abs_error": 0.625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 2,
+            "mean_abs_error": 0.0,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "spatial|social": {
+            "n": 3,
+            "mean_abs_error": 0.9333333333333332,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "spatial|temporal": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 4,
+            "mean_abs_error": 0.25,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|linguistic": {
+            "n": 1,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "temporal|logical": {
+            "n": 3,
+            "mean_abs_error": 0.3333333333333333,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "temporal|procedural": {
+            "n": 1,
+            "mean_abs_error": 0.0,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "temporal|social": {
+            "n": 1,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.013888888888888888
+          }
+        }
+      }
+    },
+    "llama-3.3-70b": {
+      "weak_domains": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 207,
+      "n_balanced": 24,
+      "balanced_cce": 0.5625,
+      "balanced_cce_ci95": [
+        0.43166666666666664,
+        0.570952380952381
+      ],
+      "mean_confidence": 0.6041666666666666,
+      "mean_accuracy": 0.041666666666666664,
+      "overconfidence_gap": 0.5625,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 1,
+            "pair_quota": 14,
+            "n_rows": 14,
+            "pair_counts_before": {
+              "logical|factual": 14
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 8,
+            "pair_quota": 1,
+            "n_rows": 8,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 1
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 5,
+            "pair_quota": 16,
+            "n_rows": 80,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16
+            }
+          }
+        },
+        "n_per_stratum": 8,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 1,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "arithmetic|linguistic": {
+            "n": 1,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "arithmetic|logical": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "arithmetic|procedural": {
+            "n": 2,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.08333333333333333
+          },
+          "arithmetic|social": {
+            "n": 4,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.16666666666666666
+          },
+          "arithmetic|spatial": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "arithmetic|temporal": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "factual|procedural": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "linguistic|factual": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "linguistic|logical": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "linguistic|social": {
+            "n": 1,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.041666666666666664
+          },
+          "logical|factual": {
+            "n": 8,
+            "mean_abs_error": 0.625,
+            "share_of_balanced_rows": 0.3333333333333333
+          },
+          "logical|procedural": {
+            "n": 1,
+            "mean_abs_error": 0.0,
+            "share_of_balanced_rows": 0.041666666666666664
+          }
+        }
+      }
+    },
+    "mistral-large": {
+      "weak_domains": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "n_raw": 399,
+      "n_balanced": 162,
+      "balanced_cce": 0.5801234567901237,
+      "balanced_cce_ci95": [
+        0.5116666666666668,
+        0.6390972222222225
+      ],
+      "mean_confidence": 0.8745679012345683,
+      "mean_accuracy": 0.37037037037037035,
+      "overconfidence_gap": 0.5041975308641979,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 13,
+            "n_rows": 78,
+            "pair_counts_before": {
+              "linguistic|factual": 14,
+              "linguistic|logical": 15,
+              "logical|factual": 13,
+              "spatial|factual": 15,
+              "spatial|linguistic": 14,
+              "spatial|logical": 13
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 11,
+            "n_rows": 176,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|linguistic": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 15,
+              "factual|procedural": 15,
+              "linguistic|procedural": 13,
+              "linguistic|social": 15,
+              "logical|procedural": 11,
+              "logical|social": 14,
+              "social|factual": 14,
+              "spatial|procedural": 14,
+              "spatial|social": 14,
+              "spatial|temporal": 11,
+              "temporal|factual": 16,
+              "temporal|linguistic": 16,
+              "temporal|logical": 15
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 9,
+            "n_rows": 54,
+            "pair_counts_before": {
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "arithmetic|temporal": 16,
+              "social|procedural": 15,
+              "temporal|procedural": 9,
+              "temporal|social": 12
+            }
+          }
+        },
+        "n_per_stratum": 54,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 5,
+            "mean_abs_error": 0.978,
+            "share_of_balanced_rows": 0.030864197530864196
+          },
+          "arithmetic|linguistic": {
+            "n": 4,
+            "mean_abs_error": 0.25,
+            "share_of_balanced_rows": 0.024691358024691357
+          },
+          "arithmetic|logical": {
+            "n": 5,
+            "mean_abs_error": 0.6799999999999999,
+            "share_of_balanced_rows": 0.030864197530864196
+          },
+          "arithmetic|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.9766666666666666,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 9,
+            "mean_abs_error": 0.7611111111111112,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|spatial": {
+            "n": 3,
+            "mean_abs_error": 0.18333333333333335,
+            "share_of_balanced_rows": 0.018518518518518517
+          },
+          "arithmetic|temporal": {
+            "n": 9,
+            "mean_abs_error": 0.21666666666666667,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|factual": {
+            "n": 8,
+            "mean_abs_error": 0.48125000000000007,
+            "share_of_balanced_rows": 0.04938271604938271
+          },
+          "linguistic|logical": {
+            "n": 9,
+            "mean_abs_error": 0.44444444444444436,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.6799999999999999,
+            "share_of_balanced_rows": 0.030864197530864196
+          },
+          "linguistic|social": {
+            "n": 4,
+            "mean_abs_error": 0.6875,
+            "share_of_balanced_rows": 0.024691358024691357
+          },
+          "logical|factual": {
+            "n": 7,
+            "mean_abs_error": 0.5142857142857142,
+            "share_of_balanced_rows": 0.043209876543209874
+          },
+          "logical|procedural": {
+            "n": 2,
+            "mean_abs_error": 0.7,
+            "share_of_balanced_rows": 0.012345679012345678
+          },
+          "logical|social": {
+            "n": 3,
+            "mean_abs_error": 0.26666666666666666,
+            "share_of_balanced_rows": 0.018518518518518517
+          },
+          "social|factual": {
+            "n": 2,
+            "mean_abs_error": 0.7,
+            "share_of_balanced_rows": 0.012345679012345678
+          },
+          "social|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.5666666666666668,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 11,
+            "mean_abs_error": 0.5545454545454546,
+            "share_of_balanced_rows": 0.06790123456790123
+          },
+          "spatial|linguistic": {
+            "n": 9,
+            "mean_abs_error": 0.6555555555555556,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|logical": {
+            "n": 10,
+            "mean_abs_error": 0.5349999999999999,
+            "share_of_balanced_rows": 0.06172839506172839
+          },
+          "spatial|procedural": {
+            "n": 4,
+            "mean_abs_error": 0.5375,
+            "share_of_balanced_rows": 0.024691358024691357
+          },
+          "spatial|social": {
+            "n": 3,
+            "mean_abs_error": 0.26666666666666666,
+            "share_of_balanced_rows": 0.018518518518518517
+          },
+          "spatial|temporal": {
+            "n": 4,
+            "mean_abs_error": 0.6875,
+            "share_of_balanced_rows": 0.024691358024691357
+          },
+          "temporal|factual": {
+            "n": 3,
+            "mean_abs_error": 0.35000000000000003,
+            "share_of_balanced_rows": 0.018518518518518517
+          },
+          "temporal|linguistic": {
+            "n": 3,
+            "mean_abs_error": 0.35000000000000003,
+            "share_of_balanced_rows": 0.018518518518518517
+          },
+          "temporal|logical": {
+            "n": 4,
+            "mean_abs_error": 0.3875,
+            "share_of_balanced_rows": 0.024691358024691357
+          },
+          "temporal|procedural": {
+            "n": 9,
+            "mean_abs_error": 0.8444444444444446,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 9,
+            "mean_abs_error": 0.6611111111111111,
+            "share_of_balanced_rows": 0.05555555555555555
+          }
+        }
+      }
+    },
+    "mixtral-8x22b": {
+      "weak_domains": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.6984375,
+      "balanced_cce_ci95": [
+        0.608611111111111,
+        0.7240740740740742
+      ],
+      "mean_confidence": 0.8737847222222226,
+      "mean_accuracy": 0.2604166666666667,
+      "overconfidence_gap": 0.6133680555555558,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|logical": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "temporal|linguistic": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "social|procedural": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 7,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "arithmetic|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|logical": {
+            "n": 6,
+            "mean_abs_error": 0.8333333333333334,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|procedural": {
+            "n": 16,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|social": {
+            "n": 16,
+            "mean_abs_error": 0.65625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|spatial": {
+            "n": 5,
+            "mean_abs_error": 0.4,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "arithmetic|temporal": {
+            "n": 3,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "factual|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.6749999999999999,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "linguistic|factual": {
+            "n": 8,
+            "mean_abs_error": 0.8374999999999999,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "linguistic|logical": {
+            "n": 5,
+            "mean_abs_error": 0.76,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.6125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.6593749999999998,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.6666666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "logical|social": {
+            "n": 6,
+            "mean_abs_error": 0.7666666666666667,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|factual": {
+            "n": 6,
+            "mean_abs_error": 0.5333333333333333,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.58125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5187499999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 10,
+            "mean_abs_error": 0.8599999999999998,
+            "share_of_balanced_rows": 0.034722222222222224
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.6799999999999999,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "spatial|social": {
+            "n": 4,
+            "mean_abs_error": 0.19999999999999996,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "spatial|temporal": {
+            "n": 16,
+            "mean_abs_error": 0.8437499999999999,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|factual": {
+            "n": 16,
+            "mean_abs_error": 0.78125,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|linguistic": {
+            "n": 8,
+            "mean_abs_error": 0.8,
+            "share_of_balanced_rows": 0.027777777777777776
+          },
+          "temporal|logical": {
+            "n": 16,
+            "mean_abs_error": 0.59375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.8333333333333334,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "temporal|social": {
+            "n": 5,
+            "mean_abs_error": 0.6900000000000001,
+            "share_of_balanced_rows": 0.017361111111111112
+          }
+        }
+      }
+    },
+    "qwen3-next-80b": {
+      "weak_domains": [
+        "linguistic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "n_raw": 448,
+      "n_balanced": 288,
+      "balanced_cce": 0.5625000000000004,
+      "balanced_cce_ci95": [
+        0.4690404040404039,
+        0.6092592592592595
+      ],
+      "mean_confidence": 0.95284722222222,
+      "mean_accuracy": 0.4166666666666667,
+      "overconfidence_gap": 0.5361805555555532,
+      "balancing_diagnostics": {
+        "strata": {
+          "strong_strong": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "arithmetic|factual": 16,
+              "arithmetic|logical": 16,
+              "arithmetic|spatial": 16,
+              "logical|factual": 16,
+              "spatial|factual": 16,
+              "spatial|logical": 16
+            }
+          },
+          "strong_weak": {
+            "n_pairs": 16,
+            "pair_quota": 16,
+            "n_rows": 256,
+            "pair_counts_before": {
+              "arithmetic|linguistic": 16,
+              "arithmetic|procedural": 16,
+              "arithmetic|social": 16,
+              "arithmetic|temporal": 16,
+              "factual|procedural": 16,
+              "linguistic|factual": 16,
+              "linguistic|logical": 16,
+              "logical|procedural": 16,
+              "logical|social": 16,
+              "social|factual": 16,
+              "spatial|linguistic": 16,
+              "spatial|procedural": 16,
+              "spatial|social": 16,
+              "spatial|temporal": 16,
+              "temporal|factual": 16,
+              "temporal|logical": 16
+            }
+          },
+          "weak_weak": {
+            "n_pairs": 6,
+            "pair_quota": 16,
+            "n_rows": 96,
+            "pair_counts_before": {
+              "linguistic|procedural": 16,
+              "linguistic|social": 16,
+              "social|procedural": 16,
+              "temporal|linguistic": 16,
+              "temporal|procedural": 16,
+              "temporal|social": 16
+            }
+          }
+        },
+        "n_per_stratum": 96,
+        "pair_diagnostics": {
+          "arithmetic|factual": {
+            "n": 16,
+            "mean_abs_error": 0.439375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|linguistic": {
+            "n": 6,
+            "mean_abs_error": 0.48333333333333334,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|logical": {
+            "n": 16,
+            "mean_abs_error": 0.6875,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|procedural": {
+            "n": 6,
+            "mean_abs_error": 1.0,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "arithmetic|social": {
+            "n": 7,
+            "mean_abs_error": 0.9571428571428572,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "arithmetic|spatial": {
+            "n": 16,
+            "mean_abs_error": 0.2,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "arithmetic|temporal": {
+            "n": 2,
+            "mean_abs_error": 0.0,
+            "share_of_balanced_rows": 0.006944444444444444
+          },
+          "factual|procedural": {
+            "n": 6,
+            "mean_abs_error": 0.5,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "linguistic|factual": {
+            "n": 11,
+            "mean_abs_error": 0.44727272727272727,
+            "share_of_balanced_rows": 0.03819444444444445
+          },
+          "linguistic|logical": {
+            "n": 7,
+            "mean_abs_error": 0.7071428571428572,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "linguistic|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.5531250000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "linguistic|social": {
+            "n": 16,
+            "mean_abs_error": 0.5562500000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|factual": {
+            "n": 16,
+            "mean_abs_error": 0.5987500000000001,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "logical|procedural": {
+            "n": 5,
+            "mean_abs_error": 0.39,
+            "share_of_balanced_rows": 0.017361111111111112
+          },
+          "logical|social": {
+            "n": 4,
+            "mean_abs_error": 0.475,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "social|factual": {
+            "n": 4,
+            "mean_abs_error": 0.725,
+            "share_of_balanced_rows": 0.013888888888888888
+          },
+          "social|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.44499999999999995,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|factual": {
+            "n": 16,
+            "mean_abs_error": 0.525,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|linguistic": {
+            "n": 7,
+            "mean_abs_error": 0.42142857142857143,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|logical": {
+            "n": 16,
+            "mean_abs_error": 0.725,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "spatial|procedural": {
+            "n": 7,
+            "mean_abs_error": 0.7785714285714286,
+            "share_of_balanced_rows": 0.024305555555555556
+          },
+          "spatial|social": {
+            "n": 6,
+            "mean_abs_error": 0.6166666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "spatial|temporal": {
+            "n": 6,
+            "mean_abs_error": 0.6416666666666666,
+            "share_of_balanced_rows": 0.020833333333333332
+          },
+          "temporal|factual": {
+            "n": 9,
+            "mean_abs_error": 0.7222222222222222,
+            "share_of_balanced_rows": 0.03125
+          },
+          "temporal|linguistic": {
+            "n": 16,
+            "mean_abs_error": 0.60625,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|logical": {
+            "n": 3,
+            "mean_abs_error": 0.65,
+            "share_of_balanced_rows": 0.010416666666666666
+          },
+          "temporal|procedural": {
+            "n": 16,
+            "mean_abs_error": 0.684375,
+            "share_of_balanced_rows": 0.05555555555555555
+          },
+          "temporal|social": {
+            "n": 16,
+            "mean_abs_error": 0.37812500000000004,
+            "share_of_balanced_rows": 0.05555555555555555
+          }
+        }
+      }
+    }
+  },
+  "macro": {
+    "mean_balanced_cce": 0.5588782701352147,
+    "mean_overconfidence_gap": 0.4405771237507346
+  },
+  "universal_checks": {
+    "all_overconfident": true,
+    "all_cce_gt_0_20": true,
+    "all_cce_gt_0_30": true,
+    "n_models_cce_ge_0_434": 14
+  },
+  "interpretation": "Difficulty-controlled, pair-balanced estimates preserve a large compositional calibration error profile across models, indicating the Exp3 signal is not an artifact of strong/weak mixture imbalance."
+}

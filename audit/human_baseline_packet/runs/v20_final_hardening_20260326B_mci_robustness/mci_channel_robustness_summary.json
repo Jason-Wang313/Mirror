@@ -1,0 +1,1626 @@
+{
+  "run_id": "v20_final_hardening_20260326B_mci_robustness",
+  "generated_at_utc": "2026-03-26T16:58:06+00:00",
+  "input_files": [
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp3_v2_expanded_results.jsonl"
+  ],
+  "n_models": 15,
+  "min_shared_for_corr": 30,
+  "per_model": {
+    "deepseek-r1": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": null,
+            "kendall_tau": null,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": null,
+            "kendall_tau": null,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.20815011066340325,
+            "kendall_tau": 0.20815011066340325,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.20815011066340325,
+        "mci_kendall": 0.20815011066340325,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.20815011066340325,
+            "kendall_tau": 0.20815011066340325,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.20815011066340325,
+        "mci_kendall": 0.20815011066340325,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.20815011066340325,
+            "kendall_tau": 0.20815011066340325,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.20815011066340325,
+        "mci_kendall": 0.20815011066340325,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": null,
+            "kendall_tau": null,
+            "included": true
+          }
+        ],
+        "mci_spearman": null,
+        "mci_kendall": null,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": null,
+            "kendall_tau": null,
+            "included": true
+          }
+        ],
+        "mci_spearman": null,
+        "mci_kendall": null,
+        "n_pairs_included": 1
+      }
+    },
+    "deepseek-v3": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.34556053828503813,
+            "kendall_tau": 0.34556053828503813,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.4840602051469531,
+            "kendall_tau": 0.4432630985694204,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.3169340045105274,
+            "kendall_tau": 0.29022247106370164,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.38218491598083953,
+        "mci_kendall": 0.35968203597272,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.3169340045105274,
+            "kendall_tau": 0.29022247106370164,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3169340045105274,
+        "mci_kendall": 0.29022247106370164,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.3169340045105274,
+            "kendall_tau": 0.29022247106370164,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3169340045105274,
+        "mci_kendall": 0.29022247106370164,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.4840602051469531,
+            "kendall_tau": 0.4432630985694204,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.4840602051469531,
+        "mci_kendall": 0.4432630985694204,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.34556053828503813,
+            "kendall_tau": 0.34556053828503813,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.34556053828503813,
+        "mci_kendall": 0.34556053828503813,
+        "n_pairs_included": 1
+      }
+    },
+    "gemini-2.5-pro": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.41323792499700046,
+            "kendall_tau": 0.41323792499700046,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2251778641586484,
+            "kendall_tau": 0.2251778641586484,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.19961324595184082,
+            "kendall_tau": 0.1996132459518408,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2793430117024966,
+        "mci_kendall": 0.2793430117024966,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.19961324595184082,
+            "kendall_tau": 0.1996132459518408,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.19961324595184082,
+        "mci_kendall": 0.1996132459518408,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.19961324595184082,
+            "kendall_tau": 0.1996132459518408,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.19961324595184082,
+        "mci_kendall": 0.1996132459518408,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2251778641586484,
+            "kendall_tau": 0.2251778641586484,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2251778641586484,
+        "mci_kendall": 0.2251778641586484,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.41323792499700046,
+            "kendall_tau": 0.41323792499700046,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.41323792499700046,
+        "mci_kendall": 0.41323792499700046,
+        "n_pairs_included": 1
+      }
+    },
+    "gemma-3-12b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.37871591995599685,
+            "kendall_tau": 0.37871591995599685,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.34048540945709005,
+            "kendall_tau": 0.3188704092356999,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.322893043242526,
+            "kendall_tau": 0.3023948573957339,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3473647908852043,
+        "mci_kendall": 0.33332706219581026,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.322893043242526,
+            "kendall_tau": 0.3023948573957339,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.322893043242526,
+        "mci_kendall": 0.3023948573957339,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.322893043242526,
+            "kendall_tau": 0.3023948573957339,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.322893043242526,
+        "mci_kendall": 0.3023948573957339,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.34048540945709005,
+            "kendall_tau": 0.3188704092356999,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.34048540945709005,
+        "mci_kendall": 0.3188704092356999,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.37871591995599685,
+            "kendall_tau": 0.37871591995599685,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.37871591995599685,
+        "mci_kendall": 0.37871591995599685,
+        "n_pairs_included": 1
+      }
+    },
+    "gemma-3-27b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.4677609398199964,
+            "kendall_tau": 0.46776093981999645,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.42834024311487806,
+            "kendall_tau": 0.39832077469281973,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2888298884343684,
+            "kendall_tau": 0.2685877564970319,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3949770237897476,
+        "mci_kendall": 0.37822315700328274,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2888298884343684,
+            "kendall_tau": 0.2685877564970319,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2888298884343684,
+        "mci_kendall": 0.2685877564970319,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2888298884343684,
+            "kendall_tau": 0.2685877564970319,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2888298884343684,
+        "mci_kendall": 0.2685877564970319,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.42834024311487806,
+            "kendall_tau": 0.39832077469281973,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.42834024311487806,
+        "mci_kendall": 0.39832077469281973,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.4677609398199964,
+            "kendall_tau": 0.46776093981999645,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.4677609398199964,
+        "mci_kendall": 0.46776093981999645,
+        "n_pairs_included": 1
+      }
+    },
+    "gpt-oss-120b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 65,
+            "spearman_rho": 0.444237648822702,
+            "kendall_tau": 0.44423764882270206,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 61,
+            "spearman_rho": 0.4658894206981504,
+            "kendall_tau": 0.41881928150360953,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 55,
+            "spearman_rho": 0.1577210284557175,
+            "kendall_tau": 0.1429981036149047,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.35594936599218996,
+        "mci_kendall": 0.3353516779804054,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 55,
+            "spearman_rho": 0.1577210284557175,
+            "kendall_tau": 0.1429981036149047,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.1577210284557175,
+        "mci_kendall": 0.1429981036149047,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 55,
+            "spearman_rho": 0.1577210284557175,
+            "kendall_tau": 0.1429981036149047,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.1577210284557175,
+        "mci_kendall": 0.1429981036149047,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 61,
+            "spearman_rho": 0.4658894206981504,
+            "kendall_tau": 0.41881928150360953,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.4658894206981504,
+        "mci_kendall": 0.41881928150360953,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 65,
+            "spearman_rho": 0.444237648822702,
+            "kendall_tau": 0.44423764882270206,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.444237648822702,
+        "mci_kendall": 0.44423764882270206,
+        "n_pairs_included": 1
+      }
+    },
+    "kimi-k2": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.5826204070190835,
+            "kendall_tau": 0.5826204070190835,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2408083659732304,
+            "kendall_tau": 0.23735852383105818,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.1942575175663159,
+            "kendall_tau": 0.19147456703290905,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.33922876351954323,
+        "mci_kendall": 0.3371511659610169,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.1942575175663159,
+            "kendall_tau": 0.19147456703290905,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.1942575175663159,
+        "mci_kendall": 0.19147456703290905,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.1942575175663159,
+            "kendall_tau": 0.19147456703290905,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.1942575175663159,
+        "mci_kendall": 0.19147456703290905,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2408083659732304,
+            "kendall_tau": 0.23735852383105818,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2408083659732304,
+        "mci_kendall": 0.23735852383105818,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.5826204070190835,
+            "kendall_tau": 0.5826204070190835,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.5826204070190835,
+        "mci_kendall": 0.5826204070190835,
+        "n_pairs_included": 1
+      }
+    },
+    "llama-3.1-405b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.2776505858476714,
+            "kendall_tau": 0.2776505858476713,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.18124591391385664,
+            "kendall_tau": 0.1689449601448835,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": -0.04988649254049951,
+            "kendall_tau": -0.04650075310403109,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.13633666907367617,
+        "mci_kendall": 0.13336493096284124,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": -0.04988649254049951,
+            "kendall_tau": -0.04650075310403109,
+            "included": true
+          }
+        ],
+        "mci_spearman": -0.04988649254049951,
+        "mci_kendall": -0.04650075310403109,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": -0.04988649254049951,
+            "kendall_tau": -0.04650075310403109,
+            "included": true
+          }
+        ],
+        "mci_spearman": -0.04988649254049951,
+        "mci_kendall": -0.04650075310403109,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.18124591391385664,
+            "kendall_tau": 0.1689449601448835,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.18124591391385664,
+        "mci_kendall": 0.1689449601448835,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.2776505858476714,
+            "kendall_tau": 0.2776505858476713,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2776505858476714,
+        "mci_kendall": 0.2776505858476713,
+        "n_pairs_included": 1
+      }
+    },
+    "llama-3.1-70b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.3812630493399421,
+            "kendall_tau": 0.3812630493399421,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.3288868835059705,
+            "kendall_tau": 0.3061693284048012,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.05121429379308689,
+            "kendall_tau": 0.04767671415838308,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.25378807554633315,
+        "mci_kendall": 0.24503636396770878,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.05121429379308689,
+            "kendall_tau": 0.04767671415838308,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.05121429379308689,
+        "mci_kendall": 0.04767671415838308,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.05121429379308689,
+            "kendall_tau": 0.04767671415838308,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.05121429379308689,
+        "mci_kendall": 0.04767671415838308,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.3288868835059705,
+            "kendall_tau": 0.3061693284048012,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3288868835059705,
+        "mci_kendall": 0.3061693284048012,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.3812630493399421,
+            "kendall_tau": 0.3812630493399421,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3812630493399421,
+        "mci_kendall": 0.3812630493399421,
+        "n_pairs_included": 1
+      }
+    },
+    "llama-3.1-8b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.3019169279336703,
+            "kendall_tau": 0.3019169279336703,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2433645673518917,
+            "kendall_tau": 0.2299274178082337,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.09935280813522482,
+            "kendall_tau": 0.09386713470699312,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2148781011402623,
+        "mci_kendall": 0.20857049348296572,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.09935280813522482,
+            "kendall_tau": 0.09386713470699312,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.09935280813522482,
+        "mci_kendall": 0.09386713470699312,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.09935280813522482,
+            "kendall_tau": 0.09386713470699312,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.09935280813522482,
+        "mci_kendall": 0.09386713470699312,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2433645673518917,
+            "kendall_tau": 0.2299274178082337,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2433645673518917,
+        "mci_kendall": 0.2299274178082337,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.3019169279336703,
+            "kendall_tau": 0.3019169279336703,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3019169279336703,
+        "mci_kendall": 0.3019169279336703,
+        "n_pairs_included": 1
+      }
+    },
+    "llama-3.2-3b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.2498868522232155,
+            "kendall_tau": 0.2498868522232155,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2280094264208194,
+            "kendall_tau": 0.21832039516472612,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.05292765231623714,
+            "kendall_tau": 0.05067854496285435,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.17694131032009067,
+        "mci_kendall": 0.17296193078359867,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.05292765231623714,
+            "kendall_tau": 0.05067854496285435,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.05292765231623714,
+        "mci_kendall": 0.05067854496285435,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.05292765231623714,
+            "kendall_tau": 0.05067854496285435,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.05292765231623714,
+        "mci_kendall": 0.05067854496285435,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.2280094264208194,
+            "kendall_tau": 0.21832039516472612,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2280094264208194,
+        "mci_kendall": 0.21832039516472612,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.2498868522232155,
+            "kendall_tau": 0.2498868522232155,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.2498868522232155,
+        "mci_kendall": 0.2498868522232155,
+        "n_pairs_included": 1
+      }
+    },
+    "llama-3.3-70b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.35915080486933076,
+            "kendall_tau": 0.3591508048693307,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.4145271846061676,
+            "kendall_tau": 0.39177219697909343,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.13815453549395162,
+            "kendall_tau": 0.13057070296732054,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3039441749898167,
+        "mci_kendall": 0.29383123493858154,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.13815453549395162,
+            "kendall_tau": 0.13057070296732054,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.13815453549395162,
+        "mci_kendall": 0.13057070296732054,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.13815453549395162,
+            "kendall_tau": 0.13057070296732054,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.13815453549395162,
+        "mci_kendall": 0.13057070296732054,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.4145271846061676,
+            "kendall_tau": 0.39177219697909343,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.4145271846061676,
+        "mci_kendall": 0.39177219697909343,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.35915080486933076,
+            "kendall_tau": 0.3591508048693307,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.35915080486933076,
+        "mci_kendall": 0.3591508048693307,
+        "n_pairs_included": 1
+      }
+    },
+    "mistral-large": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.3958866400840218,
+            "kendall_tau": 0.3958866400840217,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.28345447384394645,
+            "kendall_tau": 0.258506891310235,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.24653320565865408,
+            "kendall_tau": 0.22483516218781513,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.30862477319554077,
+        "mci_kendall": 0.293076231194024,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.24653320565865408,
+            "kendall_tau": 0.22483516218781513,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.24653320565865408,
+        "mci_kendall": 0.22483516218781513,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.24653320565865408,
+            "kendall_tau": 0.22483516218781513,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.24653320565865408,
+        "mci_kendall": 0.22483516218781513,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.28345447384394645,
+            "kendall_tau": 0.258506891310235,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.28345447384394645,
+        "mci_kendall": 0.258506891310235,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.3958866400840218,
+            "kendall_tau": 0.3958866400840217,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.3958866400840218,
+        "mci_kendall": 0.3958866400840217,
+        "n_pairs_included": 1
+      }
+    },
+    "mixtral-8x22b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.37770591990556757,
+            "kendall_tau": 0.37770591990556757,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.23351930791359213,
+            "kendall_tau": 0.229298811054819,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.1113430100417054,
+            "kendall_tau": 0.10933065899319493,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.24085607928695504,
+        "mci_kendall": 0.23877846331786048,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.1113430100417054,
+            "kendall_tau": 0.10933065899319493,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.1113430100417054,
+        "mci_kendall": 0.10933065899319493,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.1113430100417054,
+            "kendall_tau": 0.10933065899319493,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.1113430100417054,
+        "mci_kendall": 0.10933065899319493,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.23351930791359213,
+            "kendall_tau": 0.229298811054819,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.23351930791359213,
+        "mci_kendall": 0.229298811054819,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.37770591990556757,
+            "kendall_tau": 0.37770591990556757,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.37770591990556757,
+        "mci_kendall": 0.37770591990556757,
+        "n_pairs_included": 1
+      }
+    },
+    "qwen3-next-80b": {
+      "full": {
+        "channels": [
+          "wagering",
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.5801028486518047,
+            "kendall_tau": 0.5801028486518047,
+            "included": true
+          },
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.352551099636588,
+            "kendall_tau": 0.34101150467041713,
+            "included": true
+          },
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.32266817551311777,
+            "kendall_tau": 0.31210669929666907,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.4184407079338368,
+        "mci_kendall": 0.411073684206297,
+        "n_pairs_included": 3
+      },
+      "no_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.32266817551311777,
+            "kendall_tau": 0.31210669929666907,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.32266817551311777,
+        "mci_kendall": 0.31210669929666907,
+        "n_pairs_included": 1
+      },
+      "leave_out_wagering": {
+        "channels": [
+          "natural",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "natural-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.32266817551311777,
+            "kendall_tau": 0.31210669929666907,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.32266817551311777,
+        "mci_kendall": 0.31210669929666907,
+        "n_pairs_included": 1
+      },
+      "leave_out_natural": {
+        "channels": [
+          "wagering",
+          "layer2"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-layer2",
+            "n_shared": 112,
+            "spearman_rho": 0.352551099636588,
+            "kendall_tau": 0.34101150467041713,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.352551099636588,
+        "mci_kendall": 0.34101150467041713,
+        "n_pairs_included": 1
+      },
+      "leave_out_layer2": {
+        "channels": [
+          "wagering",
+          "natural"
+        ],
+        "pair_correlations": [
+          {
+            "pair": "wagering-natural",
+            "n_shared": 112,
+            "spearman_rho": 0.5801028486518047,
+            "kendall_tau": 0.5801028486518047,
+            "included": true
+          }
+        ],
+        "mci_spearman": 0.5801028486518047,
+        "mci_kendall": 0.5801028486518047,
+        "n_pairs_included": 1
+      }
+    }
+  },
+  "rank_stability": {
+    "full_vs_no_wagering_rank_spearman": 0.7714285714285712,
+    "full_vs_leave_out_natural_rank_spearman": 0.7934065934065934,
+    "full_vs_leave_out_layer2_rank_spearman": 0.7010989010989012
+  },
+  "sign_shift_counts": {
+    "full_to_no_wagering": 1,
+    "full_to_leave_out_natural": 0,
+    "full_to_leave_out_layer2": 0
+  }
+}

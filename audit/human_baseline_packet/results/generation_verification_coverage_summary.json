@@ -1,0 +1,89 @@
+{
+  "run_id": "v20_maximal_closure_coverage_postfix",
+  "generated_at_utc": "2026-03-26T18:19:22+00:00",
+  "artifact_inputs": {
+    "multirater_summary": "audit\\human_baseline_packet\\results\\human_audit_multirater_summary.json",
+    "exp9_mapping_validity_summary": "audit\\human_baseline_packet\\results\\exp9_mapping_validity_summary.json",
+    "human_annotations_report": "C:\\Users\\wangz\\MIRROR\\audit\\human_annotations_report.json"
+  },
+  "rows": [
+    {
+      "experiment": "Exp1",
+      "primary_label_source": "Programmatic scoring against fixed answer keys",
+      "human_verified_n": 339,
+      "human_verification_depth": "5-rater audit, unanimous=0.938",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "Human verification sourced from multi-rater audit summary."
+    },
+    {
+      "experiment": "Exp2",
+      "primary_label_source": "Programmatic / deterministic pipeline outputs",
+      "human_verified_n": 0,
+      "human_verification_depth": "No dedicated human-audit artifact in this stage",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "Bench-level QA remains in reproducibility scripts."
+    },
+    {
+      "experiment": "Exp3",
+      "primary_label_source": "Programmatic / deterministic pipeline outputs",
+      "human_verified_n": 0,
+      "human_verification_depth": "No dedicated human-audit artifact in this stage",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "Pair-balanced diagnostics and bootstrap checks are automated."
+    },
+    {
+      "experiment": "Exp4",
+      "primary_label_source": "Hybrid (programmatic + targeted human annotation packet)",
+      "human_verified_n": 25,
+      "human_verification_depth": "Targeted annotation packet",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "Counts sourced from human_annotations_report.json."
+    },
+    {
+      "experiment": "Exp5",
+      "primary_label_source": "Programmatic / deterministic pipeline outputs",
+      "human_verified_n": 0,
+      "human_verification_depth": "No dedicated human-audit artifact in this stage",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "Adversarial-condition checks are scripted."
+    },
+    {
+      "experiment": "Exp6",
+      "primary_label_source": "Programmatic + curated adversarial metadata",
+      "human_verified_n": 0,
+      "human_verification_depth": "See manuscript appendix note for full-verification run details",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "This table reports machine-readable artifacts only."
+    },
+    {
+      "experiment": "Exp8",
+      "primary_label_source": "Programmatic / deterministic pipeline outputs",
+      "human_verified_n": 0,
+      "human_verification_depth": "No dedicated human-audit artifact in this stage",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 0,
+      "notes": "Scaling analysis is computed from benchmark outputs."
+    },
+    {
+      "experiment": "Exp9",
+      "primary_label_source": "Programmatic routing outcomes + static task verification",
+      "human_verified_n": 311,
+      "human_verification_depth": "5-rater audit core=261, targeted packet=50, unanimous=0.747",
+      "llm_labeled_n": 0,
+      "static_schema_verified_n": 297,
+      "notes": "Static domain-component checks: 297/297 passed."
+    }
+  ],
+  "totals": {
+    "human_verified_n_total": 675,
+    "static_schema_verified_n_total": 297,
+    "n_experiments_reported": 8
+  },
+  "status": "complete"
+}

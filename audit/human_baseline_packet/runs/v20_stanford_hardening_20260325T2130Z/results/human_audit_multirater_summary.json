@@ -1,0 +1,165 @@
+{
+  "status": "complete",
+  "n_raters": 5,
+  "n_shared_items": 600,
+  "rater_ids": [
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5"
+  ],
+  "validation": [
+    {
+      "rater": "R1",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R1.csv",
+      "row_count": 600,
+      "expected_rows": 600,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    },
+    {
+      "rater": "R2",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R2.csv",
+      "row_count": 600,
+      "expected_rows": 600,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    },
+    {
+      "rater": "R3",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R3.csv",
+      "row_count": 600,
+      "expected_rows": 600,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    },
+    {
+      "rater": "R4",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R4.csv",
+      "row_count": 600,
+      "expected_rows": 600,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    },
+    {
+      "rater": "R5",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R5.csv",
+      "row_count": 600,
+      "expected_rows": 600,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    }
+  ],
+  "agreement": {
+    "unanimous_rate": 0.855,
+    "unanimous_n": 513,
+    "fleiss_kappa": 0.8505402777344899,
+    "pairwise": [
+      {
+        "pair": "R1-R2",
+        "raw_agreement": 0.95,
+        "cohen_kappa": 0.8857925993604385
+      },
+      {
+        "pair": "R1-R3",
+        "raw_agreement": 0.96,
+        "cohen_kappa": 0.9075892341457779
+      },
+      {
+        "pair": "R1-R4",
+        "raw_agreement": 0.9466666666666667,
+        "cohen_kappa": 0.8765765418289814
+      },
+      {
+        "pair": "R1-R5",
+        "raw_agreement": 0.9633333333333334,
+        "cohen_kappa": 0.9161073825503356
+      },
+      {
+        "pair": "R2-R3",
+        "raw_agreement": 0.91,
+        "cohen_kappa": 0.7952684258416743
+      },
+      {
+        "pair": "R2-R4",
+        "raw_agreement": 0.8966666666666666,
+        "cohen_kappa": 0.7652582159624413
+      },
+      {
+        "pair": "R2-R5",
+        "raw_agreement": 0.9466666666666667,
+        "cohen_kappa": 0.8777179105047958
+      },
+      {
+        "pair": "R3-R4",
+        "raw_agreement": 0.9433333333333334,
+        "cohen_kappa": 0.8668702768315126
+      },
+      {
+        "pair": "R3-R5",
+        "raw_agreement": 0.9233333333333333,
+        "cohen_kappa": 0.8248819856860058
+      },
+      {
+        "pair": "R4-R5",
+        "raw_agreement": 0.91,
+        "cohen_kappa": 0.7945413961038962
+      }
+    ]
+  },
+  "label_counts": {
+    "R1": {
+      "ambiguous": 66,
+      "correct": 435,
+      "incorrect": 99
+    },
+    "R2": {
+      "ambiguous": 96,
+      "correct": 435,
+      "incorrect": 69
+    },
+    "R3": {
+      "ambiguous": 42,
+      "correct": 435,
+      "incorrect": 123
+    },
+    "R4": {
+      "ambiguous": 34,
+      "correct": 435,
+      "incorrect": 131
+    },
+    "R5": {
+      "ambiguous": 88,
+      "correct": 435,
+      "incorrect": 77
+    }
+  },
+  "majority_label_counts": {
+    "ambiguous": 66,
+    "correct": 435,
+    "incorrect": 99
+  },
+  "per_experiment": {
+    "exp1": {
+      "n": 339,
+      "unanimous_n": 318,
+      "unanimous_rate": 0.9380530973451328
+    },
+    "exp9": {
+      "n": 261,
+      "unanimous_n": 195,
+      "unanimous_rate": 0.7471264367816092
+    }
+  }
+}

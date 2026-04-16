@@ -38,11 +38,13 @@ MODEL_REGISTRY = {
         "role": "frontier",
     },
     "deepseek-r1": {
-        "provider": "deepseek",
-        "model_id": "deepseek-reasoner",
-        "display_name": "DeepSeek R1",
+        # NIM distill fallback is used in this environment because direct
+        # DeepSeek credits are intermittently unavailable for long reruns.
+        "provider": "nvidia_nim",
+        "model_id": "deepseek-ai/deepseek-r1-distill-llama-8b",
+        "display_name": "DeepSeek R1 (NIM distill)",
         "lab": "DeepSeek",
-        "open_weight": False,
+        "open_weight": True,
         "role": "reasoning",
     },
     # --- Diversity Models (NVIDIA NIM) ---

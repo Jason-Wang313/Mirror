@@ -1,7 +1,7 @@
 # Exp1 Proper-Scoring Primary Summary
 
-- Run ID: `v20_final_hardening_20260326B_proper`
-- Created: 2026-03-26T16:54:42+00:00
+- Run ID: `v20_maximal_closure_20260326T2200Z_proper`
+- Created: 2026-03-26T18:06:04+00:00
 - Models analyzed: 16
 - Primary scoring rule: `brier`
 

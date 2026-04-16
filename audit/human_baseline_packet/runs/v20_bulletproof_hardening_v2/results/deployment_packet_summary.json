@@ -1,0 +1,17 @@
+{
+  "status": "missing_files",
+  "missing_files": [
+    "traffic.csv",
+    "outcomes.csv",
+    "cost_latency.csv",
+    "constraints.json"
+  ],
+  "exists": {
+    "traffic.csv": false,
+    "outcomes.csv": false,
+    "cost_latency.csv": false,
+    "constraints.json": false
+  },
+  "generated_at_utc": "2026-03-25T16:32:52+00:00",
+  "packet_dir": "C:\\Users\\wangz\\MIRROR\\deployment_packet"
+}

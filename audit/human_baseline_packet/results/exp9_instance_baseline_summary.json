@@ -1,6 +1,6 @@
 {
-  "run_id": "v20_final_hardening_20260326A_instance_c1_all_paradigms",
-  "created_at_utc": "2026-03-26T10:33:47+00:00",
+  "run_id": "v20_maximal_closure_20260326T2200Z_instance_c1_all_paradigms",
+  "created_at_utc": "2026-03-26T17:50:20+00:00",
   "completed_models": [
     "deepseek-r1",
     "deepseek-v3",

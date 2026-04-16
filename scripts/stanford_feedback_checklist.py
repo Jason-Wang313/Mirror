@@ -28,6 +28,15 @@ def contains_all(text: str, needles: list[str]) -> bool:
     return all(n.lower() in t for n in needles)
 
 
+def read_json(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run Stanford-feedback checklist gate.")
     parser.add_argument("--run-id", type=str, default=datetime.now().strftime("stanford_gate_%Y%m%dT%H%M%S"))
@@ -44,6 +53,10 @@ def main() -> None:
     tex = args.paper_tex.read_text(encoding="utf-8") if args.paper_tex.exists() else ""
     frontier_md = (args.results_dir / "exp9_policy_frontier_summary.md").read_text(encoding="utf-8", errors="ignore") if (args.results_dir / "exp9_policy_frontier_summary.md").exists() else ""
     hard_v2_md = (args.results_dir / "human_baseline_hardv2_summary.md").read_text(encoding="utf-8", errors="ignore") if (args.results_dir / "human_baseline_hardv2_summary.md").exists() else ""
+    ood_json = read_json(args.results_dir / "exp9_ood_holdout_summary.json")
+    mech_json = read_json(args.results_dir / "mechanistic_probe_summary.json")
+    coverage_json = read_json(args.results_dir / "generation_verification_coverage_summary.json")
+    hard_v2_cohort_json = read_json(args.results_dir / "human_baseline_hardv2_cohort_summary.json")
 
     checks = [
         {
@@ -135,6 +148,56 @@ def main() -> None:
             "description": "Hard human packet v2 evidence is integrated (summary artifact + manuscript mention).",
             "pass": (contains_all(hard_v2_md, ["512", "336"]) or contains_all(hard_v2_md, ["hard", "participant-mean"])) and contains_all(tex, ["hard packet", "human baseline"]),
             "evidence_hint": "Expect human_baseline_hardv2_summary.md and main-text reference to harder packet execution.",
+        },
+        {
+            "id": "proper_score_primary_claim_path",
+            "description": "Main claim path explicitly prioritizes strictly proper scoring (Brier/log/ECE) over MIRROR-gap-only framing.",
+            "pass": contains_all(tex, ["strictly proper scoring", "brier", "log score"]) and contains_all(tex, ["primary"]),
+            "evidence_hint": "Look for explicit claim-path language making proper scoring primary for L0.",
+        },
+        {
+            "id": "cfr_plus_utility_coreport",
+            "description": "CFR is co-reported with system success/autonomy/cost/latency in claim-critical sections.",
+            "pass": contains_all(tex, ["cfr", "system success", "autonomy", "cost", "latency"]),
+            "evidence_hint": "Look for explicit anti-gaming framing that pairs CFR with end-to-end utility metrics.",
+        },
+        {
+            "id": "baseline_operating_point_disclosure",
+            "description": "Baseline operating points disclose matched budget/autonomy/escalation details.",
+            "pass": contains_all(tex, ["budget-matched", "autonomy", "escalation"]) and contains_all(tex, ["confidence-threshold", "self-consistency", "conformal"]),
+            "evidence_hint": "Look for main-text (or core table) operating-point disclosure rather than appendix-only mention.",
+        },
+        {
+            "id": "sar_ai_interpretation_block",
+            "description": "SAR/AI interpretation is explicitly provided with scale intuition in manuscript text.",
+            "pass": contains_all(tex, ["the \\ai{} measures"]) and contains_all(tex, ["\\sar{}", "range"]),
+            "evidence_hint": "Look for concise SAR/AI interpretation text near Exp4 or metrics discussion.",
+        },
+        {
+            "id": "ood_holdout_evidence",
+            "description": "OOD holdout-domain routing stress artifact is present and passes stability status.",
+            "pass": bool(ood_json) and (ood_json.get("macro_summary", {}).get("ood_generalization_status") == "pass"),
+            "evidence_hint": "Expect exp9_ood_holdout_summary.json with macro_summary.ood_generalization_status='pass'.",
+        },
+        {
+            "id": "mechanistic_probe_evidence",
+            "description": "Targeted open-weight mechanistic probe artifact is present with sufficient model coverage.",
+            "pass": bool(mech_json) and int(mech_json.get("macro_summary", {}).get("n_models_scored", 0)) >= 8,
+            "evidence_hint": "Expect mechanistic_probe_summary.json with macro_summary.n_models_scored >= 8.",
+        },
+        {
+            "id": "verification_coverage_table_evidence",
+            "description": "Generation/verification coverage table artifact exists and is marked complete.",
+            "pass": bool(coverage_json) and str(coverage_json.get("status", "")).lower() == "complete",
+            "evidence_hint": "Expect generation_verification_coverage_summary.json with status='complete'.",
+        },
+        {
+            "id": "hard_v2_cohort_completion",
+            "description": "Hard-v2 cohort execution is complete with at least 20 validated participant pairs.",
+            "pass": bool(hard_v2_cohort_json)
+            and str(hard_v2_cohort_json.get("status", "")).lower() == "complete"
+            and int(hard_v2_cohort_json.get("counts", {}).get("participant_pairs_validated_ok", 0)) >= 20,
+            "evidence_hint": "Expect human_baseline_hardv2_cohort_summary.json status='complete' and participant_pairs_validated_ok >= 20.",
         },
     ]
 

@@ -1,0 +1,73 @@
+{
+  "verified_at_utc": "2026-03-24T22:50:11+00:00",
+  "manifest_path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_hardening_human3_lock\\human_input_manifest.json",
+  "all_ok": true,
+  "checks": [
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp1_answer_key.csv",
+      "expected_sha256": "9f097288aac04a16125186cbeacde1c5ea3ec36aa6d1031b7b54fe3e6b6e3152",
+      "actual_sha256": "9f097288aac04a16125186cbeacde1c5ea3ec36aa6d1031b7b54fe3e6b6e3152",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp9_answer_key.csv",
+      "expected_sha256": "c3d698edb672edc2426de9b94a92d88234b5600b7ed4a48166e475f84a57e4d5",
+      "actual_sha256": "c3d698edb672edc2426de9b94a92d88234b5600b7ed4a48166e475f84a57e4d5",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_P1.csv",
+      "expected_sha256": "40b0fe055e6676b4c2ce558b767ccc8ef36f605e7c64ebcd2f41866ce3271c32",
+      "actual_sha256": "40b0fe055e6676b4c2ce558b767ccc8ef36f605e7c64ebcd2f41866ce3271c32",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_P2.csv",
+      "expected_sha256": "11e17eb3b6f16fd8fa8ef4a4bff534916db471b5153e232e1dc5a68ad87358e0",
+      "actual_sha256": "11e17eb3b6f16fd8fa8ef4a4bff534916db471b5153e232e1dc5a68ad87358e0",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_P3.csv",
+      "expected_sha256": "1bccf17b3d296d069c467ee9b01941e05644e36093639a2b9cffa5c2ddbba396",
+      "actual_sha256": "1bccf17b3d296d069c467ee9b01941e05644e36093639a2b9cffa5c2ddbba396",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_P1.csv",
+      "expected_sha256": "be3988a4410141bffd60395cc9debae414ffab1cebdc38bf2dde9367cf058096",
+      "actual_sha256": "be3988a4410141bffd60395cc9debae414ffab1cebdc38bf2dde9367cf058096",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_P2.csv",
+      "expected_sha256": "93d9874a630c15f50c1a0191f71fcbd1417657888bd25445b493337f1cf05c97",
+      "actual_sha256": "93d9874a630c15f50c1a0191f71fcbd1417657888bd25445b493337f1cf05c97",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_P3.csv",
+      "expected_sha256": "4615e1f50a635031848adfe83c4c17690889a1529dda0b052a330fca8fc9092d",
+      "actual_sha256": "4615e1f50a635031848adfe83c4c17690889a1529dda0b052a330fca8fc9092d",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R1.csv",
+      "expected_sha256": "8bbe324558f4f737b69217e3043fea82dbdfa81642adc37eae230b2b565fb1df",
+      "actual_sha256": "8bbe324558f4f737b69217e3043fea82dbdfa81642adc37eae230b2b565fb1df",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R2.csv",
+      "expected_sha256": "f9249e0749fc763838cf8ad57b94b0184fee681b74f3c38f720b62c934bc3ecf",
+      "actual_sha256": "f9249e0749fc763838cf8ad57b94b0184fee681b74f3c38f720b62c934bc3ecf",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R3.csv",
+      "expected_sha256": "bc1aac6ed524b287808bfa1134d394b25796db0a756ac241e9a9827d578784b1",
+      "actual_sha256": "bc1aac6ed524b287808bfa1134d394b25796db0a756ac241e9a9827d578784b1",
+      "ok": true
+    }
+  ]
+}

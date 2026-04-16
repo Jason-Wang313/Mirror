@@ -1,0 +1,440 @@
+{
+  "run_id": "v20_stanford_hardening_20260325T2130Z_non_oracle",
+  "generated_at_utc": "2026-03-25T22:30:32+00:00",
+  "input_files": [
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260228T114326_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260228T115732_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260228T133108_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_SYNTHETIC_TEST_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T123529_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T140842_results_clean.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T140842_results_original_backup.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T140842_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260323_gemini_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260323T202942_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260323T203013_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260325_c1p3_backfill_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260325_c1p3_backfill_deepseek_nim_results.jsonl"
+  ],
+  "n_components": 98744,
+  "resolver_accuracy": {
+    "available": true,
+    "overall_accuracy": 0.5018518518518519,
+    "by_resolver_type": {
+      "human": {
+        "n": 344,
+        "accuracy": 0.49127906976744184
+      },
+      "tool": {
+        "n": 196,
+        "accuracy": 0.5204081632653061
+      }
+    },
+    "n_rows": 540
+  },
+  "q_curve": [
+    {
+      "q": 0.502,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.47447843002631884,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.5298891740550442,
+      "c4_minus_c1_success": 0.1019881165356531
+    },
+    {
+      "q": 0.7,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.5732292024259068,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.3879491367242623,
+      "c4_minus_c1_success": 0.20073888893524106
+    },
+    {
+      "q": 0.75,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.5981662661631766,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.35210569295380306,
+      "c4_minus_c1_success": 0.22567595267251084
+    },
+    {
+      "q": 0.8,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.6231033299004463,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.3162622491833502,
+      "c4_minus_c1_success": 0.2506130164097805
+    },
+    {
+      "q": 0.85,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.648040393637716,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.2804188054130078,
+      "c4_minus_c1_success": 0.2755500801470503
+    },
+    {
+      "q": 0.9,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.6729774573749856,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.24457536164253169,
+      "c4_minus_c1_success": 0.30048714388431985
+    },
+    {
+      "q": 0.95,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.6979145211122554,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.20873191787211728,
+      "c4_minus_c1_success": 0.32542420762158963
+    },
+    {
+      "q": 1.0,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.7228515848495252,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.17288847410172656,
+      "c4_minus_c1_success": 0.3503612713588594
+    }
+  ],
+  "condition_details": {
+    "0.502": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.47447843002631884,
+        "system_failure_rate_q": 0.5255215699736812,
+        "weak_effective_failure_rate_q": 0.5298891740550442,
+        "weak_n": 8572
+      }
+    },
+    "0.7": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.5732292024259068,
+        "system_failure_rate_q": 0.4267707975740932,
+        "weak_effective_failure_rate_q": 0.3879491367242623,
+        "weak_n": 8572
+      }
+    },
+    "0.75": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.5981662661631766,
+        "system_failure_rate_q": 0.4018337338368234,
+        "weak_effective_failure_rate_q": 0.35210569295380306,
+        "weak_n": 8572
+      }
+    },
+    "0.8": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.6231033299004463,
+        "system_failure_rate_q": 0.37689667009955374,
+        "weak_effective_failure_rate_q": 0.3162622491833502,
+        "weak_n": 8572
+      }
+    },
+    "0.85": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.648040393637716,
+        "system_failure_rate_q": 0.35195960636228396,
+        "weak_effective_failure_rate_q": 0.2804188054130078,
+        "weak_n": 8572
+      }
+    },
+    "0.9": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.6729774573749856,
+        "system_failure_rate_q": 0.3270225426250144,
+        "weak_effective_failure_rate_q": 0.24457536164253169,
+        "weak_n": 8572
+      }
+    },
+    "0.95": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.6979145211122554,
+        "system_failure_rate_q": 0.3020854788877446,
+        "weak_effective_failure_rate_q": 0.20873191787211728,
+        "weak_n": 8572
+      }
+    },
+    "1.0": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.7228515848495252,
+        "system_failure_rate_q": 0.27714841515047484,
+        "weak_effective_failure_rate_q": 0.17288847410172656,
+        "weak_n": 8572
+      }
+    }
+  },
+  "interpretation": "C4 retains a positive system-success advantage over C1 across resolver-quality sensitivity (q=0.50..1.00), while explicitly trading autonomy for reliability."
+}

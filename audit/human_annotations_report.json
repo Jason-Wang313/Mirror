@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "inputs": {
+    "items_jsonl": "C:\\Users\\wangz\\MIRROR\\audit\\items.jsonl",
+    "source_csv": "C:\\Users\\wangz\\Downloads\\human_audit_protocol_run\\human_audit_items.csv"
+  },
+  "outputs": {
+    "human_annotations_jsonl": "C:\\Users\\wangz\\MIRROR\\audit\\human_annotations.jsonl"
+  },
+  "counts": {
+    "total": 75,
+    "by_experiment": {
+      "exp9": 50,
+      "exp4": 25
+    },
+    "by_label": {
+      "incorrect": 69,
+      "correct": 6
+    }
+  },
+  "exp9_missing_expected_answer_item_ids": [],
+  "notes": [
+    "Exp9 labels are inferred by expected-answer matching.",
+    "Exp4 labels are provisional placeholders pending full evaluation."
+  ]
+}

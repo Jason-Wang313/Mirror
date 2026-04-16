@@ -1,0 +1,549 @@
+# Brief 04: Experiment 1 Runner — Baseline Metacognitive Calibration
+
+**Project:** MIRROR (Metacognitive Integrity and Recursive Reasoning in Operationalized Response)  
+**Target:** NeurIPS 2026  
+**Brief scope:** Experiment 1 full execution — the core experiment that establishes baseline metacognitive calibration across all models, domains, and channels  
+**Model for implementation:** Sonnet with extended thinking  
+**Depends on:** Brief 01 (API client), Brief 02 (question bank), Brief 03 (channels, runner, scoring)  
+**Location:** `C:\Users\wangz\MIRROR\`
+
+---
+
+## Context
+
+Briefs 01-03 built:
+- **Unified API client** routing across NVIDIA NIM (Llama 3.1 8B/70B/405B, Mistral Large, Qwen 3 235B, GPT-OSS-120B) and DeepSeek API (DeepSeek R1). Google AI Studio (Gemini) paused — skip for now.
+- **Question bank** at `data/questions.jsonl` — 400 pilot questions across 8 domains (arithmetic, spatial, temporal, linguistic, logical, social, factual, procedural) with difficulty labels (easy/medium/hard/adversarial).
+- **Five-channel behavioral measurement** (`mirror/experiments/channels.py`, `runner.py`, `layers.py`) with parsers, the experiment runner with per-question checkpointing, and scoring (`mirror/scoring/answer_matcher.py`, `metrics.py`, `statistics.py`, `validations.py`). All 123 tests passing.
+
+Brief 04 builds the **Experiment 1 execution layer** — the orchestration script that actually runs the baseline experiment, executes Channel 4 tools, aggregates cross-model results, and produces the primary data tables for the paper.
+
+---
+
+## What Experiment 1 Measures
+
+Experiment 1 answers: **"How well-calibrated is each model's metacognitive self-assessment across domains?"**
+
+For each model × question, we run all 5 channels independently (separate API calls, fresh context each time). Then we compute:
+
+1. **Per-channel calibration** — does bet size predict accuracy? Does skip rate align with error rate? Etc.
+2. **Cross-domain metacognitive profiles** — which domains does each model "know" it's weak in?
+3. **MCI (Metacognitive Convergence Index)** — do all 5 channels agree about which questions are hard for this model?
+4. **Dissociation matrix** — which channel pairs diverge, and what does that mean?
+5. **Layer 2 structured self-report** — does verbal confidence match behavioral confidence?
+6. **Hallucination wagering analysis** — do high-confidence wrong answers (hallucinations) show distinct behavioral signatures?
+
+This is the paper's Table 1 and Figures 1-3.
+
+---
+
+## What to Build
+
+### 1. Channel 4 Tool Execution (Two-Turn)
+
+Brief 03 recorded tool requests but didn't execute them. Now implement actual tool execution for the calculator tool. Other tools (web_search, ask_expert, flag_review) remain record-only.
+
+**File:** `mirror/experiments/tool_executor.py`
+
+```python
+class ToolExecutor:
+    """Executes tool requests from Channel 4 responses."""
+    
+    SUPPORTED_TOOLS = {"calculator"}  # Others are record-only
+    
+    def execute(self, tool_name: str, tool_input: str) -> dict:
+        """
+        Returns {
+            "tool_name": str,
+            "tool_input": str,
+            "executed": bool,
+            "result": str | None,
+            "error": str | None
+        }
+        """
+    
+    def execute_calculator(self, expression: str) -> str:
+        """
+        Safely evaluate math expression.
+        Use Python's ast.literal_eval or a restricted eval with only math ops.
+        DO NOT use raw eval().
+        
+        Supported: +, -, *, /, **, %, //, sqrt, abs, round, int, float
+        Unsupported: imports, function calls (except math builtins), variable assignment
+        
+        Returns string result or error message.
+        """
+    
+    def process_channel4_response(self, parsed_response: dict, model: str, prompt_base: str, client) -> dict:
+        """
+        Takes parsed Channel 4 output.
+        If calculator tools were requested:
+          1. Execute each calculator call
+          2. Format results as a second-turn message
+          3. Send second turn to the model
+          4. Parse the model's updated answer
+          5. Return both the initial and final answers
+        
+        Second-turn prompt format:
+        '''
+        Tool results:
+        [TOOL_RESULT: calculator | {expression} = {result}]
+        
+        Now provide your final answer.
+        ANSWER: [your answer]
+        '''
+        
+        If no executable tools were requested, return the original response unchanged
+        with a flag `tool_executed: false`.
+        """
+```
+
+**Edge cases:**
+- Model requests calculator with malformed expression → return error in tool result, let model try again
+- Model requests multiple tools → execute all supported ones, return all results in one second turn
+- Model doesn't change answer after seeing tool result → record both, flag `answer_changed: false`
+- Calculator produces float with many decimals → round to 6 decimal places
+- Division by zero → return "Error: division by zero" as tool result
+
+**Security:** Use `ast.parse` to verify the expression contains only numeric literals and allowed operators before evaluation. Reject anything with names, imports, or function calls outside the allowed set.
+
+---
+
+### 2. Experiment 1 Orchestration Script
+
+**File:** `scripts/run_experiment_1.py`
+
+This is the main entry point. It orchestrates the full Experiment 1 run.
+
+```python
+"""
+Experiment 1: Baseline Metacognitive Calibration
+================================================
+
+Usage:
+  # Pilot run (2 models × 50 questions × 5 channels = 500 API calls)
+  python scripts/run_experiment_1.py --mode pilot
+  
+  # Full run (7 models × 400 questions × 5 channels = 14,000 API calls)
+  python scripts/run_experiment_1.py --mode full
+  
+  # Single model test (1 model × 10 questions × 5 channels = 50 API calls)
+  python scripts/run_experiment_1.py --mode test --models llama-3.1-8b
+  
+  # Resume interrupted run
+  python scripts/run_experiment_1.py --mode full --resume
+  
+  # Layer 2 only (run after Layer 1 is complete)
+  python scripts/run_experiment_1.py --mode full --layer2-only
+  
+  # Specific models only
+  python scripts/run_experiment_1.py --mode full --models llama-3.1-8b,deepseek-r1
+"""
+
+import argparse
+import json
+import time
+from pathlib import Path
+from datetime import datetime
+
+# Configuration
+EXPERIMENT_CONFIG = {
+    "test": {
+        "n_questions": 10,       # 10 questions for quick sanity check
+        "models": ["llama-3.1-8b"],
+        "description": "Quick sanity check"
+    },
+    "pilot": {
+        "n_questions": 50,       # 50 questions, balanced across domains
+        "models": ["llama-3.1-8b", "deepseek-r1"],
+        "description": "Pilot run — verify everything works before full scale"
+    },
+    "full": {
+        "n_questions": 400,      # All 400 pilot questions (scale to 5000 later)
+        "models": [
+            "llama-3.1-8b",
+            "llama-3.1-70b",
+            "llama-3.1-405b",
+            "mistral-large",
+            "qwen-3-235b",
+            "gpt-oss-120b",
+            "deepseek-r1"
+        ],
+        "description": "Full Experiment 1 — all models, all questions"
+    }
+}
+
+ALL_CHANNELS = ["wagering", "opt_out", "difficulty_selection", "tool_use", "natural"]
+```
+
+**Execution flow:**
+
+1. **Load questions** from `data/questions.jsonl`
+   - For pilot/test: sample N questions, stratified by domain (equal per domain)
+   - For full: use all questions
+   - For difficulty_selection channel: load pre-computed pairs
+
+2. **Check for existing checkpoint** at `data/results/exp1_{run_id}_checkpoint.json`
+   - If `--resume` and checkpoint exists: load it, skip completed (model, question, channel) tuples
+   - Checkpoint structure: `{ "completed": [{"model": str, "question_id": str, "channel": str}], "run_id": str, "started_at": str }`
+
+3. **For each model (sequential):**
+   - Initialize API client for this model
+   - Run a **format calibration check**: 5 trivially easy questions through Channel 4 to verify the model can follow the tool-use format. If ≥3/5 fail to produce parseable tool commands, flag this model for Channel 4 exclusion and log a warning. Still run Channel 4 but mark results as `format_unreliable: true`.
+
+4. **For each question (sequential within model):**
+   - **For each channel (sequential within question):**
+     - Build the prompt (using `mirror/experiments/channels.py`)
+     - Call the API (using `mirror/api/client.py`)
+     - Parse the response (using channel-specific parser)
+     - If Channel 4 and calculator tool requested: execute tool, send second turn, parse final answer
+     - Save raw response + parsed fields to results JSONL
+     - Update checkpoint
+   - After all 5 channels for this question: compute answer correctness for each channel
+   - Log progress: `[model_name] Question 42/400 | Ch1: ✓ bet=7 | Ch2: SKIP | Ch3: A ✓ | Ch4: calc ✓ | Ch5: ✓`
+
+5. **Rate limiting:**
+   - Between API calls: `time.sleep(delay)` per provider
+   - NVIDIA NIM: 0.5s delay
+   - DeepSeek: 0.5s delay
+   - Google AI Studio: 1.0s delay (when enabled)
+   - Track RPM per provider, back off if approaching limits
+   - On rate limit error (429): exponential backoff starting at 5s, max 120s, 3 retries then skip and log
+
+6. **After all models complete:** trigger aggregation (section 3 below)
+
+**Question sampling for pilot:**
+```python
+def sample_stratified(questions: list[dict], n: int) -> list[dict]:
+    """
+    Sample n questions, ensuring equal representation per domain.
+    n must be divisible by 8 (number of domains) or round up.
+    Within each domain, sample proportionally across difficulty levels.
+    If a domain has fewer than n/8 questions, take all of them.
+    """
+```
+
+---
+
+### 3. Results Aggregation and Analysis
+
+**File:** `scripts/analyze_experiment_1.py`
+
+Run after Experiment 1 data collection is complete. Reads raw results, computes all metrics, produces output files.
+
+```python
+"""
+Experiment 1 Analysis
+=====================
+
+Usage:
+  python scripts/analyze_experiment_1.py --run-id <run_id>
+  python scripts/analyze_experiment_1.py --run-id <run_id> --tables-only
+  python scripts/analyze_experiment_1.py --run-id <run_id> --export-latex
+"""
+```
+
+**Analyses to compute (in order):**
+
+#### A. Per-Model, Per-Domain Accuracy Table
+- For each (model, domain): accuracy across all channels
+- Use Channel 5 (natural) answer as the "clean" accuracy since it has no metacognitive scaffolding
+- Also report per-channel accuracy — if adding wagering or opt-out framing changes accuracy, that's a finding
+
+Output: `data/results/exp1_{run_id}_accuracy.json`
+```json
+{
+  "llama-3.1-8b": {
+    "arithmetic": {"natural_acc": 0.72, "wagering_acc": 0.70, "opt_out_acc": 0.74, ...},
+    "spatial": {"natural_acc": 0.45, ...},
+    ...
+  }
+}
+```
+
+#### B. Channel-Specific Calibration Metrics
+For each (model, domain):
+
+| Channel | Primary Metric | Computation |
+|---|---|---|
+| Wagering | Spearman ρ (bet, correct) | Correlation between bet size (1-10) and binary correctness |
+| Wagering | ECE (Expected Calibration Error) | Bin bets into 10 bins, compute |mean_accuracy - mean_bet/10| per bin, weighted average |
+| Opt-out | Skip-error alignment | Proportion of skipped questions that the model would have gotten wrong (estimate from other channels) |
+| Opt-out | Optimal skip rate | What skip rate maximizes expected score given model's accuracy? Compare to actual |
+| Difficulty selection | Selection-capability alignment | Proportion of "choose easy" selections where model would fail the hard question |
+| Tool use | Tool-accuracy correlation | Do models use tools more on questions they get wrong without tools? |
+| Tool use | Tool specificity | Calculator requests on math vs non-math. Web search on factual vs non-factual |
+| Natural | Length-accuracy correlation | Spearman ρ between response token count and correctness |
+| Natural | Hedge-accuracy correlation | Spearman ρ between hedging phrase count and incorrectness |
+
+Output: `data/results/exp1_{run_id}_calibration.json`
+
+#### C. Metacognitive Convergence Index (MCI)
+For each model:
+1. Per question, extract the "metacognitive signal" from each channel:
+   - Ch1 wagering: bet / 10 (normalized to 0-1)
+   - Ch2 opt-out: 0 if skipped, 1 if answered
+   - Ch3 difficulty: 0 if chose easy, 1 if chose hard
+   - Ch4 tool use: 0 if used tools, 1 if no tools (inverted — using tools = lower confidence)
+   - Ch5 natural: 1 - (hedge_count / max_hedge_count_for_this_model) (normalized, inverted)
+
+2. Compute pairwise Spearman ρ between all 10 channel pairs (5 choose 2)
+3. MCI = mean of all 10 pairwise correlations
+4. Also compute difficulty-adjusted MCI: partial out task difficulty (estimated by cross-model average accuracy on each question) before computing pairwise correlations
+
+Output: `data/results/exp1_{run_id}_mci.json`
+```json
+{
+  "llama-3.1-8b": {
+    "mci_raw": 0.34,
+    "mci_difficulty_adjusted": 0.21,
+    "pairwise": {
+      "wagering_opt_out": 0.45,
+      "wagering_difficulty_selection": 0.28,
+      ...
+    }
+  }
+}
+```
+
+#### D. Dissociation Matrix
+For each model: a 5×5 matrix where entry (i,j) = Spearman ρ between channel i signal and channel j signal.
+
+Highlight cells where |ρ| < 0.1 — these are dissociations. Report: "Model X's wagering is well-calibrated (ρ=0.45 with accuracy) but its tool-use decisions are uncorrelated with its own accuracy (ρ=0.03)."
+
+Output: `data/results/exp1_{run_id}_dissociation.json`
+
+#### E. Layer 2 vs Layer 1 Comparison
+For each model:
+- Spearman ρ between Layer 2 verbal confidence (0-100) and Layer 1 wagering bet (1-10)
+- Spearman ρ between Layer 2 verbal confidence and actual accuracy
+- Spearman ρ between Layer 1 wagering bet and actual accuracy
+- If Layer 2 confidence is better calibrated than Layer 1 wagering → models are better at articulating uncertainty than acting on it
+- If Layer 1 is better → behavioral signals are more reliable than self-report (safety implication!)
+
+Output: `data/results/exp1_{run_id}_layer_comparison.json`
+
+#### F. Hallucination Wagering Analysis
+Filter for questions where: bet ≥ 7 AND answer_correct == false (high-confidence errors = hallucinations)
+- Per model: hallucination rate (proportion of high-bet answers that are wrong)
+- Per model × domain: which domains have the most hallucinations?
+- Mean bet on correct answers vs mean bet on incorrect answers
+- Do models that hallucinate more also have lower MCI? (cross-model correlation)
+
+Output: `data/results/exp1_{run_id}_hallucination.json`
+
+#### G. Parse Failure Report
+For each (model, channel):
+- Parse failure rate: proportion of responses where the parser couldn't extract the expected fields
+- Refusal rate: proportion of responses marked as refused
+- Format calibration check results (Channel 4)
+- Flag any (model, channel) pair with >15% parse failure — these need manual inspection
+
+Output: `data/results/exp1_{run_id}_parse_report.json`
+
+#### H. Summary Console Output
+After all analyses, print a formatted summary table to console:
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║                   EXPERIMENT 1 RESULTS SUMMARY                   ║
+╠══════════════════════════════════════════════════════════════════╣
+║ Run ID: exp1_20260217_143022                                     ║
+║ Questions: 400 | Models: 7 | API calls: 14,000                  ║
+║ Duration: 4h 23m | Parse failures: 2.3%                         ║
+╠═══════════════╦═══════╦═══════╦═══════╦═══════╦═════════════════╣
+║ Model         ║ Acc   ║ ECE ↓ ║ MCI   ║ MCI-a ║ Halluc Rate ↓  ║
+╠═══════════════╬═══════╬═══════╬═══════╬═══════╬═════════════════╣
+║ Llama 8B      ║ 0.52  ║ 0.18  ║ 0.21  ║ 0.12  ║ 0.15          ║
+║ Llama 70B     ║ 0.68  ║ 0.12  ║ 0.34  ║ 0.25  ║ 0.11          ║
+║ ...           ║       ║       ║       ║       ║               ║
+╚═══════════════╩═══════╩═══════╩═══════╩═══════╩═════════════════╝
+
+Top dissociations:
+  Llama 8B: wagering ↔ tool_use ρ=0.03 (DISSOCIATED)
+  DeepSeek R1: opt_out ↔ difficulty_selection ρ=0.08 (DISSOCIATED)
+  
+Layer comparison:
+  5/7 models: behavioral confidence (L1) better calibrated than verbal (L2)
+```
+
+---
+
+### 4. LaTeX Table Export
+
+**File:** `scripts/export_latex_tables.py`
+
+Generate publication-ready LaTeX tables from the analysis JSON files. These go directly into the paper.
+
+**Table 1: Model × Domain Accuracy Matrix**
+```latex
+\begin{table}[h]
+\caption{Baseline accuracy by model and domain (Channel 5, no metacognitive framing)}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & Arith & Spatial & Temporal & Ling & Logic & Social & Factual & Proced \\
+\midrule
+Llama 8B & 0.72 & 0.45 & ... \\
+...
+\bottomrule
+\end{tabular}
+\end{table}
+```
+
+**Table 2: Metacognitive Calibration Summary**
+Columns: Model, ECE↓, Wager-Acc ρ↑, Skip Alignment↑, MCI Raw↑, MCI Adjusted↑, Hallucination Rate↓
+
+**Table 3: MCI Dissociation Matrix** (for top 3 most interesting models — e.g., best MCI, worst MCI, most dissociated)
+
+**Table 4: Layer 1 vs Layer 2** — behavioral vs verbal calibration comparison
+
+Export to: `paper/tables/table1_accuracy.tex`, `paper/tables/table2_calibration.tex`, etc.
+
+---
+
+## File Structure
+
+```
+C:\Users\wangz\MIRROR\
+├── mirror/
+│   ├── api/
+│   │   └── client.py              # EXISTS (Brief 01)
+│   ├── data/
+│   │   └── pipeline.py            # EXISTS (Brief 02)
+│   ├── experiments/
+│   │   ├── channels.py            # EXISTS (Brief 03)
+│   │   ├── runner.py              # EXISTS (Brief 03)
+│   │   ├── layers.py              # EXISTS (Brief 03)
+│   │   └── tool_executor.py       # NEW — safe calculator execution + second turn
+│   └── scoring/
+│       ├── answer_matcher.py      # EXISTS (Brief 03)
+│       ├── metrics.py             # EXISTS (Brief 03)
+│       ├── statistics.py          # EXISTS (Brief 03)
+│       └── validations.py         # EXISTS (Brief 03)
+├── scripts/
+│   ├── run_pilot.py               # EXISTS (Brief 03)
+│   ├── run_experiment_1.py        # NEW — main Experiment 1 orchestrator
+│   ├── analyze_experiment_1.py    # NEW — post-run analysis + metrics
+│   └── export_latex_tables.py     # NEW — LaTeX table generation
+├── data/
+│   ├── questions.jsonl            # EXISTS (Brief 02)
+│   └── results/                   # EXISTS (empty)
+│       └── .gitkeep
+├── paper/                         # NEW
+│   └── tables/                    # NEW — generated LaTeX tables
+│       └── .gitkeep
+└── tests/
+    ├── test_channels.py           # EXISTS (Brief 03) — 40 tests
+    ├── test_answer_matcher.py     # EXISTS (Brief 03) — 47 tests
+    ├── test_metrics.py            # EXISTS (Brief 03) — 36 tests
+    ├── test_tool_executor.py      # NEW
+    └── test_analysis.py           # NEW
+```
+
+---
+
+## Tests to Write
+
+### test_tool_executor.py
+- `test_safe_eval_basic_arithmetic`: 2+2, 15*23, 100/3
+- `test_safe_eval_powers`: 2**10, 3**0.5
+- `test_safe_eval_rejects_imports`: `import os; os.system('rm -rf /')` → rejected
+- `test_safe_eval_rejects_builtins`: `__import__('os')` → rejected
+- `test_safe_eval_rejects_names`: `x = 5` → rejected
+- `test_safe_eval_division_by_zero`: `1/0` → error message, not crash
+- `test_safe_eval_precision`: result rounded to 6 decimal places
+- `test_second_turn_format`: verify the second-turn prompt is correctly formatted
+- `test_process_no_tools`: response with no tool requests → returned unchanged
+- `test_process_calculator_tool`: response with `[USE_TOOL: calculator | 15*23]` → executes, sends second turn
+- `test_process_unsupported_tool`: response with `[USE_TOOL: web_search | ...]` → recorded but not executed
+- `test_process_multiple_tools`: response with 2 tool requests → both processed
+- `test_process_malformed_expression`: `[USE_TOOL: calculator | abc]` → returns error in tool result
+- `test_answer_changed_flag`: model changes answer after tool result → `answer_changed: true`
+
+### test_analysis.py
+- `test_stratified_sampling`: verify equal domain representation
+- `test_mci_computation_from_results`: mock results → correct MCI
+- `test_ece_computation`: known bet-accuracy data → correct ECE
+- `test_dissociation_matrix_shape`: 5×5 matrix per model
+- `test_hallucination_filter`: correctly identifies high-bet wrong answers
+- `test_layer_comparison`: Layer 1 vs Layer 2 correlation computed correctly
+- `test_parse_failure_report`: correctly counts parse failures per (model, channel)
+- `test_latex_export_format`: output is valid LaTeX
+
+---
+
+## Acceptance Criteria
+
+### Minimum (brief is "done"):
+1. `tool_executor.py` passes all 14 tests — safe eval, second turn, edge cases
+2. `run_experiment_1.py --mode test` completes successfully with 1 model × 10 questions
+3. `run_experiment_1.py --mode pilot` completes with 2 models × 50 questions, saves results to JSONL
+4. Checkpoint/resume works — interrupt pilot, resume, no duplicate API calls
+5. `analyze_experiment_1.py` produces all 7 output JSON files from pilot results
+6. Console summary table prints correctly
+7. `export_latex_tables.py` produces valid `.tex` files
+
+### Stretch:
+8. Rate limit backoff handles 429 errors gracefully
+9. Format calibration check correctly flags models that can't follow Channel 4 format
+10. Progress bar or periodic ETA estimates for long runs
+
+---
+
+## Implementation Notes
+
+### API Call Budget
+- **Test mode:** 1 model × 10 questions × 5 channels = 50 calls (~1 minute)
+- **Pilot mode:** 2 models × 50 questions × 5 channels = 500 calls (~10 minutes)
+- **Full mode:** 7 models × 400 questions × 5 channels = 14,000 calls (~4-6 hours with rate limiting)
+- Plus Layer 2: 7 × 400 = 2,800 additional calls
+- Plus Channel 4 second turns: ~30% of 7 × 400 = ~840 additional calls
+- **Total full run estimate: ~17,640 API calls, ~5-7 hours**
+
+### Channel 4 Second Turn Flow
+```
+API Call 1: Send Channel 4 prompt → parse response → extract tool requests
+   ↓
+If calculator requested:
+   ↓
+Execute calculator safely → format result
+   ↓
+API Call 2: Send "[TOOL_RESULT: calculator | expr = result]\n\nProvide final answer.\nANSWER: [your answer]"
+   ↓
+Parse final answer → store BOTH initial and final answers
+```
+
+### Difficulty Selection Pre-computation
+Before running Channel 3, pre-compute question pairs:
+1. Group questions by domain
+2. Within each domain, group by difficulty
+3. Pair: one from easy/medium bucket + one from hard/adversarial bucket
+4. If imbalanced (fewer easy than hard): reuse easy questions across multiple pairs, flagging reuse
+5. Store pairs as: `[{"pair_id": str, "easy_qid": str, "hard_qid": str, "domain": str}]`
+6. Save to `data/difficulty_pairs.json` for reproducibility
+
+### DeepSeek R1 Special Handling
+DeepSeek R1 uses extended thinking. Its responses may include `<think>...</think>` blocks before the actual answer. The parser must:
+1. Strip `<think>...</think>` blocks before parsing for answer/bet/etc.
+2. BUT save the thinking content separately — it's valuable data for analysis (does the model's internal reasoning correlate with its wagering?)
+3. Record `thinking_length` as an additional natural signal for Channel 5
+
+### What NOT to Build in This Brief
+- **Experiments 2-8** — those have different designs (burn-and-test, cross-domain transfer, adversarial prompts). This brief runs Experiment 1 only.
+- **Figure generation** — Brief 05 or later. Tables are sufficient for now.
+- **Prompt sensitivity analysis** — Brief 05. Run with default prompts only.
+- **Full 5,000-question scale** — run on 400 pilot questions first. Scale up is a parameter change, not a code change.
+- **Google AI Studio / Gemini** — skip until API access is resolved.
+
+---
+
+## Build Order
+
+1. `mirror/experiments/tool_executor.py` + `tests/test_tool_executor.py` — build and test in isolation
+2. `scripts/run_experiment_1.py` — wire up the orchestrator. Test with `--mode test` first.
+3. Run `--mode pilot` end-to-end. Inspect raw results.
+4. `scripts/analyze_experiment_1.py` + `tests/test_analysis.py` — build analysis pipeline on pilot data
+5. `scripts/export_latex_tables.py` — generate tables from pilot results
+6. Review everything. Fix issues. Then run `--mode full`.
+
+**Estimated Claude Code time:** 45-90 minutes for implementation + testing. The bulk of the work is the analysis script (many metrics to compute correctly).

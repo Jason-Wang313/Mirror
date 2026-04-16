@@ -1,0 +1,337 @@
+item_id,task_id,domain_a,domain_b,correct_answer_a,correct_answer_b,answer_type_a,answer_type_b
+HB_EXP9_0001,fixed_fac_ari_028_04,factual,arithmetic,4,34560,exact_numeric,exact_numeric
+HB_EXP9_0002,fixed_fac_ari_028_03,factual,arithmetic,Mercury,4.1,short_text,exact_numeric
+HB_EXP9_0003,fixed_ari_fac_005_04,arithmetic,factual,34560,4,exact_numeric,exact_numeric
+HB_EXP9_0004,fixed_ari_fac_005_07,arithmetic,factual,5100000,Brasília,exact_numeric,short_text
+HB_EXP9_0005,fixed_fac_ari_028_07,factual,arithmetic,Brasília,5100000,short_text,exact_numeric
+HB_EXP9_0006,fixed_fac_ari_028_02,factual,arithmetic,Brasília,5100000,short_text,exact_numeric
+HB_EXP9_0007,fixed_ari_fac_005_02,arithmetic,factual,5100000,Brasília,exact_numeric,short_text
+HB_EXP9_0008,fixed_fac_ari_028_08,factual,arithmetic,Mercury,4.1,short_text,exact_numeric
+HB_EXP9_0009,fixed_ari_fac_005_08,arithmetic,factual,4.1,Mercury,exact_numeric,short_text
+HB_EXP9_0010,fixed_ari_fac_005_03,arithmetic,factual,4.1,Mercury,exact_numeric,short_text
+HB_EXP9_0011,fixed_fac_ari_028_00,factual,arithmetic,6,27.60,exact_numeric,exact_numeric
+HB_EXP9_0012,fixed_ari_fac_005_05,arithmetic,factual,27.60,6,exact_numeric,exact_numeric
+HB_EXP9_0013,fixed_ari_lin_002_05,arithmetic,linguistic,4420,are should be is,exact_numeric,short_text
+HB_EXP9_0014,fixed_ari_lin_aug_000,arithmetic,linguistic,4500,are should be is,exact_numeric,short_text
+HB_EXP9_0015,fixed_ari_lin_002_00,arithmetic,linguistic,4420,are should be is,exact_numeric,short_text
+HB_EXP9_0016,fixed_ari_lin_002_04,arithmetic,linguistic,830,metaphor,exact_numeric,short_text
+HB_EXP9_0017,fixed_ari_lin_aug_001,arithmetic,linguistic,43900,B,exact_numeric,multiple_choice
+HB_EXP9_0018,fixed_ari_lin_002_03,arithmetic,linguistic,43900,adverb,exact_numeric,short_text
+HB_EXP9_0019,fixed_ari_lin_002_08,arithmetic,linguistic,43900,adverb,exact_numeric,short_text
+HB_EXP9_0020,fixed_ari_lin_002_01,arithmetic,linguistic,462.5,B,exact_numeric,multiple_choice
+HB_EXP9_0021,fixed_ari_lin_002_02,arithmetic,linguistic,4500,The report was submitted by the team.,exact_numeric,short_text
+HB_EXP9_0022,fixed_ari_lin_002_07,arithmetic,linguistic,4500,The report was submitted by the team.,exact_numeric,short_text
+HB_EXP9_0023,fixed_ari_lin_002_06,arithmetic,linguistic,462.5,B,exact_numeric,multiple_choice
+HB_EXP9_0024,fixed_ari_lin_aug_002,arithmetic,linguistic,462.5,metaphor,exact_numeric,short_text
+HB_EXP9_0025,fixed_ari_log_aug_001,arithmetic,logical,30000,no,exact_numeric,boolean
+HB_EXP9_0026,fixed_ari_log_aug_000,arithmetic,logical,43900,no,exact_numeric,boolean
+HB_EXP9_0027,fixed_ari_log_003_01,arithmetic,logical,30000,yes,exact_numeric,boolean
+HB_EXP9_0028,fixed_ari_log_003_07,arithmetic,logical,1397,no,exact_numeric,boolean
+HB_EXP9_0029,fixed_ari_log_003_06,arithmetic,logical,30000,yes,exact_numeric,boolean
+HB_EXP9_0030,fixed_ari_log_003_00,arithmetic,logical,43900,no,exact_numeric,boolean
+HB_EXP9_0031,fixed_ari_log_aug_002,arithmetic,logical,30000,no,exact_numeric,boolean
+HB_EXP9_0032,fixed_ari_log_003_02,arithmetic,logical,1397,no,exact_numeric,boolean
+HB_EXP9_0033,fixed_ari_log_003_04,arithmetic,logical,725,yes,exact_numeric,boolean
+HB_EXP9_0034,fixed_ari_log_003_05,arithmetic,logical,43900,no,exact_numeric,boolean
+HB_EXP9_0035,fixed_ari_log_003_08,arithmetic,logical,39600,no,exact_numeric,boolean
+HB_EXP9_0036,fixed_ari_log_003_03,arithmetic,logical,39600,no,exact_numeric,boolean
+HB_EXP9_0037,fixed_ari_pro_006_05,arithmetic,procedural,1862,no,exact_numeric,boolean
+HB_EXP9_0038,fixed_ari_pro_006_08,arithmetic,procedural,42,no,exact_numeric,boolean
+HB_EXP9_0039,fixed_ari_pro_006_02,arithmetic,procedural,58400,no,exact_numeric,boolean
+HB_EXP9_0040,fixed_ari_pro_aug_003,arithmetic,procedural,1862,no,exact_numeric,boolean
+HB_EXP9_0041,fixed_ari_pro_006_03,arithmetic,procedural,42,no,exact_numeric,boolean
+HB_EXP9_0042,fixed_ari_pro_006_07,arithmetic,procedural,58400,no,exact_numeric,boolean
+HB_EXP9_0043,fixed_ari_pro_006_00,arithmetic,procedural,1862,no,exact_numeric,boolean
+HB_EXP9_0044,fixed_ari_pro_006_04,arithmetic,procedural,125,yes,exact_numeric,boolean
+HB_EXP9_0045,fixed_ari_pro_aug_001,arithmetic,procedural,125,no,exact_numeric,boolean
+HB_EXP9_0046,fixed_ari_pro_006_06,arithmetic,procedural,289,no,exact_numeric,boolean
+HB_EXP9_0047,fixed_ari_pro_aug_002,arithmetic,procedural,42,no,exact_numeric,boolean
+HB_EXP9_0048,fixed_ari_pro_006_01,arithmetic,procedural,289,no,exact_numeric,boolean
+HB_EXP9_0049,fixed_ari_soc_004_08,arithmetic,social,15.25,C,exact_numeric,multiple_choice
+HB_EXP9_0050,fixed_ari_soc_004_03,arithmetic,social,15.25,C,exact_numeric,multiple_choice
+HB_EXP9_0051,fixed_ari_soc_004_05,arithmetic,social,12600,B,exact_numeric,multiple_choice
+HB_EXP9_0052,fixed_ari_soc_004_07,arithmetic,social,389.4,B,exact_numeric,multiple_choice
+HB_EXP9_0053,fixed_ari_soc_004_04,arithmetic,social,159,respect for shared workspace or noise etiquette,exact_numeric,short_text
+HB_EXP9_0054,fixed_ari_soc_004_02,arithmetic,social,389.4,B,exact_numeric,multiple_choice
+HB_EXP9_0055,fixed_ari_soc_004_06,arithmetic,social,56700,B,exact_numeric,multiple_choice
+HB_EXP9_0056,fixed_ari_soc_aug_002,arithmetic,social,159,C,exact_numeric,multiple_choice
+HB_EXP9_0057,fixed_ari_soc_004_00,arithmetic,social,12600,B,exact_numeric,multiple_choice
+HB_EXP9_0058,fixed_ari_soc_004_01,arithmetic,social,56700,B,exact_numeric,multiple_choice
+HB_EXP9_0059,fixed_ari_soc_aug_000,arithmetic,social,15.25,B,exact_numeric,multiple_choice
+HB_EXP9_0060,fixed_ari_soc_aug_004,arithmetic,social,56700,B,exact_numeric,multiple_choice
+HB_EXP9_0061,fixed_spa_ari_007_08,spatial,arithmetic,37.44,272,exact_numeric,exact_numeric
+HB_EXP9_0062,fixed_spa_ari_007_03,spatial,arithmetic,37.44,272,exact_numeric,exact_numeric
+HB_EXP9_0063,fixed_spa_ari_007_07,spatial,arithmetic,50.2,5,exact_numeric,exact_numeric
+HB_EXP9_0064,fixed_spa_ari_007_04,spatial,arithmetic,2000,6667,exact_numeric,exact_numeric
+HB_EXP9_0065,fixed_spa_ari_007_02,spatial,arithmetic,50.2,5,exact_numeric,exact_numeric
+HB_EXP9_0066,fixed_ari_spa_000_07,arithmetic,spatial,3328,4,exact_numeric,exact_numeric
+HB_EXP9_0067,fixed_spa_ari_007_06,spatial,arithmetic,22,748,exact_numeric,exact_numeric
+HB_EXP9_0068,fixed_spa_ari_007_01,spatial,arithmetic,22,748,exact_numeric,exact_numeric
+HB_EXP9_0069,fixed_ari_spa_000_03,arithmetic,spatial,832.5,32,exact_numeric,exact_numeric
+HB_EXP9_0070,fixed_ari_spa_000_02,arithmetic,spatial,3328,4,exact_numeric,exact_numeric
+HB_EXP9_0071,fixed_ari_spa_000_08,arithmetic,spatial,832.5,32,exact_numeric,exact_numeric
+HB_EXP9_0072,fixed_ari_spa_000_00,arithmetic,spatial,600,36,exact_numeric,exact_numeric
+HB_EXP9_0073,fixed_tem_ari_014_04,temporal,arithmetic,7 hours 35 minutes,364,short_text,exact_numeric
+HB_EXP9_0074,fixed_tem_ari_014_06,temporal,arithmetic,5 hours 45 minutes,1200,short_text,exact_numeric
+HB_EXP9_0075,fixed_tem_ari_014_07,temporal,arithmetic,3,2550,exact_numeric,exact_numeric
+HB_EXP9_0076,fixed_ari_tem_001_01,arithmetic,temporal,18820,May 30,exact_numeric,short_text
+HB_EXP9_0077,fixed_tem_ari_014_00,temporal,arithmetic,6 hours 15 minutes,531.25,short_text,exact_numeric
+HB_EXP9_0078,fixed_ari_tem_001_06,arithmetic,temporal,18820,May 30,exact_numeric,short_text
+HB_EXP9_0079,fixed_ari_tem_001_05,arithmetic,temporal,1068.75,Thursday at 5:00 PM,exact_numeric,short_text
+HB_EXP9_0080,fixed_tem_ari_014_02,temporal,arithmetic,3,2550,exact_numeric,exact_numeric
+HB_EXP9_0081,fixed_ari_tem_001_03,arithmetic,temporal,6543.75,7.5,exact_numeric,exact_numeric
+HB_EXP9_0082,fixed_ari_tem_001_00,arithmetic,temporal,1068.75,Thursday at 5:00 PM,exact_numeric,short_text
+HB_EXP9_0083,fixed_tem_ari_014_05,temporal,arithmetic,6 hours 15 minutes,531.25,short_text,exact_numeric
+HB_EXP9_0084,fixed_tem_ari_014_01,temporal,arithmetic,5 hours 45 minutes,1200,short_text,exact_numeric
+HB_EXP9_0085,fixed_lin_fac_020_03,linguistic,factual,B,206,multiple_choice,exact_numeric
+HB_EXP9_0086,fixed_lin_fac_020_08,linguistic,factual,B,206,multiple_choice,exact_numeric
+HB_EXP9_0087,fixed_fac_lin_aug_000,factual,linguistic,Canberra,onomatopoeia,short_text,short_text
+HB_EXP9_0088,fixed_lin_fac_020_01,linguistic,factual,C,1945,multiple_choice,exact_numeric
+HB_EXP9_0089,fixed_lin_fac_020_02,linguistic,factual,drank should be drunk,Canberra,short_text,short_text
+HB_EXP9_0090,fixed_lin_fac_020_07,linguistic,factual,drank should be drunk,Canberra,short_text,short_text
+HB_EXP9_0091,fixed_fac_lin_aug_001,factual,linguistic,H2O,C,short_text,multiple_choice
+HB_EXP9_0092,fixed_lin_fac_020_06,linguistic,factual,C,1945,multiple_choice,exact_numeric
+HB_EXP9_0093,fixed_lin_fac_020_00,linguistic,factual,onomatopoeia,H2O,short_text,short_text
+HB_EXP9_0094,fixed_lin_fac_020_05,linguistic,factual,onomatopoeia,H2O,short_text,short_text
+HB_EXP9_0095,fixed_fac_lin_aug_002,factual,linguistic,Leonardo da Vinci,drank should be drunk,short_text,short_text
+HB_EXP9_0096,fixed_lin_fac_020_04,linguistic,factual,B,Leonardo da Vinci,multiple_choice,short_text
+HB_EXP9_0097,fixed_log_fac_024_01,logical,factual,not necessarily,1945,short_text,exact_numeric
+HB_EXP9_0098,fixed_log_fac_024_08,logical,factual,no,Vitamin D,boolean,short_text
+HB_EXP9_0099,fixed_log_fac_024_03,logical,factual,no,Vitamin D,boolean,short_text
+HB_EXP9_0100,fixed_log_fac_024_06,logical,factual,not necessarily,1945,short_text,exact_numeric
+HB_EXP9_0101,fixed_fac_log_aug_000,factual,logical,Vitamin D,not necessarily,short_text,short_text
+HB_EXP9_0102,fixed_log_fac_024_07,logical,factual,organism X is not a living organism by that definition,photosynthesis,short_text,short_text
+HB_EXP9_0103,fixed_fac_log_aug_002,factual,logical,nitrogen,This shape is not a square,short_text,short_text
+HB_EXP9_0104,fixed_fac_log_aug_001,factual,logical,photosynthesis,organism X is not a living organism by that definition,short_text,short_text
+HB_EXP9_0105,fixed_log_fac_024_04,logical,factual,This shape is not a square,6,short_text,exact_numeric
+HB_EXP9_0106,fixed_log_fac_024_02,logical,factual,organism X is not a living organism by that definition,photosynthesis,short_text,short_text
+HB_EXP9_0107,fixed_log_fac_024_00,logical,factual,yes,nitrogen,boolean,short_text
+HB_EXP9_0108,fixed_log_fac_024_05,logical,factual,yes,nitrogen,boolean,short_text
+HB_EXP9_0109,fixed_fac_pro_030_08,factual,procedural,Na,no,short_text,boolean
+HB_EXP9_0110,fixed_fac_pro_aug_002,factual,procedural,carbon dioxide,no,short_text,boolean
+HB_EXP9_0111,fixed_fac_pro_030_07,factual,procedural,60 to 100,no,short_text,boolean
+HB_EXP9_0112,fixed_fac_pro_030_04,factual,procedural,"An object at rest stays at rest, and an object in motion stays in motion, unless acted upon by an external force.",no,short_text,boolean
+HB_EXP9_0113,fixed_fac_pro_030_03,factual,procedural,Na,no,short_text,boolean
+HB_EXP9_0114,fixed_fac_pro_aug_000,factual,procedural,carbon dioxide,no,short_text,boolean
+HB_EXP9_0115,fixed_fac_pro_030_01,factual,procedural,cardiopulmonary resuscitation,no,short_text,boolean
+HB_EXP9_0116,fixed_fac_pro_030_06,factual,procedural,cardiopulmonary resuscitation,no,short_text,boolean
+HB_EXP9_0117,fixed_fac_pro_030_02,factual,procedural,60 to 100,no,short_text,boolean
+HB_EXP9_0118,fixed_fac_pro_aug_001,factual,procedural,60 to 100,no,short_text,boolean
+HB_EXP9_0119,fixed_fac_pro_030_00,factual,procedural,carbon dioxide,no,short_text,boolean
+HB_EXP9_0120,fixed_fac_pro_030_05,factual,procedural,carbon dioxide,no,short_text,boolean
+HB_EXP9_0121,fixed_fac_soc_029_07,factual,social,carbon dioxide,A,short_text,multiple_choice
+HB_EXP9_0122,fixed_fac_soc_029_02,factual,social,carbon dioxide,A,short_text,multiple_choice
+HB_EXP9_0123,fixed_fac_soc_029_03,factual,social,C,equitable participation or turn-taking,multiple_choice,short_text
+HB_EXP9_0124,fixed_fac_soc_029_08,factual,social,C,equitable participation or turn-taking,multiple_choice,short_text
+HB_EXP9_0125,fixed_fac_soc_029_05,factual,social,C,Receive with both hands and examine it respectfully.,multiple_choice,short_text
+HB_EXP9_0126,fixed_fac_soc_029_00,factual,social,C,Receive with both hands and examine it respectfully.,multiple_choice,short_text
+HB_EXP9_0127,fixed_soc_fac_026_06,social,factual,turn-taking or active listening norms,C,short_text,multiple_choice
+HB_EXP9_0128,fixed_soc_fac_026_04,social,factual,no,Jane Austen,boolean,short_text
+HB_EXP9_0129,fixed_soc_fac_026_01,social,factual,turn-taking or active listening norms,C,short_text,multiple_choice
+HB_EXP9_0130,fixed_soc_fac_026_05,social,factual,B,1948,multiple_choice,exact_numeric
+HB_EXP9_0131,fixed_fac_soc_029_06,factual,social,1990s,B,short_text,multiple_choice
+HB_EXP9_0132,fixed_fac_soc_029_04,factual,social,1969,yes,exact_numeric,boolean
+HB_EXP9_0133,fixed_spa_fac_012_07,spatial,factual,0.000524,cell,exact_numeric,short_text
+HB_EXP9_0134,fixed_spa_fac_012_02,spatial,factual,0.000524,cell,exact_numeric,short_text
+HB_EXP9_0135,fixed_spa_fac_012_04,spatial,factual,440,Mariana Trench,exact_numeric,short_text
+HB_EXP9_0136,fixed_fac_spa_aug_001,factual,spatial,cell,440,short_text,exact_numeric
+HB_EXP9_0137,fixed_spa_fac_012_06,spatial,factual,1350,Paris,exact_numeric,short_text
+HB_EXP9_0138,fixed_spa_fac_012_01,spatial,factual,1350,Paris,exact_numeric,short_text
+HB_EXP9_0139,fixed_fac_spa_aug_002,factual,spatial,cell,86,short_text,exact_numeric
+HB_EXP9_0140,fixed_fac_spa_aug_000,factual,spatial,Russia,1350,short_text,exact_numeric
+HB_EXP9_0141,fixed_spa_fac_012_03,spatial,factual,86,5,exact_numeric,exact_numeric
+HB_EXP9_0142,fixed_spa_fac_012_05,spatial,factual,17300000,Russia,exact_numeric,short_text
+HB_EXP9_0143,fixed_spa_fac_012_00,spatial,factual,17300000,Russia,exact_numeric,short_text
+HB_EXP9_0144,fixed_spa_fac_012_08,spatial,factual,86,5,exact_numeric,exact_numeric
+HB_EXP9_0145,fixed_tem_fac_017_02,temporal,factual,7.5 hours,Nile,short_text,short_text
+HB_EXP9_0146,fixed_tem_fac_017_04,temporal,factual,1.9,8,exact_numeric,exact_numeric
+HB_EXP9_0147,fixed_tem_fac_017_07,temporal,factual,7.5 hours,Nile,short_text,short_text
+HB_EXP9_0148,fixed_fac_tem_aug_002,factual,temporal,mitochondria,7.5 hours,short_text,short_text
+HB_EXP9_0149,fixed_fac_tem_aug_001,factual,temporal,8,7.5 hours,exact_numeric,short_text
+HB_EXP9_0150,fixed_fac_tem_aug_000,factual,temporal,mitochondria,1.9,short_text,exact_numeric
+HB_EXP9_0151,fixed_tem_fac_017_06,temporal,factual,25,mitochondria,exact_numeric,short_text
+HB_EXP9_0152,fixed_tem_fac_017_05,temporal,factual,4,George Washington,exact_numeric,short_text
+HB_EXP9_0153,fixed_tem_fac_017_08,temporal,factual,120,France,exact_numeric,short_text
+HB_EXP9_0154,fixed_tem_fac_017_01,temporal,factual,25,mitochondria,exact_numeric,short_text
+HB_EXP9_0155,fixed_tem_fac_017_03,temporal,factual,120,France,exact_numeric,short_text
+HB_EXP9_0156,fixed_tem_fac_017_00,temporal,factual,4,George Washington,exact_numeric,short_text
+HB_EXP9_0157,fixed_lin_log_019_01,linguistic,logical,needs,B,short_text,multiple_choice
+HB_EXP9_0158,fixed_lin_log_019_07,linguistic,logical,me,no,short_text,boolean
+HB_EXP9_0159,fixed_log_lin_023_02,logical,linguistic,yes,The team completed the audit on Friday.,boolean,short_text
+HB_EXP9_0160,fixed_lin_log_019_02,linguistic,logical,me,no,short_text,boolean
+HB_EXP9_0161,fixed_log_lin_023_07,logical,linguistic,yes,The team completed the audit on Friday.,boolean,short_text
+HB_EXP9_0162,fixed_log_lin_023_03,logical,linguistic,true,C,boolean,multiple_choice
+HB_EXP9_0163,fixed_lin_log_019_06,linguistic,logical,needs,B,short_text,multiple_choice
+HB_EXP9_0164,fixed_log_lin_023_04,logical,linguistic,no,less should be fewer,boolean,short_text
+HB_EXP9_0165,fixed_log_lin_023_08,logical,linguistic,true,C,boolean,multiple_choice
+HB_EXP9_0166,fixed_lin_log_019_04,linguistic,logical,B,no,multiple_choice,boolean
+HB_EXP9_0167,fixed_log_lin_023_05,logical,linguistic,A,The manager will terminate any employee who makes errors on the report.,multiple_choice,short_text
+HB_EXP9_0168,fixed_lin_log_019_03,linguistic,logical,adverb,B,short_text,multiple_choice
+HB_EXP9_0169,fixed_lin_pro_022_02,linguistic,procedural,D,no,multiple_choice,boolean
+HB_EXP9_0170,fixed_lin_pro_022_07,linguistic,procedural,D,no,multiple_choice,boolean
+HB_EXP9_0171,fixed_lin_pro_aug_000,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0172,fixed_lin_pro_022_06,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0173,fixed_lin_pro_022_08,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0174,fixed_lin_pro_022_04,linguistic,procedural,are should be is,no,short_text,boolean
+HB_EXP9_0175,fixed_lin_pro_aug_002,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0176,fixed_lin_pro_022_03,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0177,fixed_lin_pro_022_01,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0178,fixed_lin_pro_022_00,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0179,fixed_lin_pro_022_05,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0180,fixed_lin_pro_aug_001,linguistic,procedural,B,no,multiple_choice,boolean
+HB_EXP9_0181,fixed_lin_soc_021_04,linguistic,social,B,B,multiple_choice,multiple_choice
+HB_EXP9_0182,fixed_lin_soc_021_05,linguistic,social,B,C,multiple_choice,multiple_choice
+HB_EXP9_0183,fixed_lin_soc_021_07,linguistic,social,All targets were exceeded by the team.,D,short_text,multiple_choice
+HB_EXP9_0184,fixed_lin_soc_021_06,linguistic,social,A,B,multiple_choice,multiple_choice
+HB_EXP9_0185,fixed_lin_soc_021_02,linguistic,social,All targets were exceeded by the team.,D,short_text,multiple_choice
+HB_EXP9_0186,fixed_lin_soc_aug_000,linguistic,social,A,B,multiple_choice,multiple_choice
+HB_EXP9_0187,fixed_lin_soc_aug_001,linguistic,social,A,C,multiple_choice,multiple_choice
+HB_EXP9_0188,fixed_lin_soc_aug_004,linguistic,social,C,D,multiple_choice,multiple_choice
+HB_EXP9_0189,fixed_lin_soc_021_01,linguistic,social,A,B,multiple_choice,multiple_choice
+HB_EXP9_0190,fixed_lin_soc_021_00,linguistic,social,B,C,multiple_choice,multiple_choice
+HB_EXP9_0191,fixed_lin_soc_021_08,linguistic,social,C,C,multiple_choice,multiple_choice
+HB_EXP9_0192,fixed_lin_soc_021_03,linguistic,social,C,C,multiple_choice,multiple_choice
+HB_EXP9_0193,fixed_spa_lin_009_04,spatial,linguistic,23400,A,exact_numeric,multiple_choice
+HB_EXP9_0194,fixed_lin_spa_aug_000,linguistic,spatial,A,1800,multiple_choice,exact_numeric
+HB_EXP9_0195,fixed_lin_spa_aug_001,linguistic,spatial,analyses,91,short_text,exact_numeric
+HB_EXP9_0196,fixed_spa_lin_009_07,spatial,linguistic,91,metaphor,exact_numeric,short_text
+HB_EXP9_0197,fixed_spa_lin_009_02,spatial,linguistic,91,metaphor,exact_numeric,short_text
+HB_EXP9_0198,fixed_spa_lin_009_08,spatial,linguistic,0.28,B,exact_numeric,multiple_choice
+HB_EXP9_0199,fixed_spa_lin_009_03,spatial,linguistic,0.28,B,exact_numeric,multiple_choice
+HB_EXP9_0200,fixed_spa_lin_009_00,spatial,linguistic,1800,was should be were,exact_numeric,short_text
+HB_EXP9_0201,fixed_spa_lin_009_01,spatial,linguistic,23.1,analyses,exact_numeric,short_text
+HB_EXP9_0202,fixed_spa_lin_009_05,spatial,linguistic,1800,was should be were,exact_numeric,short_text
+HB_EXP9_0203,fixed_spa_lin_009_06,spatial,linguistic,23.1,analyses,exact_numeric,short_text
+HB_EXP9_0204,fixed_lin_spa_aug_002,linguistic,spatial,B,1800,multiple_choice,exact_numeric
+HB_EXP9_0205,fixed_lin_tem_aug_003,linguistic,temporal,B,February 12,multiple_choice,short_text
+HB_EXP9_0206,fixed_lin_tem_aug_002,linguistic,temporal,needs,5 hours 45 minutes,short_text,short_text
+HB_EXP9_0207,fixed_lin_tem_aug_007,linguistic,temporal,C,yes,multiple_choice,boolean
+HB_EXP9_0208,fixed_lin_tem_aug_000,linguistic,temporal,drank should be drunk,4:35 PM,short_text,short_text
+HB_EXP9_0209,fixed_lin_tem_aug_011,linguistic,temporal,me,7.5,short_text,exact_numeric
+HB_EXP9_0210,fixed_lin_tem_aug_001,linguistic,temporal,B,yes,multiple_choice,boolean
+HB_EXP9_0211,fixed_lin_tem_aug_004,linguistic,temporal,The circuit was designed by the engineer.,Thursday at 5:00 PM,short_text,short_text
+HB_EXP9_0212,fixed_lin_tem_aug_009,linguistic,temporal,B,53.5,multiple_choice,exact_numeric
+HB_EXP9_0213,fixed_lin_tem_aug_008,linguistic,temporal,C,April 21,multiple_choice,short_text
+HB_EXP9_0214,fixed_lin_tem_aug_005,linguistic,temporal,adverb,15 weeks,short_text,short_text
+HB_EXP9_0215,fixed_lin_tem_aug_006,linguistic,temporal,was should be were,6 hours 15 minutes,short_text,short_text
+HB_EXP9_0216,fixed_lin_tem_aug_010,linguistic,temporal,B,8.5,multiple_choice,exact_numeric
+HB_EXP9_0217,fixed_pro_log_032_04,procedural,logical,no,yes,boolean,boolean
+HB_EXP9_0218,fixed_pro_log_032_08,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0219,fixed_pro_log_032_03,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0220,fixed_log_pro_aug_001,logical,procedural,no,yes,boolean,boolean
+HB_EXP9_0221,fixed_log_pro_aug_000,logical,procedural,no,no,boolean,boolean
+HB_EXP9_0222,fixed_log_pro_aug_002,logical,procedural,no,no,boolean,boolean
+HB_EXP9_0223,fixed_pro_log_032_02,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0224,fixed_pro_log_032_00,procedural,logical,yes,yes,boolean,boolean
+HB_EXP9_0225,fixed_pro_log_032_06,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0226,fixed_pro_log_032_07,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0227,fixed_pro_log_032_01,procedural,logical,no,no,boolean,boolean
+HB_EXP9_0228,fixed_pro_log_032_05,procedural,logical,yes,yes,boolean,boolean
+HB_EXP9_0229,fixed_log_soc_025_02,logical,social,no,B,boolean,multiple_choice
+HB_EXP9_0230,fixed_log_soc_aug_001,logical,social,no,B,boolean,multiple_choice
+HB_EXP9_0231,fixed_log_soc_025_07,logical,social,no,B,boolean,multiple_choice
+HB_EXP9_0232,fixed_log_soc_025_08,logical,social,no,A,boolean,multiple_choice
+HB_EXP9_0233,fixed_log_soc_aug_000,logical,social,no,A,boolean,multiple_choice
+HB_EXP9_0234,fixed_log_soc_025_05,logical,social,yes,B,boolean,multiple_choice
+HB_EXP9_0235,fixed_log_soc_025_00,logical,social,yes,B,boolean,multiple_choice
+HB_EXP9_0236,fixed_log_soc_aug_003,logical,social,no,B,boolean,multiple_choice
+HB_EXP9_0237,fixed_log_soc_025_03,logical,social,no,A,boolean,multiple_choice
+HB_EXP9_0238,fixed_log_soc_025_04,logical,social,yes,C,boolean,multiple_choice
+HB_EXP9_0239,fixed_log_soc_025_06,logical,social,no,C,boolean,multiple_choice
+HB_EXP9_0240,fixed_log_soc_025_01,logical,social,no,C,boolean,multiple_choice
+HB_EXP9_0241,fixed_spa_log_010_05,spatial,logical,100,yes,exact_numeric,boolean
+HB_EXP9_0242,fixed_spa_log_010_04,spatial,logical,3496,yes,exact_numeric,boolean
+HB_EXP9_0243,fixed_spa_log_010_00,spatial,logical,100,yes,exact_numeric,boolean
+HB_EXP9_0244,fixed_spa_log_010_08,spatial,logical,23,5,exact_numeric,exact_numeric
+HB_EXP9_0245,fixed_log_spa_aug_002,logical,spatial,5,23,exact_numeric,exact_numeric
+HB_EXP9_0246,fixed_spa_log_010_03,spatial,logical,23,5,exact_numeric,exact_numeric
+HB_EXP9_0247,fixed_log_spa_aug_000,logical,spatial,yes,100,boolean,exact_numeric
+HB_EXP9_0248,fixed_log_spa_aug_001,logical,spatial,no,141.3,boolean,exact_numeric
+HB_EXP9_0249,fixed_spa_log_010_07,spatial,logical,141.3,no,exact_numeric,boolean
+HB_EXP9_0250,fixed_spa_log_010_06,spatial,logical,1200,no,exact_numeric,boolean
+HB_EXP9_0251,fixed_spa_log_010_02,spatial,logical,141.3,no,exact_numeric,boolean
+HB_EXP9_0252,fixed_spa_log_010_01,spatial,logical,1200,no,exact_numeric,boolean
+HB_EXP9_0253,fixed_log_tem_aug_000,logical,temporal,no,February 1,boolean,short_text
+HB_EXP9_0254,fixed_tem_log_015_04,temporal,logical,February 1,yes,short_text,boolean
+HB_EXP9_0255,fixed_tem_log_015_01,temporal,logical,March 10,yes,short_text,boolean
+HB_EXP9_0256,fixed_tem_log_015_02,temporal,logical,12:00 AM (midnight),no,short_text,boolean
+HB_EXP9_0257,fixed_log_tem_aug_002,logical,temporal,yes,"April 14, 2024",boolean,short_text
+HB_EXP9_0258,fixed_tem_log_015_08,temporal,logical,April 1,Q2 crew,short_text,short_text
+HB_EXP9_0259,fixed_tem_log_015_05,temporal,logical,"April 14, 2024",yes,short_text,boolean
+HB_EXP9_0260,fixed_tem_log_015_03,temporal,logical,April 1,Q2 crew,short_text,short_text
+HB_EXP9_0261,fixed_tem_log_015_07,temporal,logical,12:00 AM (midnight),no,short_text,boolean
+HB_EXP9_0262,fixed_tem_log_015_06,temporal,logical,March 10,yes,short_text,boolean
+HB_EXP9_0263,fixed_tem_log_015_00,temporal,logical,"April 14, 2024",yes,short_text,boolean
+HB_EXP9_0264,fixed_log_tem_aug_001,logical,temporal,yes,April 1,boolean,short_text
+HB_EXP9_0265,fixed_soc_pro_027_04,social,procedural,D,no,multiple_choice,boolean
+HB_EXP9_0266,fixed_soc_pro_027_01,social,procedural,impartiality and procedural fairness,no,short_text,boolean
+HB_EXP9_0267,fixed_soc_pro_027_06,social,procedural,impartiality and procedural fairness,no,short_text,boolean
+HB_EXP9_0268,fixed_pro_soc_aug_002,procedural,social,no,C,boolean,multiple_choice
+HB_EXP9_0269,fixed_soc_pro_027_07,social,procedural,deferred judgment or withhold criticism,no,short_text,boolean
+HB_EXP9_0270,fixed_soc_pro_027_02,social,procedural,deferred judgment or withhold criticism,no,short_text,boolean
+HB_EXP9_0271,fixed_pro_soc_aug_000,procedural,social,no,C,boolean,multiple_choice
+HB_EXP9_0272,fixed_soc_pro_027_08,social,procedural,C,no,multiple_choice,boolean
+HB_EXP9_0273,fixed_soc_pro_027_03,social,procedural,C,no,multiple_choice,boolean
+HB_EXP9_0274,fixed_pro_soc_aug_001,procedural,social,no,C,boolean,multiple_choice
+HB_EXP9_0275,fixed_soc_pro_027_05,social,procedural,C,no,multiple_choice,boolean
+HB_EXP9_0276,fixed_soc_pro_027_00,social,procedural,C,no,multiple_choice,boolean
+HB_EXP9_0277,fixed_spa_pro_013_03,spatial,procedural,14,no,exact_numeric,boolean
+HB_EXP9_0278,fixed_pro_spa_aug_001,procedural,spatial,no,500,boolean,exact_numeric
+HB_EXP9_0279,fixed_spa_pro_013_08,spatial,procedural,14,no,exact_numeric,boolean
+HB_EXP9_0280,fixed_spa_pro_013_05,spatial,procedural,1500,no,exact_numeric,boolean
+HB_EXP9_0281,fixed_pro_spa_aug_000,procedural,spatial,no,14,boolean,exact_numeric
+HB_EXP9_0282,fixed_spa_pro_013_04,spatial,procedural,5.96,no,exact_numeric,boolean
+HB_EXP9_0283,fixed_spa_pro_013_07,spatial,procedural,155,no,exact_numeric,boolean
+HB_EXP9_0284,fixed_spa_pro_013_06,spatial,procedural,500,no,exact_numeric,boolean
+HB_EXP9_0285,fixed_spa_pro_013_01,spatial,procedural,500,no,exact_numeric,boolean
+HB_EXP9_0286,fixed_spa_pro_013_00,spatial,procedural,1500,no,exact_numeric,boolean
+HB_EXP9_0287,fixed_spa_pro_013_02,spatial,procedural,155,no,exact_numeric,boolean
+HB_EXP9_0288,fixed_pro_spa_aug_002,procedural,spatial,no,1500,boolean,exact_numeric
+HB_EXP9_0289,fixed_tem_pro_018_04,temporal,procedural,10:50 AM,"steps 1, 2, and 3",short_text,short_text
+HB_EXP9_0290,fixed_pro_tem_031_07,procedural,temporal,no,yes,boolean,boolean
+HB_EXP9_0291,fixed_pro_tem_031_06,procedural,temporal,step 2 or mixing,4:35 PM,short_text,short_text
+HB_EXP9_0292,fixed_pro_tem_031_02,procedural,temporal,no,yes,boolean,boolean
+HB_EXP9_0293,fixed_pro_tem_031_01,procedural,temporal,step 2 or mixing,4:35 PM,short_text,short_text
+HB_EXP9_0294,fixed_tem_pro_018_02,temporal,procedural,yes,no,boolean,boolean
+HB_EXP9_0295,fixed_tem_pro_018_06,temporal,procedural,4:35 PM,step 2 or mixing,short_text,short_text
+HB_EXP9_0296,fixed_tem_pro_018_01,temporal,procedural,4:35 PM,step 2 or mixing,short_text,short_text
+HB_EXP9_0297,fixed_pro_tem_031_04,procedural,temporal,"steps 1, 2, and 3",10:50 AM,short_text,short_text
+HB_EXP9_0298,fixed_tem_pro_018_07,temporal,procedural,yes,no,boolean,boolean
+HB_EXP9_0299,fixed_tem_pro_018_05,temporal,procedural,1:00 PM,no,short_text,boolean
+HB_EXP9_0300,fixed_tem_pro_018_00,temporal,procedural,1:00 PM,no,short_text,boolean
+HB_EXP9_0301,fixed_spa_soc_011_03,spatial,social,65,row seating inhibits peer interaction and collaboration,exact_numeric,short_text
+HB_EXP9_0302,fixed_spa_soc_011_08,spatial,social,65,row seating inhibits peer interaction and collaboration,exact_numeric,short_text
+HB_EXP9_0303,fixed_spa_soc_011_01,spatial,social,40,no,exact_numeric,boolean
+HB_EXP9_0304,fixed_soc_spa_aug_000,social,spatial,maximize product exposure and encourage impulse purchases,300,short_text,exact_numeric
+HB_EXP9_0305,fixed_soc_spa_aug_002,social,spatial,no,40,boolean,exact_numeric
+HB_EXP9_0306,fixed_spa_soc_011_00,spatial,social,50,B,exact_numeric,multiple_choice
+HB_EXP9_0307,fixed_spa_soc_011_06,spatial,social,40,no,exact_numeric,boolean
+HB_EXP9_0308,fixed_spa_soc_011_05,spatial,social,50,B,exact_numeric,multiple_choice
+HB_EXP9_0309,fixed_spa_soc_011_07,spatial,social,300,maximize product exposure and encourage impulse purchases,exact_numeric,short_text
+HB_EXP9_0310,fixed_spa_soc_011_04,spatial,social,314,no,exact_numeric,boolean
+HB_EXP9_0311,fixed_soc_spa_aug_001,social,spatial,no,40,boolean,exact_numeric
+HB_EXP9_0312,fixed_spa_soc_011_02,spatial,social,300,maximize product exposure and encourage impulse purchases,exact_numeric,short_text
+HB_EXP9_0313,fixed_tem_soc_016_05,temporal,social,7,B,exact_numeric,multiple_choice
+HB_EXP9_0314,fixed_soc_tem_aug_000,social,temporal,C,10 hours,multiple_choice,short_text
+HB_EXP9_0315,fixed_tem_soc_016_00,temporal,social,7,B,exact_numeric,multiple_choice
+HB_EXP9_0316,fixed_tem_soc_016_04,temporal,social,10 hours,B,short_text,multiple_choice
+HB_EXP9_0317,fixed_soc_tem_aug_001,social,temporal,C,53.5,multiple_choice,exact_numeric
+HB_EXP9_0318,fixed_tem_soc_016_06,temporal,social,53.5,C,exact_numeric,multiple_choice
+HB_EXP9_0319,fixed_soc_tem_aug_002,social,temporal,C,8.5,multiple_choice,exact_numeric
+HB_EXP9_0320,fixed_tem_soc_016_03,temporal,social,8.5,C,exact_numeric,multiple_choice
+HB_EXP9_0321,fixed_tem_soc_016_08,temporal,social,8.5,C,exact_numeric,multiple_choice
+HB_EXP9_0322,fixed_tem_soc_016_01,temporal,social,53.5,C,exact_numeric,multiple_choice
+HB_EXP9_0323,fixed_tem_soc_016_07,temporal,social,4.5,punctuality or respect for others' time,exact_numeric,short_text
+HB_EXP9_0324,fixed_tem_soc_016_02,temporal,social,4.5,punctuality or respect for others' time,exact_numeric,short_text
+HB_EXP9_0325,fixed_spa_tem_aug_000,spatial,temporal,6495,1:15 PM,exact_numeric,short_text
+HB_EXP9_0326,fixed_spa_tem_008_06,spatial,temporal,10,1:15 PM,exact_numeric,short_text
+HB_EXP9_0327,fixed_spa_tem_008_01,spatial,temporal,10,1:15 PM,exact_numeric,short_text
+HB_EXP9_0328,fixed_spa_tem_aug_003,spatial,temporal,6495,April 21,exact_numeric,short_text
+HB_EXP9_0329,fixed_spa_tem_008_07,spatial,temporal,6495,6,exact_numeric,exact_numeric
+HB_EXP9_0330,fixed_spa_tem_008_02,spatial,temporal,6495,6,exact_numeric,exact_numeric
+HB_EXP9_0331,fixed_spa_tem_008_03,spatial,temporal,750,1:15 PM,exact_numeric,short_text
+HB_EXP9_0332,fixed_spa_tem_aug_001,spatial,temporal,10,1:15 PM,exact_numeric,short_text
+HB_EXP9_0333,fixed_spa_tem_008_05,spatial,temporal,750,April 21,exact_numeric,short_text
+HB_EXP9_0334,fixed_spa_tem_008_00,spatial,temporal,750,April 21,exact_numeric,short_text
+HB_EXP9_0335,fixed_spa_tem_008_04,spatial,temporal,36,15 weeks,exact_numeric,short_text
+HB_EXP9_0336,fixed_spa_tem_008_08,spatial,temporal,750,1:15 PM,exact_numeric,short_text

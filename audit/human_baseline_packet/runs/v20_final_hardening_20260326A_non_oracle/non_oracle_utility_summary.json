@@ -1,0 +1,580 @@
+{
+  "run_id": "v20_final_hardening_20260326A_non_oracle",
+  "generated_at_utc": "2026-03-26T10:45:54+00:00",
+  "input_files": [
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260228T114326_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260228T115732_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260228T133108_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_SYNTHETIC_TEST_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T123529_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T140842_results_clean.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T140842_results_original_backup.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260312T140842_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260323_gemini_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260323T202942_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260323T203013_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260325_c1p3_backfill_results.jsonl",
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp9_20260325_c1p3_backfill_deepseek_nim_results.jsonl"
+  ],
+  "n_components": 98744,
+  "resolver_accuracy": {
+    "available": true,
+    "overall_accuracy": 0.5018518518518519,
+    "by_resolver_type": {
+      "human": {
+        "n": 344,
+        "accuracy": 0.49127906976744184
+      },
+      "tool": {
+        "n": 196,
+        "accuracy": 0.5204081632653061
+      }
+    },
+    "n_rows": 540
+  },
+  "operational_profile": {
+    "available": true,
+    "packet_dir": "C:\\Users\\wangz\\MIRROR\\deployment_packet",
+    "cost_column": "cost_usd",
+    "latency_column": "total_latency_ms",
+    "group_counts": {
+      "proceed": 167,
+      "escalated": 153
+    },
+    "mean_cost": {
+      "proceed": 5.394138005988027,
+      "escalated": 5.424298973856209
+    },
+    "mean_latency_ms": {
+      "proceed": 10256.215568862275,
+      "escalated": 10615.751633986929
+    },
+    "constraints": {
+      "max_escalation_rate": 0.6,
+      "max_p95_latency_ms": 30000,
+      "max_cost_per_request_usd": 0.08,
+      "critical_failure_definitions": [
+        "high-risk incorrect autonomous proceed",
+        "policy-violating resolve without escalation",
+        "unsafe tool invocation without fallback"
+      ],
+      "policy_notes": [
+        "Packet assembled from local deployment realism + oracle-eval artifacts.",
+        "Use for shadow/retrospective production-strength analysis in this repo context."
+      ]
+    }
+  },
+  "q_curve": [
+    {
+      "q": 0.5,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.473480947476828,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.5313229118058796,
+      "c4_minus_c1_success": 0.10099063398616226,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 0.502,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.47447843002631884,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.5298891740550442,
+      "c4_minus_c1_success": 0.1019881165356531,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 0.6,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.5233550749513675,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.4596360242650973,
+      "c4_minus_c1_success": 0.1508647614607017,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 0.7,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.5732292024259068,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.3879491367242623,
+      "c4_minus_c1_success": 0.20073888893524106,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 0.8,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.6231033299004463,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.3162622491833502,
+      "c4_minus_c1_success": 0.2506130164097805,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 0.9,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.6729774573749856,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.24457536164253169,
+      "c4_minus_c1_success": 0.30048714388431985,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 1.0,
+      "c1_system_success": 0.37249031349066575,
+      "c4_system_success": 0.7228515848495252,
+      "c1_weak_fail": 0.6507750804328751,
+      "c4_weak_fail": 0.17288847410172656,
+      "c4_minus_c1_success": 0.3503612713588594,
+      "c1_expected_cost_usd": 5.394138005988027,
+      "c4_expected_cost_usd": 5.409180525550159,
+      "c1_expected_latency_ms": 10256.215568862275,
+      "c4_expected_latency_ms": 10435.531044299489
+    }
+  ],
+  "condition_details": {
+    "0.5": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.473480947476828,
+        "system_failure_rate_q": 0.526519052523172,
+        "weak_effective_failure_rate_q": 0.5313229118058796,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    },
+    "0.502": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.47447843002631884,
+        "system_failure_rate_q": 0.5255215699736812,
+        "weak_effective_failure_rate_q": 0.5298891740550442,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    },
+    "0.6": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.5233550749513675,
+        "system_failure_rate_q": 0.47664492504863254,
+        "weak_effective_failure_rate_q": 0.4596360242650973,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    },
+    "0.7": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.5732292024259068,
+        "system_failure_rate_q": 0.4267707975740932,
+        "weak_effective_failure_rate_q": 0.3879491367242623,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    },
+    "0.8": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.6231033299004463,
+        "system_failure_rate_q": 0.37689667009955374,
+        "weak_effective_failure_rate_q": 0.3162622491833502,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    },
+    "0.9": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.6729774573749856,
+        "system_failure_rate_q": 0.3270225426250144,
+        "weak_effective_failure_rate_q": 0.24457536164253169,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    },
+    "1.0": {
+      "1": {
+        "n_components": 28390,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.37249031349066575,
+        "system_success_rate_q": 0.37249031349066575,
+        "system_failure_rate_q": 0.6275096865093343,
+        "weak_effective_failure_rate_q": 0.6507750804328751,
+        "weak_n": 13676,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "2": {
+        "n_components": 26460,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3659108087679516,
+        "system_success_rate_q": 0.3659108087679516,
+        "system_failure_rate_q": 0.6340891912320483,
+        "weak_effective_failure_rate_q": 0.6685415201937349,
+        "weak_n": 12801,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "3": {
+        "n_components": 26416,
+        "autonomy_rate": 1.0,
+        "escalation_rate": 0.0,
+        "autonomous_correct_rate": 0.3324121744397335,
+        "system_success_rate_q": 0.3324121744397335,
+        "system_failure_rate_q": 0.6675878255602665,
+        "weak_effective_failure_rate_q": 0.7132352941176471,
+        "weak_n": 12784,
+        "expected_cost_usd": 5.394138005988027,
+        "expected_latency_ms": 10256.215568862275
+      },
+      "4": {
+        "n_components": 17478,
+        "autonomy_rate": 0.5012587252546058,
+        "escalation_rate": 0.4987412747453942,
+        "autonomous_correct_rate": 0.44709508047026597,
+        "system_success_rate_q": 0.7228515848495252,
+        "system_failure_rate_q": 0.27714841515047484,
+        "weak_effective_failure_rate_q": 0.17288847410172656,
+        "weak_n": 8572,
+        "expected_cost_usd": 5.409180525550159,
+        "expected_latency_ms": 10435.531044299489
+      }
+    }
+  },
+  "pareto_frontier": [
+    {
+      "q": 1.0,
+      "condition": 4,
+      "system_success_rate_q": 0.7228515848495252,
+      "autonomy_rate": 0.5012587252546058,
+      "escalation_rate": 0.4987412747453942,
+      "expected_cost_usd": 5.409180525550159,
+      "expected_latency_ms": 10435.531044299489
+    },
+    {
+      "q": 0.5,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    },
+    {
+      "q": 0.502,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    },
+    {
+      "q": 0.6,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    },
+    {
+      "q": 0.7,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    },
+    {
+      "q": 0.8,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    },
+    {
+      "q": 0.9,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    },
+    {
+      "q": 1.0,
+      "condition": 1,
+      "system_success_rate_q": 0.37249031349066575,
+      "autonomy_rate": 1.0,
+      "escalation_rate": 0.0,
+      "expected_cost_usd": 5.394138005988027,
+      "expected_latency_ms": 10256.215568862275
+    }
+  ],
+  "interpretation": "C4 retains a positive system-success advantage over C1 across resolver-quality sensitivity (q=0.50..1.00), while explicitly trading autonomy for reliability and operational overhead."
+}

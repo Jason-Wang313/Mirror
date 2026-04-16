@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "experiment": "exp9",
+  "agreement": {
+    "overlap_n": 50,
+    "raw_agreement": 1.0,
+    "cohen_kappa": 1.0
+  },
+  "label_counts": {
+    "annotator1": {
+      "incorrect": 44,
+      "correct": 6
+    },
+    "annotator2": {
+      "incorrect": 44,
+      "correct": 6
+    }
+  },
+  "confusion_counts": {
+    "a1:incorrect|a2:incorrect": 44,
+    "a1:correct|a2:correct": 6
+  },
+  "unmatched_ids": {
+    "annotator1_only": [],
+    "annotator2_only": []
+  },
+  "note": "Exp4 agreement is pending-by-design due label schema mismatch (existing Exp4 baseline uses adapted/not_adapted, not correct/incorrect)."
+}

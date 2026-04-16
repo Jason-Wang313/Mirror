@@ -1,0 +1,240 @@
+{
+  "run_id": "v20_hardening_human3_lock_v2",
+  "generated_at_utc": "2026-03-24T22:52:20+00:00",
+  "policy": {
+    "human_data_legitimacy": "accepted_by_user",
+    "exp1_expected_rows": 192,
+    "exp9_expected_rows": 162,
+    "audit_expected_rows": 100,
+    "valid_exp9_decisions": [
+      "FLAG_FOR_REVIEW",
+      "PROCEED",
+      "USE_TOOL"
+    ],
+    "valid_human_labels": [
+      "ambiguous",
+      "correct",
+      "incorrect"
+    ]
+  },
+  "status": "passed",
+  "locked_inputs": [
+    {
+      "role": "exp1_participant",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_P1.csv",
+      "size_bytes": 43665,
+      "mtime_utc": "2026-03-24T22:26:06+00:00",
+      "sha256": "40b0fe055e6676b4c2ce558b767ccc8ef36f605e7c64ebcd2f41866ce3271c32",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 192,
+          "expected_rows": 192,
+          "row_count_ok": true,
+          "blank_participant_answer": 0,
+          "blank_participant_confidence": 0
+        }
+      }
+    },
+    {
+      "role": "exp1_participant",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_P2.csv",
+      "size_bytes": 43895,
+      "mtime_utc": "2026-03-24T22:26:06+00:00",
+      "sha256": "11e17eb3b6f16fd8fa8ef4a4bff534916db471b5153e232e1dc5a68ad87358e0",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 192,
+          "expected_rows": 192,
+          "row_count_ok": true,
+          "blank_participant_answer": 0,
+          "blank_participant_confidence": 0
+        }
+      }
+    },
+    {
+      "role": "exp1_participant",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp1_response_sheet_P3.csv",
+      "size_bytes": 44007,
+      "mtime_utc": "2026-03-24T22:26:07+00:00",
+      "sha256": "1bccf17b3d296d069c467ee9b01941e05644e36093639a2b9cffa5c2ddbba396",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 192,
+          "expected_rows": 192,
+          "row_count_ok": true,
+          "blank_participant_answer": 0,
+          "blank_participant_confidence": 0
+        }
+      }
+    },
+    {
+      "role": "exp9_participant",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_P1.csv",
+      "size_bytes": 76890,
+      "mtime_utc": "2026-03-24T22:26:06+00:00",
+      "sha256": "be3988a4410141bffd60395cc9debae414ffab1cebdc38bf2dde9367cf058096",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 162,
+          "expected_rows": 162,
+          "row_count_ok": true,
+          "blank_decision_a": 0,
+          "blank_decision_b": 0,
+          "invalid_decision_a": 0,
+          "invalid_decision_b": 0,
+          "valid_decisions": [
+            "FLAG_FOR_REVIEW",
+            "PROCEED",
+            "USE_TOOL"
+          ]
+        }
+      }
+    },
+    {
+      "role": "exp9_participant",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_P2.csv",
+      "size_bytes": 76982,
+      "mtime_utc": "2026-03-24T22:26:07+00:00",
+      "sha256": "93d9874a630c15f50c1a0191f71fcbd1417657888bd25445b493337f1cf05c97",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 162,
+          "expected_rows": 162,
+          "row_count_ok": true,
+          "blank_decision_a": 0,
+          "blank_decision_b": 0,
+          "invalid_decision_a": 0,
+          "invalid_decision_b": 0,
+          "valid_decisions": [
+            "FLAG_FOR_REVIEW",
+            "PROCEED",
+            "USE_TOOL"
+          ]
+        }
+      }
+    },
+    {
+      "role": "exp9_participant",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\templates\\exp9_response_sheet_P3.csv",
+      "size_bytes": 76923,
+      "mtime_utc": "2026-03-24T22:26:07+00:00",
+      "sha256": "4615e1f50a635031848adfe83c4c17690889a1529dda0b052a330fca8fc9092d",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 162,
+          "expected_rows": 162,
+          "row_count_ok": true,
+          "blank_decision_a": 0,
+          "blank_decision_b": 0,
+          "invalid_decision_a": 0,
+          "invalid_decision_b": 0,
+          "valid_decisions": [
+            "FLAG_FOR_REVIEW",
+            "PROCEED",
+            "USE_TOOL"
+          ]
+        }
+      }
+    },
+    {
+      "role": "audit_rater",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R1.csv",
+      "size_bytes": 137130,
+      "mtime_utc": "2026-03-24T22:26:07+00:00",
+      "sha256": "8bbe324558f4f737b69217e3043fea82dbdfa81642adc37eae230b2b565fb1df",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 100,
+          "expected_rows": 100,
+          "row_count_ok": true,
+          "blank_human_label": 0,
+          "blank_confidence": 0,
+          "invalid_human_label": 0,
+          "valid_labels": [
+            "ambiguous",
+            "correct",
+            "incorrect"
+          ]
+        }
+      }
+    },
+    {
+      "role": "audit_rater",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R2.csv",
+      "size_bytes": 137130,
+      "mtime_utc": "2026-03-24T22:26:07+00:00",
+      "sha256": "f9249e0749fc763838cf8ad57b94b0184fee681b74f3c38f720b62c934bc3ecf",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 100,
+          "expected_rows": 100,
+          "row_count_ok": true,
+          "blank_human_label": 0,
+          "blank_confidence": 0,
+          "invalid_human_label": 0,
+          "valid_labels": [
+            "ambiguous",
+            "correct",
+            "incorrect"
+          ]
+        }
+      }
+    },
+    {
+      "role": "audit_rater",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R3.csv",
+      "size_bytes": 137097,
+      "mtime_utc": "2026-03-24T22:26:07+00:00",
+      "sha256": "bc1aac6ed524b287808bfa1134d394b25796db0a756ac241e9a9827d578784b1",
+      "validation": {
+        "ok": true,
+        "reason": "ok",
+        "details": {
+          "row_count": 100,
+          "expected_rows": 100,
+          "row_count_ok": true,
+          "blank_human_label": 0,
+          "blank_confidence": 0,
+          "invalid_human_label": 0,
+          "valid_labels": [
+            "ambiguous",
+            "correct",
+            "incorrect"
+          ]
+        }
+      }
+    }
+  ],
+  "immutable_files": [
+    {
+      "role": "immutable_answer_key",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp1_answer_key.csv",
+      "size_bytes": 19151,
+      "mtime_utc": "2026-03-24T22:11:41+00:00",
+      "sha256": "9f097288aac04a16125186cbeacde1c5ea3ec36aa6d1031b7b54fe3e6b6e3152"
+    },
+    {
+      "role": "immutable_answer_key",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp9_answer_key.csv",
+      "size_bytes": 15054,
+      "mtime_utc": "2026-03-24T22:11:41+00:00",
+      "sha256": "c3d698edb672edc2426de9b94a92d88234b5600b7ed4a48166e475f84a57e4d5"
+    }
+  ]
+}

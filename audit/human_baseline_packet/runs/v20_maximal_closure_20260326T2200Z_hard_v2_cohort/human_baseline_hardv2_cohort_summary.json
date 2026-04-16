@@ -1,0 +1,24 @@
+{
+  "run_id": "v20_maximal_closure_20260326T2200Z_hard_v2_cohort",
+  "generated_at_utc": "2026-03-26T17:43:45+00:00",
+  "hard_v2_dir": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\hard_v2",
+  "cohort_dir": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\hard_v2\\cohort",
+  "min_participants_required": 20,
+  "expected_rows": {
+    "exp1": 512,
+    "exp9": 336
+  },
+  "counts": {
+    "exp1_files_found": 0,
+    "exp9_files_found": 0,
+    "participant_pairs_found": 0,
+    "participant_pairs_validated_ok": 0
+  },
+  "participant_ids": [],
+  "validation": {
+    "exp1": [],
+    "exp9": []
+  },
+  "status": "pending_cohort_completion",
+  "scoring": {}
+}

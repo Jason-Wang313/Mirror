@@ -1,0 +1,7 @@
+{
+  "run_id": "v20_maximal_closure_20260326T2200Z_ood_holdout",
+  "updated_at_utc": "2026-03-26T18:12:52+00:00",
+  "status": "complete",
+  "out_json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_ood_holdout\\exp9_ood_holdout_summary.json",
+  "out_md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_ood_holdout\\exp9_ood_holdout_summary.md"
+}

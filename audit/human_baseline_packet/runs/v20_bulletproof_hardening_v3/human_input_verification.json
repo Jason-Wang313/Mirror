@@ -1,0 +1,325 @@
+{
+  "verified_at_utc": "2026-03-25T16:37:53+00:00",
+  "manifest_path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_bulletproof_hardening_v3\\human_input_manifest.json",
+  "all_ok": true,
+  "checks": [
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp1_answer_key.csv",
+      "expected_sha256": "28287a2c9616d0d382c80699e5cb85f12d0d6658fe74140df534f9b8773e0fa1",
+      "actual_sha256": "28287a2c9616d0d382c80699e5cb85f12d0d6658fe74140df534f9b8773e0fa1",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\answer_keys\\exp9_answer_key.csv",
+      "expected_sha256": "dc0c37c9a93badde7d520dad6c15694ba16f85fb31837b103998ba01d1b7c8b7",
+      "actual_sha256": "dc0c37c9a93badde7d520dad6c15694ba16f85fb31837b103998ba01d1b7c8b7",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H01.csv",
+      "expected_sha256": "eda6d727aec4251e4ad71a616c293bcd18d97d01e142d3add4850c59a9d72836",
+      "actual_sha256": "eda6d727aec4251e4ad71a616c293bcd18d97d01e142d3add4850c59a9d72836",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H02.csv",
+      "expected_sha256": "ec0d2b432d3a477dcdd3ef384854e02550803c6c7c0ca25bdb3797b643e8f064",
+      "actual_sha256": "ec0d2b432d3a477dcdd3ef384854e02550803c6c7c0ca25bdb3797b643e8f064",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H03.csv",
+      "expected_sha256": "b04a0eaa77fd1e2d00dcb1ba36879aa3685ef170e59aed44df69af77ba438b62",
+      "actual_sha256": "b04a0eaa77fd1e2d00dcb1ba36879aa3685ef170e59aed44df69af77ba438b62",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H04.csv",
+      "expected_sha256": "42c3aaf0f590657cac1b2126c8c1e2185b7d86b5b4e9ea13fcf9a538d541ece3",
+      "actual_sha256": "42c3aaf0f590657cac1b2126c8c1e2185b7d86b5b4e9ea13fcf9a538d541ece3",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H05.csv",
+      "expected_sha256": "eecd7b5497242e604b0abd3d8c5d8fd96ad518d93bc13f4f0e59a8f993cf271f",
+      "actual_sha256": "eecd7b5497242e604b0abd3d8c5d8fd96ad518d93bc13f4f0e59a8f993cf271f",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H06.csv",
+      "expected_sha256": "2939d25db9ce979d81f8512a1e42e445a873c54d27343d36f73f388986b0efa4",
+      "actual_sha256": "2939d25db9ce979d81f8512a1e42e445a873c54d27343d36f73f388986b0efa4",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H07.csv",
+      "expected_sha256": "b3de305c117a861945c1f26bd55cc76b6f894c01bf0d9ae58f802a41bf44f5fe",
+      "actual_sha256": "b3de305c117a861945c1f26bd55cc76b6f894c01bf0d9ae58f802a41bf44f5fe",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H08.csv",
+      "expected_sha256": "4df0ccecf7281309e5fcc49124b8d2f7f5d96a09d9fcf85e73cc329ce5a310ef",
+      "actual_sha256": "4df0ccecf7281309e5fcc49124b8d2f7f5d96a09d9fcf85e73cc329ce5a310ef",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H09.csv",
+      "expected_sha256": "b2e6d9e95ecf0a79e0c4fa2da925247a9031d742c4ded0457e29ea6ccf272219",
+      "actual_sha256": "b2e6d9e95ecf0a79e0c4fa2da925247a9031d742c4ded0457e29ea6ccf272219",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H10.csv",
+      "expected_sha256": "9fd1a2a1c9bfa39d76a685365821a923da955e29124c16af7180ba8223a51b99",
+      "actual_sha256": "9fd1a2a1c9bfa39d76a685365821a923da955e29124c16af7180ba8223a51b99",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H11.csv",
+      "expected_sha256": "a6edbc3177b4eb5cadc158b52b11c3c87b5e99cddaa72b70c3c70f6299ae5441",
+      "actual_sha256": "a6edbc3177b4eb5cadc158b52b11c3c87b5e99cddaa72b70c3c70f6299ae5441",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H12.csv",
+      "expected_sha256": "e43c8fa1dcdda9e2a5ea06ed6857d522514b57ffdca936052207afb39f303e33",
+      "actual_sha256": "e43c8fa1dcdda9e2a5ea06ed6857d522514b57ffdca936052207afb39f303e33",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H13.csv",
+      "expected_sha256": "e84fd288be86100dc9ca02f67edf90186f3e4362f284b6cc56852b18a99c58b9",
+      "actual_sha256": "e84fd288be86100dc9ca02f67edf90186f3e4362f284b6cc56852b18a99c58b9",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H14.csv",
+      "expected_sha256": "f440cccfddf59da8a006ee34f8c5e05918114e1de875e353638e068f9975fac3",
+      "actual_sha256": "f440cccfddf59da8a006ee34f8c5e05918114e1de875e353638e068f9975fac3",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H15.csv",
+      "expected_sha256": "c7cd658ba4d00d6076554e485f2eeb4dc4a96ef76535c0151225af3f97a200d7",
+      "actual_sha256": "c7cd658ba4d00d6076554e485f2eeb4dc4a96ef76535c0151225af3f97a200d7",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H16.csv",
+      "expected_sha256": "c902e70820cdef68f7cc32745995a0305142391a6527aed66848fcd09402b6aa",
+      "actual_sha256": "c902e70820cdef68f7cc32745995a0305142391a6527aed66848fcd09402b6aa",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H17.csv",
+      "expected_sha256": "5b9a061dba4e2ec7102c76eb5d211e55fb9591edc7395c877331a936ac926423",
+      "actual_sha256": "5b9a061dba4e2ec7102c76eb5d211e55fb9591edc7395c877331a936ac926423",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H18.csv",
+      "expected_sha256": "647d7e7303b45577a39cfa80597bd90af2359b1fc629c8c8c7a856c59233e7aa",
+      "actual_sha256": "647d7e7303b45577a39cfa80597bd90af2359b1fc629c8c8c7a856c59233e7aa",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H19.csv",
+      "expected_sha256": "95c275df601413b2d585ec213060cff51bec89507bea654b4e0e8bb8f1b0556a",
+      "actual_sha256": "95c275df601413b2d585ec213060cff51bec89507bea654b4e0e8bb8f1b0556a",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp1_response_sheet_H20.csv",
+      "expected_sha256": "a04bb7ef26119a45ee84e7876d9691e2fb86260605284be2291290f014983744",
+      "actual_sha256": "a04bb7ef26119a45ee84e7876d9691e2fb86260605284be2291290f014983744",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H01.csv",
+      "expected_sha256": "e30f4a67b0339d5e302c7188db2e3c0bd00ebed717b3185d096a54b840963846",
+      "actual_sha256": "e30f4a67b0339d5e302c7188db2e3c0bd00ebed717b3185d096a54b840963846",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H02.csv",
+      "expected_sha256": "df1f1dff12b46b2dba89573633c523c1c375f33accd865c9943d4d462be0632b",
+      "actual_sha256": "df1f1dff12b46b2dba89573633c523c1c375f33accd865c9943d4d462be0632b",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H03.csv",
+      "expected_sha256": "b14238f4c7c32fce630c4a5ac2d99770dcb43cfd6ac9dca0e39371d38891058f",
+      "actual_sha256": "b14238f4c7c32fce630c4a5ac2d99770dcb43cfd6ac9dca0e39371d38891058f",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H04.csv",
+      "expected_sha256": "00dff5ff669d669413f7d70f79f7c0d63ec31803b00df7cf9bbc47ca9625459d",
+      "actual_sha256": "00dff5ff669d669413f7d70f79f7c0d63ec31803b00df7cf9bbc47ca9625459d",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H05.csv",
+      "expected_sha256": "06e2382ef60bf9a27178a2308cb02ccd20a282e8159e50634e8065c905f55885",
+      "actual_sha256": "06e2382ef60bf9a27178a2308cb02ccd20a282e8159e50634e8065c905f55885",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H06.csv",
+      "expected_sha256": "af29e8134fb40ad8b1cd372528d41f71169cd1faef1fd23896546da28d85e905",
+      "actual_sha256": "af29e8134fb40ad8b1cd372528d41f71169cd1faef1fd23896546da28d85e905",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H07.csv",
+      "expected_sha256": "87498b1b20cf3c68332399fcbc54baabfbf80a27db95f845b4e9f6ba26541638",
+      "actual_sha256": "87498b1b20cf3c68332399fcbc54baabfbf80a27db95f845b4e9f6ba26541638",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H08.csv",
+      "expected_sha256": "316961770413154f8e6d5691cc36f0c7459e6f86b148d258f7ca07f9f1199b96",
+      "actual_sha256": "316961770413154f8e6d5691cc36f0c7459e6f86b148d258f7ca07f9f1199b96",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H09.csv",
+      "expected_sha256": "6b55de6e117026383e2a23b6f01d8275a20ff0b54d7e775b993d5fe2928e592e",
+      "actual_sha256": "6b55de6e117026383e2a23b6f01d8275a20ff0b54d7e775b993d5fe2928e592e",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H10.csv",
+      "expected_sha256": "759a7ea92b457762488aa91d08170c5203d5d5269194264916e8c186f43ad8a3",
+      "actual_sha256": "759a7ea92b457762488aa91d08170c5203d5d5269194264916e8c186f43ad8a3",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H11.csv",
+      "expected_sha256": "dc30591d9764d50c201c9448e0382647c29ee6ffeeb9ab5451dbb5e3fc23dbbf",
+      "actual_sha256": "dc30591d9764d50c201c9448e0382647c29ee6ffeeb9ab5451dbb5e3fc23dbbf",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H12.csv",
+      "expected_sha256": "d0e424d4e45a7c311853e3096b3b9ebaa85b10914058b403e3373b70c215abc7",
+      "actual_sha256": "d0e424d4e45a7c311853e3096b3b9ebaa85b10914058b403e3373b70c215abc7",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H13.csv",
+      "expected_sha256": "4a4c5be09183599adc06821867e9f5f0b5ccab40b9350104991332d4cbdc0a91",
+      "actual_sha256": "4a4c5be09183599adc06821867e9f5f0b5ccab40b9350104991332d4cbdc0a91",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H14.csv",
+      "expected_sha256": "94ad1b53833ee924ab19f0f7a76a129dbdf587d357fe7ee03d8e51ef36091b79",
+      "actual_sha256": "94ad1b53833ee924ab19f0f7a76a129dbdf587d357fe7ee03d8e51ef36091b79",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H15.csv",
+      "expected_sha256": "f21a8309b335e7dea77b97920f8e8bc057b3676da531f3ea8d5b2866e5f13a2a",
+      "actual_sha256": "f21a8309b335e7dea77b97920f8e8bc057b3676da531f3ea8d5b2866e5f13a2a",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H16.csv",
+      "expected_sha256": "73310ee64c4e99fef76bb359c1924832a7377f9d2a10309c78988b44612b07d2",
+      "actual_sha256": "73310ee64c4e99fef76bb359c1924832a7377f9d2a10309c78988b44612b07d2",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H17.csv",
+      "expected_sha256": "85574e5fb6e9fddb6c5a03b33b662e04b8c7aa34cce221e2205e4e7847037d66",
+      "actual_sha256": "85574e5fb6e9fddb6c5a03b33b662e04b8c7aa34cce221e2205e4e7847037d66",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H18.csv",
+      "expected_sha256": "34a78c02ad128120a250890cdf127814c0f33522271878877f44160308de2040",
+      "actual_sha256": "34a78c02ad128120a250890cdf127814c0f33522271878877f44160308de2040",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H19.csv",
+      "expected_sha256": "bc3226b397d23512d4c49d351d63e175b153cf5f828567bd8db957ec70130f86",
+      "actual_sha256": "bc3226b397d23512d4c49d351d63e175b153cf5f828567bd8db957ec70130f86",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\exp9_response_sheet_H20.csv",
+      "expected_sha256": "9af599652cc81e18d93559872fdb86627af5acb6b8f560a3082254eee990c3ec",
+      "actual_sha256": "9af599652cc81e18d93559872fdb86627af5acb6b8f560a3082254eee990c3ec",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R1.csv",
+      "expected_sha256": "bcbbe757ddd5a72e230e98c7cc6f1e6717c2950854315fe81d780a372ff792b6",
+      "actual_sha256": "bcbbe757ddd5a72e230e98c7cc6f1e6717c2950854315fe81d780a372ff792b6",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R2.csv",
+      "expected_sha256": "5effa9fa858984a5ea78a60ac2aca1f41e4a54e2ef49f2a59ebcb7dd5a366e27",
+      "actual_sha256": "5effa9fa858984a5ea78a60ac2aca1f41e4a54e2ef49f2a59ebcb7dd5a366e27",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R3.csv",
+      "expected_sha256": "98300289b499d5ce6d19b11318b3d3d0472123fe49e9ee23d0f8cff1b6dd1129",
+      "actual_sha256": "98300289b499d5ce6d19b11318b3d3d0472123fe49e9ee23d0f8cff1b6dd1129",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R4.csv",
+      "expected_sha256": "389948abd5748c8a46f5493b3eb0e640c998e4cdab4009e2fd68c230b8c07039",
+      "actual_sha256": "389948abd5748c8a46f5493b3eb0e640c998e4cdab4009e2fd68c230b8c07039",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\audit_multirater\\real_human_audit_600_R5.csv",
+      "expected_sha256": "9b63cdb9f5ca0ffcef60be34a3778f564582e4e3f9d5cbf88eb27602cf7b30d8",
+      "actual_sha256": "9b63cdb9f5ca0ffcef60be34a3778f564582e4e3f9d5cbf88eb27602cf7b30d8",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\hard_packet_manifest.json",
+      "expected_sha256": "063f858c6a22751675afb2ba6c7a4a2822075a4d24def4484fe7e1ca7b2865f9",
+      "actual_sha256": "063f858c6a22751675afb2ba6c7a4a2822075a4d24def4484fe7e1ca7b2865f9",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\cohort\\human_collection_manifest.json",
+      "expected_sha256": "d58e8e3cad97e7149c7fa96a90ab26629a5b651856381eb2c46ffb8f901325de",
+      "actual_sha256": "d58e8e3cad97e7149c7fa96a90ab26629a5b651856381eb2c46ffb8f901325de",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\deployment\\ecological_validity_tasks.csv",
+      "expected_sha256": "0a36e18bfc0e33ffa68a217e5f498061009993ad220bd41a1eda57c65fb1266c",
+      "actual_sha256": "0a36e18bfc0e33ffa68a217e5f498061009993ad220bd41a1eda57c65fb1266c",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\deployment\\ecological_validity_gold.csv",
+      "expected_sha256": "5ea4766c46534481f808a3deca1d7366a37ad67f12b61551b49d323a6bee2034",
+      "actual_sha256": "5ea4766c46534481f808a3deca1d7366a37ad67f12b61551b49d323a6bee2034",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\deployment\\escalation_oracle_eval.csv",
+      "expected_sha256": "2a8e2c7e3e3f64c606c0c8c85e3f91c27408ce02807f1db2c73d531eb25d8f49",
+      "actual_sha256": "2a8e2c7e3e3f64c606c0c8c85e3f91c27408ce02807f1db2c73d531eb25d8f49",
+      "ok": true
+    },
+    {
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\redteam\\goodhart_attack_set.csv",
+      "expected_sha256": "a3054a92a83b6cf9c2e97ad2832191a86fda4d28593f91cf50d837a89d122a99",
+      "actual_sha256": "a3054a92a83b6cf9c2e97ad2832191a86fda4d28593f91cf50d837a89d122a99",
+      "ok": true
+    }
+  ]
+}

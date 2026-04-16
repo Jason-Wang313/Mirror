@@ -1,0 +1,53 @@
+{
+  "run_id": "v20_stanford_hardening_20260326T0010Z",
+  "generated_at_utc": "2026-03-25T23:15:21+00:00",
+  "paper_tex": "C:\\Users\\wangz\\MIRROR\\paper\\mirror_draft_v20.tex",
+  "n_checks": 7,
+  "n_pass": 7,
+  "n_fail": 0,
+  "checks": [
+    {
+      "id": "parse_missingness",
+      "description": "Parse/API missingness analysis is reported in manuscript.",
+      "pass": true,
+      "evidence_hint": "Look for explicit MCAR/MNAR and sensitivity text."
+    },
+    {
+      "id": "exp3_difficulty_control",
+      "description": "Exp3 difficulty-controlled ablation is reported.",
+      "pass": true,
+      "evidence_hint": "Look for controlled mixture reporting in Exp3 discussion/appendix."
+    },
+    {
+      "id": "mci_channel_robustness",
+      "description": "MCI channel-disagreement diagnostics are reported.",
+      "pass": true,
+      "evidence_hint": "Look for no-wagering / leave-one-channel sensitivity text."
+    },
+    {
+      "id": "non_oracle_utility_main_text",
+      "description": "Non-oracle/fallible-resolver utility appears in main claim path.",
+      "pass": true,
+      "evidence_hint": "Look for explicit resolver-quality sensitivity in main text."
+    },
+    {
+      "id": "instance_baseline_expanded",
+      "description": "Instance-level baselines are discussed beyond narrow legacy frame.",
+      "pass": true,
+      "evidence_hint": "Look for expanded frame details near Exp9 comparisons."
+    },
+    {
+      "id": "mapping_validity",
+      "description": "Exp9 domain-component mapping validation is reported.",
+      "pass": true,
+      "evidence_hint": "Look for static/cross-verifier mapping-validation summary."
+    },
+    {
+      "id": "related_work_expanded",
+      "description": "Recent metacognitive-control/abstention related work is integrated in main text.",
+      "pass": true,
+      "evidence_hint": "Look for added related-work anchors in main section."
+    }
+  ],
+  "actionable_items": []
+}

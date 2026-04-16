@@ -28,9 +28,11 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 import random
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -45,6 +47,7 @@ TASK_FILE = Path("data/exp9_tasks.jsonl")
 REPORT_FILE = Path("data/exp9_verification_report.json")
 FLAGGED_FILE = Path("data/exp9_tasks_flagged.jsonl")
 CLEAN_FILE = Path("data/exp9_tasks_clean.jsonl")
+DEFAULT_CHECKPOINT_DIR = Path("data/exp9_verification_runs")
 
 REQUIRED_FIELDS = [
     "task_id", "task_type", "circularity_free",
@@ -268,6 +271,20 @@ async def verify_task_with_model(client, model: str, task: dict) -> dict:
             "component_a": {"verdict": "ERROR", "correct_answer": str(e)},
             "component_b": {"verdict": "ERROR", "correct_answer": str(e)},
         }
+    if not isinstance(verdict, dict):
+        verdict = {
+            "component_a": {"verdict": "AMBIGUOUS", "correct_answer": str(verdict)},
+            "component_b": {"verdict": "AMBIGUOUS", "correct_answer": str(verdict)},
+        }
+    for comp in ("component_a", "component_b"):
+        comp_v = verdict.get(comp)
+        if not isinstance(comp_v, dict):
+            verdict[comp] = {"verdict": "AMBIGUOUS", "correct_answer": str(comp_v)}
+            continue
+        if "verdict" not in comp_v:
+            comp_v["verdict"] = "AMBIGUOUS"
+        if "correct_answer" not in comp_v:
+            comp_v["correct_answer"] = None
     return {"model": model, "verdict": verdict}
 
 
@@ -300,6 +317,79 @@ async def verify_batch(client, tasks: list[dict], n_verifiers: int = 3) -> list[
     return results
 
 
+def append_progress(path: Path, event: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(event, ensure_ascii=False) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
+
+
+async def verify_batch_resumable(
+    client,
+    tasks: list[dict],
+    n_verifiers: int,
+    max_workers: int,
+    checkpoint_path: Path,
+    progress_log: Path,
+    resume_results: dict[str, dict] | None = None,
+) -> list[dict]:
+    """Task-level resumable verifier with deterministic shard keys (task_id)."""
+    existing = dict(resume_results or {})
+    tasks_sorted = sorted(tasks, key=lambda t: str(t.get("task_id", "")))
+    pending = [t for t in tasks_sorted if t.get("task_id") not in existing]
+    sem = asyncio.Semaphore(max(1, max_workers))
+    lock = asyncio.Lock()
+
+    append_progress(
+        progress_log,
+        {
+            "event": "resume_state",
+            "completed": len(existing),
+            "pending": len(pending),
+            "total": len(tasks_sorted),
+            "timestamp": time.time(),
+        },
+    )
+
+    async def run_one(task: dict) -> None:
+        task_id = task["task_id"]
+        async with sem:
+            verdicts = await asyncio.gather(
+                *[verify_task_with_model(client, m, task) for m in VERIFIER_MODELS[:n_verifiers]]
+            )
+            flag_a = sum(1 for v in verdicts if v["verdict"].get("component_a", {}).get("verdict") == "INCORRECT") >= 2
+            flag_b = sum(1 for v in verdicts if v["verdict"].get("component_b", {}).get("verdict") == "INCORRECT") >= 2
+            out = {
+                "task_id": task_id,
+                "flagged_a": flag_a,
+                "flagged_b": flag_b,
+                "flagged": flag_a or flag_b,
+                "model_verdicts": verdicts,
+            }
+            async with lock:
+                existing[task_id] = out
+                ck = {
+                    "completed_task_ids": sorted(existing.keys()),
+                    "results": [existing[k] for k in sorted(existing.keys())],
+                }
+                checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+                checkpoint_path.write_text(json.dumps(ck, indent=2), encoding="utf-8")
+                append_progress(
+                    progress_log,
+                    {
+                        "event": "task_complete",
+                        "task_id": task_id,
+                        "completed": len(existing),
+                        "total": len(tasks_sorted),
+                        "timestamp": time.time(),
+                    },
+                )
+
+    await asyncio.gather(*[run_one(t) for t in pending])
+    return [existing[k] for k in sorted(existing.keys())]
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Main
 # ─────────────────────────────────────────────────────────────────────────────
@@ -314,7 +404,26 @@ def main():
                         help="Verify fixed (circularity_free) tasks only")
     parser.add_argument("--seed", type=int, default=42,
                         help="Random seed for --sample")
+    parser.add_argument("--run-id", type=str, default=None,
+                        help="Run identifier for resumable outputs.")
+    parser.add_argument("--resume", action="store_true",
+                        help="Resume from checkpoint if it exists.")
+    parser.add_argument("--max-workers", type=int, default=6,
+                        help="Max concurrent task verifications in --api mode.")
+    parser.add_argument("--checkpoint-dir", type=Path, default=DEFAULT_CHECKPOINT_DIR,
+                        help="Directory for run checkpoints and logs.")
     args = parser.parse_args()
+
+    run_id = args.run_id or datetime.utcnow().strftime("exp9_verify_%Y%m%dT%H%M%SZ")
+    run_dir = args.checkpoint_dir / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    report_file = run_dir / "exp9_verification_report.json"
+    flagged_file = run_dir / "exp9_tasks_flagged.jsonl"
+    clean_file = run_dir / "exp9_tasks_clean.jsonl"
+    checkpoint_file = run_dir / "verification_checkpoint.json"
+    progress_log = run_dir / "progress_log.jsonl"
+
+    append_progress(progress_log, {"event": "run_start", "run_id": run_id, "timestamp": time.time()})
 
     print("=" * 70)
     print("EXPERIMENT 9: TASK BANK VERIFICATION")
@@ -377,8 +486,28 @@ def main():
             print(f"  Sampled {len(verify_tasks)} tasks for LLM verification.")
         else:
             print(f"  Verifying all {len(verify_tasks)} statically-clean tasks.")
+        resume_results = {}
+        if args.resume and checkpoint_file.exists():
+            try:
+                ck = json.loads(checkpoint_file.read_text(encoding="utf-8"))
+                for r in ck.get("results", []):
+                    if isinstance(r, dict) and r.get("task_id"):
+                        resume_results[str(r["task_id"])] = r
+                print(f"  Resuming with {len(resume_results)} completed tasks from checkpoint.")
+            except Exception as e:
+                print(f"  WARNING: failed to load checkpoint: {e}")
 
-        llm_results = asyncio.run(verify_batch(client, verify_tasks))
+        llm_results = asyncio.run(
+            verify_batch_resumable(
+                client=client,
+                tasks=verify_tasks,
+                n_verifiers=3,
+                max_workers=args.max_workers,
+                checkpoint_path=checkpoint_file,
+                progress_log=progress_log,
+                resume_results=resume_results,
+            )
+        )
 
         n_flagged = sum(1 for r in llm_results if r["flagged"])
         flagged_a = sum(1 for r in llm_results if r["flagged_a"])
@@ -410,9 +539,9 @@ def main():
         flagged_ids = {r["task_id"] for r in llm_results if r["flagged"]}
         task_by_id = {t["task_id"]: t for t in tasks}
 
-        CLEAN_FILE.parent.mkdir(parents=True, exist_ok=True)
-        with open(CLEAN_FILE, "w", encoding="utf-8") as fc, \
-             open(FLAGGED_FILE, "w", encoding="utf-8") as ff:
+        clean_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(clean_file, "w", encoding="utf-8") as fc, \
+             open(flagged_file, "w", encoding="utf-8") as ff:
             for t in tasks:
                 tid = t["task_id"]
                 if tid in verified_ids:
@@ -422,15 +551,34 @@ def main():
                     continue
                 target.write(json.dumps(t) + "\n")
 
-        print(f"\n  Clean tasks written to  : {CLEAN_FILE}")
-        print(f"  Flagged tasks written to: {FLAGGED_FILE}")
+        print(f"\n  Clean tasks written to  : {clean_file}")
+        print(f"  Flagged tasks written to: {flagged_file}")
 
     # ── Write report ──────────────────────────────────────────────────────────
-    REPORT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(REPORT_FILE, "w", encoding="utf-8") as f:
+    # Include run metadata
+    full_report["run_metadata"] = {
+        "run_id": run_id,
+        "run_dir": str(run_dir),
+        "resume": bool(args.resume),
+        "max_workers": int(args.max_workers),
+        "timestamp": time.time(),
+    }
+
+    report_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(report_file, "w", encoding="utf-8") as f:
         json.dump(full_report, f, indent=2)
 
-    print(f"\nFull report saved to: {REPORT_FILE}")
+    # Stable latest aliases for downstream tooling.
+    REPORT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    REPORT_FILE.write_text(json.dumps(full_report, indent=2), encoding="utf-8")
+    if clean_file.exists():
+        CLEAN_FILE.write_text(clean_file.read_text(encoding="utf-8"), encoding="utf-8")
+    if flagged_file.exists():
+        FLAGGED_FILE.write_text(flagged_file.read_text(encoding="utf-8"), encoding="utf-8")
+
+    append_progress(progress_log, {"event": "run_complete", "run_id": run_id, "timestamp": time.time()})
+
+    print(f"\nFull report saved to: {report_file}")
     print("\n" + "=" * 70)
     verdict = "PASS" if static_report["failed_static"] == 0 else "FAIL"
     print(f"STATIC VERIFICATION: {verdict}")

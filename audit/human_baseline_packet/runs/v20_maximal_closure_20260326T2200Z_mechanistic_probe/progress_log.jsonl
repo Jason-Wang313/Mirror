@@ -1,0 +1,3 @@
+{"ts_utc": "2026-03-26T18:12:53+00:00", "event": "start", "run_id": "v20_maximal_closure_20260326T2200Z_mechanistic_probe"}
+{"ts_utc": "2026-03-26T18:13:51+00:00", "event": "loaded_inputs", "n_models_open_weight_registry": 15, "n_models_with_probe_rows": 16}
+{"ts_utc": "2026-03-26T18:13:53+00:00", "event": "complete", "out_json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_mechanistic_probe\\mechanistic_probe_summary.json"}

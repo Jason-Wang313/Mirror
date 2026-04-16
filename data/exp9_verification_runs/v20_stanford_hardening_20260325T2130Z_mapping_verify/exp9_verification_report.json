@@ -1,0 +1,35 @@
+{
+  "static": {
+    "total_tasks": 297,
+    "passed_static": 297,
+    "failed_static": 0,
+    "circularity_free_count": 297,
+    "task_type_distribution": {
+      "fixed": 297
+    },
+    "domain_component_counts": {
+      "arithmetic": 90,
+      "factual": 81,
+      "linguistic": 63,
+      "logical": 72,
+      "procedural": 72,
+      "social": 72,
+      "spatial": 72,
+      "temporal": 72
+    },
+    "difficulty_distribution": {
+      "easy": 306,
+      "medium": 258,
+      "hard": 30
+    },
+    "static_failures": []
+  },
+  "llm_verification": null,
+  "run_metadata": {
+    "run_id": "v20_stanford_hardening_20260325T2130Z_mapping_verify",
+    "run_dir": "C:\\Users\\wangz\\MIRROR\\data\\exp9_verification_runs\\v20_stanford_hardening_20260325T2130Z_mapping_verify",
+    "resume": true,
+    "max_workers": 8,
+    "timestamp": 1774477834.8483481
+  }
+}

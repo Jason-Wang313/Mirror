@@ -1,0 +1,37 @@
+{
+  "run_id": "v20_hardening_human20_lock_v1",
+  "created_at_utc": "2026-03-25T12:06:24+00:00",
+  "completed_steps": [
+    "preflight_lock",
+    "score_participant_shards",
+    "score_aggregate",
+    "score_multirater_audit",
+    "verify_immutable",
+    "promote_outputs"
+  ],
+  "completed_shards": [
+    "participant_H04",
+    "participant_H02",
+    "participant_H01",
+    "participant_H03",
+    "participant_H05",
+    "participant_H06",
+    "participant_H07",
+    "participant_H08",
+    "participant_H11",
+    "participant_H10",
+    "participant_H12",
+    "participant_H09",
+    "participant_H15",
+    "participant_H14",
+    "participant_H13",
+    "participant_H16",
+    "participant_H18",
+    "participant_H19",
+    "participant_H17",
+    "participant_H20"
+  ],
+  "updated_at_utc": "2026-03-25T12:06:43+00:00",
+  "manifest_path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_hardening_human20_lock_v1\\human_input_manifest.json",
+  "audit_expected_rows": 600
+}

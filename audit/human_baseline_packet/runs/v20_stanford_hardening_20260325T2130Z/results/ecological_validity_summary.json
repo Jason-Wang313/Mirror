@@ -1,0 +1,45 @@
+{
+  "n_tasks": 320,
+  "n_gold_rows": 320,
+  "n_matched": 320,
+  "coverage_rate": 1.0,
+  "workflow_counts": {
+    "billing_support": 46,
+    "clinical_admin": 40,
+    "code_review": 43,
+    "fraud_screening": 28,
+    "incident_triage": 30,
+    "legal_intake": 43,
+    "sales_ops": 36,
+    "supply_chain": 54
+  },
+  "domain_counts": {
+    "arithmetic": 36,
+    "factual": 49,
+    "linguistic": 37,
+    "logical": 42,
+    "procedural": 36,
+    "social": 44,
+    "spatial": 48,
+    "temporal": 28
+  },
+  "risk_tier_counts": {
+    "critical": 25,
+    "high": 77,
+    "low": 109,
+    "medium": 109
+  },
+  "resolver_type_counts": {
+    "human": 157,
+    "tool": 163
+  },
+  "ground_truth_outcome_counts": {
+    "approve": 82,
+    "deny": 85,
+    "escalate": 75,
+    "request_more_info": 78
+  },
+  "ground_truth_source_counts": {
+    "ai_simulated_human_roleplay": 320
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "run_id": "v20_hardening_human3_lock",
+  "created_at_utc": "2026-03-24T22:50:08+00:00",
+  "completed_steps": [
+    "preflight_lock",
+    "score_participant_shards",
+    "score_aggregate",
+    "score_multirater_audit",
+    "verify_immutable",
+    "promote_outputs"
+  ],
+  "completed_shards": [
+    "participant_P2",
+    "participant_P1",
+    "participant_P3"
+  ],
+  "updated_at_utc": "2026-03-24T22:50:11+00:00",
+  "manifest_path": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_hardening_human3_lock\\human_input_manifest.json"
+}

@@ -1,0 +1,37 @@
+{
+  "run_id": "v20_final_hardening_20260326B_mapping",
+  "generated_at_utc": "2026-03-26T16:59:10+00:00",
+  "report_path": "C:\\Users\\wangz\\MIRROR\\data\\exp9_verification_runs\\v20_final_hardening_20260326B_mapping_verify\\exp9_verification_report.json",
+  "cross_verifier_executed": false,
+  "static": {
+    "total_tasks": 297,
+    "passed_static": 297,
+    "failed_static": 0,
+    "circularity_free_count": 297,
+    "task_type_distribution": {
+      "fixed": 297
+    },
+    "domain_component_counts": {
+      "arithmetic": 90,
+      "factual": 81,
+      "linguistic": 63,
+      "logical": 72,
+      "procedural": 72,
+      "social": 72,
+      "spatial": 72,
+      "temporal": 72
+    },
+    "difficulty_distribution": {
+      "easy": 306,
+      "medium": 258,
+      "hard": 30
+    },
+    "static_failures": []
+  },
+  "llm_verification": {},
+  "metrics": {
+    "static_pass_rate": 1.0,
+    "cross_verifier_flag_rate": null
+  },
+  "publication_statement": "Static schema/domain-component checks pass on the full fixed-task bank with 297/297 tasks passing static validation; cross-verifier stage was not executed in this run."
+}

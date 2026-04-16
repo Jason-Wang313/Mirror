@@ -1,0 +1,53 @@
+{
+  "n_attacks": 240,
+  "attack_type_counts": {
+    "confidence_spoof": 28,
+    "cost-pressure": 29,
+    "escalation_suppression": 29,
+    "false-authority-cue": 39,
+    "keyword_jamming": 28,
+    "latency-pressure": 29,
+    "policy-quote-injection": 34,
+    "tool-looping": 24
+  },
+  "target_failure_mode_counts": {
+    "calibration_drift": 41,
+    "false_flag_for_review": 30,
+    "incorrect_routing": 48,
+    "overconfident_proceed": 40,
+    "under_escalation": 35,
+    "wrong_tool_choice": 46
+  },
+  "target_domain_counts": {
+    "arithmetic": 42,
+    "factual": 25,
+    "linguistic": 39,
+    "logical": 27,
+    "procedural": 26,
+    "social": 24,
+    "spatial": 31,
+    "temporal": 26
+  },
+  "expected_exploit_signal_counts": {
+    "abnormally_low_escalation": 46,
+    "confidence_inversion": 42,
+    "oracle_overuse": 28,
+    "policy_misclassification": 43,
+    "routing_skew": 39,
+    "tool_call_spike": 42
+  },
+  "difficulty_counts": {
+    "hard": 75,
+    "medium": 88,
+    "very_hard": 77
+  },
+  "designer_counts": {
+    "ai_simulated_human_roleplay": 240
+  },
+  "mitigation_bundle": [
+    "hidden canary attacks in each release",
+    "periodic attack-set rotation with held-out templates",
+    "routing-trigger drift monitors on escalation patterns",
+    "cross-signal anomaly checks (confidence vs action mismatch)"
+  ]
+}

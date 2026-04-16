@@ -1,0 +1,513 @@
+item_id,question_id,correct_answer,answer_type,domain
+HB_EXP1_0001,arithmetic_v2_estimation_0025,About 6 cookies,short_text,arithmetic
+HB_EXP1_0002,arithmetic_v2_numerical_reasoning_0049,"1/10 (= 0.1) and 10% are equal, and 0.1 is also equal to them",short_text,arithmetic
+HB_EXP1_0003,arithmetic_v2_unit_conversion_0035,3000,exact_numeric,arithmetic
+HB_EXP1_0004,arithmetic_v2_word_problems_0006,"No, he still needs $2",exact_numeric,arithmetic
+HB_EXP1_0005,arithmetic_v2_estimation_0025,About 8 stickers,short_text,arithmetic
+HB_EXP1_0006,arithmetic_v2_numerical_reasoning_0045,"0.3 is the largest, 0.2 is in the middle, and 30% is the smallest",short_text,arithmetic
+HB_EXP1_0007,arithmetic_v2_unit_conversion_0035,0.5,exact_numeric,arithmetic
+HB_EXP1_0008,arithmetic_v2_estimation_0025,About 6 pieces,short_text,arithmetic
+HB_EXP1_0009,arithmetic_v2_numerical_reasoning_0049,"1/2 (= 0.5) is the largest, 0.4 is in the middle, and 40% is the smallest",short_text,arithmetic
+HB_EXP1_0010,arithmetic_v2_unit_conversion_0035,8000,exact_numeric,arithmetic
+HB_EXP1_0011,arithmetic_v2_estimation_0022,About 120 hours,short_text,arithmetic
+HB_EXP1_0012,arithmetic_v2_numerical_reasoning_0049,"1/4 (= 0.25) and 25% are equal, and 0.25 is also equal to them",short_text,arithmetic
+HB_EXP1_0013,arithmetic_v2_unit_conversion_0035,0.3,exact_numeric,arithmetic
+HB_EXP1_0014,arithmetic_v2_estimation_0022,About 48 hours,short_text,arithmetic
+HB_EXP1_0015,arithmetic_v2_numerical_reasoning_0045,"0.6 is the largest, 0.5 is in the middle, and 60% is the smallest",short_text,arithmetic
+HB_EXP1_0016,arithmetic_v2_unit_conversion_0035,1200,exact_numeric,arithmetic
+HB_EXP1_0017,arithmetic_v2_estimation_0025,About 12 months,short_text,arithmetic
+HB_EXP1_0018,arithmetic_v2_numerical_reasoning_0045,2/3 (approximately 0.67) is equal to 67%,short_text,arithmetic
+HB_EXP1_0019,arithmetic_v2_unit_conversion_0035,0.25,exact_numeric,arithmetic
+HB_EXP1_0020,arithmetic_v2_estimation_0025,6 months,short_text,arithmetic
+HB_EXP1_0021,arithmetic_v2_numerical_reasoning_0049,60% of 30 (18),short_text,arithmetic
+HB_EXP1_0022,arithmetic_v2_unit_conversion_0035,15000,exact_numeric,arithmetic
+HB_EXP1_0023,arithmetic_v2_estimation_0022,About 336 hours,short_text,arithmetic
+HB_EXP1_0024,arithmetic_v2_numerical_reasoning_0045,"1/4 (= 0.25) is equal to 0.25, and 25% is equal to both",short_text,arithmetic
+HB_EXP1_0025,arithmetic_v2_unit_conversion_0035,1.2,exact_numeric,arithmetic
+HB_EXP1_0026,arithmetic_v2_estimation_0025,About 6 pencils,short_text,arithmetic
+HB_EXP1_0027,arithmetic_v2_numerical_reasoning_0016,2/8 (= 0.25),short_text,arithmetic
+HB_EXP1_0028,arithmetic_v2_unit_conversion_0035,0.8,exact_numeric,arithmetic
+HB_EXP1_0029,arithmetic_v2_estimation_0020,About 240 seconds,short_text,arithmetic
+HB_EXP1_0030,arithmetic_v2_numerical_reasoning_0045,"1/2 (= 0.5) is the largest, 0.4 is in the middle, and 50% is the smallest",short_text,arithmetic
+HB_EXP1_0031,arithmetic_v2_unit_conversion_0035,0.75,exact_numeric,arithmetic
+HB_EXP1_0032,arithmetic_v2_estimation_0020,About 600 seconds,short_text,arithmetic
+HB_EXP1_0033,arithmetic_v2_numerical_reasoning_0018,"0.3 is the largest, 20% (= 0.2) is the smallest",short_text,arithmetic
+HB_EXP1_0034,arithmetic_v2_unit_conversion_0031,0.15,exact_numeric,arithmetic
+HB_EXP1_0035,arithmetic_v2_estimation_0022,24 hours,short_text,arithmetic
+HB_EXP1_0036,arithmetic_v2_numerical_reasoning_0049,"1/5 (= 0.2) and 20% are equal, and 0.2 is also equal to them",short_text,arithmetic
+HB_EXP1_0037,arithmetic_v2_unit_conversion_0031,0.125,exact_numeric,arithmetic
+HB_EXP1_0038,arithmetic_v2_estimation_0025,About 6 stickers,short_text,arithmetic
+HB_EXP1_0039,arithmetic_v2_numerical_reasoning_0017,"1/2, 1/4, 1/6",short_text,arithmetic
+HB_EXP1_0040,arithmetic_v2_unit_conversion_0031,0.05,exact_numeric,arithmetic
+HB_EXP1_0041,arithmetic_v2_estimation_0025,About 24 months,short_text,arithmetic
+HB_EXP1_0042,arithmetic_v2_numerical_reasoning_0043,All three are equal,short_text,arithmetic
+HB_EXP1_0043,arithmetic_v2_unit_conversion_0031,0.15,exact_numeric,arithmetic
+HB_EXP1_0044,arithmetic_v2_estimation_0020,About 14 days,short_text,arithmetic
+HB_EXP1_0045,arithmetic_v2_numerical_reasoning_0043,All three are equal,short_text,arithmetic
+HB_EXP1_0046,arithmetic_v2_unit_conversion_0031,0.02,exact_numeric,arithmetic
+HB_EXP1_0047,arithmetic_v2_estimation_0025,About 6 energy bars,short_text,arithmetic
+HB_EXP1_0048,arithmetic_v2_numerical_reasoning_0043,All three are equal,short_text,arithmetic
+HB_EXP1_0049,arithmetic_v2_unit_conversion_0031,0.25,exact_numeric,arithmetic
+HB_EXP1_0050,arithmetic_v2_estimation_0022,About 144 hours,short_text,arithmetic
+HB_EXP1_0051,arithmetic_v2_numerical_reasoning_0043,0.2,short_text,arithmetic
+HB_EXP1_0052,arithmetic_v2_unit_conversion_0031,0.2,exact_numeric,arithmetic
+HB_EXP1_0053,arithmetic_v2_estimation_0020,About 480 seconds,short_text,arithmetic
+HB_EXP1_0054,arithmetic_v2_numerical_reasoning_0043,All three are equal,short_text,arithmetic
+HB_EXP1_0055,arithmetic_v2_unit_conversion_0031,0.01,exact_numeric,arithmetic
+HB_EXP1_0056,arithmetic_v2_estimation_0022,About 96 hours,short_text,arithmetic
+HB_EXP1_0057,arithmetic_v2_numerical_reasoning_0043,No,short_text,arithmetic
+HB_EXP1_0058,arithmetic_v2_unit_conversion_0031,0.375,exact_numeric,arithmetic
+HB_EXP1_0059,arithmetic_v2_estimation_0020,About 600 seconds,short_text,arithmetic
+HB_EXP1_0060,arithmetic_v2_numerical_reasoning_0043,All three are equal,short_text,arithmetic
+HB_EXP1_0061,arithmetic_v2_unit_conversion_0031,0.5,exact_numeric,arithmetic
+HB_EXP1_0062,arithmetic_v2_estimation_0020,About 120 seconds,short_text,arithmetic
+HB_EXP1_0063,arithmetic_v2_numerical_reasoning_0043,No,short_text,arithmetic
+HB_EXP1_0064,arithmetic_v2_unit_conversion_0012,100,exact_numeric,arithmetic
+HB_EXP1_0065,factual_v2_cross_domain_trivia_0017,A clerestory,short_text,factual
+HB_EXP1_0066,factual_v2_geography_0007,Sahara Desert,short_text,factual
+HB_EXP1_0067,factual_v2_history_0008,The ancient Greeks,short_text,factual
+HB_EXP1_0068,factual_v2_science_0013,Geology,short_text,factual
+HB_EXP1_0069,factual_v2_cross_domain_trivia_0041,Iron,short_text,factual
+HB_EXP1_0070,factual_v2_geography_0007,Andes mountain range,short_text,factual
+HB_EXP1_0071,factual_v2_history_0023,Around 600 BC,short_text,factual
+HB_EXP1_0072,factual_v2_science_0013,Bathymetry,short_text,factual
+HB_EXP1_0073,factual_v2_cross_domain_trivia_0041,Uranus,short_text,factual
+HB_EXP1_0074,factual_v2_geography_0007,Java,short_text,factual
+HB_EXP1_0075,factual_v2_history_0023,The Treaty of Versailles,short_text,factual
+HB_EXP1_0076,factual_v2_science_0013,Geomorphology,short_text,factual
+HB_EXP1_0077,factual_v2_cross_domain_trivia_0041,"William Herschel, gas giant",short_text,factual
+HB_EXP1_0078,factual_v2_geography_0007,Rocky Mountains,short_text,factual
+HB_EXP1_0079,factual_v2_history_0023,The Treaty of Versailles,short_text,factual
+HB_EXP1_0080,factual_v2_science_0013,3,short_text,factual
+HB_EXP1_0081,factual_v2_cross_domain_trivia_0041,Jupiter,short_text,factual
+HB_EXP1_0082,factual_v2_geography_0007,Inga Falls,short_text,factual
+HB_EXP1_0083,factual_v2_history_0023,The Treaty of Versailles,short_text,factual
+HB_EXP1_0084,factual_v2_science_0013,"300,000",short_text,factual
+HB_EXP1_0085,factual_v2_cross_domain_trivia_0041,Iron,short_text,factual
+HB_EXP1_0086,factual_v2_geography_0007,Pacific Ocean,short_text,factual
+HB_EXP1_0087,factual_v2_history_0023,Around 466 BC,short_text,factual
+HB_EXP1_0088,factual_v2_science_0013,Bathymetry,short_text,factual
+HB_EXP1_0089,factual_v2_cross_domain_trivia_0041,Iron,short_text,factual
+HB_EXP1_0090,factual_v2_geography_0007,Malacca Strait,short_text,factual
+HB_EXP1_0091,factual_v2_history_0023,Around 221 BC,short_text,factual
+HB_EXP1_0092,factual_v2_science_0013,3,short_text,factual
+HB_EXP1_0093,factual_v2_cross_domain_trivia_0041,Iron,short_text,factual
+HB_EXP1_0094,factual_v2_geography_0007,Greenland,short_text,factual
+HB_EXP1_0095,factual_v2_history_0023,Around 221 BC,short_text,factual
+HB_EXP1_0096,factual_v2_science_0013,Selenology,short_text,factual
+HB_EXP1_0097,factual_v2_cross_domain_trivia_0041,Iron,short_text,factual
+HB_EXP1_0098,factual_v2_geography_0007,Pacific Ocean,short_text,factual
+HB_EXP1_0099,factual_v2_history_0023,Around 550 BC,short_text,factual
+HB_EXP1_0100,factual_v2_science_0013,Geomorphology,short_text,factual
+HB_EXP1_0101,factual_v2_cross_domain_trivia_0041,Uranus,short_text,factual
+HB_EXP1_0102,factual_v2_geography_0007,Caspian Sea,short_text,factual
+HB_EXP1_0103,factual_v2_history_0023,Around 600 BC,short_text,factual
+HB_EXP1_0104,factual_v2_science_0013,Geomorphology,short_text,factual
+HB_EXP1_0105,factual_v2_cross_domain_trivia_0041,Iron,short_text,factual
+HB_EXP1_0106,factual_v2_geography_0007,Antarctic Desert,short_text,factual
+HB_EXP1_0107,factual_v2_history_0023,Around 2580 BC,short_text,factual
+HB_EXP1_0108,factual_v2_science_0013,Geology,short_text,factual
+HB_EXP1_0109,factual_v2_cross_domain_trivia_0042,Babylon,short_text,factual
+HB_EXP1_0110,factual_v2_geography_0007,Great Barrier Reef,short_text,factual
+HB_EXP1_0111,factual_v2_history_0023,Around 466 BC,short_text,factual
+HB_EXP1_0112,factual_v2_science_0013,Petrology,short_text,factual
+HB_EXP1_0113,factual_v2_cross_domain_trivia_0042,Angkor,short_text,factual
+HB_EXP1_0114,factual_v2_geography_0007,Mid-Ocean Ridge,short_text,factual
+HB_EXP1_0115,factual_v2_history_0023,The Treaty of Versailles,short_text,factual
+HB_EXP1_0116,factual_v2_science_0013,"300,000",short_text,factual
+HB_EXP1_0117,factual_v2_cross_domain_trivia_0042,Percy Bysshe Shelley,short_text,factual
+HB_EXP1_0118,factual_v2_geography_0007,Amazon Rainforest,short_text,factual
+HB_EXP1_0119,factual_v2_history_0023,Around 350 BC,short_text,factual
+HB_EXP1_0120,factual_v2_science_0013,Seismology,short_text,factual
+HB_EXP1_0121,factual_v2_cross_domain_trivia_0042,Percy Bysshe Shelley,short_text,factual
+HB_EXP1_0122,factual_v2_geography_0004,Lake Superior,short_text,factual
+HB_EXP1_0123,factual_v2_history_0023,Around 550 BC,short_text,factual
+HB_EXP1_0124,factual_v2_science_0013,Areology,short_text,factual
+HB_EXP1_0125,factual_v2_cross_domain_trivia_0042,Percy Bysshe Shelley,short_text,factual
+HB_EXP1_0126,factual_v2_geography_0004,Norway,short_text,factual
+HB_EXP1_0127,factual_v2_history_0023,Around 350 BC,short_text,factual
+HB_EXP1_0128,factual_v2_science_0012,Atom,short_text,factual
+HB_EXP1_0129,linguistic_v2_ambiguity_resolution_0024,(1) The supervisor is having a conversation with the workers who are currently on the night shift; (2) The supervisor is speaking with the workers to discuss the night shift.,short_text,linguistic
+HB_EXP1_0130,linguistic_v2_grammar_correction_0047,"'are' should be 'is' — 'researcher' is the singular subject, 'who the professor supervised' is a non-restrictive clause",short_text,linguistic
+HB_EXP1_0131,linguistic_v2_register_formality_0031,The new policy was introduced to improve student security.,short_text,linguistic
+HB_EXP1_0132,linguistic_v2_ambiguity_resolution_0025,(1) The mom spoke to the child while the child was wearing a hat; (2) The mom spoke to the child who was holding a hat.,short_text,linguistic
+HB_EXP1_0133,linguistic_v2_grammar_correction_0044,"'whom are' should be 'who are' — 'who' is the subject of the clause, not 'whom'",short_text,linguistic
+HB_EXP1_0134,linguistic_v2_register_formality_0015,Could you hand me the salt?,short_text,linguistic
+HB_EXP1_0135,linguistic_v2_ambiguity_resolution_0025,(1) The teacher called the student while smiling; (2) The teacher called the student who was smiling.,short_text,linguistic
+HB_EXP1_0136,linguistic_v2_grammar_correction_0044,"'whom are' should be 'who are' — 'who' is the subject of the clause, not 'whom'",short_text,linguistic
+HB_EXP1_0137,linguistic_v2_register_formality_0031,I wish you success in your examination.,short_text,linguistic
+HB_EXP1_0138,linguistic_v2_ambiguity_resolution_0020,(1) The detective used a microphone to question the witness; (2) The detective questioned a witness who had a microphone.,short_text,linguistic
+HB_EXP1_0139,linguistic_v2_grammar_correction_0046,"'were' is correct in this context, the error is actually 'her' should be 'she' — the correct pronoun to use in the subjunctive mood is the nominative 'she', not the accusative 'her'.",short_text,linguistic
+HB_EXP1_0140,linguistic_v2_register_formality_0033,"Thanks for your contribution, it made a big difference.",short_text,linguistic
+HB_EXP1_0141,linguistic_v2_ambiguity_resolution_0020,(1) The dog used a stick to bite the man; (2) The man had a stick and was bitten by the dog.,short_text,linguistic
+HB_EXP1_0142,linguistic_v2_grammar_correction_0047,"'are' should be 'is' — 'intern' is the singular subject, 'whom the CEO recruited' is a non-restrictive clause",short_text,linguistic
+HB_EXP1_0143,linguistic_v2_register_formality_0035,Could you please respond when you are available to discuss?,short_text,linguistic
+HB_EXP1_0144,linguistic_v2_ambiguity_resolution_0028,(1) The new curriculum is having an impact on the students who are in their final year of study; (2) The new curriculum is impacting the students in a way that is in its final year (less likely),short_text,linguistic
+HB_EXP1_0145,linguistic_v2_grammar_correction_0040,"'are' should be 'is' — subject-verb agreement, 'student' is the singular subject",short_text,linguistic
+HB_EXP1_0146,linguistic_v2_register_formality_0039,How are you doing today?,short_text,linguistic
+HB_EXP1_0147,linguistic_v2_ambiguity_resolution_0024,The book is on the shelf that has an empty space.,short_text,linguistic
+HB_EXP1_0148,linguistic_v2_grammar_correction_0044,"'whom have' should be 'who have' — 'who' is the subject of the clause, not 'whom'",short_text,linguistic
+HB_EXP1_0149,linguistic_v2_register_formality_0031,I have every confidence in your success.,short_text,linguistic
+HB_EXP1_0150,linguistic_v2_ambiguity_resolution_0020,(1) The teacher gave the student a book and a pen; (2) The book the teacher gave had a pen inside.,short_text,linguistic
+HB_EXP1_0151,linguistic_v2_grammar_correction_0047,"'are' should be 'is' — 'analyst' is the singular subject, 'who the team leader trained' is a non-restrictive clause",short_text,linguistic
+HB_EXP1_0152,linguistic_v2_register_formality_0039,How are you doing today?,short_text,linguistic
+HB_EXP1_0153,linguistic_v2_ambiguity_resolution_0020,(1) The firefighter used a ladder to rescue the child; (2) The firefighter rescued a child who was on a ladder.,short_text,linguistic
+HB_EXP1_0154,linguistic_v2_grammar_correction_0049,"'it's' should be 'its' — 'its' shows possession, 'it's' is a contraction of 'it is'",short_text,linguistic
+HB_EXP1_0155,linguistic_v2_register_formality_0035,No,short_text,linguistic
+HB_EXP1_0156,linguistic_v2_ambiguity_resolution_0024,(1) The director is having a meeting with the actors who are currently on the picket line; (2) The director is meeting with the actors to discuss the picket line.,short_text,linguistic
+HB_EXP1_0157,linguistic_v2_grammar_correction_0045,'are' should be 'is' — the subject is singular,short_text,linguistic
+HB_EXP1_0158,linguistic_v2_register_formality_0035,Could you please contact me when you have a spare moment?,short_text,linguistic
+HB_EXP1_0159,linguistic_v2_ambiguity_resolution_0024,(1) The principal is having a conversation with the parents who are currently on the school board; (2) The principal is speaking with the parents to discuss the school board.,short_text,linguistic
+HB_EXP1_0160,linguistic_v2_grammar_correction_0048,Should use the simple future tense 'will be' instead of the future perfect 'will have been' — 'by next year' indicates a future time,short_text,linguistic
+HB_EXP1_0161,linguistic_v2_register_formality_0012,"Yes, I want to come to the party.",short_text,linguistic
+HB_EXP1_0162,linguistic_v2_ambiguity_resolution_0022,(1) I'm searching for a pen that I can use to write with; (2) I'm looking for a pen with which to write (formal or old-fashioned usage).,short_text,linguistic
+HB_EXP1_0163,linguistic_v2_grammar_correction_0045,"'they is' should be 'they are' — subject-verb agreement, 'they' is a plural subject",short_text,linguistic
+HB_EXP1_0164,linguistic_v2_register_formality_0039,No,short_text,linguistic
+HB_EXP1_0165,linguistic_v2_ambiguity_resolution_0020,(1) The engineer used a computer to design the bridge; (2) The engineer designed a bridge that had a computer.,short_text,linguistic
+HB_EXP1_0166,linguistic_v2_grammar_correction_0047,"'are' should be 'is' — the subject of the sentence is 'the painting', which is singular, so the verb should agree with it in number.",short_text,linguistic
+HB_EXP1_0167,linguistic_v2_register_formality_0033,I'm super happy to announce my neighbor's upcoming birthday party!,short_text,linguistic
+HB_EXP1_0168,linguistic_v2_ambiguity_resolution_0027,The journalist interviewed the politician using a microphone.,short_text,linguistic
+HB_EXP1_0169,linguistic_v2_grammar_correction_0045,'are' should be 'is' — the subject is singular,short_text,linguistic
+HB_EXP1_0170,linguistic_v2_register_formality_0033,I'm really happy to announce my coworker's upcoming promotion!,short_text,linguistic
+HB_EXP1_0171,linguistic_v2_ambiguity_resolution_0025,(1) The boy waved at the girl while holding a book; (2) The boy waved at the girl who had a book.,short_text,linguistic
+HB_EXP1_0172,linguistic_v2_grammar_correction_0042,Should use the simple future tense 'will be' instead of the future perfect 'will have been' — 'by the time it launches its new product' indicates a future time,short_text,linguistic
+HB_EXP1_0173,linguistic_v2_register_formality_0035,No,short_text,linguistic
+HB_EXP1_0174,linguistic_v2_ambiguity_resolution_0025,(1) The visitor was led around the museum by a guide; (2) The visitor was shown the guide (a person) around the museum (less likely).,short_text,linguistic
+HB_EXP1_0175,linguistic_v2_grammar_correction_0049,"'it's' should be 'its' — 'its' shows possession, 'it's' is a contraction of 'it is'",short_text,linguistic
+HB_EXP1_0176,linguistic_v2_register_formality_0033,I'm really stoked to announce my friend's upcoming graduation!,short_text,linguistic
+HB_EXP1_0177,linguistic_v2_ambiguity_resolution_0028,(1) The revised policy is having an impact on the staff members who are under 30 years old; (2) The revised policy is affecting the staff members in a way that is under 30 (less likely),short_text,linguistic
+HB_EXP1_0178,linguistic_v2_grammar_correction_0047,"'are' should be 'is' — 'designer' is the singular subject, 'whom the art director hired' is a non-restrictive clause",short_text,linguistic
+HB_EXP1_0179,linguistic_v2_register_formality_0033,Thanks for being there for me.,short_text,linguistic
+HB_EXP1_0180,linguistic_v2_ambiguity_resolution_0027,(1) The instructor is helping the students with their English essays; (2) The instructor is guiding the students who have English essays (less likely),short_text,linguistic
+HB_EXP1_0181,linguistic_v2_grammar_correction_0019,'team' is a singular noun and 'are' should be 'is',short_text,linguistic
+HB_EXP1_0182,linguistic_v2_register_formality_0039,Could you please provide me with the information?,short_text,linguistic
+HB_EXP1_0183,linguistic_v2_ambiguity_resolution_0020,(1) The chef used a knife to cook the vegetables; (2) The chef cooked vegetables that had a knife nearby.,short_text,linguistic
+HB_EXP1_0184,linguistic_v2_grammar_correction_0044,"'they're' should be 'their' — 'they're' is a contraction of 'they are', whereas 'their' is the possessive form of 'they'",short_text,linguistic
+HB_EXP1_0185,linguistic_v2_register_formality_0035,Could you please contact me at your earliest opportunity?,short_text,linguistic
+HB_EXP1_0186,linguistic_v2_ambiguity_resolution_0022,(1) He's searching for a marker that he can use to color with; (2) He's looking for a marker with which to color (formal or old-fashioned usage),short_text,linguistic
+HB_EXP1_0187,linguistic_v2_grammar_correction_0048,Should use the simple future tense 'will be' instead of the future perfect 'will have been' — 'by the time' indicates a future time,short_text,linguistic
+HB_EXP1_0188,linguistic_v2_register_formality_0033,"Thanks for your guidance, it really helped.",short_text,linguistic
+HB_EXP1_0189,linguistic_v2_ambiguity_resolution_0025,(1) The dad called the boy while the boy was holding a ball; (2) The dad called the boy who had a ball.,short_text,linguistic
+HB_EXP1_0190,linguistic_v2_grammar_correction_0048,"'give' should be 'gives' — the verb tense in the sentence is in the present simple tense, so the verb 'give' should be in the present tense 'gives'.",short_text,linguistic
+HB_EXP1_0191,linguistic_v2_register_formality_0035,Could you please respond when it is convenient for you?,short_text,linguistic
+HB_EXP1_0192,linguistic_v2_ambiguity_resolution_0024,The student is in the class that has a teacher.,short_text,linguistic
+HB_EXP1_0193,logical_v2_conditional_reasoning_0014,Not necessarily,short_text,logical
+HB_EXP1_0194,logical_v2_proof_evaluation_0040,"The conclusion is actually correct, there is no error in this statement as all amphibians undergo metamorphosis.",short_text,logical
+HB_EXP1_0195,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0196,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0197,logical_v2_proof_evaluation_0042,Having a cooking certification does not necessarily mean someone can cook — they may have never cooked before.,short_text,logical
+HB_EXP1_0198,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0199,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0200,logical_v2_proof_evaluation_0042,"Nothing, the conclusion is correct based on the premise.",short_text,logical
+HB_EXP1_0201,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0202,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0203,logical_v2_proof_evaluation_0046,"The conclusion logically follows from the premise, but the premise assumes that all planets in our solar system have moons, which may not be true (e.g., Mercury and Venus do not have moons).",short_text,logical
+HB_EXP1_0204,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0205,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0206,logical_v2_proof_evaluation_0046,"The premise is actually correct, but the conclusion is correct too, the problem is with the example: 10 is indeed even, but the conclusion is not wrong, the mistake is in the example, 10 is not the best example to test this premise.",short_text,logical
+HB_EXP1_0207,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0208,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0209,logical_v2_proof_evaluation_0047,"The premise is correct, but the second premise is incorrect as bridges are not buildings.",short_text,logical
+HB_EXP1_0210,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0211,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0212,logical_v2_proof_evaluation_0040,Not all birds fly — penguins are birds that do not fly.,short_text,logical
+HB_EXP1_0213,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0214,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0215,logical_v2_proof_evaluation_0047,"The conclusion is correct, but the premise does not necessarily imply the conclusion, there could be other reasons why someone cannot buy liquor.",short_text,logical
+HB_EXP1_0216,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0217,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0218,logical_v2_proof_evaluation_0041,"The premise is incorrect, as not all planets in our solar system have rings (e.g., Earth).",short_text,logical
+HB_EXP1_0219,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0220,logical_v2_set_relations_0024,Yes,short_text,logical
+HB_EXP1_0221,logical_v2_proof_evaluation_0043,Not all countries in Asia use the Japanese Yen — South Korea uses the South Korean Won.,short_text,logical
+HB_EXP1_0222,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0223,logical_v2_proof_evaluation_0047,"The conclusion is correct, but the premise does not necessarily imply the conclusion, there could be other reasons why someone does not get a senior discount.",short_text,logical
+HB_EXP1_0224,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0225,logical_v2_proof_evaluation_0044,"The premise is correct, but the first part of the second premise is incorrect as bikes are not cars.",short_text,logical
+HB_EXP1_0226,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0227,logical_v2_proof_evaluation_0049,"Not all triangles have four sides — by definition, a triangle has three sides.",short_text,logical
+HB_EXP1_0228,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0229,logical_v2_proof_evaluation_0047,"The conclusion is correct, but the premise does not necessarily imply the conclusion, there could be other reasons why someone cannot join a gym.",short_text,logical
+HB_EXP1_0230,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0231,logical_v2_proof_evaluation_0040,Nothing is wrong with this conclusion.,short_text,logical
+HB_EXP1_0232,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0233,logical_v2_proof_evaluation_0049,"Not all trapezoids have seven sides — by definition, a trapezoid has four sides.",short_text,logical
+HB_EXP1_0234,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0235,logical_v2_proof_evaluation_0042,"Nothing, the conclusion is correct based on the premise.",short_text,logical
+HB_EXP1_0236,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0237,logical_v2_proof_evaluation_0044,Not all dogs have tails — some dogs may be born without or lose their tails due to injury or illness.,short_text,logical
+HB_EXP1_0238,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0239,logical_v2_proof_evaluation_0042,Having a pilot's license does not necessarily mean someone can fly — they may have never flown before.,short_text,logical
+HB_EXP1_0240,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0241,logical_v2_proof_evaluation_0049,"The premise is correct, but the conclusion is incorrect as it contradicts the premise that cats are animals.",short_text,logical
+HB_EXP1_0242,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0243,logical_v2_proof_evaluation_0040,Nothing is wrong with this conclusion.,short_text,logical
+HB_EXP1_0244,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0245,logical_v2_proof_evaluation_0044,"Not all cars have four wheels — some cars, like concept cars or experimental vehicles, may have a different number of wheels.",short_text,logical
+HB_EXP1_0246,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0247,logical_v2_proof_evaluation_0043,Not all cities in Australia use the Australian dollar is not the issue; the issue is that the premise is not incorrect in this case. The issue is with the original question.,short_text,logical
+HB_EXP1_0248,logical_v2_propositional_logic_0013,Yes,short_text,logical
+HB_EXP1_0249,logical_v2_proof_evaluation_0040,"The conclusion is actually correct, but there is a counterexample among mammals: platypus and echidna are mammals that lay eggs.",short_text,logical
+HB_EXP1_0250,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0251,logical_v2_proof_evaluation_0046,"The conclusion logically follows from the premise, but the premise assumes that all prime numbers are odd, which may not be true (e.g., 2 is a prime number and is even).",short_text,logical
+HB_EXP1_0252,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0253,logical_v2_proof_evaluation_0043,Not all countries in Europe use the Euro — the UK uses the Pound Sterling.,short_text,logical
+HB_EXP1_0254,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0255,logical_v2_proof_evaluation_0047,"The premise is correct, but the second premise is incorrect as paintings are not vehicles.",short_text,logical
+HB_EXP1_0256,logical_v2_propositional_logic_0018,Yes,short_text,logical
+HB_EXP1_0257,procedural_v2_algorithm_execution_0004,[4],short_text,procedural
+HB_EXP1_0258,procedural_v2_error_recovery_0042,"Initiate an immediate shutdown of all critical systems to prevent data loss and damage, then activate the backup generators to restore power.",short_text,procedural
+HB_EXP1_0259,procedural_v2_multistep_planning_0030,Use a secure copy (SCP) command with a larger SSH timeout,short_text,procedural
+HB_EXP1_0260,procedural_v2_protocol_compliance_0025,"Isolate the affected cloud storage service, contain the unauthorized access attempt, and initiate the incident response procedure to mitigate and eradicate the threat.",short_text,procedural
+HB_EXP1_0261,procedural_v2_recipe_following_0013,"Increase the amount of milk slightly, as the egg helps to bind the ingredients together.",short_text,procedural
+HB_EXP1_0262,procedural_v2_algorithm_execution_0001,"[1, 8, 3, 4] and [6, 2, 5]",short_text,procedural
+HB_EXP1_0263,procedural_v2_error_recovery_0046,"Immediately halt production, inspect and isolate all potentially substandard fabrics, and implement a manual quality assurance process until the system is repaired.",short_text,procedural
+HB_EXP1_0264,procedural_v2_multistep_planning_0036,"1. Create a new directory on the server, 2. Initialize a new Mercurial repository, 3. Add the server's SSH key to the Mercurial configuration, 4. Push the local repository to the remote server",short_text,procedural
+HB_EXP1_0265,procedural_v2_protocol_compliance_0023,Prevent the commit action and display an error message indicating that the stylesheet is currently checked out by another team member.,short_text,procedural
+HB_EXP1_0266,procedural_v2_recipe_following_0016,Increase the rising time to about 2 1/2 to 3 hours.,short_text,procedural
+HB_EXP1_0267,procedural_v2_algorithm_execution_0001,"[10, 5, 2, 7] and [9, 1, 4]",short_text,procedural
+HB_EXP1_0268,procedural_v2_error_recovery_0042,Cancel the query and recreate the index.,short_text,procedural
+HB_EXP1_0269,procedural_v2_multistep_planning_0032,"1. Use 'useradd' to create the new user, 2. Set the user's password with 'passwd'.",short_text,procedural
+HB_EXP1_0270,procedural_v2_protocol_compliance_0023,Prevent the upload action and display an error message indicating that the dataset is currently locked by another researcher for editing.,short_text,procedural
+HB_EXP1_0271,procedural_v2_recipe_following_0014,Quadruple the amount of tomatoes and cumin.,short_text,procedural
+HB_EXP1_0272,procedural_v2_algorithm_execution_0007,"[135, 351, 8, 14, 76, 59, 29, 92]",short_text,procedural
+HB_EXP1_0273,procedural_v2_error_recovery_0040,Immediately stop the machine's operation and initiate a cooling procedure to prevent damage to the placement head or surrounding equipment.,short_text,procedural
+HB_EXP1_0274,procedural_v2_multistep_planning_0039,"1. Install Node.js 14+, 2. Create a new virtual environment, 3. Activate the virtual environment, 4. Install the required packages and deploy the application",short_text,procedural
+HB_EXP1_0275,procedural_v2_protocol_compliance_0026,Stop the trial and notify the supervisor.,short_text,procedural
+HB_EXP1_0276,procedural_v2_recipe_following_0010,"Increase the amount of water slightly, as whole wheat flour absorbs more water than all-purpose flour.",short_text,procedural
+HB_EXP1_0277,procedural_v2_algorithm_execution_0001,"[1, 2]",short_text,procedural
+HB_EXP1_0278,procedural_v2_error_recovery_0040,Immediately stop the printer's operation and initiate a cooling procedure to prevent damage to the extruder or surrounding equipment.,short_text,procedural
+HB_EXP1_0279,procedural_v2_multistep_planning_0031,"1. Create a backup of the database, 2. Apply the schema changes",short_text,procedural
+HB_EXP1_0280,procedural_v2_protocol_compliance_0029,Establish a safety perimeter,short_text,procedural
+HB_EXP1_0281,procedural_v2_recipe_following_0014,Double the amount of tomato and cumin.,short_text,procedural
+HB_EXP1_0282,procedural_v2_algorithm_execution_0007,"[1, 2, 3]",short_text,procedural
+HB_EXP1_0283,procedural_v2_error_recovery_0042,"Initiate an immediate shutdown of all critical equipment to prevent damage and contamination, then activate the backup power inverters to restore power.",short_text,procedural
+HB_EXP1_0284,procedural_v2_multistep_planning_0038,"1. Create a new MySQL user, 2. Create a new MySQL database, 3. Grant privileges to the user on the database",short_text,procedural
+HB_EXP1_0285,procedural_v2_protocol_compliance_0021,Prevent the collaborator from saving revisions and display a notification indicating that the document is locked by another collaborator.,short_text,procedural
+HB_EXP1_0286,procedural_v2_recipe_following_0014,Double the amount of lemons and garlic.,short_text,procedural
+HB_EXP1_0287,procedural_v2_algorithm_execution_0009,"[[0, 3, 5], [float('inf'), 0, 2], [float('inf'), float('inf'), 0]]",short_text,procedural
+HB_EXP1_0288,procedural_v2_error_recovery_0044,"Immediately isolate the affected section of the distribution network, then activate backup filtration systems to restore safe water supply.",short_text,procedural
+HB_EXP1_0289,procedural_v2_multistep_planning_0031,"1. Install Go 1.17+, 2. Configure the cloud connection, 3. Install the required framework",short_text,procedural
+HB_EXP1_0290,procedural_v2_protocol_compliance_0022,"Notify air traffic control and begin the transmission failure checklist procedure, which includes configuring the helicopter for emergency landing.",short_text,procedural
+HB_EXP1_0291,procedural_v2_recipe_following_0013,"Increase the amount of water slightly, as the eggs help to bind the ingredients together.",short_text,procedural
+HB_EXP1_0292,procedural_v2_algorithm_execution_0007,"[982, 219, 6, 11, 117, 48, 39, 74]",short_text,procedural
+HB_EXP1_0293,procedural_v2_error_recovery_0047,"Activate the spacecraft's attitude control system to stabilize its orientation, then use backup navigation systems or ground control instructions to correct its course.",short_text,procedural
+HB_EXP1_0294,procedural_v2_multistep_planning_0035,"1. Download and install a tool like Rufus or Etcher, 2. Select the Ubuntu Linux ISO file and the 64GB USB drive, 3. Create a bootable USB drive",short_text,procedural
+HB_EXP1_0295,procedural_v2_protocol_compliance_0024,Verify the patient's allergy status and consult with the prescribing physician before administering the medication.,short_text,procedural
+HB_EXP1_0296,procedural_v2_recipe_following_0015,3.75,short_text,procedural
+HB_EXP1_0297,procedural_v2_algorithm_execution_0007,"[943, 432, 7, 11, 18, 65, 76]",short_text,procedural
+HB_EXP1_0298,procedural_v2_error_recovery_0043,"Immediately terminate the wafer processing run, ensure the safety of the surrounding area, and schedule a replacement wafer processing run once the machine has been repaired or replaced.",short_text,procedural
+HB_EXP1_0299,procedural_v2_multistep_planning_0030,Enable keepalive in SSH config,short_text,procedural
+HB_EXP1_0300,procedural_v2_protocol_compliance_0020,"Ask the parent about the child's location and the substance ingested, and dispatch emergency services immediately if necessary, while continuing to assess the situation over the phone.",short_text,procedural
+HB_EXP1_0301,procedural_v2_recipe_following_0018,"Reduce the amount of okras and shallot slightly, as the flavor will be more concentrated.",short_text,procedural
+HB_EXP1_0302,procedural_v2_algorithm_execution_0001,"[3, 9, 1, 6] and [8, 4, 7, 2]",short_text,procedural
+HB_EXP1_0303,procedural_v2_error_recovery_0048,"Immediately activate backup cooling systems, then rapidly assess and prioritize reactor operations to ensure continuous support and minimize risk to reactor safety.",short_text,procedural
+HB_EXP1_0304,procedural_v2_multistep_planning_0032,"1. Use 'useradd' to create the new user, 2. Set the user's password with 'passwd', 3. Create the home directory and set permissions.",short_text,procedural
+HB_EXP1_0305,procedural_v2_protocol_compliance_0028,"Verify the user's identity, reset the password according to the organization's password policy, and provide the user with temporary login credentials.",short_text,procedural
+HB_EXP1_0306,procedural_v2_recipe_following_0019,"No adjustment needed, as cake flour does not affect the sweetness of the muffins.",short_text,procedural
+HB_EXP1_0307,procedural_v2_algorithm_execution_0001,"[2, 6, 1, 8] and [4, 3, 5]",short_text,procedural
+HB_EXP1_0308,procedural_v2_error_recovery_0042,"Initiate an immediate shutdown of all production machinery to prevent damage and injury, then activate the backup diesel generators to restore power.",short_text,procedural
+HB_EXP1_0309,procedural_v2_multistep_planning_0034,"1. Boot from the Windows 10 installation USB, 2. Select the 'Repair your computer' option, 3. Open the Command Prompt, 4. Use the 'net user' command to reset the password",short_text,procedural
+HB_EXP1_0310,procedural_v2_protocol_compliance_0026,"Reject the payment, display an error message to the customer, and provide options for alternative payment methods.",short_text,procedural
+HB_EXP1_0311,procedural_v2_recipe_following_0016,Increase the rising time to about 1 1/2 to 2 hours.,short_text,procedural
+HB_EXP1_0312,procedural_v2_algorithm_execution_0004,"[5, 7, 9, 3]",short_text,procedural
+HB_EXP1_0313,procedural_v2_error_recovery_0046,"Immediately halt production, inspect and isolate all potentially faulty devices, and implement a manual inspection process until the system is repaired.",short_text,procedural
+HB_EXP1_0314,procedural_v2_multistep_planning_0033,Run 'pip install numpy',short_text,procedural
+HB_EXP1_0315,procedural_v2_protocol_compliance_0026,"Reject the donation, display an error message to the donor, and provide options for correcting the bank account information or alternative payment methods.",short_text,procedural
+HB_EXP1_0316,procedural_v2_recipe_following_0018,"Reduce the amount of mushrooms and thyme slightly, as the flavor will be more concentrated.",short_text,procedural
+HB_EXP1_0317,procedural_v2_algorithm_execution_0009,"[[0, 5, 3], [float('inf'), 0, 2], [float('inf'), float('inf'), 0]]",short_text,procedural
+HB_EXP1_0318,procedural_v2_error_recovery_0047,"Activate the aircraft's autopilot backup system to stabilize its altitude, then use backup navigation systems or air traffic control instructions to correct its altitude.",short_text,procedural
+HB_EXP1_0319,procedural_v2_multistep_planning_0035,"1. Open the document, 2. Add a password to the document.",short_text,procedural
+HB_EXP1_0320,procedural_v2_protocol_compliance_0020,"Ask the resident about their location and dispatch the fire department immediately, while continuing to assess the situation over the phone.",short_text,procedural
+HB_EXP1_0321,social_v2_implicature_0001,They probably don't like the new fashion style.,short_text,social
+HB_EXP1_0322,social_v2_pragmatic_inference_0025,Call B as soon as possible or ask for a different contact method,short_text,social
+HB_EXP1_0323,social_v2_theory_of_mind_0014,Play with it,short_text,social
+HB_EXP1_0324,social_v2_implicature_0003,You are unwilling to lend it to them.,short_text,social
+HB_EXP1_0325,social_v2_pragmatic_inference_0025,Check a nearby clock or ask someone else,short_text,social
+HB_EXP1_0326,social_v2_theory_of_mind_0014,Play with it.,short_text,social
+HB_EXP1_0327,social_v2_implicature_0006,The home renovation is behind schedule.,short_text,social
+HB_EXP1_0328,social_v2_pragmatic_inference_0021,Ask B to check the train app for the schedule,short_text,social
+HB_EXP1_0329,social_v2_theory_of_mind_0013,In the boardroom,short_text,social
+HB_EXP1_0330,social_v2_implicature_0005,You think the strategy is unlikely to succeed.,short_text,social
+HB_EXP1_0331,social_v2_pragmatic_inference_0027,Offer to pick B up or meet at a restaurant.,short_text,social
+HB_EXP1_0332,social_v2_theory_of_mind_0011,Rainy.,short_text,social
+HB_EXP1_0333,social_v2_implicature_0008,"You're not really enjoying the class, but you don't want to be rude.",short_text,social
+HB_EXP1_0334,social_v2_pragmatic_inference_0025,Check a nearby weather report or ask someone else for the forecast,short_text,social
+HB_EXP1_0335,social_v2_theory_of_mind_0011,Stormy,short_text,social
+HB_EXP1_0336,social_v2_implicature_0008,You are unwilling to lend them money.,short_text,social
+HB_EXP1_0337,social_v2_pragmatic_inference_0024,Walk the dog themselves or ask someone else,short_text,social
+HB_EXP1_0338,social_v2_theory_of_mind_0013,On the chair,short_text,social
+HB_EXP1_0339,social_v2_implicature_0002,They are unwilling to disclose their annual revenue.,short_text,social
+HB_EXP1_0340,social_v2_pragmatic_inference_0025,Check a nearby phone directory or ask someone else for the number,short_text,social
+HB_EXP1_0341,social_v2_theory_of_mind_0011,Windy,short_text,social
+HB_EXP1_0342,social_v2_implicature_0007,"You don't want to play the game, but are making it sound like it's due to a lack of enthusiasm.",short_text,social
+HB_EXP1_0343,social_v2_pragmatic_inference_0022,Find someone else to help or move the piano themselves,short_text,social
+HB_EXP1_0344,social_v2_theory_of_mind_0014,At the toy store,short_text,social
+HB_EXP1_0345,social_v2_implicature_0009,They probably have doubts about the law's enforceability.,short_text,social
+HB_EXP1_0346,social_v2_pragmatic_inference_0020,Get up and turn on the air conditioner themselves,short_text,social
+HB_EXP1_0347,social_v2_theory_of_mind_0011,In the playroom,short_text,social
+HB_EXP1_0348,social_v2_implicature_0002,They are unwilling to disclose their bonus structure.,short_text,social
+HB_EXP1_0349,social_v2_pragmatic_inference_0022,Suggest a different time later.,short_text,social
+HB_EXP1_0350,social_v2_theory_of_mind_0013,On the table,short_text,social
+HB_EXP1_0351,social_v2_implicature_0000,You are unlikely to be able to help them with the project.,short_text,social
+HB_EXP1_0352,social_v2_pragmatic_inference_0029,Ask if B can help after their commission is complete or find someone else to help.,short_text,social
+HB_EXP1_0353,social_v2_theory_of_mind_0011,Cloudy,short_text,social
+HB_EXP1_0354,social_v2_implicature_0003,You are unwilling to lend them the electronics.,short_text,social
+HB_EXP1_0355,social_v2_pragmatic_inference_0009,Look on the table for the book.,short_text,social
+HB_EXP1_0356,social_v2_theory_of_mind_0011,In the garage,short_text,social
+HB_EXP1_0357,social_v2_implicature_0008,"You're not really happy with your room, but you don't want to complain.",short_text,social
+HB_EXP1_0358,social_v2_pragmatic_inference_0023,Look for another laptop or a charger,short_text,social
+HB_EXP1_0359,social_v2_theory_of_mind_0013,On the shelf.,short_text,social
+HB_EXP1_0360,social_v2_implicature_0007,"You don't want to go to the movie, but are saying you're tired as an excuse.",short_text,social
+HB_EXP1_0361,social_v2_pragmatic_inference_0024,Do the homework themselves or ask someone else,short_text,social
+HB_EXP1_0362,social_v2_theory_of_mind_0014,At the library,short_text,social
+HB_EXP1_0363,social_v2_implicature_0006,The moving plans are behind schedule.,short_text,social
+HB_EXP1_0364,social_v2_pragmatic_inference_0020,Suggest going to the park another day or do something else indoors.,short_text,social
+HB_EXP1_0365,social_v2_theory_of_mind_0011,Snowy,short_text,social
+HB_EXP1_0366,social_v2_implicature_0004,They do not want to attend the wedding.,short_text,social
+HB_EXP1_0367,social_v2_pragmatic_inference_0028,Ask B if they can study another time or find someone else to go with.,short_text,social
+HB_EXP1_0368,social_v2_theory_of_mind_0014,In the school store,short_text,social
+HB_EXP1_0369,social_v2_implicature_0005,You think the idea is unlikely to succeed.,short_text,social
+HB_EXP1_0370,social_v2_pragmatic_inference_0022,Suggest a different time after 3 pm.,short_text,social
+HB_EXP1_0371,social_v2_theory_of_mind_0014,Read it,short_text,social
+HB_EXP1_0372,social_v2_implicature_0005,You think the proposal is unlikely to succeed.,short_text,social
+HB_EXP1_0373,social_v2_pragmatic_inference_0027,Wait for B to finish studying or find someone else,short_text,social
+HB_EXP1_0374,social_v2_theory_of_mind_0014,At the bookstore,short_text,social
+HB_EXP1_0375,social_v2_implicature_0001,They probably don't like the new garden.,short_text,social
+HB_EXP1_0376,social_v2_pragmatic_inference_0023,Ask someone else to help,short_text,social
+HB_EXP1_0377,social_v2_theory_of_mind_0013,On the nightstand,short_text,social
+HB_EXP1_0378,social_v2_implicature_0006,The product launch is behind schedule.,short_text,social
+HB_EXP1_0379,social_v2_pragmatic_inference_0028,Use the measuring tape or ask someone else for a ruler,short_text,social
+HB_EXP1_0380,social_v2_theory_of_mind_0013,In the studio,short_text,social
+HB_EXP1_0381,social_v2_implicature_0006,The wedding plans are behind schedule.,short_text,social
+HB_EXP1_0382,social_v2_pragmatic_inference_0024,"Suggest a different activity that requires less energy, like reading a book.",short_text,social
+HB_EXP1_0383,social_v2_theory_of_mind_0011,Sunny,short_text,social
+HB_EXP1_0384,social_v2_implicature_0004,They do not want to attend the wedding.,short_text,social
+HB_EXP1_0385,spatial_v2_2d_geometry_0009,9,exact_numeric,spatial
+HB_EXP1_0386,spatial_v2_3d_visualization_0016,5,exact_numeric,spatial
+HB_EXP1_0387,spatial_v2_distance_direction_0013,Jack,short_text,spatial
+HB_EXP1_0388,spatial_v2_relative_positioning_0010,"Nothing, the pencil is right of the book",short_text,spatial
+HB_EXP1_0389,spatial_v2_spatial_transformation_0032,southeast,short_text,spatial
+HB_EXP1_0390,spatial_v2_2d_geometry_0009,6,exact_numeric,spatial
+HB_EXP1_0391,spatial_v2_3d_visualization_0017,4,exact_numeric,spatial
+HB_EXP1_0392,spatial_v2_distance_direction_0013,Ava,short_text,spatial
+HB_EXP1_0393,spatial_v2_relative_positioning_0008,the vase,short_text,spatial
+HB_EXP1_0394,spatial_v2_spatial_transformation_0032,north,short_text,spatial
+HB_EXP1_0395,spatial_v2_2d_geometry_0009,9,exact_numeric,spatial
+HB_EXP1_0396,spatial_v2_3d_visualization_0018,4,exact_numeric,spatial
+HB_EXP1_0397,spatial_v2_distance_direction_0018,Sink,short_text,spatial
+HB_EXP1_0398,spatial_v2_relative_positioning_0028,nothing,short_text,spatial
+HB_EXP1_0399,spatial_v2_spatial_transformation_0032,right,short_text,spatial
+HB_EXP1_0400,spatial_v2_2d_geometry_0009,4,exact_numeric,spatial
+HB_EXP1_0401,spatial_v2_3d_visualization_0043,6,exact_numeric,spatial
+HB_EXP1_0402,spatial_v2_distance_direction_0013,Jack,short_text,spatial
+HB_EXP1_0403,spatial_v2_relative_positioning_0028,the shelf,short_text,spatial
+HB_EXP1_0404,spatial_v2_spatial_transformation_0015,left,short_text,spatial
+HB_EXP1_0405,spatial_v2_2d_geometry_0009,20,exact_numeric,spatial
+HB_EXP1_0406,spatial_v2_3d_visualization_0043,3,exact_numeric,spatial
+HB_EXP1_0407,spatial_v2_distance_direction_0018,Coffee table,short_text,spatial
+HB_EXP1_0408,spatial_v2_relative_positioning_0028,nothing,short_text,spatial
+HB_EXP1_0409,spatial_v2_spatial_transformation_0032,south,short_text,spatial
+HB_EXP1_0410,spatial_v2_2d_geometry_0009,15,exact_numeric,spatial
+HB_EXP1_0411,spatial_v2_3d_visualization_0043,2,exact_numeric,spatial
+HB_EXP1_0412,spatial_v2_distance_direction_0018,Bed,short_text,spatial
+HB_EXP1_0413,spatial_v2_relative_positioning_0028,the block,short_text,spatial
+HB_EXP1_0414,spatial_v2_spatial_transformation_0032,up,short_text,spatial
+HB_EXP1_0415,spatial_v2_2d_geometry_0009,4,exact_numeric,spatial
+HB_EXP1_0416,spatial_v2_3d_visualization_0043,2,exact_numeric,spatial
+HB_EXP1_0417,spatial_v2_distance_direction_0013,Olivia,short_text,spatial
+HB_EXP1_0418,spatial_v2_relative_positioning_0028,the chair,short_text,spatial
+HB_EXP1_0419,spatial_v2_spatial_transformation_0032,east,short_text,spatial
+HB_EXP1_0420,spatial_v2_2d_geometry_0009,10,exact_numeric,spatial
+HB_EXP1_0421,spatial_v2_3d_visualization_0043,6,exact_numeric,spatial
+HB_EXP1_0422,spatial_v2_distance_direction_0013,Lily,short_text,spatial
+HB_EXP1_0423,spatial_v2_relative_positioning_0028,the bridge,short_text,spatial
+HB_EXP1_0424,spatial_v2_spatial_transformation_0032,up,short_text,spatial
+HB_EXP1_0425,spatial_v2_2d_geometry_0009,20,exact_numeric,spatial
+HB_EXP1_0426,spatial_v2_3d_visualization_0043,2,exact_numeric,spatial
+HB_EXP1_0427,spatial_v2_distance_direction_0018,Shelf,short_text,spatial
+HB_EXP1_0428,spatial_v2_relative_positioning_0028,the buoy,short_text,spatial
+HB_EXP1_0429,spatial_v2_spatial_transformation_0032,northeast,short_text,spatial
+HB_EXP1_0430,spatial_v2_2d_geometry_0009,3,exact_numeric,spatial
+HB_EXP1_0431,spatial_v2_3d_visualization_0043,2,exact_numeric,spatial
+HB_EXP1_0432,spatial_v2_distance_direction_0018,Bookshelf,short_text,spatial
+HB_EXP1_0433,spatial_v2_relative_positioning_0028,the hoop,short_text,spatial
+HB_EXP1_0434,spatial_v2_spatial_transformation_0032,down,short_text,spatial
+HB_EXP1_0435,spatial_v2_2d_geometry_0009,16,exact_numeric,spatial
+HB_EXP1_0436,spatial_v2_3d_visualization_0043,4,exact_numeric,spatial
+HB_EXP1_0437,spatial_v2_distance_direction_0013,Jack,short_text,spatial
+HB_EXP1_0438,spatial_v2_relative_positioning_0028,nothing,short_text,spatial
+HB_EXP1_0439,spatial_v2_spatial_transformation_0012,down,short_text,spatial
+HB_EXP1_0440,spatial_v2_2d_geometry_0009,6,exact_numeric,spatial
+HB_EXP1_0441,spatial_v2_3d_visualization_0043,4,exact_numeric,spatial
+HB_EXP1_0442,spatial_v2_distance_direction_0018,Ava,short_text,spatial
+HB_EXP1_0443,spatial_v2_relative_positioning_0028,the stage,short_text,spatial
+HB_EXP1_0444,spatial_v2_spatial_transformation_0031,right,short_text,spatial
+HB_EXP1_0445,spatial_v2_2d_geometry_0009,12,exact_numeric,spatial
+HB_EXP1_0446,spatial_v2_3d_visualization_0043,4,exact_numeric,spatial
+HB_EXP1_0447,spatial_v2_distance_direction_0018,The red car,short_text,spatial
+HB_EXP1_0448,spatial_v2_spatial_transformation_0031,east,short_text,spatial
+HB_EXP1_0449,temporal_v2_ordering_events_0001,The dissolution of Yugoslavia and fall of the Soviet Union both occurred after the end of the Gulf War.,short_text,temporal
+HB_EXP1_0450,temporal_v2_temporal_paradoxes_0041,"No, the sculpture would not have existed yet in 1995.",short_text,temporal
+HB_EXP1_0451,temporal_v2_timezone_arithmetic_0010,4 PM,short_text,temporal
+HB_EXP1_0452,temporal_v2_ordering_events_0001,The construction of the Great Pyramid of Giza occurred before the fall of the Roman Empire and the discovery of America.,short_text,temporal
+HB_EXP1_0453,temporal_v2_temporal_paradoxes_0040,"No, he would have been 15 years old when he got married.",short_text,temporal
+HB_EXP1_0454,temporal_v2_timezone_arithmetic_0008,10 AM,short_text,temporal
+HB_EXP1_0455,temporal_v2_ordering_events_0001,The construction of the Great Pyramid of Giza occurred before the founding of Rome and the first Olympics in ancient Greece.,short_text,temporal
+HB_EXP1_0456,temporal_v2_temporal_paradoxes_0047,"Fill the 3-gallon bucket and pour it into the 1-gallon bucket until the 1-gallon bucket is full, leaving 2 gallons in the 3-gallon bucket.",short_text,temporal
+HB_EXP1_0457,temporal_v2_ordering_events_0003,first moon landing,short_text,temporal
+HB_EXP1_0458,temporal_v2_temporal_paradoxes_0048,"No, they would have been driving for 15 years before they got their license.",short_text,temporal
+HB_EXP1_0459,temporal_v2_ordering_events_0003,first landing on the moon,short_text,temporal
+HB_EXP1_0460,temporal_v2_temporal_paradoxes_0042,No,short_text,temporal
+HB_EXP1_0461,temporal_v2_ordering_events_0003,first test of the hydrogen bomb and first commercial jet airliner flight,short_text,temporal
+HB_EXP1_0462,temporal_v2_temporal_paradoxes_0049,"Divide the pastries into three groups of three, three, and two. Weigh the two groups of three pastries against each other. If one side is heavier, then the denser or less dense pastry is in that group. If the two sides are equal, then the denser or less dense pastry is in the group of two. Take the group that contains the denser or less dense pastry and weigh two of the pastries against each other. If one is heavier, then that is the denser pastry. If they are equal, then the remaining pastry is the denser or less dense pastry.",short_text,temporal
+HB_EXP1_0463,temporal_v2_ordering_events_0001,The first moon landing occurred before the first commercial Concorde flight and the first Apple computer release.,short_text,temporal
+HB_EXP1_0464,temporal_v2_temporal_paradoxes_0048,"His sister is currently 4 years old, and he is 9 years old. Last year, he was 8 years old, and his sister was 4 years old, so he was 4 years older than his sister.",short_text,temporal
+HB_EXP1_0465,temporal_v2_ordering_events_0003,first IBM PC release,short_text,temporal
+HB_EXP1_0466,temporal_v2_temporal_paradoxes_0045,Her son,short_text,temporal
+HB_EXP1_0467,temporal_v2_ordering_events_0003,first radio broadcast,short_text,temporal
+HB_EXP1_0468,temporal_v2_temporal_paradoxes_0043,50% or 1 in 2,short_text,temporal
+HB_EXP1_0469,temporal_v2_ordering_events_0001,The death of Albert Einstein occurred before the first American in space and the first Beatles album release.,short_text,temporal
+HB_EXP1_0470,temporal_v2_temporal_paradoxes_0047,"Fill the 4-gallon bucket and pour it into the 2-gallon bucket until the 2-gallon bucket is full, leaving 2 gallons in the 4-gallon bucket. The 2-gallon bucket already has the target measurement.",short_text,temporal
+HB_EXP1_0471,temporal_v2_ordering_events_0003,first Summer Olympics,short_text,temporal
+HB_EXP1_0472,temporal_v2_temporal_paradoxes_0040,"Let's say the sister's age one year ago was x. Then the boy's age one year ago was x + 3. Now the boy's age is x + 3 + 1, and the sister's age is x + 1. So now the boy is x + 3 + 1, and the sister is x + 1, which means the boy is 2 years older than his sister (x + 3 + 1 = x + 4, x + 4 - x - 1 = 3, but since the sister is 1 year older now, and the boy is 3 years older now, then 3 - 1 = 2).",short_text,temporal
+HB_EXP1_0473,temporal_v2_ordering_events_0001,The first test of the hydrogen bomb and the first landing on the moon both occurred after the end of World War II.,short_text,temporal
+HB_EXP1_0474,temporal_v2_temporal_paradoxes_0048,"Her brother is currently 2 years old, and she is 5 years old. One year ago, she was 4 years old, and her brother was 2 years old, so she was 2 years older than her brother.",short_text,temporal
+HB_EXP1_0475,temporal_v2_ordering_events_0003,first Apple computer release,short_text,temporal
+HB_EXP1_0476,temporal_v2_temporal_paradoxes_0040,"Let's say the brother's age two years ago was x. Then the girl's age two years ago was x + 3. Now the girl's age is x + 3 + 2, and the brother's age is x + 2. So now the girl is x + 3 + 2, and the brother is x + 2, which means the girl is 1 year older than her brother (x + 3 + 2 = x + 5, x + 5 - x - 2 = 3, but since the brother is 2 years older now, and the girl is 3 years older now, then 3 - 2 = 1).",short_text,temporal
+HB_EXP1_0477,temporal_v2_ordering_events_0001,The end of the Cold War and the release of the first iPhone both occurred after the discovery of DNA structure.,short_text,temporal
+HB_EXP1_0478,temporal_v2_temporal_paradoxes_0049,"Divide the eight remaining widgets into three groups of three, three, and two. Weigh the two groups of three widgets against each other. If one side is heavier, then the more or less massive widget is in that group. If the two sides are equal, then the more or less massive widget is in the group of two. Take the group that contains the more or less massive widget and weigh two of the widgets against each other. If one is heavier, then that is the more massive widget. If they are equal, then the remaining widget is the more or less massive widget.",short_text,temporal
+HB_EXP1_0479,temporal_v2_ordering_events_0003,first email sent,short_text,temporal
+HB_EXP1_0480,temporal_v2_temporal_paradoxes_0041,"No, the painting would not have existed yet in 2008.",short_text,temporal
+HB_EXP1_0481,temporal_v2_ordering_events_0001,The sinking of the Titanic occurred before the start of World War I and the discovery of King Tut's tomb.,short_text,temporal
+HB_EXP1_0482,temporal_v2_temporal_paradoxes_0040,"No, she would have been 18 years old when she became a professional athlete.",short_text,temporal
+HB_EXP1_0483,temporal_v2_ordering_events_0001,"the launch of the first iPhone (2007), the release of the first iPad (2010), the introduction of Apple Pay (2014)",short_text,temporal
+HB_EXP1_0484,temporal_v2_temporal_paradoxes_0047,"Fill the 3-gallon bucket and pour it into the 2-gallon bucket until the 2-gallon bucket is full, leaving 1 gallon in the 3-gallon bucket. Empty the 2-gallon bucket and fill it with the remaining 1 gallon from the 3-gallon bucket, then fill the 2-gallon bucket again.",short_text,temporal
+HB_EXP1_0485,temporal_v2_ordering_events_0003,first Apple computer release,short_text,temporal
+HB_EXP1_0486,temporal_v2_temporal_paradoxes_0048,"His sister is currently 1 year old, and he is 5 years old. Three years ago, he was 2 years old, and his sister was not yet born, but if we consider his age 3 years ago and her age now, he would have been 1 year older than her current age, but if we consider his age 3 years ago and her age 3 years ago (when she was -2 years old), he would have been 4 years older than her age 3 years ago.",short_text,temporal
+HB_EXP1_0487,temporal_v2_ordering_events_0001,The first flight of the Wright brothers and the end of World War I both occurred before the first human spaceflight.,short_text,temporal
+HB_EXP1_0488,temporal_v2_temporal_paradoxes_0044,4 days,short_text,temporal
+HB_EXP1_0489,temporal_v2_ordering_events_0003,first human spaceflight and first American in space,short_text,temporal
+HB_EXP1_0490,temporal_v2_temporal_paradoxes_0044,3 days,short_text,temporal
+HB_EXP1_0491,temporal_v2_ordering_events_0001,The first Mars rover landing occurred before the first SpaceX launch and the release of the first iPhone.,short_text,temporal
+HB_EXP1_0492,temporal_v2_temporal_paradoxes_0046,"His sister is currently 1 year old, and he is 2 years old. In 2 years, he will be 4 years old, and his sister will be 3 years old, so he won't be twice as old as his sister; consider his sister is 0 years old, and he is 1 year old. In 2 years, he will be 3 years old, and his sister will be 2 years old, so he won't be twice as old as his sister; consider his sister is 0 years old, and he is 0 years old. In 2 years, he will be 2 years old, and his sister will be 2 years old, so he won't be twice as old as his sister; consider his sister is 0 years old, and he is 2 years old. In 2 years, he will be 4 years old, and his sister will be 2 years old, so he will be twice as old as his sister.",short_text,temporal
+HB_EXP1_0493,temporal_v2_ordering_events_0003,first Nobel Prize ceremony,short_text,temporal
+HB_EXP1_0494,temporal_v2_temporal_paradoxes_0041,The pencil costs $0.10 and the book costs $0.70.,short_text,temporal
+HB_EXP1_0495,temporal_v2_ordering_events_0001,The release of the first Star Wars film and the publication of the first Harry Potter book both occurred before the end of the Yugoslav Wars.,short_text,temporal
+HB_EXP1_0496,temporal_v2_temporal_paradoxes_0042,One coin is 4 pennies and the other coin is a penny.,short_text,temporal
+HB_EXP1_0497,temporal_v2_ordering_events_0003,"the first American in space (1961), the first Apple computer launch (1977), the first test-tube baby birth (1978)",short_text,temporal
+HB_EXP1_0498,temporal_v2_temporal_paradoxes_0040,"Let's say the niece's age three years ago was x. Then the woman's age three years ago was x + 5. Now the woman's age is x + 5 + 3, and the niece's age is x + 3. So now the woman is x + 5 + 3, and the niece is x + 3, which means the woman is 2 years older than her niece (x + 5 + 3 = x + 8, x + 8 - x - 3 = 5, but since the niece is 3 years older now, and the woman is 5 years older now, then 5 - 3 = 2).",short_text,temporal
+HB_EXP1_0499,temporal_v2_ordering_events_0002,first email sent,short_text,temporal
+HB_EXP1_0500,temporal_v2_temporal_paradoxes_0043,50% or 1 in 2,short_text,temporal
+HB_EXP1_0501,temporal_v2_ordering_events_0002,first heart transplant,short_text,temporal
+HB_EXP1_0502,temporal_v2_temporal_paradoxes_0040,"Let's say the daughter's age two years ago was x. Then the woman's age two years ago was x + 5. Now the woman's age is x + 5 + 2, and the daughter's age is x + 2. So now the woman is x + 5 + 2, and the daughter is x + 2, which means the woman is 3 years older than her daughter (x + 5 + 2 = x + 7, x + 7 - x - 2 = 5, but since the daughter is 2 years older now, and the woman is 5 years older now, then 5 - 2 = 3).",short_text,temporal
+HB_EXP1_0503,temporal_v2_ordering_events_0006,"first episode of 'The Simpsons' aired, then Tim Berners-Lee invented the World Wide Web, and first text message sent",short_text,temporal
+HB_EXP1_0504,temporal_v2_temporal_paradoxes_0042,One coin is a nickel and the other coin is a nickel.,short_text,temporal
+HB_EXP1_0505,temporal_v2_ordering_events_0002,first Broadway musical,short_text,temporal
+HB_EXP1_0506,temporal_v2_temporal_paradoxes_0042,No,short_text,temporal
+HB_EXP1_0507,temporal_v2_ordering_events_0006,"IBM introduces the first PC, then first Apple iPod released, then Human Genome Project completed",short_text,temporal
+HB_EXP1_0508,temporal_v2_temporal_paradoxes_0041,"No, the tree would not have existed yet in 2005.",short_text,temporal
+HB_EXP1_0509,temporal_v2_ordering_events_0002,first commercial jet airliner flight and first successful polio vaccine,short_text,temporal
+HB_EXP1_0510,temporal_v2_temporal_paradoxes_0017,"Yes, if the first play occurred 3 days ago and the second play occurred 1 day before that, then the second play occurred 4 days ago.",short_text,temporal
+HB_EXP1_0511,temporal_v2_ordering_events_0002,first robotic spacecraft to land on Venus,short_text,temporal
+HB_EXP1_0512,temporal_v2_temporal_paradoxes_0042,No,short_text,temporal

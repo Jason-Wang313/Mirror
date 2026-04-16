@@ -1,0 +1,113 @@
+{
+  "status": "complete",
+  "n_raters": 3,
+  "n_shared_items": 100,
+  "rater_ids": [
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "validation": [
+    {
+      "rater": "R1",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R1.csv",
+      "row_count": 100,
+      "expected_rows": 100,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    },
+    {
+      "rater": "R2",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R2.csv",
+      "row_count": 100,
+      "expected_rows": 100,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    },
+    {
+      "rater": "R3",
+      "path": "C:\\Users\\wangz\\MIRROR\\audit\\real_human_audit_100_R3.csv",
+      "row_count": 100,
+      "expected_rows": 100,
+      "row_count_ok": true,
+      "blank_human_label": 0,
+      "invalid_human_label": 0,
+      "blank_confidence": 0
+    }
+  ],
+  "agreement": {
+    "unanimous_rate": 0.69,
+    "unanimous_n": 69,
+    "fleiss_kappa": 0.6809277112567335,
+    "pairwise": [
+      {
+        "pair": "R1-R2",
+        "raw_agreement": 0.81,
+        "cohen_kappa": 0.6984126984126985
+      },
+      {
+        "pair": "R1-R3",
+        "raw_agreement": 0.7,
+        "cohen_kappa": 0.5634458672875436
+      },
+      {
+        "pair": "R2-R3",
+        "raw_agreement": 0.87,
+        "cohen_kappa": 0.8065476190476192
+      }
+    ]
+  },
+  "label_counts": {
+    "R1": {
+      "ambiguous": 8,
+      "correct": 32,
+      "incorrect": 60
+    },
+    "R2": {
+      "ambiguous": 27,
+      "correct": 32,
+      "incorrect": 41
+    },
+    "R3": {
+      "ambiguous": 38,
+      "correct": 32,
+      "incorrect": 30
+    }
+  },
+  "majority_label_counts": {
+    "ambiguous": 26,
+    "correct": 32,
+    "incorrect": 42
+  },
+  "per_experiment": {
+    "exp1": {
+      "n": 20,
+      "unanimous_n": 16,
+      "unanimous_rate": 0.8
+    },
+    "exp3": {
+      "n": 15,
+      "unanimous_n": 11,
+      "unanimous_rate": 0.7333333333333333
+    },
+    "exp5": {
+      "n": 10,
+      "unanimous_n": 8,
+      "unanimous_rate": 0.8
+    },
+    "exp6b": {
+      "n": 30,
+      "unanimous_n": 16,
+      "unanimous_rate": 0.5333333333333333
+    },
+    "exp9": {
+      "n": 25,
+      "unanimous_n": 18,
+      "unanimous_rate": 0.72
+    }
+  }
+}

@@ -23,171 +23,363 @@ HB_EXP1_0021,arithmetic_v2_estimation_0022,arithmetic,estimation,,short_text,Abo
 HB_EXP1_0022,arithmetic_v2_mental_calculation_0002,arithmetic,mental_calculation,,exact_numeric,"A library lends 417 books in the morning. If they had 337 books initially, how many books did they acquire?"
 HB_EXP1_0023,arithmetic_v2_numerical_reasoning_0044,arithmetic,numerical_reasoning,,short_text,"Rank the following decimals from smallest to largest: 0.3, 0.9, 0.1"
 HB_EXP1_0024,arithmetic_v2_unit_conversion_0032,arithmetic,unit_conversion,,exact_numeric,A jogger finished a short run in 45 minutes. How many hours did it take?
-HB_EXP1_0025,factual_v2_cross_domain_trivia_0047,factual,cross_domain_trivia,,short_text,"The acclaimed geologist Mary Anning wrote a popular science book called 'The Fossil Hunter', which explores the concept of which phenomenon that she is also known for discovering?"
-HB_EXP1_0026,factual_v2_culture_0038,factual,culture,,short_text,Who wrote the famous novel 'Pride and Prejudice'?
-HB_EXP1_0027,factual_v2_geography_0005,factual,geography,,short_text,What is the capital of Japan?
-HB_EXP1_0028,factual_v2_history_0028,factual,history,,short_text,Who was the English queen who ruled during the 16th century and is famous for being a virgin?
-HB_EXP1_0029,factual_v2_science_0018,factual,science,,short_text,What is the scientific term for the preserved remains of prehistoric creatures?
-HB_EXP1_0030,factual_v2_cross_domain_trivia_0044,factual,cross_domain_trivia,,short_text,What type of rock is formed from the cooling and solidification of magma or lava?
-HB_EXP1_0031,factual_v2_culture_0032,factual,culture,,short_text,Who composed the symphony 'Symphony No. 5'?
-HB_EXP1_0032,factual_v2_geography_0008,factual,geography,,short_text,What is the most well-known city in China?
-HB_EXP1_0033,factual_v2_history_0024,factual,history,,short_text,Who led China during World War II?
-HB_EXP1_0034,factual_v2_science_0017,factual,science,,short_text,What is the chemical formula for carbon dioxide?
-HB_EXP1_0035,factual_v2_cross_domain_trivia_0045,factual,cross_domain_trivia,,short_text,What is the chemical symbol for the lightest element?
-HB_EXP1_0036,factual_v2_culture_0031,factual,culture,,short_text,Who painted 'The Starry Night'?
-HB_EXP1_0037,factual_v2_geography_0001,factual,geography,,short_text,Which river is the longest in North America?
-HB_EXP1_0038,factual_v2_history_0025,factual,history,,short_text,In what year did the Great Fire of London occur?
-HB_EXP1_0039,factual_v2_science_0019,factual,science,,short_text,"What is the speed of light in a vacuum, in kilometers per hour?"
-HB_EXP1_0040,factual_v2_cross_domain_trivia_0042,factual,cross_domain_trivia,,short_text,"Who was the husband of Mary Shelley, the author of 'Frankenstein'?"
-HB_EXP1_0041,factual_v2_culture_0034,factual,culture,,short_text,Who is credited with the invention of the light bulb?
-HB_EXP1_0042,factual_v2_geography_0007,factual,geography,,short_text,What is the world's largest rainforest by area?
-HB_EXP1_0043,factual_v2_history_0022,factual,history,,short_text,What was the name of the treaty that ended the Franco-Prussian War?
-HB_EXP1_0044,factual_v2_science_0010,factual,science,,short_text,What is the process by which crops convert sunlight into biomass?
-HB_EXP1_0045,factual_v2_cross_domain_trivia_0049,factual,cross_domain_trivia,,short_text,What type of musical instrument is often associated with the jazz genre and was popularized by Louis Armstrong?
-HB_EXP1_0046,factual_v2_culture_0033,factual,culture,,short_text,What is the name of the famous novel by Herman Melville that begins with the line 'Call me Ishmael'?
-HB_EXP1_0047,factual_v2_geography_0002,factual,geography,,short_text,What is the world's largest desert by land area?
-HB_EXP1_0048,factual_v2_history_0022,factual,history,,short_text,Who was the leader of the United Kingdom during the Falklands War?
-HB_EXP1_0049,linguistic_v2_ambiguity_resolution_0023,linguistic,ambiguity_resolution,,short_text,What are two possible meanings of the sentence: 'The woman heard the man with the phone.'
-HB_EXP1_0050,linguistic_v2_grammar_correction_0043,linguistic,grammar_correction,,short_text,Is there a grammatical error in: 'The book is on the table.'
-HB_EXP1_0051,linguistic_v2_morphology_0018,linguistic,morphology,,short_text,What is the morphological decomposition of 'nonconformity'?
-HB_EXP1_0052,linguistic_v2_register_formality_0032,linguistic,register_formality,,short_text,Is the phrase 'I'm totally amped for the festival' suitable for a job interview at a conservative company?
-HB_EXP1_0053,linguistic_v2_syntax_parsing_0002,linguistic,syntax_parsing,,short_text,"In the sentence 'The organization, which was established in 1920, provides vital services', what word does 'which was established in 1920' modify?"
-HB_EXP1_0054,linguistic_v2_ambiguity_resolution_0021,linguistic,ambiguity_resolution,,short_text,Which reading is more natural given the context: 'The researcher is studying a report on the plane.' - 'The researcher is studying a report that is about the plane.' or 'The researcher is studying a report while on the plane.'
-HB_EXP1_0055,linguistic_v2_grammar_correction_0043,linguistic,grammar_correction,,short_text,"What is the grammatical error in: 'If I was a famous actor, I would win an Oscar.'"
-HB_EXP1_0056,linguistic_v2_morphology_0014,linguistic,morphology,,short_text,What is the morphological decomposition of 'disenthusiastically'?
-HB_EXP1_0057,linguistic_v2_register_formality_0033,linguistic,register_formality,,short_text,Rewrite in informal register: 'I am delighted to announce the forthcoming nuptials of my esteemed colleague.'
-HB_EXP1_0058,linguistic_v2_syntax_parsing_0004,linguistic,syntax_parsing,,short_text,"In the sentence ""The song, composed by a talented musician, is a hit"", what word does ""composed by a talented musician"" modify?"
-HB_EXP1_0059,linguistic_v2_ambiguity_resolution_0022,linguistic,ambiguity_resolution,,short_text,Give two interpretations of: 'I'm searching for a pencil to draw with.'
-HB_EXP1_0060,linguistic_v2_grammar_correction_0045,linguistic,grammar_correction,,short_text,"What is the grammatical error in: 'The company has laid off hundreds of employees, but the CEO says they is still hiring.'"
-HB_EXP1_0061,linguistic_v2_morphology_0011,linguistic,morphology,,short_text,What prefix in 'impossible' indicates 'not'?
-HB_EXP1_0062,linguistic_v2_register_formality_0035,linguistic,register_formality,,short_text,Is the phrase 'I'm gonna grab a snack' suitable for a job interview?
-HB_EXP1_0063,linguistic_v2_syntax_parsing_0006,linguistic,syntax_parsing,,short_text,"In the sentence 'The city's population, which was small, is now larger', what word does the clause 'which was small' modify?"
-HB_EXP1_0064,linguistic_v2_ambiguity_resolution_0021,linguistic,ambiguity_resolution,,short_text,Which reading is more natural given the context: 'The author is editing a manuscript on the ferry.' - 'The author is editing a manuscript that is about the ferry.' or 'The author is editing a manuscript while on the ferry.'
-HB_EXP1_0065,linguistic_v2_grammar_correction_0049,linguistic,grammar_correction,,short_text,What is the grammatical error in: 'The hotel's promise is to provide it's guests with a comfortable stay.'
-HB_EXP1_0066,linguistic_v2_morphology_0012,linguistic,morphology,,short_text,What is the derivational history of 'unaccountable'?
-HB_EXP1_0067,linguistic_v2_register_formality_0035,linguistic,register_formality,,short_text,Is the phrase 'I'm gonna grab a snack' too casual for work?
-HB_EXP1_0068,linguistic_v2_syntax_parsing_0005,linguistic,syntax_parsing,,short_text,"In the sentence ""The athletes, worn out from the intense training, recovered at the gym"", what word does ""worn out from the intense training"" modify?"
-HB_EXP1_0069,linguistic_v2_ambiguity_resolution_0028,linguistic,ambiguity_resolution,,short_text,Provide two interpretations of: 'The new curriculum is impacting the students who are in their final year.'
-HB_EXP1_0070,linguistic_v2_grammar_correction_0044,linguistic,grammar_correction,,short_text,Identify the grammatical error in: 'The new law applies to all residents whom are living in the city.'
-HB_EXP1_0071,linguistic_v2_morphology_0012,linguistic,morphology,,short_text,What is the derivational history of 'irreplaceable'?
-HB_EXP1_0072,linguistic_v2_register_formality_0036,linguistic,register_formality,,short_text,Is the phrase 'Talk to you later!' formal or informal?
-HB_EXP1_0073,logical_v2_conditional_reasoning_0037,logical,conditional_reasoning,,short_text,"If a bike has a bell, it can be ridden. This bike cannot be ridden. Does it have a bell?"
-HB_EXP1_0074,logical_v2_proof_evaluation_0043,logical,proof_evaluation,,short_text,Premise: All countries in Europe use the Euro. The UK is in Europe. Conclusion: The UK uses the Euro. What is wrong?
-HB_EXP1_0075,logical_v2_propositional_logic_0015,logical,propositional_logic,,short_text,"If the warning signal is off, the workers can proceed. The warning signal is currently off. Can the workers proceed?"
-HB_EXP1_0076,logical_v2_set_relations_0008,logical,set_relations,,short_text,All cats are pets. Is a cat a pet?
-HB_EXP1_0077,logical_v2_syllogisms_0009,logical,syllogisms,,short_text,All cellos are string instruments. The Amati is a cello. What type of instrument is the Amati?
-HB_EXP1_0078,logical_v2_conditional_reasoning_0032,logical,conditional_reasoning,,short_text,"If a bicycle is blue, it belongs to John. This bicycle belongs to John. Is this bicycle blue?"
-HB_EXP1_0079,logical_v2_proof_evaluation_0044,logical,proof_evaluation,,short_text,Premise: All cars have wheels. This bike is a car. Conclusion: This bike has wheels. What is wrong?
-HB_EXP1_0080,logical_v2_propositional_logic_0016,logical,propositional_logic,,short_text,"If the copier is jammed, it will display an error code. The copier is currently displaying an error code. Is the copier jammed?"
-HB_EXP1_0081,logical_v2_set_relations_0021,logical,set_relations,,short_text,All cars are vehicles. A truck is a vehicle. Is a truck a car?
-HB_EXP1_0082,logical_v2_syllogisms_0006,logical,syllogisms,,short_text,All apples are produce. The Granny Smith is an apple. What is the Granny Smith?
-HB_EXP1_0083,logical_v2_conditional_reasoning_0031,logical,conditional_reasoning,,short_text,"If a dog is happy, it will wag its tail. A dog did not wag its tail. Is the dog happy?"
-HB_EXP1_0084,logical_v2_proof_evaluation_0044,logical,proof_evaluation,,short_text,Premise: All dogs have tails. My neighbor's dog is a dog. Conclusion: My neighbor's dog has a tail. What is wrong?
-HB_EXP1_0085,logical_v2_propositional_logic_0018,logical,propositional_logic,,short_text,"If the eggs are cooked, the timer will beep. The timer is currently beeping. Are the eggs cooked?"
-HB_EXP1_0086,logical_v2_set_relations_0022,logical,set_relations,,short_text,All hexagons are polygons. A rhombus is a hexagon. Is a rhombus a polygon?
-HB_EXP1_0087,logical_v2_syllogisms_0009,logical,syllogisms,,short_text,All dogs are animals. Fido is a dog. What is Fido?
-HB_EXP1_0088,logical_v2_conditional_reasoning_0032,logical,conditional_reasoning,,short_text,"If a pencil is sharp, it can write. The pencil cannot write. Is the pencil sharp?"
-HB_EXP1_0089,logical_v2_proof_evaluation_0045,logical,proof_evaluation,,short_text,Premise: All isosceles trapezoids are parallelograms. A parallelogram is an isosceles trapezoid. Conclusion: All isosceles trapezoids are parallelograms. What is wrong?
-HB_EXP1_0090,logical_v2_propositional_logic_0014,logical,propositional_logic,,short_text,"If the projector is focused, the presentation will begin. The projector is not focused. Will the presentation begin?"
-HB_EXP1_0091,logical_v2_set_relations_0021,logical,set_relations,,short_text,All roses are flowers. A daisy is a flower. Is a daisy a rose?
-HB_EXP1_0092,logical_v2_syllogisms_0002,logical,syllogisms,,short_text,All cats are pets. Fluffy is a cat. What is Fluffy?
-HB_EXP1_0093,logical_v2_conditional_reasoning_0033,logical,conditional_reasoning,,short_text,"If a chef follows all the recipe steps, they will create a perfect dish. Olivia did not create a perfect dish. Did Olivia follow all the recipe steps?"
-HB_EXP1_0094,logical_v2_proof_evaluation_0047,logical,proof_evaluation,,short_text,Premise: All people who are 21 or older can buy liquor. My 20-year-old sister cannot buy liquor. Conclusion: My sister is not 21 or older.
-HB_EXP1_0095,logical_v2_propositional_logic_0010,logical,propositional_logic,,short_text,"If the pressure gauge reads above 120 psi, the pressure relief valve opens. The pressure gauge currently reads 125 psi. Does the pressure relief valve open?"
-HB_EXP1_0096,logical_v2_set_relations_0026,logical,set_relations,,short_text,All fish can breathe air. A shark is a fish. Can a shark breathe air?
-HB_EXP1_0097,procedural_v2_algorithm_execution_0006,procedural,algorithm_execution,,short_text,"Perform one pass of the counting sort algorithm on the array [1, 0, 0, 8, 6, 6, 5]. What is the count array?"
-HB_EXP1_0098,procedural_v2_error_recovery_0046,procedural,error_recovery,,short_text,"A textile mill's quality assurance system fails, allowing substandard fabrics to be packaged and shipped. What is the correct recovery action?"
-HB_EXP1_0099,procedural_v2_multistep_planning_0032,procedural,multistep_planning,,short_text,You want to set up a new user account with a home directory. List the ordered steps to achieve this if you are the system administrator and the home directory is created automatically.
-HB_EXP1_0100,procedural_v2_protocol_compliance_0020,procedural,protocol_compliance,,short_text,"A poison control hotline receives a call from a frantic parent whose child has ingested a toxic substance. According to the standard poison control protocol, what is the next step?"
-HB_EXP1_0101,procedural_v2_recipe_following_0013,procedural,recipe_following,,short_text,"A recipe for 2 small bread rolls calls for baking at 375°F for 8 minutes. If you double the recipe, what adjustment should you make to the baking time?"
-HB_EXP1_0102,procedural_v2_algorithm_execution_0000,procedural,algorithm_execution,,short_text,"Perform one iteration of Dijkstra's algorithm on the graph with vertices X, Y, Z, and edges (X, Y, 3), (X, Z, 5), (Y, Z, 2) with starting vertex X. What is the shortest distance to vertex Z?"
-HB_EXP1_0103,procedural_v2_error_recovery_0040,procedural,error_recovery,,short_text,A phone app is consuming 30% of the phone's memory. What is the correct action to take?
-HB_EXP1_0104,procedural_v2_multistep_planning_0034,procedural,multistep_planning,,short_text,A user wants to reset their forgotten macOS password. The user has a macOS installation USB. List the correct ordered steps.
-HB_EXP1_0105,procedural_v2_protocol_compliance_0023,procedural,protocol_compliance,,short_text,"A web form submission is received with a password that does not meet the minimum complexity requirements. Per standard web form validation protocol, what should happen?"
-HB_EXP1_0106,procedural_v2_recipe_following_0019,procedural,recipe_following,,short_text,"A recipe for making cookies calls for 2 1/4 cups of all-purpose flour, 1 1/2 cups of confectioner's sugar, and 1 teaspoon of baking powder. If you substitute pastry flour for all-purpose flour, what adjustment should you make to the amount of sugar?"
-HB_EXP1_0107,procedural_v2_algorithm_execution_0002,procedural,algorithm_execution,,short_text,"Run one pass of the selection sort algorithm on the array [8, 5, 3, 2, 6]. What is the array after the pass?"
-HB_EXP1_0108,procedural_v2_error_recovery_0046,procedural,error_recovery,,short_text,A continuous deployment pipeline has failed due to a malfunctioning deployment script. The script has already caused two consecutive deployment failures. What is the correct recovery action?
-HB_EXP1_0109,procedural_v2_multistep_planning_0031,procedural,multistep_planning,,short_text,"A new team member needs to set up their workstation with the department's intranet and a required module. The module requires Ruby 2.7+, but the workstation has Ruby 2.5. List the correct ordered steps."
-HB_EXP1_0110,procedural_v2_protocol_compliance_0020,procedural,protocol_compliance,,short_text,"A search and rescue team receives a distress call from a stranded hiker. According to the standard search and rescue protocol, what is the next step?"
-HB_EXP1_0111,procedural_v2_recipe_following_0011,procedural,recipe_following,,short_text,"A pastry recipe requires 6 large eggs, 4 3/4 cups of confectioner's sugar, and 4 teaspoons of baking powder. If you double the recipe, what is the new amount of baking powder needed?"
-HB_EXP1_0112,procedural_v2_algorithm_execution_0003,procedural,algorithm_execution,,short_text,"Perform one iteration of the quicksort algorithm on the list [8, 3, 1, 7, 2, 6] with pivot 2. What are the sublists?"
-HB_EXP1_0113,procedural_v2_error_recovery_0044,procedural,error_recovery,,short_text,"A database cluster has detected a failed node, resulting in a 50% reduction in query processing capacity. What is the correct recovery action?"
-HB_EXP1_0114,procedural_v2_multistep_planning_0039,procedural,multistep_planning,,short_text,Your Git repository is out of sync with the remote repository. What is the first step to update it?
-HB_EXP1_0115,procedural_v2_protocol_compliance_0021,procedural,protocol_compliance,,short_text,"A code file is opened by three developers at the same time, and one developer tries to save modifications. Per standard file locking protocol, what should happen?"
-HB_EXP1_0116,procedural_v2_recipe_following_0016,procedural,recipe_following,,short_text,"A recipe for making pizza dough calls for 1 cup of warm water, 1 teaspoon of active dry yeast, and 2 cups of all-purpose flour. If you reduce the amount of yeast to 1/2 teaspoon, what adjustment should you make to the rising time?"
-HB_EXP1_0117,procedural_v2_algorithm_execution_0007,procedural,algorithm_execution,,short_text,"Apply the first step of the radix sort algorithm to the list [118, 23, 945, 67, 39, 85, 5, 12]. What is the list after the step?"
-HB_EXP1_0118,procedural_v2_error_recovery_0045,procedural,error_recovery,,short_text,"A data center's cooling system fails, causing a rise in server temperature. What is the correct recovery action?"
-HB_EXP1_0119,procedural_v2_multistep_planning_0033,procedural,multistep_planning,,short_text,Your Python program requires the NumPy library. You have pip installed. What's the next step?
-HB_EXP1_0120,procedural_v2_protocol_compliance_0026,procedural,protocol_compliance,,short_text,"A client submits an order form with an invalid shipping address. According to standard order processing protocol, what is the next action?"
-HB_EXP1_0121,social_v2_implicature_0003,social,implicature,,short_text,A roommate asks to use your gaming console and you say 'I'm not sure if it's free tonight.' What do you likely mean?
-HB_EXP1_0122,social_v2_pragmatic_inference_0024,social,pragmatic_inference,,short_text,A: Can you make me a sandwich? B: I'm not a chef. What should A do?
-HB_EXP1_0123,social_v2_sarcasm_detection_0031,social,sarcasm_detection,,short_text,"After winning a game, Sarah said 'I'm so disappointed.' Was she being sincere or sarcastic?"
-HB_EXP1_0124,social_v2_social_norm_violation_0043,social,social_norm_violation,,short_text,A colleague often interrupts others during video conferences and doesn't let them contribute to the discussion.
-HB_EXP1_0125,social_v2_theory_of_mind_0019,social,theory_of_mind,,short_text,Emily put her favorite book in a backpack before going to school. Where will Emily look for the book when she gets to school?
-HB_EXP1_0126,social_v2_implicature_0009,social,implicature,,short_text,"A coworker asks if you enjoyed their new art exhibit, and you say 'The lighting is excellent.' What do you likely mean?"
-HB_EXP1_0127,social_v2_pragmatic_inference_0027,social,pragmatic_inference,,short_text,A: Can you help me move this couch? C: I'm on a phone call. What should A do?
-HB_EXP1_0128,social_v2_sarcasm_detection_0036,social,sarcasm_detection,,short_text,"After waiting in line for hours, a concertgoer said 'What an amazing venue!' Was the concertgoer being sincere or sarcastic?"
-HB_EXP1_0129,social_v2_social_norm_violation_0040,social,social_norm_violation,,short_text,"During a quiet hour on a bus, a passenger starts playing music loudly from their phone's speaker while others are trying to rest. Is this a social norm violation?"
-HB_EXP1_0130,social_v2_theory_of_mind_0019,social,theory_of_mind,,short_text,Sophia put her favorite doll in a bag before going to grandma's house. Where will Sophia look for the doll when she gets to grandma's house?
-HB_EXP1_0131,social_v2_implicature_0005,social,implicature,,short_text,A neighbor asks for your honest opinion on their new home renovation plan and you say 'It's... lofty.' What do you likely mean?
-HB_EXP1_0132,social_v2_pragmatic_inference_0011,social,pragmatic_inference,,short_text,A: Can you turn off the light? B: I'm not near the switch. What should A do?
-HB_EXP1_0133,social_v2_sarcasm_detection_0038,social,sarcasm_detection,,short_text,"After missing their flight, someone said 'This is exactly the way I wanted to spend my afternoon, waiting in the airport.' Was the person being sincere or sarcastic?"
-HB_EXP1_0134,social_v2_social_norm_violation_0045,social,social_norm_violation,,short_text,"During a job interview, the interviewer stands very close to the candidate, invading their personal space. Is this a social norm violation?"
-HB_EXP1_0135,social_v2_theory_of_mind_0013,social,theory_of_mind,,short_text,"Ethan's coach informed him that the soccer team's meeting is in the conference room. Later, the meeting was relocated to the cafeteria without Ethan's knowledge. Where does Ethan think the meeting is?"
-HB_EXP1_0136,social_v2_implicature_0004,social,implicature,,short_text,"A friend asks if you're free to hang out, and you say 'I have other plans.' What do you likely mean?"
-HB_EXP1_0137,social_v2_pragmatic_inference_0023,social,pragmatic_inference,,short_text,A: Can you help me? B: I have a family event on Saturday. What should A do?
-HB_EXP1_0138,social_v2_sarcasm_detection_0039,social,sarcasm_detection,,short_text,A client who received an incorrect invoice said 'This is exactly the amount I was expecting.' Was the client being sincere or sarcastic?
-HB_EXP1_0139,social_v2_social_norm_violation_0049,social,social_norm_violation,,short_text,A guest at a hotel takes a towel from another guest's room without asking permission. Is this a social norm violation?
-HB_EXP1_0140,social_v2_theory_of_mind_0018,social,theory_of_mind,,short_text,Tom's friend told him the bus leaves at 5. What time does Tom think the bus leaves?
-HB_EXP1_0141,social_v2_implicature_0008,social,implicature,,short_text,A friend asks to borrow money and you say 'I'm on a tight budget right now.' What do you likely mean?
-HB_EXP1_0142,social_v2_pragmatic_inference_0027,social,pragmatic_inference,,short_text,"A invites B to the movies. B says, 'I don't have money for a ticket.' What should A do?"
-HB_EXP1_0143,social_v2_sarcasm_detection_0033,social,sarcasm_detection,,short_text,"As it started raining on their wedding day, the bride said 'This is just perfect!' Was she being sincere or sarcastic?"
-HB_EXP1_0144,social_v2_social_norm_violation_0049,social,social_norm_violation,,short_text,A student in the library starts tapping their pen loudly on the desk of the person sitting next to them. Is this a social norm violation?
-HB_EXP1_0145,spatial_v2_2d_geometry_0006,spatial,2d_geometry,,exact_numeric,A rectangle is 3 units long and 3 units wide. What is the area of the rectangle?
-HB_EXP1_0146,spatial_v2_3d_visualization_0043,spatial,3d_visualization,,exact_numeric,A rectangle with a length of 2 units and a width of 1 unit has how many unit squares on its surface?
-HB_EXP1_0147,spatial_v2_distance_direction_0016,spatial,distance_direction,,short_text,Alex is east of Ben. Ben is east of Chris. Who is furthest west?
-HB_EXP1_0148,spatial_v2_relative_positioning_0024,spatial,relative_positioning,,short_text,The picture is above the shelf. The vase is below the shelf. What is between the picture and vase?
-HB_EXP1_0149,spatial_v2_spatial_transformation_0037,spatial,spatial_transformation,,short_text,A mirror reflection is applied to an L-shape pointing upwards and to the left. Which direction does the L-shape now point?
-HB_EXP1_0150,spatial_v2_2d_geometry_0007,spatial,2d_geometry,,exact_numeric,A billboard has a width of 9 meters and a height of 6 meters. What is its area?
-HB_EXP1_0151,spatial_v2_3d_visualization_0049,spatial,3d_visualization,,exact_numeric,A 1×2×1 stack of unit cubes has how many unit cubes?
-HB_EXP1_0152,spatial_v2_distance_direction_0015,spatial,distance_direction,,short_text,A skateboard is placed west of a scooter. The scooter is west of a moped. Which vehicle is furthest east?
-HB_EXP1_0153,spatial_v2_relative_positioning_0028,spatial,relative_positioning,,short_text,The toy car is below the block. The toy truck is above the block. What is between the toy car and the toy truck?
-HB_EXP1_0154,spatial_v2_spatial_transformation_0033,spatial,spatial_transformation,,short_text,A mirror reflection is applied to a compass needle pointing north. Which direction does the compass needle now point?
-HB_EXP1_0155,spatial_v2_2d_geometry_0001,spatial,2d_geometry,,exact_numeric,A billboard has a width of 8 meters and a height of 9 meters. What is its area?
-HB_EXP1_0156,spatial_v2_3d_visualization_0041,spatial,3d_visualization,,exact_numeric,A small cube-shaped box has how many visible surfaces?
-HB_EXP1_0157,spatial_v2_distance_direction_0005,spatial,distance_direction,,short_text,Ruby is south of Lucas. Who is furthest north?
-HB_EXP1_0158,spatial_v2_relative_positioning_0024,spatial,relative_positioning,,short_text,The house is north of the park. The school is south of the park. What is between the house and the school?
-HB_EXP1_0159,spatial_v2_spatial_transformation_0032,spatial,spatial_transformation,,short_text,A 90-degree clockwise rotation is applied to a sign pointing towards the southwest. Which direction does the sign now point?
-HB_EXP1_0160,spatial_v2_2d_geometry_0001,spatial,2d_geometry,,exact_numeric,A picture frame has a width of 6 inches and a height of 8 inches. What is its area?
-HB_EXP1_0161,spatial_v2_3d_visualization_0040,spatial,3d_visualization,,exact_numeric,A 1×1×3 stack of unit cubes has how many unit cubes?
-HB_EXP1_0162,spatial_v2_distance_direction_0018,spatial,distance_direction,,short_text,A chair is placed south of a table. The table is south of a desk. Which piece of furniture is furthest north?
-HB_EXP1_0163,spatial_v2_relative_positioning_0022,spatial,relative_positioning,,short_text,The TV is right of the sofa. The coffee table is left of the sofa. What is between the TV and the coffee table?
-HB_EXP1_0164,spatial_v2_spatial_transformation_0034,spatial,spatial_transformation,,short_text,"A rectangle's long side points down. If it is turned 90 degrees to the left, which direction does its long side point?"
-HB_EXP1_0165,spatial_v2_2d_geometry_0000,spatial,2d_geometry,,exact_numeric,What is the perimeter of a square garden with sides of length 9 meters?
-HB_EXP1_0166,spatial_v2_3d_visualization_0016,spatial,3d_visualization,,exact_numeric,A 2-block tower is built with 2 blocks stacked horizontally to the east. Each block is a 1x1 rectangle. How many visible sides does the tower have?
-HB_EXP1_0167,spatial_v2_distance_direction_0012,spatial,distance_direction,,short_text,A house is placed north of a shed. The shed is north of a barn. Which object is furthest south?
-HB_EXP1_0168,spatial_v2_relative_positioning_0020,spatial,relative_positioning,,short_text,The sofa is left of the coffee table. The TV is right of the coffee table. What is between the sofa and the TV?
-HB_EXP1_0169,temporal_v2_duration_estimation_0019,temporal,duration_estimation,,short_text,"A person travels for 6 hours. If they start on a Wednesday at 9:00 AM, when do they arrive?"
-HB_EXP1_0170,temporal_v2_ordering_events_0006,temporal,ordering_events,,short_text,"What was the order of these events: Apple introduces the Macintosh computer (1984), first Space Shuttle disaster (1986), and first mobile phone call (1973)?"
-HB_EXP1_0171,temporal_v2_scheduling_0039,temporal,scheduling,,short_text,A lecture begins at 9:00 AM and lasts for 2 hours and 30 minutes. What time will it end?
-HB_EXP1_0172,temporal_v2_temporal_paradoxes_0043,temporal,temporal_paradoxes,,short_text,A film was released in 1960 and its director was born in 1950. Is this possible?
-HB_EXP1_0173,temporal_v2_timezone_arithmetic_0025,temporal,timezone_arithmetic,,short_text,"It's 1 AM in Moscow, which is UTC+3. What time is it in UTC?"
-HB_EXP1_0174,temporal_v2_duration_estimation_0016,temporal,duration_estimation,,short_text,A festival starts at 2:00 PM and lasts 1 day. What time does it end?
-HB_EXP1_0175,temporal_v2_ordering_events_0001,temporal,ordering_events,,short_text,"What was the order of these events: the sinking of the Titanic (1912), the start of World War I (1914), and the discovery of King Tut's tomb (1922)?"
-HB_EXP1_0176,temporal_v2_scheduling_0035,temporal,scheduling,,short_text,"A chef has a 1-hour food preparation task starting 15 minutes after a 15-minute kitchen cleaning. If the cleaning starts at 9:00 AM, what time will the food preparation task end?"
-HB_EXP1_0177,temporal_v2_temporal_paradoxes_0017,temporal,temporal_paradoxes,,short_text,"A teacher states that a school play occurred 3 days ago, and it was exactly 1 day after another play. Is it possible that the second play occurred 4 days ago?"
-HB_EXP1_0178,temporal_v2_timezone_arithmetic_0028,temporal,timezone_arithmetic,,short_text,"Cairo is UTC+1. If it is 9 PM in UTC, what time is it in Cairo?"
-HB_EXP1_0179,temporal_v2_duration_estimation_0018,temporal,duration_estimation,,short_text,"A machine runs for 3 hours and 15 minutes. If it starts on a Friday at 12:00 PM, when does it stop?"
-HB_EXP1_0180,temporal_v2_ordering_events_0005,temporal,ordering_events,,short_text,"Which came first: first Apple computer (1976), first cellular network (1979), or first IBM PC (1981)?"
-HB_EXP1_0181,temporal_v2_scheduling_0030,temporal,scheduling,,short_text,A doctor has a patient consultation at 9:00 AM that lasts 15 minutes. A lab test is scheduled 30 minutes after the consultation ends. What time is the lab test?
-HB_EXP1_0182,temporal_v2_temporal_paradoxes_0044,temporal,temporal_paradoxes,,short_text,"A person claims they are 30 years old and have been working at a company for 15 years. However, the company was founded 5 years ago. Is this possible?"
-HB_EXP1_0183,temporal_v2_timezone_arithmetic_0028,temporal,timezone_arithmetic,,short_text,"It's 10 AM in UTC. What time is it in Santiago, which is UTC-4?"
-HB_EXP1_0184,temporal_v2_duration_estimation_0015,temporal,duration_estimation,,short_text,A student studies for 9 hours and finishes at 5:00 PM. What time did they start?
-HB_EXP1_0185,temporal_v2_ordering_events_0004,temporal,ordering_events,,short_text,Which came first: the first Olympics in Athens (1896) or the first Winter Olympics in Chamonix (1924)?
-HB_EXP1_0186,temporal_v2_scheduling_0037,temporal,scheduling,,short_text,"A teacher has a 30-minute meeting starting immediately after a 1-hour class. If the class starts at 10:00 AM, what time will the meeting end?"
-HB_EXP1_0187,temporal_v2_temporal_paradoxes_0043,temporal,temporal_paradoxes,,short_text,What are the odds that a child is a boy?
-HB_EXP1_0188,temporal_v2_timezone_arithmetic_0025,temporal,timezone_arithmetic,,short_text,"A city is UTC+0. If it is 4 PM in UTC, what time is it in that city?"
-HB_EXP1_0189,temporal_v2_duration_estimation_0013,temporal,duration_estimation,,short_text,A concert starts at 2:00 PM and lasts 3 hours and 15 minutes. What time does it end?
-HB_EXP1_0190,temporal_v2_ordering_events_0003,temporal,ordering_events,,short_text,"Which event occurred before the others: first launch of the space shuttle (1981), first Apple computer release (1976), and first Sony Walkman release (1979)?"
-HB_EXP1_0191,temporal_v2_scheduling_0030,temporal,scheduling,,short_text,A lecture starts at 6:00 PM and lasts for 3 hours. What time will it end?
-HB_EXP1_0192,temporal_v2_temporal_paradoxes_0040,temporal,temporal_paradoxes,,short_text,A student claims he is 20 years old and has been studying abroad for 8 years. Is this possible?
+HB_EXP1_0025,arithmetic_v2_word_problems_0017,arithmetic,word_problems,,exact_numeric,You have 9 crayons and you want to give an equal number to 3 of your friends. How many crayons will each friend get?
+HB_EXP1_0026,arithmetic_v2_estimation_0028,arithmetic,estimation,,short_text,How many minutes are in 30 minutes plus 10 minutes?
+HB_EXP1_0027,arithmetic_v2_mental_calculation_0006,arithmetic,mental_calculation,,exact_numeric,"A city has 240 people. If 80 more people move to the city, what is the new population?"
+HB_EXP1_0028,arithmetic_v2_numerical_reasoning_0042,arithmetic,numerical_reasoning,,short_text,"Which of the following fractions is the largest: 1/4, 1/2, 1/3, or 1/5"
+HB_EXP1_0029,arithmetic_v2_unit_conversion_0038,arithmetic,unit_conversion,,exact_numeric,A bookshelf is 180 cm tall. How many meters is that?
+HB_EXP1_0030,arithmetic_v2_word_problems_0012,arithmetic,word_problems,,exact_numeric,Alex has $20 to spend on breakfast. He buys a muffin for $5 and a coffee for $2. How much money does he have left?
+HB_EXP1_0031,arithmetic_v2_estimation_0028,arithmetic,estimation,,short_text,About how many hours are in 3 weeks?
+HB_EXP1_0032,arithmetic_v2_mental_calculation_0004,arithmetic,mental_calculation,,exact_numeric,"A bakery wants to package some cookies. If they have 216 cookies and there are 9 boxes, how many cookies will each box hold?"
+HB_EXP1_0033,arithmetic_v2_numerical_reasoning_0042,arithmetic,numerical_reasoning,,short_text,Compare 0.75 and 75% of a whole. Which is larger?
+HB_EXP1_0034,arithmetic_v2_unit_conversion_0034,arithmetic,unit_conversion,,exact_numeric,A book weighs 1000 grams. How many kilograms is that?
+HB_EXP1_0035,arithmetic_v2_word_problems_0012,arithmetic,word_problems,,exact_numeric,Sarah has $25 to spend on lunch. She buys a sandwich for $8 and a drink for $4. How much money does she have left?
+HB_EXP1_0036,arithmetic_v2_estimation_0028,arithmetic,estimation,,short_text,About how many days are in 3 weeks?
+HB_EXP1_0037,arithmetic_v2_mental_calculation_0000,arithmetic,mental_calculation,,exact_numeric,Emily has 187 markers in her desk. She gives 29 markers to her classmate. How many markers does Emily have left?
+HB_EXP1_0038,arithmetic_v2_numerical_reasoning_0049,arithmetic,numerical_reasoning,,short_text,"Compare the values of 0.2, 1/5, and 20%."
+HB_EXP1_0039,arithmetic_v2_unit_conversion_0033,arithmetic,unit_conversion,,exact_numeric,A box of cereal weighs 0.9 kg. How many grams is that?
+HB_EXP1_0040,arithmetic_v2_word_problems_0011,arithmetic,word_problems,,exact_numeric,"A single shelf can hold 6 books. If you have 2 identical shelves, how many books can you place on them in total?"
+HB_EXP1_0041,arithmetic_v2_estimation_0029,arithmetic,estimation,,short_text,"If a factory worker can assemble 75 components per hour, about how many components can they assemble in 16 hours?"
+HB_EXP1_0042,arithmetic_v2_mental_calculation_0005,arithmetic,mental_calculation,,exact_numeric,A player earns 243 points in a tournament and then loses 71 points. What is the player's new score?
+HB_EXP1_0043,arithmetic_v2_numerical_reasoning_0046,arithmetic,numerical_reasoning,,short_text,"A small bottle can hold 6, 8, or 10 ounces of soda. What is the capacity of the smallest bottle?"
+HB_EXP1_0044,arithmetic_v2_unit_conversion_0030,arithmetic,unit_conversion,,exact_numeric,A painting is 120 cm long. How many meters is that?
+HB_EXP1_0045,arithmetic_v2_word_problems_0010,arithmetic,word_problems,,exact_numeric,"Jackson has 24 packs of highlighters to sell at the office. Each pack contains 6 highlighters. If he sells 4 packs, how many highlighters does he have left?"
+HB_EXP1_0046,arithmetic_v2_estimation_0023,arithmetic,estimation,,short_text,"If a bookstore sells 300 books per day, about how many books does it sell in a week?"
+HB_EXP1_0047,arithmetic_v2_mental_calculation_0001,arithmetic,mental_calculation,,exact_numeric,"A bookstore has 243 novels. If 79 novels are added, how many novels are in the bookstore now?"
+HB_EXP1_0048,arithmetic_v2_numerical_reasoning_0041,arithmetic,numerical_reasoning,,short_text,A book is on sale for $8 and $10 at two different stores. Where is it cheapest?
+HB_EXP1_0049,factual_v2_cross_domain_trivia_0047,factual,cross_domain_trivia,,short_text,"The acclaimed geologist Mary Anning wrote a popular science book called 'The Fossil Hunter', which explores the concept of which phenomenon that she is also known for discovering?"
+HB_EXP1_0050,factual_v2_culture_0038,factual,culture,,short_text,Who wrote the famous novel 'Pride and Prejudice'?
+HB_EXP1_0051,factual_v2_geography_0005,factual,geography,,short_text,What is the capital of Japan?
+HB_EXP1_0052,factual_v2_history_0028,factual,history,,short_text,Who was the English queen who ruled during the 16th century and is famous for being a virgin?
+HB_EXP1_0053,factual_v2_science_0018,factual,science,,short_text,What is the scientific term for the preserved remains of prehistoric creatures?
+HB_EXP1_0054,factual_v2_cross_domain_trivia_0044,factual,cross_domain_trivia,,short_text,What type of rock is formed from the cooling and solidification of magma or lava?
+HB_EXP1_0055,factual_v2_culture_0032,factual,culture,,short_text,Who composed the symphony 'Symphony No. 5'?
+HB_EXP1_0056,factual_v2_geography_0008,factual,geography,,short_text,What is the most well-known city in China?
+HB_EXP1_0057,factual_v2_history_0024,factual,history,,short_text,Who led China during World War II?
+HB_EXP1_0058,factual_v2_science_0017,factual,science,,short_text,What is the chemical formula for carbon dioxide?
+HB_EXP1_0059,factual_v2_cross_domain_trivia_0045,factual,cross_domain_trivia,,short_text,What is the chemical symbol for the lightest element?
+HB_EXP1_0060,factual_v2_culture_0031,factual,culture,,short_text,Who painted 'The Starry Night'?
+HB_EXP1_0061,factual_v2_geography_0001,factual,geography,,short_text,Which river is the longest in North America?
+HB_EXP1_0062,factual_v2_history_0025,factual,history,,short_text,In what year did the Great Fire of London occur?
+HB_EXP1_0063,factual_v2_science_0019,factual,science,,short_text,"What is the speed of light in a vacuum, in kilometers per hour?"
+HB_EXP1_0064,factual_v2_cross_domain_trivia_0042,factual,cross_domain_trivia,,short_text,"Who was the husband of Mary Shelley, the author of 'Frankenstein'?"
+HB_EXP1_0065,factual_v2_culture_0034,factual,culture,,short_text,Who is credited with the invention of the light bulb?
+HB_EXP1_0066,factual_v2_geography_0007,factual,geography,,short_text,What is the world's largest rainforest by area?
+HB_EXP1_0067,factual_v2_history_0022,factual,history,,short_text,What was the name of the treaty that ended the Franco-Prussian War?
+HB_EXP1_0068,factual_v2_science_0010,factual,science,,short_text,What is the process by which crops convert sunlight into biomass?
+HB_EXP1_0069,factual_v2_cross_domain_trivia_0049,factual,cross_domain_trivia,,short_text,What type of musical instrument is often associated with the jazz genre and was popularized by Louis Armstrong?
+HB_EXP1_0070,factual_v2_culture_0033,factual,culture,,short_text,What is the name of the famous novel by Herman Melville that begins with the line 'Call me Ishmael'?
+HB_EXP1_0071,factual_v2_geography_0002,factual,geography,,short_text,What is the world's largest desert by land area?
+HB_EXP1_0072,factual_v2_history_0022,factual,history,,short_text,Who was the leader of the United Kingdom during the Falklands War?
+HB_EXP1_0073,factual_v2_science_0011,factual,science,,short_text,What is the largest planet that orbits the Sun?
+HB_EXP1_0074,factual_v2_cross_domain_trivia_0046,factual,cross_domain_trivia,,short_text,What ancient Greek philosopher also made significant contributions to the field of biology?
+HB_EXP1_0075,factual_v2_culture_0014,factual,culture,,short_text,Who is a famous German composer?
+HB_EXP1_0076,factual_v2_geography_0003,factual,geography,,short_text,What is the capital of Canada?
+HB_EXP1_0077,factual_v2_history_0022,factual,history,,short_text,What was the name of the treaty that ended the Austro-Prussian War?
+HB_EXP1_0078,factual_v2_science_0015,factual,science,,short_text,What is the smallest entity that can be considered alive?
+HB_EXP1_0079,factual_v2_cross_domain_trivia_0041,factual,cross_domain_trivia,,short_text,What is the largest planet in our solar system?
+HB_EXP1_0080,factual_v2_culture_0030,factual,culture,,short_text,Who painted the famous artwork 'The Persistence of Memory'?
+HB_EXP1_0081,factual_v2_geography_0002,factual,geography,,short_text,What is the world's largest desert by land area?
+HB_EXP1_0082,factual_v2_history_0020,factual,history,,short_text,In which year did the Chinese Revolution begin?
+HB_EXP1_0083,factual_v2_science_0010,factual,science,,short_text,How do green algae convert light energy from the sun into organic compounds?
+HB_EXP1_0084,factual_v2_cross_domain_trivia_0041,factual,cross_domain_trivia,,short_text,What is the name of the chemical element that is also the name of a heavy metal band?
+HB_EXP1_0085,factual_v2_culture_0032,factual,culture,,short_text,Who invented the light bulb?
+HB_EXP1_0086,factual_v2_geography_0005,factual,geography,,short_text,What is the capital of the country where the Amazon rainforest is located?
+HB_EXP1_0087,factual_v2_history_0026,factual,history,,short_text,Who was the ancient Greek historian known for his book 'The Histories'?
+HB_EXP1_0088,factual_v2_science_0014,factual,science,,short_text,At what temperature does water boil in a laboratory setting in Celsius?
+HB_EXP1_0089,factual_v2_cross_domain_trivia_0048,factual,cross_domain_trivia,,short_text,Who wrote the famous novel 'The Great Gatsby' and was also a soldier?
+HB_EXP1_0090,factual_v2_culture_0035,factual,culture,,short_text,Who composed the famous symphony 'Symphony No. 9'?
+HB_EXP1_0091,factual_v2_geography_0003,factual,geography,,short_text,What is the capital of Colombia?
+HB_EXP1_0092,factual_v2_history_0028,factual,history,,short_text,Who was the English queen often called the 'Virgin Queen'?
+HB_EXP1_0093,factual_v2_science_0014,factual,science,,short_text,At what temperature does water boil in Celsius?
+HB_EXP1_0094,factual_v2_cross_domain_trivia_0049,factual,cross_domain_trivia,,short_text,"Jane Austen, a famous English novelist, lived during the reign of which king?"
+HB_EXP1_0095,factual_v2_culture_0039,factual,culture,,short_text,Who wrote the famous play 'Romeo and Juliet'?
+HB_EXP1_0096,factual_v2_geography_0004,factual,geography,,short_text,Which state has the longest coastline in the United States?
+HB_EXP1_0097,linguistic_v2_ambiguity_resolution_0023,linguistic,ambiguity_resolution,,short_text,What are two possible meanings of the sentence: 'The woman heard the man with the phone.'
+HB_EXP1_0098,linguistic_v2_grammar_correction_0043,linguistic,grammar_correction,,short_text,Is there a grammatical error in: 'The book is on the table.'
+HB_EXP1_0099,linguistic_v2_morphology_0018,linguistic,morphology,,short_text,What is the morphological decomposition of 'nonconformity'?
+HB_EXP1_0100,linguistic_v2_register_formality_0032,linguistic,register_formality,,short_text,Is the phrase 'I'm totally amped for the festival' suitable for a job interview at a conservative company?
+HB_EXP1_0101,linguistic_v2_syntax_parsing_0002,linguistic,syntax_parsing,,short_text,"In the sentence 'The organization, which was established in 1920, provides vital services', what word does 'which was established in 1920' modify?"
+HB_EXP1_0102,linguistic_v2_ambiguity_resolution_0021,linguistic,ambiguity_resolution,,short_text,Which reading is more natural given the context: 'The researcher is studying a report on the plane.' - 'The researcher is studying a report that is about the plane.' or 'The researcher is studying a report while on the plane.'
+HB_EXP1_0103,linguistic_v2_grammar_correction_0043,linguistic,grammar_correction,,short_text,"What is the grammatical error in: 'If I was a famous actor, I would win an Oscar.'"
+HB_EXP1_0104,linguistic_v2_morphology_0014,linguistic,morphology,,short_text,What is the morphological decomposition of 'disenthusiastically'?
+HB_EXP1_0105,linguistic_v2_register_formality_0033,linguistic,register_formality,,short_text,Rewrite in informal register: 'I am delighted to announce the forthcoming nuptials of my esteemed colleague.'
+HB_EXP1_0106,linguistic_v2_syntax_parsing_0004,linguistic,syntax_parsing,,short_text,"In the sentence ""The song, composed by a talented musician, is a hit"", what word does ""composed by a talented musician"" modify?"
+HB_EXP1_0107,linguistic_v2_ambiguity_resolution_0022,linguistic,ambiguity_resolution,,short_text,Give two interpretations of: 'I'm searching for a pencil to draw with.'
+HB_EXP1_0108,linguistic_v2_grammar_correction_0045,linguistic,grammar_correction,,short_text,"What is the grammatical error in: 'The company has laid off hundreds of employees, but the CEO says they is still hiring.'"
+HB_EXP1_0109,linguistic_v2_morphology_0011,linguistic,morphology,,short_text,What prefix in 'impossible' indicates 'not'?
+HB_EXP1_0110,linguistic_v2_register_formality_0035,linguistic,register_formality,,short_text,Is the phrase 'I'm gonna grab a snack' suitable for a job interview?
+HB_EXP1_0111,linguistic_v2_syntax_parsing_0006,linguistic,syntax_parsing,,short_text,"In the sentence 'The city's population, which was small, is now larger', what word does the clause 'which was small' modify?"
+HB_EXP1_0112,linguistic_v2_ambiguity_resolution_0021,linguistic,ambiguity_resolution,,short_text,Which reading is more natural given the context: 'The author is editing a manuscript on the ferry.' - 'The author is editing a manuscript that is about the ferry.' or 'The author is editing a manuscript while on the ferry.'
+HB_EXP1_0113,linguistic_v2_grammar_correction_0049,linguistic,grammar_correction,,short_text,What is the grammatical error in: 'The hotel's promise is to provide it's guests with a comfortable stay.'
+HB_EXP1_0114,linguistic_v2_morphology_0012,linguistic,morphology,,short_text,What is the derivational history of 'unaccountable'?
+HB_EXP1_0115,linguistic_v2_register_formality_0035,linguistic,register_formality,,short_text,Is the phrase 'I'm gonna grab a snack' too casual for work?
+HB_EXP1_0116,linguistic_v2_syntax_parsing_0005,linguistic,syntax_parsing,,short_text,"In the sentence ""The athletes, worn out from the intense training, recovered at the gym"", what word does ""worn out from the intense training"" modify?"
+HB_EXP1_0117,linguistic_v2_ambiguity_resolution_0028,linguistic,ambiguity_resolution,,short_text,Provide two interpretations of: 'The new curriculum is impacting the students who are in their final year.'
+HB_EXP1_0118,linguistic_v2_grammar_correction_0044,linguistic,grammar_correction,,short_text,Identify the grammatical error in: 'The new law applies to all residents whom are living in the city.'
+HB_EXP1_0119,linguistic_v2_morphology_0012,linguistic,morphology,,short_text,What is the derivational history of 'irreplaceable'?
+HB_EXP1_0120,linguistic_v2_register_formality_0036,linguistic,register_formality,,short_text,Is the phrase 'Talk to you later!' formal or informal?
+HB_EXP1_0121,linguistic_v2_syntax_parsing_0000,linguistic,syntax_parsing,,short_text,"In the sentence ""The manager, who was very experienced, supervised the team"", what word does ""who was very experienced"" modify?"
+HB_EXP1_0122,linguistic_v2_ambiguity_resolution_0023,linguistic,ambiguity_resolution,,short_text,Which reading is more natural given the context: 'The mentor gave the apprentice a guide to read over the vacation.' - 'The mentor gave the apprentice a guide that is about vacations.' or 'The mentor gave the apprentice a guide to read during the vacation.'
+HB_EXP1_0123,linguistic_v2_grammar_correction_0042,linguistic,grammar_correction,,short_text,Identify the grammatical error in: 'The software company will have been developing apps for 25 years by the time it launches its new product.'
+HB_EXP1_0124,linguistic_v2_morphology_0012,linguistic,morphology,,short_text,What is the derivational history of 'unrecognizable'?
+HB_EXP1_0125,linguistic_v2_register_formality_0038,linguistic,register_formality,,short_text,Identify the register of the phrase: 'I'm stoked to be attending the concert tonight!'
+HB_EXP1_0126,linguistic_v2_syntax_parsing_0003,linguistic,syntax_parsing,,short_text,"In the sentence 'The musicians, enthusiastic about jazz, performed the concert', what word does 'enthusiastic about jazz' modify?"
+HB_EXP1_0127,linguistic_v2_ambiguity_resolution_0027,linguistic,ambiguity_resolution,,short_text,What does 'The journalist interviewed the politician with a microphone' mean in a normal conversation?
+HB_EXP1_0128,linguistic_v2_grammar_correction_0043,linguistic,grammar_correction,,short_text,What is the grammatical error in: 'The team are going to the game.'
+HB_EXP1_0129,linguistic_v2_morphology_0019,linguistic,morphology,,short_text,What is the morphological decomposition of 'renew'?
+HB_EXP1_0130,linguistic_v2_register_formality_0031,linguistic,register_formality,,short_text,Why did they create the new rule?
+HB_EXP1_0131,linguistic_v2_syntax_parsing_0005,linguistic,syntax_parsing,,short_text,"In the sentence ""The hikers, drained from the steep climb, camped at the summit"", what word does ""drained from the steep climb"" modify?"
+HB_EXP1_0132,linguistic_v2_ambiguity_resolution_0024,linguistic,ambiguity_resolution,,short_text,Provide two distinct interpretations of the sentence: 'The coach is meeting with the players who are on the injured list.'
+HB_EXP1_0133,linguistic_v2_grammar_correction_0047,linguistic,grammar_correction,,short_text,"What is the grammatical error in: 'The new designer, whom the art director hired last year, are very creative.'"
+HB_EXP1_0134,linguistic_v2_morphology_0010,linguistic,morphology,,short_text,What is the root morpheme of 'illegitimacy'?
+HB_EXP1_0135,linguistic_v2_register_formality_0039,linguistic,register_formality,,short_text,What's the 411?
+HB_EXP1_0136,linguistic_v2_syntax_parsing_0008,linguistic,syntax_parsing,,short_text,"In the sentence 'The book on the table, which is old, belongs to me', what word does the clause 'which is old' modify?"
+HB_EXP1_0137,linguistic_v2_ambiguity_resolution_0028,linguistic,ambiguity_resolution,,short_text,Give two interpretations of: 'The new policy is affecting the employees who are over 40.'
+HB_EXP1_0138,linguistic_v2_grammar_correction_0019,linguistic,grammar_correction,,short_text,What is the grammatical error in the sentence: 'The team are going to the game.'
+HB_EXP1_0139,linguistic_v2_morphology_0017,linguistic,morphology,,short_text,What suffix in 'humanism' forms a noun indicating a doctrine or system?
+HB_EXP1_0140,linguistic_v2_register_formality_0033,linguistic,register_formality,,short_text,Rewrite in informal register: 'I am delighted to announce the forthcoming arrival of my cherished cousin.'
+HB_EXP1_0141,linguistic_v2_syntax_parsing_0004,linguistic,syntax_parsing,,short_text,"In the sentence 'The poem, penned by a celebrated poet, is a masterpiece', what word does 'penned by a celebrated poet' modify?"
+HB_EXP1_0142,linguistic_v2_ambiguity_resolution_0023,linguistic,ambiguity_resolution,,short_text,What are two possible meanings of the sentence: 'The girl saw the boy with the binoculars.'
+HB_EXP1_0143,linguistic_v2_grammar_correction_0047,linguistic,grammar_correction,,short_text,"What is the grammatical error in: 'The painting, which is on the wall, are for sale.'"
+HB_EXP1_0144,linguistic_v2_morphology_0012,linguistic,morphology,,short_text,What suffix is added to 'run' to form the noun 'running'?
+HB_EXP1_0145,logical_v2_conditional_reasoning_0037,logical,conditional_reasoning,,short_text,"If a bike has a bell, it can be ridden. This bike cannot be ridden. Does it have a bell?"
+HB_EXP1_0146,logical_v2_proof_evaluation_0043,logical,proof_evaluation,,short_text,Premise: All countries in Europe use the Euro. The UK is in Europe. Conclusion: The UK uses the Euro. What is wrong?
+HB_EXP1_0147,logical_v2_propositional_logic_0015,logical,propositional_logic,,short_text,"If the warning signal is off, the workers can proceed. The warning signal is currently off. Can the workers proceed?"
+HB_EXP1_0148,logical_v2_set_relations_0008,logical,set_relations,,short_text,All cats are pets. Is a cat a pet?
+HB_EXP1_0149,logical_v2_syllogisms_0009,logical,syllogisms,,short_text,All cellos are string instruments. The Amati is a cello. What type of instrument is the Amati?
+HB_EXP1_0150,logical_v2_conditional_reasoning_0032,logical,conditional_reasoning,,short_text,"If a bicycle is blue, it belongs to John. This bicycle belongs to John. Is this bicycle blue?"
+HB_EXP1_0151,logical_v2_proof_evaluation_0044,logical,proof_evaluation,,short_text,Premise: All cars have wheels. This bike is a car. Conclusion: This bike has wheels. What is wrong?
+HB_EXP1_0152,logical_v2_propositional_logic_0016,logical,propositional_logic,,short_text,"If the copier is jammed, it will display an error code. The copier is currently displaying an error code. Is the copier jammed?"
+HB_EXP1_0153,logical_v2_set_relations_0021,logical,set_relations,,short_text,All cars are vehicles. A truck is a vehicle. Is a truck a car?
+HB_EXP1_0154,logical_v2_syllogisms_0006,logical,syllogisms,,short_text,All apples are produce. The Granny Smith is an apple. What is the Granny Smith?
+HB_EXP1_0155,logical_v2_conditional_reasoning_0031,logical,conditional_reasoning,,short_text,"If a dog is happy, it will wag its tail. A dog did not wag its tail. Is the dog happy?"
+HB_EXP1_0156,logical_v2_proof_evaluation_0044,logical,proof_evaluation,,short_text,Premise: All dogs have tails. My neighbor's dog is a dog. Conclusion: My neighbor's dog has a tail. What is wrong?
+HB_EXP1_0157,logical_v2_propositional_logic_0018,logical,propositional_logic,,short_text,"If the eggs are cooked, the timer will beep. The timer is currently beeping. Are the eggs cooked?"
+HB_EXP1_0158,logical_v2_set_relations_0022,logical,set_relations,,short_text,All hexagons are polygons. A rhombus is a hexagon. Is a rhombus a polygon?
+HB_EXP1_0159,logical_v2_syllogisms_0009,logical,syllogisms,,short_text,All dogs are animals. Fido is a dog. What is Fido?
+HB_EXP1_0160,logical_v2_conditional_reasoning_0032,logical,conditional_reasoning,,short_text,"If a pencil is sharp, it can write. The pencil cannot write. Is the pencil sharp?"
+HB_EXP1_0161,logical_v2_proof_evaluation_0045,logical,proof_evaluation,,short_text,Premise: All isosceles trapezoids are parallelograms. A parallelogram is an isosceles trapezoid. Conclusion: All isosceles trapezoids are parallelograms. What is wrong?
+HB_EXP1_0162,logical_v2_propositional_logic_0014,logical,propositional_logic,,short_text,"If the projector is focused, the presentation will begin. The projector is not focused. Will the presentation begin?"
+HB_EXP1_0163,logical_v2_set_relations_0021,logical,set_relations,,short_text,All roses are flowers. A daisy is a flower. Is a daisy a rose?
+HB_EXP1_0164,logical_v2_syllogisms_0002,logical,syllogisms,,short_text,All cats are pets. Fluffy is a cat. What is Fluffy?
+HB_EXP1_0165,logical_v2_conditional_reasoning_0033,logical,conditional_reasoning,,short_text,"If a chef follows all the recipe steps, they will create a perfect dish. Olivia did not create a perfect dish. Did Olivia follow all the recipe steps?"
+HB_EXP1_0166,logical_v2_proof_evaluation_0047,logical,proof_evaluation,,short_text,Premise: All people who are 21 or older can buy liquor. My 20-year-old sister cannot buy liquor. Conclusion: My sister is not 21 or older.
+HB_EXP1_0167,logical_v2_propositional_logic_0010,logical,propositional_logic,,short_text,"If the pressure gauge reads above 120 psi, the pressure relief valve opens. The pressure gauge currently reads 125 psi. Does the pressure relief valve open?"
+HB_EXP1_0168,logical_v2_set_relations_0026,logical,set_relations,,short_text,All fish can breathe air. A shark is a fish. Can a shark breathe air?
+HB_EXP1_0169,logical_v2_syllogisms_0008,logical,syllogisms,,short_text,All condos are properties. The townhouse is a condo. What is the townhouse?
+HB_EXP1_0170,logical_v2_conditional_reasoning_0030,logical,conditional_reasoning,,short_text,"If it is snowing, the roads will be icy. The roads are not icy. Is it snowing?"
+HB_EXP1_0171,logical_v2_proof_evaluation_0040,logical,proof_evaluation,,short_text,Premise: All amphibians undergo metamorphosis. Frogs are amphibians. Conclusion: Frogs undergo metamorphosis. What is wrong?
+HB_EXP1_0172,logical_v2_propositional_logic_0012,logical,propositional_logic,,short_text,"If the door is locked, the key is needed. The door is locked. Is the key needed?"
+HB_EXP1_0173,logical_v2_set_relations_0028,logical,set_relations,,short_text,All stars are luminous objects. The asteroid belt is a luminous object but not a star. Is the asteroid belt a star?
+HB_EXP1_0174,logical_v2_syllogisms_0003,logical,syllogisms,,short_text,All SUVs are vehicles. The Explorer is an SUV. What is the Explorer?
+HB_EXP1_0175,logical_v2_conditional_reasoning_0035,logical,conditional_reasoning,,short_text,"If a toy is broken, it is thrown away. This toy is not thrown away. Is the toy broken?"
+HB_EXP1_0176,logical_v2_proof_evaluation_0046,logical,proof_evaluation,,short_text,Premise: All numbers divisible by 4 are even. 12 is divisible by 4. Conclusion: 12 is even. What is wrong?
+HB_EXP1_0177,logical_v2_propositional_logic_0007,logical,propositional_logic,,short_text,"If the coffee machine is turned off, the light will be off. The light is currently on. Is the coffee machine turned on?"
+HB_EXP1_0178,logical_v2_set_relations_0028,logical,set_relations,,short_text,All cars are vehicles. Bikes are vehicles. Are bikes cars?
+HB_EXP1_0179,logical_v2_syllogisms_0008,logical,syllogisms,,short_text,All villas are structures. The cottage is a villa. What is the cottage?
+HB_EXP1_0180,logical_v2_conditional_reasoning_0034,logical,conditional_reasoning,,short_text,"If a book is fiction, it is not based on real events. The book 'A Brief History of Time' is based on real events. Is the book 'A Brief History of Time' fiction?"
+HB_EXP1_0181,logical_v2_proof_evaluation_0044,logical,proof_evaluation,,short_text,Premise: All books are written in language. This chair is a book. Conclusion: This chair is written in language. What is wrong?
+HB_EXP1_0182,logical_v2_propositional_logic_0015,logical,propositional_logic,,short_text,"If the painting is framed, it will be sold. The painting is framed. Will it be sold?"
+HB_EXP1_0183,logical_v2_set_relations_0027,logical,set_relations,,short_text,All tables are furniture. Chairs are furniture. Are chairs tables?
+HB_EXP1_0184,logical_v2_syllogisms_0001,logical,syllogisms,,short_text,All guitars are stringed instruments. The Stratocaster is a guitar. What type of instrument is the Stratocaster?
+HB_EXP1_0185,logical_v2_conditional_reasoning_0033,logical,conditional_reasoning,,short_text,"If a player scores all possible points, they will win the game. David did not win the game. Did David score all possible points?"
+HB_EXP1_0186,logical_v2_proof_evaluation_0040,logical,proof_evaluation,,short_text,Premise: All cats are pets. My cat is a cat. Conclusion: My cat is a pet. What is wrong?
+HB_EXP1_0187,logical_v2_propositional_logic_0017,logical,propositional_logic,,short_text,"If the cafe is empty, the manager will be pleased. The cafe is currently full. Will the manager be pleased?"
+HB_EXP1_0188,logical_v2_set_relations_0028,logical,set_relations,,short_text,All nebulas are interstellar clouds. The Oort Cloud is an interstellar cloud but not a nebula. Is the Oort Cloud a nebula?
+HB_EXP1_0189,logical_v2_syllogisms_0002,logical,syllogisms,,short_text,All bears are omnivores. Growler is a bear. What type of animal is Growler?
+HB_EXP1_0190,logical_v2_conditional_reasoning_0015,logical,conditional_reasoning,,short_text,"If you have an umbrella, you will stay dry. John is getting wet. Is he using an umbrella?"
+HB_EXP1_0191,logical_v2_proof_evaluation_0045,logical,proof_evaluation,,short_text,Premise: All right triangles are isosceles triangles. An isosceles triangle is a right triangle. Conclusion: All right triangles are isosceles triangles. What is wrong?
+HB_EXP1_0192,logical_v2_propositional_logic_0014,logical,propositional_logic,,short_text,"If the pool is filled, the pump will start. The pool is not filled. Will the pump start?"
+HB_EXP1_0193,procedural_v2_algorithm_execution_0006,procedural,algorithm_execution,,short_text,"Perform one pass of the counting sort algorithm on the array [1, 0, 0, 8, 6, 6, 5]. What is the count array?"
+HB_EXP1_0194,procedural_v2_error_recovery_0046,procedural,error_recovery,,short_text,"A textile mill's quality assurance system fails, allowing substandard fabrics to be packaged and shipped. What is the correct recovery action?"
+HB_EXP1_0195,procedural_v2_multistep_planning_0032,procedural,multistep_planning,,short_text,You want to set up a new user account with a home directory. List the ordered steps to achieve this if you are the system administrator and the home directory is created automatically.
+HB_EXP1_0196,procedural_v2_protocol_compliance_0020,procedural,protocol_compliance,,short_text,"A poison control hotline receives a call from a frantic parent whose child has ingested a toxic substance. According to the standard poison control protocol, what is the next step?"
+HB_EXP1_0197,procedural_v2_recipe_following_0013,procedural,recipe_following,,short_text,"A recipe for 2 small bread rolls calls for baking at 375°F for 8 minutes. If you double the recipe, what adjustment should you make to the baking time?"
+HB_EXP1_0198,procedural_v2_algorithm_execution_0000,procedural,algorithm_execution,,short_text,"Perform one iteration of Dijkstra's algorithm on the graph with vertices X, Y, Z, and edges (X, Y, 3), (X, Z, 5), (Y, Z, 2) with starting vertex X. What is the shortest distance to vertex Z?"
+HB_EXP1_0199,procedural_v2_error_recovery_0040,procedural,error_recovery,,short_text,A phone app is consuming 30% of the phone's memory. What is the correct action to take?
+HB_EXP1_0200,procedural_v2_multistep_planning_0034,procedural,multistep_planning,,short_text,A user wants to reset their forgotten macOS password. The user has a macOS installation USB. List the correct ordered steps.
+HB_EXP1_0201,procedural_v2_protocol_compliance_0023,procedural,protocol_compliance,,short_text,"A web form submission is received with a password that does not meet the minimum complexity requirements. Per standard web form validation protocol, what should happen?"
+HB_EXP1_0202,procedural_v2_recipe_following_0019,procedural,recipe_following,,short_text,"A recipe for making cookies calls for 2 1/4 cups of all-purpose flour, 1 1/2 cups of confectioner's sugar, and 1 teaspoon of baking powder. If you substitute pastry flour for all-purpose flour, what adjustment should you make to the amount of sugar?"
+HB_EXP1_0203,procedural_v2_algorithm_execution_0002,procedural,algorithm_execution,,short_text,"Run one pass of the selection sort algorithm on the array [8, 5, 3, 2, 6]. What is the array after the pass?"
+HB_EXP1_0204,procedural_v2_error_recovery_0046,procedural,error_recovery,,short_text,A continuous deployment pipeline has failed due to a malfunctioning deployment script. The script has already caused two consecutive deployment failures. What is the correct recovery action?
+HB_EXP1_0205,procedural_v2_multistep_planning_0031,procedural,multistep_planning,,short_text,"A new team member needs to set up their workstation with the department's intranet and a required module. The module requires Ruby 2.7+, but the workstation has Ruby 2.5. List the correct ordered steps."
+HB_EXP1_0206,procedural_v2_protocol_compliance_0020,procedural,protocol_compliance,,short_text,"A search and rescue team receives a distress call from a stranded hiker. According to the standard search and rescue protocol, what is the next step?"
+HB_EXP1_0207,procedural_v2_recipe_following_0011,procedural,recipe_following,,short_text,"A pastry recipe requires 6 large eggs, 4 3/4 cups of confectioner's sugar, and 4 teaspoons of baking powder. If you double the recipe, what is the new amount of baking powder needed?"
+HB_EXP1_0208,procedural_v2_algorithm_execution_0003,procedural,algorithm_execution,,short_text,"Perform one iteration of the quicksort algorithm on the list [8, 3, 1, 7, 2, 6] with pivot 2. What are the sublists?"
+HB_EXP1_0209,procedural_v2_error_recovery_0044,procedural,error_recovery,,short_text,"A database cluster has detected a failed node, resulting in a 50% reduction in query processing capacity. What is the correct recovery action?"
+HB_EXP1_0210,procedural_v2_multistep_planning_0039,procedural,multistep_planning,,short_text,Your Git repository is out of sync with the remote repository. What is the first step to update it?
+HB_EXP1_0211,procedural_v2_protocol_compliance_0021,procedural,protocol_compliance,,short_text,"A code file is opened by three developers at the same time, and one developer tries to save modifications. Per standard file locking protocol, what should happen?"
+HB_EXP1_0212,procedural_v2_recipe_following_0016,procedural,recipe_following,,short_text,"A recipe for making pizza dough calls for 1 cup of warm water, 1 teaspoon of active dry yeast, and 2 cups of all-purpose flour. If you reduce the amount of yeast to 1/2 teaspoon, what adjustment should you make to the rising time?"
+HB_EXP1_0213,procedural_v2_algorithm_execution_0007,procedural,algorithm_execution,,short_text,"Apply the first step of the radix sort algorithm to the list [118, 23, 945, 67, 39, 85, 5, 12]. What is the list after the step?"
+HB_EXP1_0214,procedural_v2_error_recovery_0045,procedural,error_recovery,,short_text,"A data center's cooling system fails, causing a rise in server temperature. What is the correct recovery action?"
+HB_EXP1_0215,procedural_v2_multistep_planning_0033,procedural,multistep_planning,,short_text,Your Python program requires the NumPy library. You have pip installed. What's the next step?
+HB_EXP1_0216,procedural_v2_protocol_compliance_0026,procedural,protocol_compliance,,short_text,"A client submits an order form with an invalid shipping address. According to standard order processing protocol, what is the next action?"
+HB_EXP1_0217,procedural_v2_recipe_following_0012,procedural,recipe_following,,short_text,"A recipe for baking a cake calls for preheating the oven to 400°F and cooking the cake for 30 minutes. If you reduce the oven temperature to 350°F, what adjustment should you make to the cooking time?"
+HB_EXP1_0218,procedural_v2_algorithm_execution_0004,procedural,algorithm_execution,,short_text,"Apply the first step of the insertion sort algorithm to the array [10, 6, 12, 8]. What is the array after the step?"
+HB_EXP1_0219,procedural_v2_error_recovery_0047,procedural,error_recovery,,short_text,"A drone's navigation system fails, causing it to lose its position. What is the correct recovery action?"
+HB_EXP1_0220,procedural_v2_multistep_planning_0037,procedural,multistep_planning,,short_text,Your database query is slow. You know which column to index. What SQL command should you use to create the index?
+HB_EXP1_0221,procedural_v2_protocol_compliance_0011,procedural,protocol_compliance,,short_text,A user submits a simple quiz with an invalid answer. What should happen?
+HB_EXP1_0222,procedural_v2_recipe_following_0013,procedural,recipe_following,,short_text,"A recipe for making muffins calls for 1 1/2 cups of almond milk, 1 large egg, and 2 tablespoons of olive oil. If you omit the egg, what adjustment should you make to the amount of almond milk?"
+HB_EXP1_0223,procedural_v2_algorithm_execution_0009,procedural,algorithm_execution,,short_text,"Perform one step of the Floyd-Warshall algorithm on the graph with vertices P, Q, R, and edges (P, Q, 1), (P, R, 3), (Q, R, 2) with distance matrix [[0, 1, 3], [float('inf'), 0, 2], [float('inf'), float('inf'), 0]]. What is the updated distance matrix?"
+HB_EXP1_0224,procedural_v2_error_recovery_0041,procedural,error_recovery,,short_text,A device has failed to connect to Wi-Fi due to an incorrect password. What is the correct recovery action?
+HB_EXP1_0225,procedural_v2_multistep_planning_0030,procedural,multistep_planning,,short_text,"You want to transfer a small file to a remote server, but the server's SSH connection times out after 1 minute. What can you do to achieve this?"
+HB_EXP1_0226,procedural_v2_protocol_compliance_0027,procedural,protocol_compliance,,short_text,A security incident involves unauthorized access to a single file. What is the first step to contain the incident?
+HB_EXP1_0227,procedural_v2_recipe_following_0011,procedural,recipe_following,,short_text,"A scone recipe requires 2 large eggs, 1 1/4 cups of granulated sugar, and 1 3/4 teaspoons of baking powder. If you double the recipe, what is the new amount of baking powder needed?"
+HB_EXP1_0228,procedural_v2_algorithm_execution_0000,procedural,algorithm_execution,,short_text,"Perform one iteration of Dijkstra's algorithm on the graph with vertices X, Y, Z, and edges (X, Y, 3), (X, Z, 5), (Y, Z, 2) with starting vertex X. What is the shortest distance to vertex Z?"
+HB_EXP1_0229,procedural_v2_error_recovery_0042,procedural,error_recovery,,short_text,"A research facility's primary cooling system fails, and the backup chillers have not yet engaged. What is the correct recovery action?"
+HB_EXP1_0230,procedural_v2_multistep_planning_0030,procedural,multistep_planning,,short_text,Your desktop computer's boot partition has been compromised and needs to be restored from a backup. The backup is stored on a cloud storage service. List the correct ordered steps.
+HB_EXP1_0231,procedural_v2_protocol_compliance_0023,procedural,protocol_compliance,,short_text,"A desktop application account creation is received with a passphrase that does not meet the minimum complexity requirements. Per standard desktop application validation protocol, what should happen?"
+HB_EXP1_0232,procedural_v2_recipe_following_0012,procedural,recipe_following,,short_text,"A recipe for soup calls for 1 cup of water and 1 cup of broth. If you omit the water, what adjustment should you make to the broth?"
+HB_EXP1_0233,procedural_v2_algorithm_execution_0001,procedural,algorithm_execution,,short_text,"Apply the first step of the merge sort algorithm to the list [4, 9, 1, 7, 3, 5, 2]. What are the two halves of the list?"
+HB_EXP1_0234,procedural_v2_error_recovery_0043,procedural,error_recovery,,short_text,A food processing machine is in the middle of a production run when its heating coil fails. What is the correct recovery action?
+HB_EXP1_0235,procedural_v2_multistep_planning_0037,procedural,multistep_planning,,short_text,"You have a small list of 3 books with titles: 'Book1', 'Book2', 'Book3'. To make searching faster, what step should you take?"
+HB_EXP1_0236,procedural_v2_protocol_compliance_0026,procedural,protocol_compliance,,short_text,"A user submits a registration form with an expired verification code. According to standard registration protocol, what is the next action?"
+HB_EXP1_0237,procedural_v2_recipe_following_0013,procedural,recipe_following,,short_text,"A recipe for making waffles calls for 1 cup of buttermilk, 1 large egg, and 2 tablespoons of canola oil. If you omit the egg, what adjustment should you make to the amount of buttermilk?"
+HB_EXP1_0238,procedural_v2_algorithm_execution_0009,procedural,algorithm_execution,,short_text,"Perform one step of the Floyd-Warshall algorithm on the graph with vertices E, F, G, and edges (E, F, 7), (E, G, 2), (F, G, 1) with distance matrix [[0, 7, 2], [float('inf'), 0, 1], [float('inf'), float('inf'), 0]]. What is the updated distance matrix?"
+HB_EXP1_0239,procedural_v2_error_recovery_0046,procedural,error_recovery,,short_text,"An automotive parts supplier's inspection system fails, allowing non-conforming parts to be packaged and shipped. What is the correct recovery action?"
+HB_EXP1_0240,procedural_v2_multistep_planning_0031,procedural,multistep_planning,,short_text,"A new employee needs to set up their workstation with the company's VPN and a required software application. The application requires Java 11+, but the workstation has Java 8. List the correct ordered steps."
+HB_EXP1_0241,social_v2_implicature_0003,social,implicature,,short_text,A roommate asks to use your gaming console and you say 'I'm not sure if it's free tonight.' What do you likely mean?
+HB_EXP1_0242,social_v2_pragmatic_inference_0024,social,pragmatic_inference,,short_text,A: Can you make me a sandwich? B: I'm not a chef. What should A do?
+HB_EXP1_0243,social_v2_sarcasm_detection_0031,social,sarcasm_detection,,short_text,"After winning a game, Sarah said 'I'm so disappointed.' Was she being sincere or sarcastic?"
+HB_EXP1_0244,social_v2_social_norm_violation_0043,social,social_norm_violation,,short_text,A colleague often interrupts others during video conferences and doesn't let them contribute to the discussion.
+HB_EXP1_0245,social_v2_theory_of_mind_0019,social,theory_of_mind,,short_text,Emily put her favorite book in a backpack before going to school. Where will Emily look for the book when she gets to school?
+HB_EXP1_0246,social_v2_implicature_0009,social,implicature,,short_text,"A coworker asks if you enjoyed their new art exhibit, and you say 'The lighting is excellent.' What do you likely mean?"
+HB_EXP1_0247,social_v2_pragmatic_inference_0027,social,pragmatic_inference,,short_text,A: Can you help me move this couch? C: I'm on a phone call. What should A do?
+HB_EXP1_0248,social_v2_sarcasm_detection_0036,social,sarcasm_detection,,short_text,"After waiting in line for hours, a concertgoer said 'What an amazing venue!' Was the concertgoer being sincere or sarcastic?"
+HB_EXP1_0249,social_v2_social_norm_violation_0040,social,social_norm_violation,,short_text,"During a quiet hour on a bus, a passenger starts playing music loudly from their phone's speaker while others are trying to rest. Is this a social norm violation?"
+HB_EXP1_0250,social_v2_theory_of_mind_0019,social,theory_of_mind,,short_text,Sophia put her favorite doll in a bag before going to grandma's house. Where will Sophia look for the doll when she gets to grandma's house?
+HB_EXP1_0251,social_v2_implicature_0005,social,implicature,,short_text,A neighbor asks for your honest opinion on their new home renovation plan and you say 'It's... lofty.' What do you likely mean?
+HB_EXP1_0252,social_v2_pragmatic_inference_0011,social,pragmatic_inference,,short_text,A: Can you turn off the light? B: I'm not near the switch. What should A do?
+HB_EXP1_0253,social_v2_sarcasm_detection_0038,social,sarcasm_detection,,short_text,"After missing their flight, someone said 'This is exactly the way I wanted to spend my afternoon, waiting in the airport.' Was the person being sincere or sarcastic?"
+HB_EXP1_0254,social_v2_social_norm_violation_0045,social,social_norm_violation,,short_text,"During a job interview, the interviewer stands very close to the candidate, invading their personal space. Is this a social norm violation?"
+HB_EXP1_0255,social_v2_theory_of_mind_0013,social,theory_of_mind,,short_text,"Ethan's coach informed him that the soccer team's meeting is in the conference room. Later, the meeting was relocated to the cafeteria without Ethan's knowledge. Where does Ethan think the meeting is?"
+HB_EXP1_0256,social_v2_implicature_0004,social,implicature,,short_text,"A friend asks if you're free to hang out, and you say 'I have other plans.' What do you likely mean?"
+HB_EXP1_0257,social_v2_pragmatic_inference_0023,social,pragmatic_inference,,short_text,A: Can you help me? B: I have a family event on Saturday. What should A do?
+HB_EXP1_0258,social_v2_sarcasm_detection_0039,social,sarcasm_detection,,short_text,A client who received an incorrect invoice said 'This is exactly the amount I was expecting.' Was the client being sincere or sarcastic?
+HB_EXP1_0259,social_v2_social_norm_violation_0049,social,social_norm_violation,,short_text,A guest at a hotel takes a towel from another guest's room without asking permission. Is this a social norm violation?
+HB_EXP1_0260,social_v2_theory_of_mind_0018,social,theory_of_mind,,short_text,Tom's friend told him the bus leaves at 5. What time does Tom think the bus leaves?
+HB_EXP1_0261,social_v2_implicature_0008,social,implicature,,short_text,A friend asks to borrow money and you say 'I'm on a tight budget right now.' What do you likely mean?
+HB_EXP1_0262,social_v2_pragmatic_inference_0027,social,pragmatic_inference,,short_text,"A invites B to the movies. B says, 'I don't have money for a ticket.' What should A do?"
+HB_EXP1_0263,social_v2_sarcasm_detection_0033,social,sarcasm_detection,,short_text,"As it started raining on their wedding day, the bride said 'This is just perfect!' Was she being sincere or sarcastic?"
+HB_EXP1_0264,social_v2_social_norm_violation_0049,social,social_norm_violation,,short_text,A student in the library starts tapping their pen loudly on the desk of the person sitting next to them. Is this a social norm violation?
+HB_EXP1_0265,social_v2_theory_of_mind_0012,social,theory_of_mind,,short_text,Ethan's sister told him that his brother is studying at the library tonight. Where does Ethan think his brother is right now?
+HB_EXP1_0266,social_v2_implicature_0002,social,implicature,,short_text,A politician is asked about their campaign's current funding and responds with 'We're making ends meet.' What do they likely mean?
+HB_EXP1_0267,social_v2_pragmatic_inference_0023,social,pragmatic_inference,,short_text,A: Can I use your MP3 player? B: The battery is drained. What should A do?
+HB_EXP1_0268,social_v2_sarcasm_detection_0033,social,sarcasm_detection,,short_text,"Olivia said 'Oh, wonderful, a pop quiz on the day I forgot my textbook!' after her teacher announced a surprise test. Was she being sincere or sarcastic?"
+HB_EXP1_0269,social_v2_social_norm_violation_0042,social,social_norm_violation,,short_text,"During a eulogy, a speaker starts telling off-color jokes and making the audience laugh. Is this a social norm violation?"
+HB_EXP1_0270,social_v2_theory_of_mind_0019,social,theory_of_mind,,short_text,"Ben's boss told him that the marketing report is due on the last day of the quarter. However, the boss later changed the deadline to the first day of the next quarter without telling Ben. When does Ben think the report is due?"
+HB_EXP1_0271,social_v2_implicature_0001,social,implicature,,short_text,"When asked about a friend's new tattoo, someone says 'It's certainly a statement.' What do they likely mean?"
+HB_EXP1_0272,social_v2_pragmatic_inference_0024,social,pragmatic_inference,,short_text,A: Do you want to play basketball? B: I'm too tired. What should A do?
+HB_EXP1_0273,social_v2_sarcasm_detection_0031,social,sarcasm_detection,,short_text,Alex said 'What a wonderful day!' after his flight was cancelled due to bad weather. Was he being sincere or sarcastic?
+HB_EXP1_0274,social_v2_social_norm_violation_0044,social,social_norm_violation,,short_text,"At a funeral, is it okay to talk loudly on your phone?"
+HB_EXP1_0275,social_v2_theory_of_mind_0018,social,theory_of_mind,,short_text,Lily's mom said they would eat dinner at 4 PM. What time does Lily think dinner is?
+HB_EXP1_0276,social_v2_implicature_0003,social,implicature,,short_text,A colleague asks to use your laptop for a presentation and you say 'I'm not sure if it's fully charged.' What do you likely mean?
+HB_EXP1_0277,social_v2_pragmatic_inference_0028,social,pragmatic_inference,,short_text,A: Do you have a bike? B: I only have a skateboard. What should A do?
+HB_EXP1_0278,social_v2_sarcasm_detection_0030,social,sarcasm_detection,,short_text,Emily said 'What a great day!' after spilling coffee on her shirt. Was she being sincere or sarcastic?
+HB_EXP1_0279,social_v2_social_norm_violation_0046,social,social_norm_violation,,short_text,"In a small office with 2 people, someone starts eating a very smelly lunch. Does this disturb the other person?"
+HB_EXP1_0280,social_v2_theory_of_mind_0014,social,theory_of_mind,,short_text,"Noah wants to build with a block, but it's under a pile of pillows. What does Noah want to do with the block?"
+HB_EXP1_0281,social_v2_implicature_0009,social,implicature,,short_text,"When asked about a new policy, someone says 'It's an interesting approach.' What do they likely mean?"
+HB_EXP1_0282,social_v2_pragmatic_inference_0023,social,pragmatic_inference,,short_text,A: Will you help me Saturday? B: I have a family event. What should A do?
+HB_EXP1_0283,social_v2_sarcasm_detection_0035,social,sarcasm_detection,,short_text,"After getting stuck in a traffic jam for three hours, Jack said 'I'm so happy I got to enjoy this beautiful view on the highway!' Was he being sincere or sarcastic?"
+HB_EXP1_0284,social_v2_social_norm_violation_0048,social,social_norm_violation,,short_text,A roommate mocks another roommate's glasses in front of their roommates.
+HB_EXP1_0285,social_v2_theory_of_mind_0019,social,theory_of_mind,,short_text,Jackson put his favorite toy car in a lunchbox before going to daycare. Where will Jackson look for the toy car when he gets to daycare?
+HB_EXP1_0286,social_v2_implicature_0001,social,implicature,,short_text,"When asked about a neighbor's new paint job, someone says 'It's quite a transformation.' What do they likely mean?"
+HB_EXP1_0287,social_v2_pragmatic_inference_0026,social,pragmatic_inference,,short_text,A: Can you drive me to the airport? B: I don't have a car. What should A do?
+HB_EXP1_0288,social_v2_sarcasm_detection_0037,social,sarcasm_detection,,short_text,"After realizing he had just locked his keys inside his car, Alex exclaimed 'This is exactly what I needed today!' Was he being sincere or sarcastic?"
+HB_EXP1_0289,spatial_v2_2d_geometry_0006,spatial,2d_geometry,,exact_numeric,A rectangle is 3 units long and 3 units wide. What is the area of the rectangle?
+HB_EXP1_0290,spatial_v2_3d_visualization_0043,spatial,3d_visualization,,exact_numeric,A rectangle with a length of 2 units and a width of 1 unit has how many unit squares on its surface?
+HB_EXP1_0291,spatial_v2_distance_direction_0016,spatial,distance_direction,,short_text,Alex is east of Ben. Ben is east of Chris. Who is furthest west?
+HB_EXP1_0292,spatial_v2_relative_positioning_0024,spatial,relative_positioning,,short_text,The picture is above the shelf. The vase is below the shelf. What is between the picture and vase?
+HB_EXP1_0293,spatial_v2_spatial_transformation_0037,spatial,spatial_transformation,,short_text,A mirror reflection is applied to an L-shape pointing upwards and to the left. Which direction does the L-shape now point?
+HB_EXP1_0294,spatial_v2_2d_geometry_0007,spatial,2d_geometry,,exact_numeric,A billboard has a width of 9 meters and a height of 6 meters. What is its area?
+HB_EXP1_0295,spatial_v2_3d_visualization_0049,spatial,3d_visualization,,exact_numeric,A 1×2×1 stack of unit cubes has how many unit cubes?
+HB_EXP1_0296,spatial_v2_distance_direction_0015,spatial,distance_direction,,short_text,A skateboard is placed west of a scooter. The scooter is west of a moped. Which vehicle is furthest east?
+HB_EXP1_0297,spatial_v2_relative_positioning_0028,spatial,relative_positioning,,short_text,The toy car is below the block. The toy truck is above the block. What is between the toy car and the toy truck?
+HB_EXP1_0298,spatial_v2_spatial_transformation_0033,spatial,spatial_transformation,,short_text,A mirror reflection is applied to a compass needle pointing north. Which direction does the compass needle now point?
+HB_EXP1_0299,spatial_v2_2d_geometry_0001,spatial,2d_geometry,,exact_numeric,A billboard has a width of 8 meters and a height of 9 meters. What is its area?
+HB_EXP1_0300,spatial_v2_3d_visualization_0041,spatial,3d_visualization,,exact_numeric,A small cube-shaped box has how many visible surfaces?
+HB_EXP1_0301,spatial_v2_distance_direction_0005,spatial,distance_direction,,short_text,Ruby is south of Lucas. Who is furthest north?
+HB_EXP1_0302,spatial_v2_relative_positioning_0024,spatial,relative_positioning,,short_text,The house is north of the park. The school is south of the park. What is between the house and the school?
+HB_EXP1_0303,spatial_v2_spatial_transformation_0032,spatial,spatial_transformation,,short_text,A 90-degree clockwise rotation is applied to a sign pointing towards the southwest. Which direction does the sign now point?
+HB_EXP1_0304,spatial_v2_2d_geometry_0001,spatial,2d_geometry,,exact_numeric,A picture frame has a width of 6 inches and a height of 8 inches. What is its area?
+HB_EXP1_0305,spatial_v2_3d_visualization_0040,spatial,3d_visualization,,exact_numeric,A 1×1×3 stack of unit cubes has how many unit cubes?
+HB_EXP1_0306,spatial_v2_distance_direction_0018,spatial,distance_direction,,short_text,A chair is placed south of a table. The table is south of a desk. Which piece of furniture is furthest north?
+HB_EXP1_0307,spatial_v2_relative_positioning_0022,spatial,relative_positioning,,short_text,The TV is right of the sofa. The coffee table is left of the sofa. What is between the TV and the coffee table?
+HB_EXP1_0308,spatial_v2_spatial_transformation_0034,spatial,spatial_transformation,,short_text,"A rectangle's long side points down. If it is turned 90 degrees to the left, which direction does its long side point?"
+HB_EXP1_0309,spatial_v2_2d_geometry_0000,spatial,2d_geometry,,exact_numeric,What is the perimeter of a square garden with sides of length 9 meters?
+HB_EXP1_0310,spatial_v2_3d_visualization_0016,spatial,3d_visualization,,exact_numeric,A 2-block tower is built with 2 blocks stacked horizontally to the east. Each block is a 1x1 rectangle. How many visible sides does the tower have?
+HB_EXP1_0311,spatial_v2_distance_direction_0012,spatial,distance_direction,,short_text,A house is placed north of a shed. The shed is north of a barn. Which object is furthest south?
+HB_EXP1_0312,spatial_v2_relative_positioning_0020,spatial,relative_positioning,,short_text,The sofa is left of the coffee table. The TV is right of the coffee table. What is between the sofa and the TV?
+HB_EXP1_0313,spatial_v2_spatial_transformation_0012,spatial,spatial_transformation,,short_text,An L-shape pointing upwards is mirrored horizontally. Which direction does the bottom of the L-shape now point?
+HB_EXP1_0314,spatial_v2_2d_geometry_0002,spatial,2d_geometry,,exact_numeric,Find the area of a triangle with a base of 12 inches and a height of 7 inches.
+HB_EXP1_0315,spatial_v2_3d_visualization_0044,spatial,3d_visualization,,exact_numeric,A tower made of 2 unit cubes stacked vertically has how many unit cubes?
+HB_EXP1_0316,spatial_v2_distance_direction_0013,spatial,distance_direction,,short_text,Jack is east of Ryan. Ethan is not east of Ryan. Who is furthest west?
+HB_EXP1_0317,spatial_v2_relative_positioning_0021,spatial,relative_positioning,,short_text,The boat is below the dock. The seagull is above the dock. What is between the boat and the seagull?
+HB_EXP1_0318,spatial_v2_spatial_transformation_0034,spatial,spatial_transformation,,short_text,A zigzag shape pointing up and to the right is rotated 90 degrees counterclockwise. Which direction does the zigzag shape now point?
+HB_EXP1_0319,spatial_v2_2d_geometry_0003,spatial,2d_geometry,,exact_numeric,A square painting has an area of 81 square centimeters. What is the length of one side?
+HB_EXP1_0320,spatial_v2_3d_visualization_0043,spatial,3d_visualization,,exact_numeric,A 1×2×2 arrangement of unit cubes has how many unit cubes?
+HB_EXP1_0321,spatial_v2_distance_direction_0015,spatial,distance_direction,,short_text,The third floor is below the second floor. The second floor is below the first floor. Which floor is furthest up?
+HB_EXP1_0322,spatial_v2_relative_positioning_0028,spatial,relative_positioning,,short_text,The toy is left of the block. The block is not between the toy and what?
+HB_EXP1_0323,spatial_v2_spatial_transformation_0039,spatial,spatial_transformation,,short_text,A rectangle with its longer side pointing right is mirrored across the vertical axis. Which direction does its longer side now point?
+HB_EXP1_0324,spatial_v2_2d_geometry_0004,spatial,2d_geometry,,exact_numeric,A rectangle is 3 units wide and 1 unit tall. What is the area of the rectangle?
+HB_EXP1_0325,spatial_v2_3d_visualization_0046,spatial,3d_visualization,,exact_numeric,A 3×1×3 arrangement of unit cubes has how many unit cubes?
+HB_EXP1_0326,spatial_v2_distance_direction_0010,spatial,distance_direction,,short_text,"In a city, the library is north of the park. The park is north of the school. What is furthest south?"
+HB_EXP1_0327,spatial_v2_relative_positioning_0021,spatial,relative_positioning,,short_text,The pillow is below the headboard. The picture is above the headboard. What is between the pillow and the picture?
+HB_EXP1_0328,spatial_v2_spatial_transformation_0031,spatial,spatial_transformation,,short_text,A laser beam pointing south is rotated 90 degrees counterclockwise. Which direction does it now point?
+HB_EXP1_0329,spatial_v2_2d_geometry_0006,spatial,2d_geometry,,exact_numeric,A rectangle has a length of 6 units and a width of 2 units. What is the area of the rectangle?
+HB_EXP1_0330,spatial_v2_3d_visualization_0045,spatial,3d_visualization,,exact_numeric,How many unit cubes are in a 1×1×5 stack of blocks?
+HB_EXP1_0331,spatial_v2_distance_direction_0010,spatial,distance_direction,,short_text,Samantha is north of Michael. Michael is north of Emily. Who is furthest south?
+HB_EXP1_0332,spatial_v2_relative_positioning_0028,spatial,relative_positioning,,short_text,The ball is left of the box. What is between the ball and the box if the box is on the right?
+HB_EXP1_0333,spatial_v2_spatial_transformation_0030,spatial,spatial_transformation,,short_text,A mirror reflection is applied to an L-shape pointing upwards and to the right. Which direction does the L-shape now point?
+HB_EXP1_0334,spatial_v2_2d_geometry_0006,spatial,2d_geometry,,exact_numeric,Find the area of a square with sides of length 3 inches.
+HB_EXP1_0335,spatial_v2_3d_visualization_0049,spatial,3d_visualization,,exact_numeric,A 2×2×1 stack of unit blocks has how many unit blocks?
+HB_EXP1_0336,spatial_v2_distance_direction_0014,spatial,distance_direction,,short_text,Isabella is west of Mia. Who is furthest east?
+HB_EXP1_0337,temporal_v2_duration_estimation_0019,temporal,duration_estimation,,short_text,"A person travels for 6 hours. If they start on a Wednesday at 9:00 AM, when do they arrive?"
+HB_EXP1_0338,temporal_v2_ordering_events_0006,temporal,ordering_events,,short_text,"What was the order of these events: Apple introduces the Macintosh computer (1984), first Space Shuttle disaster (1986), and first mobile phone call (1973)?"
+HB_EXP1_0339,temporal_v2_scheduling_0039,temporal,scheduling,,short_text,A lecture begins at 9:00 AM and lasts for 2 hours and 30 minutes. What time will it end?
+HB_EXP1_0340,temporal_v2_temporal_paradoxes_0043,temporal,temporal_paradoxes,,short_text,A film was released in 1960 and its director was born in 1950. Is this possible?
+HB_EXP1_0341,temporal_v2_timezone_arithmetic_0025,temporal,timezone_arithmetic,,short_text,"It's 1 AM in Moscow, which is UTC+3. What time is it in UTC?"
+HB_EXP1_0342,temporal_v2_duration_estimation_0016,temporal,duration_estimation,,short_text,A festival starts at 2:00 PM and lasts 1 day. What time does it end?
+HB_EXP1_0343,temporal_v2_ordering_events_0001,temporal,ordering_events,,short_text,"What was the order of these events: the sinking of the Titanic (1912), the start of World War I (1914), and the discovery of King Tut's tomb (1922)?"
+HB_EXP1_0344,temporal_v2_scheduling_0035,temporal,scheduling,,short_text,"A chef has a 1-hour food preparation task starting 15 minutes after a 15-minute kitchen cleaning. If the cleaning starts at 9:00 AM, what time will the food preparation task end?"
+HB_EXP1_0345,temporal_v2_temporal_paradoxes_0017,temporal,temporal_paradoxes,,short_text,"A teacher states that a school play occurred 3 days ago, and it was exactly 1 day after another play. Is it possible that the second play occurred 4 days ago?"
+HB_EXP1_0346,temporal_v2_timezone_arithmetic_0028,temporal,timezone_arithmetic,,short_text,"Cairo is UTC+1. If it is 9 PM in UTC, what time is it in Cairo?"
+HB_EXP1_0347,temporal_v2_duration_estimation_0018,temporal,duration_estimation,,short_text,"A machine runs for 3 hours and 15 minutes. If it starts on a Friday at 12:00 PM, when does it stop?"
+HB_EXP1_0348,temporal_v2_ordering_events_0005,temporal,ordering_events,,short_text,"Which came first: first Apple computer (1976), first cellular network (1979), or first IBM PC (1981)?"
+HB_EXP1_0349,temporal_v2_scheduling_0030,temporal,scheduling,,short_text,A doctor has a patient consultation at 9:00 AM that lasts 15 minutes. A lab test is scheduled 30 minutes after the consultation ends. What time is the lab test?
+HB_EXP1_0350,temporal_v2_temporal_paradoxes_0044,temporal,temporal_paradoxes,,short_text,"A person claims they are 30 years old and have been working at a company for 15 years. However, the company was founded 5 years ago. Is this possible?"
+HB_EXP1_0351,temporal_v2_timezone_arithmetic_0028,temporal,timezone_arithmetic,,short_text,"It's 10 AM in UTC. What time is it in Santiago, which is UTC-4?"
+HB_EXP1_0352,temporal_v2_duration_estimation_0015,temporal,duration_estimation,,short_text,A student studies for 9 hours and finishes at 5:00 PM. What time did they start?
+HB_EXP1_0353,temporal_v2_ordering_events_0004,temporal,ordering_events,,short_text,Which came first: the first Olympics in Athens (1896) or the first Winter Olympics in Chamonix (1924)?
+HB_EXP1_0354,temporal_v2_scheduling_0037,temporal,scheduling,,short_text,"A teacher has a 30-minute meeting starting immediately after a 1-hour class. If the class starts at 10:00 AM, what time will the meeting end?"
+HB_EXP1_0355,temporal_v2_temporal_paradoxes_0043,temporal,temporal_paradoxes,,short_text,What are the odds that a child is a boy?
+HB_EXP1_0356,temporal_v2_timezone_arithmetic_0025,temporal,timezone_arithmetic,,short_text,"A city is UTC+0. If it is 4 PM in UTC, what time is it in that city?"
+HB_EXP1_0357,temporal_v2_duration_estimation_0013,temporal,duration_estimation,,short_text,A concert starts at 2:00 PM and lasts 3 hours and 15 minutes. What time does it end?
+HB_EXP1_0358,temporal_v2_ordering_events_0003,temporal,ordering_events,,short_text,"Which event occurred before the others: first launch of the space shuttle (1981), first Apple computer release (1976), and first Sony Walkman release (1979)?"
+HB_EXP1_0359,temporal_v2_scheduling_0030,temporal,scheduling,,short_text,A lecture starts at 6:00 PM and lasts for 3 hours. What time will it end?
+HB_EXP1_0360,temporal_v2_temporal_paradoxes_0040,temporal,temporal_paradoxes,,short_text,A student claims he is 20 years old and has been studying abroad for 8 years. Is this possible?
+HB_EXP1_0361,temporal_v2_timezone_arithmetic_0021,temporal,timezone_arithmetic,,short_text,Chicago is UTC-6. What time is it in Chicago if it's 4 PM in UTC?
+HB_EXP1_0362,temporal_v2_duration_estimation_0017,temporal,duration_estimation,,short_text,A train travels for 4 hours and arrives at 11:00 AM. What time did it depart?
+HB_EXP1_0363,temporal_v2_ordering_events_0003,temporal,ordering_events,,short_text,"Which event occurred before the others: first landing on the moon (1969), first Intel microprocessor release (1971), and first pocket calculator release (1970)?"
+HB_EXP1_0364,temporal_v2_scheduling_0038,temporal,scheduling,,short_text,"A lawyer has a 15-minute document review that starts at 1:00 PM. If a 45-minute court hearing starts 15 minutes after, what time will the court hearing end?"
+HB_EXP1_0365,temporal_v2_temporal_paradoxes_0045,temporal,temporal_paradoxes,,short_text,"A person is looking at a photograph of someone. Her friend asks her, 'Who is in the picture?' She replies, 'That man's parent is my son's parent.' Who is in the picture?"
+HB_EXP1_0366,temporal_v2_timezone_arithmetic_0025,temporal,timezone_arithmetic,,short_text,"It is 1 PM in UTC. If a city is UTC+2, what time is it in that city?"
+HB_EXP1_0367,temporal_v2_duration_estimation_0012,temporal,duration_estimation,,short_text,David sleeps for 8 hours and wakes up at 8:00 AM. What time did he go to sleep?
+HB_EXP1_0368,temporal_v2_ordering_events_0009,temporal,ordering_events,,short_text,"Which came first: first Sony Walkman released (1979), first Apple computer (1976), or first mobile phone call (1973)?"
+HB_EXP1_0369,temporal_v2_scheduling_0032,temporal,scheduling,,short_text,A training session starts at 3:15 PM and lasts for 2.5 hours. What time will it end?
+HB_EXP1_0370,temporal_v2_temporal_paradoxes_0043,temporal,temporal_paradoxes,,short_text,A woman has one child. What are the odds that her child is a boy?
+HB_EXP1_0371,temporal_v2_timezone_arithmetic_0023,temporal,timezone_arithmetic,,short_text,"Sydney is UTC+10. If it's 4 AM in UTC, what time is it in Sydney?"
+HB_EXP1_0372,temporal_v2_duration_estimation_0010,temporal,duration_estimation,,short_text,A lecture starts at 9:00 AM and lasts 2 hours and 15 minutes. What time does it end?
+HB_EXP1_0373,temporal_v2_ordering_events_0009,temporal,ordering_events,,short_text,"Which came first: first Amazon Echo released (2014), first Apple Watch released (2015), or first SpaceX reusable rocket launched (2015)?"
+HB_EXP1_0374,temporal_v2_scheduling_0032,temporal,scheduling,,short_text,A concert starts at 7:30 PM and lasts for 2.5 hours. What time will it end?
+HB_EXP1_0375,temporal_v2_temporal_paradoxes_0042,temporal,temporal_paradoxes,,short_text,An athlete says they won a championship in 2012 and joined the team in 2022. Is this possible?
+HB_EXP1_0376,temporal_v2_timezone_arithmetic_0028,temporal,timezone_arithmetic,,short_text,"It's 2 AM in UTC. What time is it in Tokyo, which is UTC+9?"
+HB_EXP1_0377,temporal_v2_duration_estimation_0016,temporal,duration_estimation,,short_text,A workshop starts at 11:00 AM and lasts 1 day. What time does it end?
+HB_EXP1_0378,temporal_v2_ordering_events_0002,temporal,ordering_events,,short_text,"Which came first: first International Olympic Committee (1894), first FIFA World Cup (1930), or first UEFA European Football Championship (1960)?"
+HB_EXP1_0379,temporal_v2_scheduling_0037,temporal,scheduling,,short_text,A meeting starts at 9:00 AM and lasts for 2 hours. What time will it end?
+HB_EXP1_0380,temporal_v2_temporal_paradoxes_0042,temporal,temporal_paradoxes,,short_text,A boy has two coins that add up to 5 cents. One coin is not a nickel. What are the two coins?
+HB_EXP1_0381,temporal_v2_timezone_arithmetic_0020,temporal,timezone_arithmetic,,short_text,New York is UTC-5. It is 5 PM in New York. What time is it in UTC?
+HB_EXP1_0382,temporal_v2_duration_estimation_0019,temporal,duration_estimation,,short_text,A shipment takes 2 days and arrives on Saturday. What day was it sent?
+HB_EXP1_0383,temporal_v2_ordering_events_0009,temporal,ordering_events,,short_text,"Which event occurred first: a store opening (2015), a new restaurant opening (2016), or a new movie release (2018)?"
+HB_EXP1_0384,temporal_v2_scheduling_0037,temporal,scheduling,,short_text,A webinar starts at 11:00 AM and lasts for 2 hours. What time will it end?

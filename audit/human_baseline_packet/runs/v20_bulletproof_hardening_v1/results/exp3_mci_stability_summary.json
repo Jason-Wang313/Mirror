@@ -1,0 +1,590 @@
+{
+  "generated_at_utc": "2026-03-25T15:44:22+00:00",
+  "input_files": [
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp3_v2_expanded_results.jsonl"
+  ],
+  "n_models": 13,
+  "criteria": {
+    "required_domain_pairs": 28,
+    "min_pair_quota": 4,
+    "min_shared_for_corr": 50,
+    "max_rho_tau_gap": 0.15
+  },
+  "pass_counts": {
+    "stability_pass": 1,
+    "stability_fail": 12
+  },
+  "per_model": {
+    "gemma-3-12b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.3787159199559968,
+          "kendall_tau": 0.7426733380986419
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.34048540945709,
+          "kendall_tau": 0.5348619560131025
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.322893043242526,
+          "kendall_tau": 0.6
+        }
+      ],
+      "mci_spearman": 0.3473647908852042,
+      "mci_kendall": 0.6258450980372481,
+      "rho_tau_gap": 0.27848030715204386,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "gemma-3-27b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.46776093981999645,
+          "kendall_tau": 0.8573466476462197
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.4283402431148781,
+          "kendall_tau": 0.6318802289740203
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2888298884343684,
+          "kendall_tau": 0.5226547543075941
+        }
+      ],
+      "mci_spearman": 0.3949770237897477,
+      "mci_kendall": 0.6706272103092781,
+      "rho_tau_gap": 0.2756501865195304,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "gpt-oss-120b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 65,
+          "spearman_rho": 0.44423764882270206,
+          "kendall_tau": 0.744408945686901
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 61,
+          "spearman_rho": 0.4658894206981505,
+          "kendall_tau": 0.6285714285714286
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 55,
+          "spearman_rho": 0.15772102845571748,
+          "kendall_tau": 0.23268206039076378
+        }
+      ],
+      "mci_spearman": 0.35594936599219,
+      "mci_kendall": 0.5352208115496978,
+      "rho_tau_gap": 0.1792714455575078,
+      "min_shared_for_corr": 55,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "kimi-k2": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 40,
+        "strong_weak": 60,
+        "weak_weak": 12
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.5826204070190836,
+          "kendall_tau": 0.9133730373578777
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.24080836597323046,
+          "kendall_tau": 0.5700934579439252
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.19425751756631596,
+          "kendall_tau": 0.5491606714628298
+        }
+      ],
+      "mci_spearman": 0.3392287635195433,
+      "mci_kendall": 0.6775423889215442,
+      "rho_tau_gap": 0.3383136254020009,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "llama-3.1-405b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.2776505858476714,
+          "kendall_tau": 0.6130346232179226
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.1812459139138566,
+          "kendall_tau": 0.33088235294117646
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": -0.04988649254049952,
+          "kendall_tau": -0.10728910728910729
+        }
+      ],
+      "mci_spearman": 0.13633666907367617,
+      "mci_kendall": 0.27887595628999723,
+      "rho_tau_gap": 0.14253928721632106,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": true
+    },
+    "llama-3.1-70b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.38126304933994204,
+          "kendall_tau": 0.7674418604651163
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.3288868835059705,
+          "kendall_tau": 0.5316582914572864
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.05121429379308689,
+          "kendall_tau": 0.10599078341013825
+        }
+      ],
+      "mci_spearman": 0.25378807554633315,
+      "mci_kendall": 0.46836364511084705,
+      "rho_tau_gap": 0.2145755695645139,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "llama-3.1-8b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.3019169279336703,
+          "kendall_tau": 0.6392020815264527
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.24336456735189166,
+          "kendall_tau": 0.40279937791601866
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.09935280813522482,
+          "kendall_tau": 0.20121028744326777
+        }
+      ],
+      "mci_spearman": 0.2148781011402623,
+      "mci_kendall": 0.4144039156285797,
+      "rho_tau_gap": 0.1995258144883174,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "llama-3.2-3b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "logical",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.2498868522232155,
+          "kendall_tau": 0.5714285714285714
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.22800942642081942,
+          "kendall_tau": 0.4122042341220423
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.05292765231623715,
+          "kendall_tau": 0.12260536398467432
+        }
+      ],
+      "mci_spearman": 0.17694131032009072,
+      "mci_kendall": 0.3687460565117627,
+      "rho_tau_gap": 0.19180474619167195,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "llama-3.3-70b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.35915080486933076,
+          "kendall_tau": 0.9070904645476773
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.41452718460616766,
+          "kendall_tau": 0.6340898564150069
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.13815453549395162,
+          "kendall_tau": 0.33187294633077763
+        }
+      ],
+      "mci_spearman": 0.3039441749898167,
+      "mci_kendall": 0.6243510890978207,
+      "rho_tau_gap": 0.320406914108004,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "mistral-large": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.39588664008402175,
+          "kendall_tau": 0.7593360995850622
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2834544738439465,
+          "kendall_tau": 0.4100418410041841
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.24653320565865408,
+          "kendall_tau": 0.39831401475237094
+        }
+      ],
+      "mci_spearman": 0.30862477319554077,
+      "mci_kendall": 0.5225639851138725,
+      "rho_tau_gap": 0.2139392119183317,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "mixtral-8x22b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.37770591990556757,
+          "kendall_tau": 0.8208955223880597
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2335193079135921,
+          "kendall_tau": 0.6923076923076923
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.1113430100417054,
+          "kendall_tau": 0.5311572700296736
+        }
+      ],
+      "mci_spearman": 0.24085607928695504,
+      "mci_kendall": 0.6814534949084753,
+      "rho_tau_gap": 0.4405974156215202,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "phi-4": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "logical",
+        "procedural"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        }
+      ],
+      "mci_spearman": NaN,
+      "mci_kendall": NaN,
+      "rho_tau_gap": NaN,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    },
+    "qwen3-next-80b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.5801028486518047,
+          "kendall_tau": 0.896551724137931
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.35255109963658793,
+          "kendall_tau": 0.6645885286783042
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.32266817551311777,
+          "kendall_tau": 0.6948893974065599
+        }
+      ],
+      "mci_spearman": 0.4184407079338368,
+      "mci_kendall": 0.7520098834075983,
+      "rho_tau_gap": 0.3335691754737615,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "stability_pass": false
+    }
+  }
+}

@@ -1,0 +1,2 @@
+{"ts_utc": "2026-03-25T22:30:29+00:00", "event": "data_loaded", "n_files": 13, "n_components": 98744}
+{"ts_utc": "2026-03-25T22:30:32+00:00", "event": "summary_written", "json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_stanford_hardening_20260325T2130Z_non_oracle\\non_oracle_utility_summary.json", "md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_stanford_hardening_20260325T2130Z_non_oracle\\non_oracle_utility_summary.md"}

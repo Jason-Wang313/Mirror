@@ -1,0 +1,2 @@
+{"ts_utc": "2026-03-26T18:10:32+00:00", "event": "data_loaded", "n_models_exp3": 16, "n_models_exp1": 17}
+{"ts_utc": "2026-03-26T18:11:04+00:00", "event": "summary_written", "json": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_exp3_difficulty\\exp3_difficulty_control_summary.json", "md": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\runs\\v20_maximal_closure_20260326T2200Z_exp3_difficulty\\exp3_difficulty_control_summary.md"}

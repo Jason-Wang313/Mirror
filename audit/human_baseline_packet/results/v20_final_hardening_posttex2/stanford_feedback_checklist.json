@@ -1,0 +1,77 @@
+{
+  "run_id": "v20_final_hardening_posttex2",
+  "generated_at_utc": "2026-03-26T11:00:05+00:00",
+  "paper_tex": "C:\\Users\\wangz\\MIRROR\\paper\\mirror_draft_v20.tex",
+  "n_checks": 11,
+  "n_pass": 11,
+  "n_fail": 0,
+  "checks": [
+    {
+      "id": "parse_missingness",
+      "description": "Parse/API missingness analysis is reported in manuscript.",
+      "pass": true,
+      "evidence_hint": "Look for explicit MCAR/MNAR and sensitivity text."
+    },
+    {
+      "id": "mnar_bounds_reporting",
+      "description": "Explicit MNAR bound scenarios are reported for headline metrics.",
+      "pass": true,
+      "evidence_hint": "Look for worst-case MNAR bounds tied to C1\u2192C4 effects."
+    },
+    {
+      "id": "exp3_difficulty_control",
+      "description": "Exp3 difficulty-controlled ablation is reported.",
+      "pass": true,
+      "evidence_hint": "Look for controlled mixture reporting in Exp3 discussion/appendix."
+    },
+    {
+      "id": "cce_main_text_formula_example",
+      "description": "CCE is formalized in main text with a worked example.",
+      "pass": true,
+      "evidence_hint": "Look for CCE equation and worked numeric interpretation in main Findings text."
+    },
+    {
+      "id": "mci_channel_robustness",
+      "description": "MCI channel-disagreement diagnostics are reported.",
+      "pass": true,
+      "evidence_hint": "Look for no-wagering / leave-one-channel sensitivity text."
+    },
+    {
+      "id": "non_oracle_utility_main_text",
+      "description": "Non-oracle/fallible-resolver utility appears in main claim path.",
+      "pass": true,
+      "evidence_hint": "Look for explicit resolver-quality sensitivity in main text."
+    },
+    {
+      "id": "utility_frontier_prominence",
+      "description": "Cost/latency-aware Pareto or frontier reporting appears in main text path.",
+      "pass": true,
+      "evidence_hint": "Look for a cost/latency-aware frontier summary tied to C1/C4 utility."
+    },
+    {
+      "id": "instance_baseline_expanded",
+      "description": "Instance-level baselines are discussed beyond narrow legacy frame.",
+      "pass": true,
+      "evidence_hint": "Look for expanded frame details near Exp9 comparisons."
+    },
+    {
+      "id": "instance_baseline_robust_set",
+      "description": "Robust baseline set includes calibrated confidence and target-error grid framing.",
+      "pass": true,
+      "evidence_hint": "Look for calibrated-confidence and conformal target-error grid reporting."
+    },
+    {
+      "id": "mapping_validity",
+      "description": "Exp9 domain-component mapping validation is reported.",
+      "pass": true,
+      "evidence_hint": "Look for static/cross-verifier mapping-validation summary."
+    },
+    {
+      "id": "related_work_expanded",
+      "description": "Recent metacognitive-control/abstention related work is integrated in main text.",
+      "pass": true,
+      "evidence_hint": "Look for added related-work anchors in main section."
+    }
+  ],
+  "actionable_items": []
+}

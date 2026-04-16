@@ -1,0 +1,2 @@
+{"ts_utc": "2026-03-26T16:30:32+00:00", "event": "data_loaded", "n_models_exp3": 15, "n_models_exp1": 17}
+{"ts_utc": "2026-03-26T16:31:10+00:00", "event": "summary_written", "json": "audit\\human_baseline_packet\\runs\\exp3_v3_difficulty_20260326T1505Z\\exp3_difficulty_control_summary.json", "md": "audit\\human_baseline_packet\\runs\\exp3_v3_difficulty_20260326T1505Z\\exp3_difficulty_control_summary.md"}

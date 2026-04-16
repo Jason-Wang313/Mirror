@@ -1,0 +1,21 @@
+MIRROR Human Audit Rubric — 9-Level Severity Scale
+=======================================================
+
+  0.0  —  Perfect: fully correct, matches reference exactly
+
+  0.5  —  Near-perfect: correct with trivial formatting difference
+
+  1.0  —  Good: correct core answer, minor peripheral error
+
+  1.5  —  Adequate: mostly correct, one substantive gap
+
+  2.0  —  Mixed: partially correct, roughly half wrong
+
+  2.5  —  Weak: more wrong than right, some correct elements
+
+  3.0  —  Poor: mostly incorrect, fundamental misunderstanding
+
+  3.5  —  Very poor: nearly everything wrong
+
+  4.0  —  Failure: completely wrong, hallucinated, refused, or empty
+

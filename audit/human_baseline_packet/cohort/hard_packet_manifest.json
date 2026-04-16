@@ -1,0 +1,14 @@
+{
+  "generated_at_utc": "2026-03-25T11:28:27Z",
+  "seed": 42,
+  "exp1_per_domain": 48,
+  "exp9_per_pair": 12,
+  "exp1_hard_priority": true,
+  "exp9_hard_priority": true,
+  "exp1_min_difficulty": "hard",
+  "exp9_min_difficulty": "hard",
+  "exp1_rows": 384,
+  "exp9_rows": 261,
+  "participants": 20,
+  "packet_hash_sha256": "d4e62f41f714c99e2631254a4795ef837cd75ce355f064a9e4a16398b646b8c7"
+}

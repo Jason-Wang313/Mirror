@@ -1,0 +1,4 @@
+{"ts_utc": "2026-03-26T10:52:21+00:00", "event": "files_resolved", "exp1_files": 33, "exp9_files": 13}
+{"ts_utc": "2026-03-26T10:52:53+00:00", "event": "rows_loaded", "exp1_rows": 47318, "exp9_rows": 124872}
+{"ts_utc": "2026-03-26T10:53:07+00:00", "event": "logistic_fit_done", "exp1_status": "ok", "exp9_status": "ok"}
+{"ts_utc": "2026-03-26T10:53:10+00:00", "event": "summary_written", "json": "audit\\human_baseline_packet\\runs\\v20_final_hardening_20260326A_parse_missingness_v2\\parse_missingness_summary.json", "md": "audit\\human_baseline_packet\\runs\\v20_final_hardening_20260326A_parse_missingness_v2\\parse_missingness_summary.md"}

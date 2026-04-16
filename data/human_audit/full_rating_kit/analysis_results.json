@@ -1,0 +1,1224 @@
+{
+  "n_items": 118759,
+  "n_models": 18,
+  "models": [
+    "deepseek-r1",
+    "deepseek-v3",
+    "gemini-2.5-pro",
+    "gemma-3-12b",
+    "gemma-3-27b",
+    "gpt-oss-120b",
+    "kimi-k2",
+    "llama-3.1-405b",
+    "llama-3.1-70b",
+    "llama-3.1-8b",
+    "llama-3.2-3b",
+    "llama-3.3-70b",
+    "mistral-large",
+    "mixtral-8x22b",
+    "phi-4",
+    "qwen-3-235b",
+    "qwen3-235b-nim",
+    "qwen3-next-80b"
+  ],
+  "icc": {
+    "ICC_2_1": 0.8277291989165367,
+    "ICC_2_k": 0.935125776693003,
+    "k": 3,
+    "n": 118759,
+    "MS_r": 2.7015137666653053,
+    "MS_c": 7516.656381832111,
+    "MS_e": 0.11607226700377721
+  },
+  "rater_params": {
+    "bias_A": 0.3,
+    "bias_B": 0.0,
+    "bias_C": -0.25,
+    "sigma_A": 0.35,
+    "sigma_B": 0.3,
+    "sigma_C": 0.33
+  },
+  "consensus_mean": 1.8099217743497336,
+  "consensus_std": 0.9884307742344137,
+  "b_parameters": {
+    "llama-3.1-8b": {
+      "b": 2.13261586831013,
+      "a": -3.1128652243954287,
+      "threshold": 1.4596464701643814,
+      "mean_sev": 1.7662625197680548,
+      "error_rate": 0.6650500790722192,
+      "n": 9485,
+      "n_domains": 11
+    },
+    "deepseek-r1": {
+      "b": 1.938648076395995,
+      "a": -3.1011008217483234,
+      "threshold": 1.599620302160959,
+      "mean_sev": 1.946674030436917,
+      "error_rate": 0.7145311732940599,
+      "n": 8148,
+      "n_domains": 10
+    },
+    "llama-3.1-70b": {
+      "b": 1.554843363023111,
+      "a": -2.343666967032529,
+      "threshold": 1.5073331647219392,
+      "mean_sev": 1.6653465346534653,
+      "error_rate": 0.5910891089108911,
+      "n": 9090,
+      "n_domains": 8
+    },
+    "llama-3.1-405b": {
+      "b": 2.0837144408159696,
+      "a": -3.0981274484143566,
+      "threshold": 1.4868291872091404,
+      "mean_sev": 1.7615162615162616,
+      "error_rate": 0.6774336774336774,
+      "n": 9009,
+      "n_domains": 11
+    },
+    "mistral-large": {
+      "b": 2.3025900200135716,
+      "a": -3.5838234994066163,
+      "threshold": 1.5564314394906884,
+      "mean_sev": 1.8614781394349553,
+      "error_rate": 0.6976044687936406,
+      "n": 9309,
+      "n_domains": 11
+    },
+    "qwen-3-235b": {
+      "b": 1.366332116168281,
+      "a": -2.1623349364969298,
+      "threshold": 1.582583700484876,
+      "mean_sev": 1.9039548022598871,
+      "error_rate": 0.5737853107344633,
+      "n": 4425,
+      "n_domains": 8
+    },
+    "gpt-oss-120b": {
+      "b": 2.1621977193635464,
+      "a": -3.651254388624512,
+      "threshold": 1.6886773840919953,
+      "mean_sev": 1.9756999772365127,
+      "error_rate": 0.7326428408832233,
+      "n": 8786,
+      "n_domains": 11
+    },
+    "gemini-2.5-pro": {
+      "b": 1.7303848018187886,
+      "a": -2.596482651024269,
+      "threshold": 1.500523264128958,
+      "mean_sev": 1.4131274131274132,
+      "error_rate": 0.5113072255929398,
+      "n": 1813,
+      "n_domains": 8
+    },
+    "deepseek-v3": {
+      "b": 2.420845894770313,
+      "a": -3.4569202206605283,
+      "threshold": 1.4279802890916842,
+      "mean_sev": 1.6303793162102398,
+      "error_rate": 0.5776492600782446,
+      "n": 5879,
+      "n_domains": 11
+    },
+    "llama-3.3-70b": {
+      "b": 1.54979822109582,
+      "a": -2.3404641973240814,
+      "threshold": 1.5101734957917314,
+      "mean_sev": 1.733091160698841,
+      "error_rate": 0.6386438332468432,
+      "n": 5781,
+      "n_domains": 8
+    },
+    "gemma-3-27b": {
+      "b": 1.9730753715113225,
+      "a": -2.970453874784346,
+      "threshold": 1.5054943757718988,
+      "mean_sev": 1.7770625105878366,
+      "error_rate": 0.7142131119769609,
+      "n": 5903,
+      "n_domains": 11
+    },
+    "kimi-k2": {
+      "b": 1.8417295971840695,
+      "a": -2.7713562688892726,
+      "threshold": 1.504757415598123,
+      "mean_sev": 1.7874525371073524,
+      "error_rate": 0.6615464273386261,
+      "n": 5794,
+      "n_domains": 11
+    },
+    "phi-4": {
+      "b": 2.6231020586664067,
+      "a": -3.997292241916951,
+      "threshold": 1.5238798005248744,
+      "mean_sev": 2.0869785509204526,
+      "error_rate": 0.8162472555311603,
+      "n": 5921,
+      "n_domains": 11
+    },
+    "qwen3-235b-nim": {
+      "b": 0.3221906960063952,
+      "mean_sev": 1.9987714987714988,
+      "error_rate": 0.8648648648648649,
+      "n": 407,
+      "n_domains": 0
+    },
+    "mixtral-8x22b": {
+      "b": 1.8036133839492852,
+      "a": -2.730189418877205,
+      "threshold": 1.5137331776165028,
+      "mean_sev": 1.7044213973799127,
+      "error_rate": 0.6870906113537117,
+      "n": 7328,
+      "n_domains": 11
+    },
+    "qwen3-next-80b": {
+      "b": 2.123487725581419,
+      "a": -3.183355458660958,
+      "threshold": 1.4991164866702222,
+      "mean_sev": 1.7898411829134722,
+      "error_rate": 0.6711391018619934,
+      "n": 7304,
+      "n_domains": 11
+    },
+    "llama-3.2-3b": {
+      "b": 2.2759163447844823,
+      "a": -3.311950086505883,
+      "threshold": 1.455216090914584,
+      "mean_sev": 1.8931349802101816,
+      "error_rate": 0.7176197625221783,
+      "n": 7327,
+      "n_domains": 11
+    },
+    "gemma-3-12b": {
+      "b": 2.336569935666992,
+      "a": -3.186365641838709,
+      "threshold": 1.3636936747322894,
+      "mean_sev": 1.7863120567375887,
+      "error_rate": 0.6995744680851064,
+      "n": 7050,
+      "n_domains": 10
+    }
+  },
+  "disjoint_ci": {
+    "n_models": 18,
+    "total_pairs": 153,
+    "n_disjoint": 126,
+    "frac": 0.8235294117647058
+  },
+  "disjoint_pairs": [
+    [
+      "deepseek-r1",
+      "deepseek-v3"
+    ],
+    [
+      "deepseek-r1",
+      "gemini-2.5-pro"
+    ],
+    [
+      "deepseek-r1",
+      "gemma-3-12b"
+    ],
+    [
+      "deepseek-r1",
+      "gemma-3-27b"
+    ],
+    [
+      "deepseek-r1",
+      "kimi-k2"
+    ],
+    [
+      "deepseek-r1",
+      "llama-3.1-405b"
+    ],
+    [
+      "deepseek-r1",
+      "llama-3.1-70b"
+    ],
+    [
+      "deepseek-r1",
+      "llama-3.1-8b"
+    ],
+    [
+      "deepseek-r1",
+      "llama-3.2-3b"
+    ],
+    [
+      "deepseek-r1",
+      "llama-3.3-70b"
+    ],
+    [
+      "deepseek-r1",
+      "mistral-large"
+    ],
+    [
+      "deepseek-r1",
+      "mixtral-8x22b"
+    ],
+    [
+      "deepseek-r1",
+      "phi-4"
+    ],
+    [
+      "deepseek-r1",
+      "qwen3-next-80b"
+    ],
+    [
+      "deepseek-v3",
+      "gemini-2.5-pro"
+    ],
+    [
+      "deepseek-v3",
+      "gemma-3-12b"
+    ],
+    [
+      "deepseek-v3",
+      "gemma-3-27b"
+    ],
+    [
+      "deepseek-v3",
+      "gpt-oss-120b"
+    ],
+    [
+      "deepseek-v3",
+      "kimi-k2"
+    ],
+    [
+      "deepseek-v3",
+      "llama-3.1-405b"
+    ],
+    [
+      "deepseek-v3",
+      "llama-3.1-8b"
+    ],
+    [
+      "deepseek-v3",
+      "llama-3.2-3b"
+    ],
+    [
+      "deepseek-v3",
+      "llama-3.3-70b"
+    ],
+    [
+      "deepseek-v3",
+      "mistral-large"
+    ],
+    [
+      "deepseek-v3",
+      "mixtral-8x22b"
+    ],
+    [
+      "deepseek-v3",
+      "phi-4"
+    ],
+    [
+      "deepseek-v3",
+      "qwen-3-235b"
+    ],
+    [
+      "deepseek-v3",
+      "qwen3-235b-nim"
+    ],
+    [
+      "deepseek-v3",
+      "qwen3-next-80b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "gemma-3-12b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "gemma-3-27b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "gpt-oss-120b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "kimi-k2"
+    ],
+    [
+      "gemini-2.5-pro",
+      "llama-3.1-405b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "llama-3.1-70b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "llama-3.1-8b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "llama-3.2-3b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "llama-3.3-70b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "mistral-large"
+    ],
+    [
+      "gemini-2.5-pro",
+      "mixtral-8x22b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "phi-4"
+    ],
+    [
+      "gemini-2.5-pro",
+      "qwen-3-235b"
+    ],
+    [
+      "gemini-2.5-pro",
+      "qwen3-235b-nim"
+    ],
+    [
+      "gemini-2.5-pro",
+      "qwen3-next-80b"
+    ],
+    [
+      "gemma-3-12b",
+      "gpt-oss-120b"
+    ],
+    [
+      "gemma-3-12b",
+      "llama-3.1-70b"
+    ],
+    [
+      "gemma-3-12b",
+      "llama-3.2-3b"
+    ],
+    [
+      "gemma-3-12b",
+      "llama-3.3-70b"
+    ],
+    [
+      "gemma-3-12b",
+      "mistral-large"
+    ],
+    [
+      "gemma-3-12b",
+      "mixtral-8x22b"
+    ],
+    [
+      "gemma-3-12b",
+      "phi-4"
+    ],
+    [
+      "gemma-3-12b",
+      "qwen-3-235b"
+    ],
+    [
+      "gemma-3-12b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "gemma-3-27b",
+      "gpt-oss-120b"
+    ],
+    [
+      "gemma-3-27b",
+      "llama-3.1-70b"
+    ],
+    [
+      "gemma-3-27b",
+      "llama-3.2-3b"
+    ],
+    [
+      "gemma-3-27b",
+      "llama-3.3-70b"
+    ],
+    [
+      "gemma-3-27b",
+      "mistral-large"
+    ],
+    [
+      "gemma-3-27b",
+      "mixtral-8x22b"
+    ],
+    [
+      "gemma-3-27b",
+      "phi-4"
+    ],
+    [
+      "gemma-3-27b",
+      "qwen-3-235b"
+    ],
+    [
+      "gemma-3-27b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "gpt-oss-120b",
+      "kimi-k2"
+    ],
+    [
+      "gpt-oss-120b",
+      "llama-3.1-405b"
+    ],
+    [
+      "gpt-oss-120b",
+      "llama-3.1-70b"
+    ],
+    [
+      "gpt-oss-120b",
+      "llama-3.1-8b"
+    ],
+    [
+      "gpt-oss-120b",
+      "llama-3.2-3b"
+    ],
+    [
+      "gpt-oss-120b",
+      "llama-3.3-70b"
+    ],
+    [
+      "gpt-oss-120b",
+      "mistral-large"
+    ],
+    [
+      "gpt-oss-120b",
+      "mixtral-8x22b"
+    ],
+    [
+      "gpt-oss-120b",
+      "phi-4"
+    ],
+    [
+      "gpt-oss-120b",
+      "qwen-3-235b"
+    ],
+    [
+      "gpt-oss-120b",
+      "qwen3-next-80b"
+    ],
+    [
+      "kimi-k2",
+      "llama-3.1-70b"
+    ],
+    [
+      "kimi-k2",
+      "llama-3.2-3b"
+    ],
+    [
+      "kimi-k2",
+      "llama-3.3-70b"
+    ],
+    [
+      "kimi-k2",
+      "mistral-large"
+    ],
+    [
+      "kimi-k2",
+      "mixtral-8x22b"
+    ],
+    [
+      "kimi-k2",
+      "phi-4"
+    ],
+    [
+      "kimi-k2",
+      "qwen-3-235b"
+    ],
+    [
+      "kimi-k2",
+      "qwen3-235b-nim"
+    ],
+    [
+      "llama-3.1-405b",
+      "llama-3.1-70b"
+    ],
+    [
+      "llama-3.1-405b",
+      "llama-3.2-3b"
+    ],
+    [
+      "llama-3.1-405b",
+      "mistral-large"
+    ],
+    [
+      "llama-3.1-405b",
+      "mixtral-8x22b"
+    ],
+    [
+      "llama-3.1-405b",
+      "phi-4"
+    ],
+    [
+      "llama-3.1-405b",
+      "qwen-3-235b"
+    ],
+    [
+      "llama-3.1-405b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "llama-3.1-70b",
+      "llama-3.1-8b"
+    ],
+    [
+      "llama-3.1-70b",
+      "llama-3.2-3b"
+    ],
+    [
+      "llama-3.1-70b",
+      "llama-3.3-70b"
+    ],
+    [
+      "llama-3.1-70b",
+      "mistral-large"
+    ],
+    [
+      "llama-3.1-70b",
+      "phi-4"
+    ],
+    [
+      "llama-3.1-70b",
+      "qwen-3-235b"
+    ],
+    [
+      "llama-3.1-70b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "llama-3.1-70b",
+      "qwen3-next-80b"
+    ],
+    [
+      "llama-3.1-8b",
+      "llama-3.2-3b"
+    ],
+    [
+      "llama-3.1-8b",
+      "mistral-large"
+    ],
+    [
+      "llama-3.1-8b",
+      "mixtral-8x22b"
+    ],
+    [
+      "llama-3.1-8b",
+      "phi-4"
+    ],
+    [
+      "llama-3.1-8b",
+      "qwen-3-235b"
+    ],
+    [
+      "llama-3.1-8b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "llama-3.2-3b",
+      "llama-3.3-70b"
+    ],
+    [
+      "llama-3.2-3b",
+      "mixtral-8x22b"
+    ],
+    [
+      "llama-3.2-3b",
+      "phi-4"
+    ],
+    [
+      "llama-3.2-3b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "llama-3.2-3b",
+      "qwen3-next-80b"
+    ],
+    [
+      "llama-3.3-70b",
+      "mistral-large"
+    ],
+    [
+      "llama-3.3-70b",
+      "phi-4"
+    ],
+    [
+      "llama-3.3-70b",
+      "qwen-3-235b"
+    ],
+    [
+      "llama-3.3-70b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "llama-3.3-70b",
+      "qwen3-next-80b"
+    ],
+    [
+      "mistral-large",
+      "mixtral-8x22b"
+    ],
+    [
+      "mistral-large",
+      "phi-4"
+    ],
+    [
+      "mistral-large",
+      "qwen3-235b-nim"
+    ],
+    [
+      "mistral-large",
+      "qwen3-next-80b"
+    ],
+    [
+      "mixtral-8x22b",
+      "phi-4"
+    ],
+    [
+      "mixtral-8x22b",
+      "qwen-3-235b"
+    ],
+    [
+      "mixtral-8x22b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "mixtral-8x22b",
+      "qwen3-next-80b"
+    ],
+    [
+      "phi-4",
+      "qwen-3-235b"
+    ],
+    [
+      "phi-4",
+      "qwen3-235b-nim"
+    ],
+    [
+      "phi-4",
+      "qwen3-next-80b"
+    ],
+    [
+      "qwen-3-235b",
+      "qwen3-235b-nim"
+    ],
+    [
+      "qwen-3-235b",
+      "qwen3-next-80b"
+    ],
+    [
+      "qwen3-235b-nim",
+      "qwen3-next-80b"
+    ]
+  ],
+  "model_cis": {
+    "llama-3.1-8b": {
+      "mean": 1.7662625197680548,
+      "lo": 1.7473365840801265,
+      "hi": 1.7848207696362677,
+      "n": 9485
+    },
+    "deepseek-r1": {
+      "mean": 1.946674030436917,
+      "lo": 1.9223106897398134,
+      "hi": 1.9704221894943545,
+      "n": 8148
+    },
+    "llama-3.1-70b": {
+      "mean": 1.6653465346534653,
+      "lo": 1.6462596259625963,
+      "hi": 1.6845984598459847,
+      "n": 9090
+    },
+    "llama-3.1-405b": {
+      "mean": 1.7615162615162616,
+      "lo": 1.7427017427017426,
+      "hi": 1.7813852813852813,
+      "n": 9009
+    },
+    "mistral-large": {
+      "mean": 1.8614781394349553,
+      "lo": 1.8412275754646041,
+      "hi": 1.8814064346331507,
+      "n": 9309
+    },
+    "qwen-3-235b": {
+      "mean": 1.9039548022598871,
+      "lo": 1.8620338983050848,
+      "hi": 1.9455367231638419,
+      "n": 4425
+    },
+    "gpt-oss-120b": {
+      "mean": 1.9756999772365127,
+      "lo": 1.954926872296836,
+      "hi": 1.997042169360346,
+      "n": 8786
+    },
+    "gemini-2.5-pro": {
+      "mean": 1.4131274131274132,
+      "lo": 1.3609969663541093,
+      "hi": 1.4663610038610038,
+      "n": 1813
+    },
+    "deepseek-v3": {
+      "mean": 1.6303793162102398,
+      "lo": 1.6023111923796565,
+      "hi": 1.659635992515734,
+      "n": 5879
+    },
+    "llama-3.3-70b": {
+      "mean": 1.733091160698841,
+      "lo": 1.711987545407369,
+      "hi": 1.7532433834976648,
+      "n": 5781
+    },
+    "gemma-3-27b": {
+      "mean": 1.7770625105878366,
+      "lo": 1.7562256479756055,
+      "hi": 1.7971370489581568,
+      "n": 5903
+    },
+    "kimi-k2": {
+      "mean": 1.7874525371073524,
+      "lo": 1.7655311529168105,
+      "hi": 1.8098895409043838,
+      "n": 5794
+    },
+    "phi-4": {
+      "mean": 2.0869785509204526,
+      "lo": 2.06670959297416,
+      "hi": 2.106316500591116,
+      "n": 5921
+    },
+    "qwen3-235b-nim": {
+      "mean": 1.9987714987714988,
+      "lo": 1.9668304668304668,
+      "hi": 2.0294840294840295,
+      "n": 407
+    },
+    "mixtral-8x22b": {
+      "mean": 1.7044213973799127,
+      "lo": 1.6839519650655022,
+      "hi": 1.7251637554585153,
+      "n": 7328
+    },
+    "qwen3-next-80b": {
+      "mean": 1.7898411829134722,
+      "lo": 1.7645810514786417,
+      "hi": 1.8135970016429355,
+      "n": 7304
+    },
+    "llama-3.2-3b": {
+      "mean": 1.8931349802101816,
+      "lo": 1.8702043810563669,
+      "hi": 1.9156561348437287,
+      "n": 7327
+    },
+    "gemma-3-12b": {
+      "mean": 1.7863120567375887,
+      "lo": 1.7638280141843972,
+      "hi": 1.808723404255319,
+      "n": 7050
+    }
+  },
+  "scaling": {
+    "overall": {
+      "slope": -0.0644855824978312,
+      "R2": 0.09672219648736066,
+      "p": 0.2090507252655164
+    },
+    "llama": {
+      "slope": -0.006822421156261357,
+      "R2": 0.010463181156062094,
+      "p": 0.9347662615476293
+    },
+    "per_model": {
+      "llama-3.1-8b": {
+        "size": 8,
+        "log_size": 0.9030899869919435,
+        "mean_sev": 1.7662625197680548,
+        "n": 9485
+      },
+      "deepseek-r1": {
+        "size": 685,
+        "log_size": 2.8356905714924254,
+        "mean_sev": 1.946674030436917,
+        "n": 8148
+      },
+      "llama-3.1-70b": {
+        "size": 70,
+        "log_size": 1.845098040014257,
+        "mean_sev": 1.6653465346534653,
+        "n": 9090
+      },
+      "llama-3.1-405b": {
+        "size": 405,
+        "log_size": 2.6074550232146687,
+        "mean_sev": 1.7615162615162616,
+        "n": 9009
+      },
+      "mistral-large": {
+        "size": 123,
+        "log_size": 2.089905111439398,
+        "mean_sev": 1.8614781394349553,
+        "n": 9309
+      },
+      "qwen-3-235b": {
+        "size": 235,
+        "log_size": 2.3710678622717363,
+        "mean_sev": 1.9039548022598871,
+        "n": 4425
+      },
+      "gpt-oss-120b": {
+        "size": 120,
+        "log_size": 2.0791812460476247,
+        "mean_sev": 1.9756999772365127,
+        "n": 8786
+      },
+      "gemini-2.5-pro": {
+        "size": 1000,
+        "log_size": 3.0,
+        "mean_sev": 1.4131274131274132,
+        "n": 1813
+      },
+      "deepseek-v3": {
+        "size": 685,
+        "log_size": 2.8356905714924254,
+        "mean_sev": 1.6303793162102398,
+        "n": 5879
+      },
+      "llama-3.3-70b": {
+        "size": 70,
+        "log_size": 1.845098040014257,
+        "mean_sev": 1.733091160698841,
+        "n": 5781
+      },
+      "gemma-3-27b": {
+        "size": 27,
+        "log_size": 1.4313637641589874,
+        "mean_sev": 1.7770625105878366,
+        "n": 5903
+      },
+      "kimi-k2": {
+        "size": 1000,
+        "log_size": 3.0,
+        "mean_sev": 1.7874525371073524,
+        "n": 5794
+      },
+      "phi-4": {
+        "size": 14,
+        "log_size": 1.146128035678238,
+        "mean_sev": 2.0869785509204526,
+        "n": 5921
+      },
+      "qwen3-235b-nim": {
+        "size": 235,
+        "log_size": 2.3710678622717363,
+        "mean_sev": 1.9987714987714988,
+        "n": 407
+      },
+      "mixtral-8x22b": {
+        "size": 141,
+        "log_size": 2.1492191126553797,
+        "mean_sev": 1.7044213973799127,
+        "n": 7328
+      },
+      "qwen3-next-80b": {
+        "size": 80,
+        "log_size": 1.9030899869919435,
+        "mean_sev": 1.7898411829134722,
+        "n": 7304
+      },
+      "llama-3.2-3b": {
+        "size": 3,
+        "log_size": 0.47712125471966244,
+        "mean_sev": 1.8931349802101816,
+        "n": 7327
+      },
+      "gemma-3-12b": {
+        "size": 12,
+        "log_size": 1.0791812460476249,
+        "mean_sev": 1.7863120567375887,
+        "n": 7050
+      }
+    }
+  },
+  "deployment": {
+    "deepseek-r1": {
+      "mean_sev": 1.946674030436917,
+      "safe": 0.1871624938635248,
+      "risky": 0.19207167403043693,
+      "b": 1.938648076395995,
+      "dom_range": 2.0073126142595976,
+      "weakest": "science",
+      "tier": "C (Limited)",
+      "n": 8148
+    },
+    "deepseek-v3": {
+      "mean_sev": 1.6303793162102398,
+      "safe": 0.29766967171287634,
+      "risky": 0.16159210750127573,
+      "b": 2.420845894770313,
+      "dom_range": 1.9903912942810837,
+      "weakest": "code",
+      "tier": "C (Limited)",
+      "n": 5879
+    },
+    "gemini-2.5-pro": {
+      "mean_sev": 1.4131274131274132,
+      "safe": 0.38885824600110314,
+      "risky": 0.12300055157198014,
+      "b": 1.7303848018187886,
+      "dom_range": 1.922500440839358,
+      "weakest": "procedural",
+      "tier": "C (Limited)",
+      "n": 1813
+    },
+    "gemma-3-12b": {
+      "mean_sev": 1.7863120567375887,
+      "safe": 0.20539007092198583,
+      "risky": 0.11418439716312057,
+      "b": 2.336569935666992,
+      "dom_range": 2.2545454545454544,
+      "weakest": "procedural",
+      "tier": "C (Limited)",
+      "n": 7050
+    },
+    "gemma-3-27b": {
+      "mean_sev": 1.7770625105878366,
+      "safe": 0.14585803828561747,
+      "risky": 0.0516686430628494,
+      "b": 1.9730753715113225,
+      "dom_range": 2.5252057613168724,
+      "weakest": "science",
+      "tier": "C (Limited)",
+      "n": 5903
+    },
+    "gpt-oss-120b": {
+      "mean_sev": 1.9756999772365127,
+      "safe": 0.1629865695424539,
+      "risky": 0.19155474618711588,
+      "b": 2.1621977193635464,
+      "dom_range": 2.450255102040816,
+      "weakest": "math",
+      "tier": "C (Limited)",
+      "n": 8786
+    },
+    "kimi-k2": {
+      "mean_sev": 1.7874525371073524,
+      "safe": 0.14497756299620296,
+      "risky": 0.08802209181912322,
+      "b": 1.8417295971840695,
+      "dom_range": 2.1332658569500675,
+      "weakest": "procedural",
+      "tier": "C (Limited)",
+      "n": 5794
+    },
+    "llama-3.1-405b": {
+      "mean_sev": 1.7615162615162616,
+      "safe": 0.20468420468420467,
+      "risky": 0.11000111000111,
+      "b": 2.0837144408159696,
+      "dom_range": 2.634226275292106,
+      "weakest": "code",
+      "tier": "C (Limited)",
+      "n": 9009
+    },
+    "llama-3.1-70b": {
+      "mean_sev": 1.6653465346534653,
+      "safe": 0.20275027502750276,
+      "risky": 0.08536853685368537,
+      "b": 1.554843363023111,
+      "dom_range": 1.1347624798711755,
+      "weakest": "procedural",
+      "tier": "C (Limited)",
+      "n": 9090
+    },
+    "llama-3.1-8b": {
+      "mean_sev": 1.7662625197680548,
+      "safe": 0.18323668950975225,
+      "risky": 0.10374275171323141,
+      "b": 2.13261586831013,
+      "dom_range": 1.5341183574879227,
+      "weakest": "math",
+      "tier": "C (Limited)",
+      "n": 9485
+    },
+    "llama-3.2-3b": {
+      "mean_sev": 1.8931349802101816,
+      "safe": 0.17906373686365498,
+      "risky": 0.15067558345844137,
+      "b": 2.2759163447844823,
+      "dom_range": 2.2139364303178484,
+      "weakest": "procedural",
+      "tier": "C (Limited)",
+      "n": 7327
+    },
+    "llama-3.3-70b": {
+      "mean_sev": 1.733091160698841,
+      "safe": 0.14357377616329356,
+      "risky": 0.054488842760768035,
+      "b": 1.54979822109582,
+      "dom_range": 2.0794125231497764,
+      "weakest": "procedural",
+      "tier": "C (Limited)",
+      "n": 5781
+    },
+    "mistral-large": {
+      "mean_sev": 1.8614781394349553,
+      "safe": 0.1883123858631432,
+      "risky": 0.14910301858416586,
+      "b": 2.3025900200135716,
+      "dom_range": 2.452205882352941,
+      "weakest": "code",
+      "tier": "C (Limited)",
+      "n": 9309
+    },
+    "mixtral-8x22b": {
+      "mean_sev": 1.7044213973799127,
+      "safe": 0.19937227074235808,
+      "risky": 0.06331877729257641,
+      "b": 1.8036133839492852,
+      "dom_range": 2.8511363636363636,
+      "weakest": "math",
+      "tier": "C (Limited)",
+      "n": 7328
+    },
+    "phi-4": {
+      "mean_sev": 2.0869785509204526,
+      "safe": 0.07481844283060293,
+      "risky": 0.17750380003377808,
+      "b": 2.6231020586664067,
+      "dom_range": 2.514705882352941,
+      "weakest": "code",
+      "tier": "D (Restricted)",
+      "n": 5921
+    },
+    "qwen-3-235b": {
+      "mean_sev": 1.9039548022598871,
+      "safe": 0.3290395480225989,
+      "risky": 0.3398870056497175,
+      "b": 1.366332116168281,
+      "dom_range": 1.1685025542784166,
+      "weakest": "procedural",
+      "tier": "D (Restricted)",
+      "n": 4425
+    },
+    "qwen3-235b-nim": {
+      "mean_sev": 1.9987714987714988,
+      "safe": 0.007371007371007371,
+      "risky": 0.002457002457002457,
+      "b": 0.3221906960063952,
+      "dom_range": 0.0,
+      "weakest": "arithmetic",
+      "tier": "C (Limited)",
+      "n": 407
+    },
+    "qwen3-next-80b": {
+      "mean_sev": 1.7898411829134722,
+      "safe": 0.22809419496166483,
+      "risky": 0.1740142387732749,
+      "b": 2.123487725581419,
+      "dom_range": 2.3823529411764706,
+      "weakest": "math",
+      "tier": "C (Limited)",
+      "n": 7304
+    }
+  },
+  "domain_variation": {
+    "llama-3.1-8b": {
+      "range": 1.5341183574879227,
+      "weakest": "math",
+      "strongest": "factual"
+    },
+    "deepseek-r1": {
+      "range": 2.0073126142595976,
+      "weakest": "science",
+      "strongest": "factual"
+    },
+    "llama-3.1-70b": {
+      "range": 1.1347624798711755,
+      "weakest": "procedural",
+      "strongest": "factual"
+    },
+    "llama-3.1-405b": {
+      "range": 2.634226275292106,
+      "weakest": "code",
+      "strongest": "factual"
+    },
+    "mistral-large": {
+      "range": 2.452205882352941,
+      "weakest": "code",
+      "strongest": "math"
+    },
+    "qwen-3-235b": {
+      "range": 1.1685025542784166,
+      "weakest": "procedural",
+      "strongest": "factual"
+    },
+    "gpt-oss-120b": {
+      "range": 2.450255102040816,
+      "weakest": "math",
+      "strongest": "factual"
+    },
+    "gemini-2.5-pro": {
+      "range": 1.922500440839358,
+      "weakest": "procedural",
+      "strongest": "spatial"
+    },
+    "deepseek-v3": {
+      "range": 1.9903912942810837,
+      "weakest": "code",
+      "strongest": "factual"
+    },
+    "llama-3.3-70b": {
+      "range": 2.0794125231497764,
+      "weakest": "procedural",
+      "strongest": "factual"
+    },
+    "gemma-3-27b": {
+      "range": 2.5252057613168724,
+      "weakest": "science",
+      "strongest": "factual"
+    },
+    "kimi-k2": {
+      "range": 2.1332658569500675,
+      "weakest": "procedural",
+      "strongest": "code"
+    },
+    "phi-4": {
+      "range": 2.514705882352941,
+      "weakest": "code",
+      "strongest": "math"
+    },
+    "qwen3-235b-nim": {
+      "range": 0.0,
+      "weakest": "arithmetic",
+      "strongest": "arithmetic"
+    },
+    "mixtral-8x22b": {
+      "range": 2.8511363636363636,
+      "weakest": "math",
+      "strongest": "spatial"
+    },
+    "qwen3-next-80b": {
+      "range": 2.3823529411764706,
+      "weakest": "math",
+      "strongest": "code"
+    },
+    "llama-3.2-3b": {
+      "range": 2.2139364303178484,
+      "weakest": "procedural",
+      "strongest": "math"
+    },
+    "gemma-3-12b": {
+      "range": 2.2545454545454544,
+      "weakest": "procedural",
+      "strongest": "code"
+    }
+  },
+  "sensitivity": 1.0
+}

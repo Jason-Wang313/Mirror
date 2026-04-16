@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-03-25T18:34:51+00:00",
+  "source_files": {
+    "tasks": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\deployment\\ecological_validity_tasks.csv",
+    "gold": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\deployment\\ecological_validity_gold.csv",
+    "oracle_eval": "C:\\Users\\wangz\\MIRROR\\audit\\human_baseline_packet\\deployment\\escalation_oracle_eval.csv"
+  },
+  "row_counts": {
+    "traffic": 320,
+    "outcomes": 320,
+    "cost_latency": 320
+  }
+}

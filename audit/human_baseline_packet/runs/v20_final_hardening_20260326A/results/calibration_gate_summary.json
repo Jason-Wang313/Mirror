@@ -1,0 +1,19 @@
+{
+  "source_path": "C:\\Users\\wangz\\neurlips benchmark reviewing\\data\\mirror_v20_review_calibration_prompt_final.md",
+  "found": true,
+  "generated_at_utc": "2026-03-26T10:48:23+00:00",
+  "actionable_items": [
+    "### 1. Add one additional frontier proprietary model in Exp1 + Exp9 (execution-blocked)",
+    "- **What to change**: Include at least one of GPT-4o / Claude family in the same reporting frame.",
+    "- **Why it matters**: Strongest remaining direct mitigation of model-selection bias critique.",
+    "- **Expected impact**: HIGH.",
+    "- **Feasible**: Requires API access/budget and rerun time; not a text-only fix.",
+    "### 2. Optional full production-log closure (scope-blocked this cycle)",
+    "- **What to change**: Replace packet-based realism evidence with real live deployment/shadow telemetry pipeline.",
+    "- **Why it matters**: Removes the \"constructed/packet\" external-validity caveat entirely.",
+    "- **Expected impact**: MEDIUM-HIGH for deployment-focused reviewers.",
+    "- **Feasible**: Requires real log access/provenance and policy clearance; explicitly excluded in this cycle."
+  ],
+  "status": "ok",
+  "n_actionable_items": 10
+}

@@ -1,0 +1,740 @@
+{
+  "generated_at_utc": "2026-03-25T19:02:43+00:00",
+  "input_files": [
+    "C:\\Users\\wangz\\MIRROR\\data\\results\\exp3_v2_expanded_results.jsonl"
+  ],
+  "n_models": 16,
+  "criteria": {
+    "required_domain_pairs": 28,
+    "min_pair_quota": 4,
+    "min_shared_for_corr": 50,
+    "max_rho_tau_gap_scaled": 0.35,
+    "rho_tau_gap_formula": "|rho - 1.5*tau|",
+    "sign_concordance_required": true
+  },
+  "pass_counts": {
+    "stability_pass": 14,
+    "stability_fail": 2
+  },
+  "per_model": {
+    "deepseek-r1": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "logical",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.20815011066340325,
+          "kendall_tau": 0.20815011066340325
+        }
+      ],
+      "mci_spearman": 0.20815011066340325,
+      "mci_kendall": 0.20815011066340325,
+      "rho_tau_gap": 0.10407505533170161,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": false,
+      "stability_pass": false
+    },
+    "deepseek-v3": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "logical",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.34556053828503813,
+          "kendall_tau": 0.34556053828503813
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.4840602051469531,
+          "kendall_tau": 0.4432630985694204
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.3169340045105274,
+          "kendall_tau": 0.29022247106370164
+        }
+      ],
+      "mci_spearman": 0.38218491598083953,
+      "mci_kendall": 0.35968203597272,
+      "rho_tau_gap": 0.15733813797824053,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "gemini-2.5-pro": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "logical",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.41323792499700046,
+          "kendall_tau": 0.41323792499700046
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2251778641586484,
+          "kendall_tau": 0.2251778641586484
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.19961324595184082,
+          "kendall_tau": 0.1996132459518408
+        }
+      ],
+      "mci_spearman": 0.2793430117024966,
+      "mci_kendall": 0.2793430117024966,
+      "rho_tau_gap": 0.13967150585124827,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "gemma-3-12b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.37871591995599685,
+          "kendall_tau": 0.37871591995599685
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.34048540945709005,
+          "kendall_tau": 0.3188704092356999
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.322893043242526,
+          "kendall_tau": 0.3023948573957339
+        }
+      ],
+      "mci_spearman": 0.3473647908852043,
+      "mci_kendall": 0.33332706219581026,
+      "rho_tau_gap": 0.15262580240851115,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "gemma-3-27b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.4677609398199964,
+          "kendall_tau": 0.46776093981999645
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.42834024311487806,
+          "kendall_tau": 0.39832077469281973
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2888298884343684,
+          "kendall_tau": 0.2685877564970319
+        }
+      ],
+      "mci_spearman": 0.3949770237897476,
+      "mci_kendall": 0.37822315700328274,
+      "rho_tau_gap": 0.1723577117151765,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "gpt-oss-120b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 65,
+          "spearman_rho": 0.444237648822702,
+          "kendall_tau": 0.44423764882270206
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 61,
+          "spearman_rho": 0.4658894206981504,
+          "kendall_tau": 0.41881928150360953
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 55,
+          "spearman_rho": 0.1577210284557175,
+          "kendall_tau": 0.1429981036149047
+        }
+      ],
+      "mci_spearman": 0.35594936599218996,
+      "mci_kendall": 0.3353516779804054,
+      "rho_tau_gap": 0.14707815097841814,
+      "min_shared_for_corr": 55,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "kimi-k2": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 40,
+        "strong_weak": 60,
+        "weak_weak": 12
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.5826204070190835,
+          "kendall_tau": 0.5826204070190835
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2408083659732304,
+          "kendall_tau": 0.23735852383105818
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.1942575175663159,
+          "kendall_tau": 0.19147456703290905
+        }
+      ],
+      "mci_spearman": 0.33922876351954323,
+      "mci_kendall": 0.3371511659610169,
+      "rho_tau_gap": 0.16649798542198213,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "llama-3.1-405b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.2776505858476714,
+          "kendall_tau": 0.2776505858476713
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.18124591391385664,
+          "kendall_tau": 0.1689449601448835
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": -0.04988649254049951,
+          "kendall_tau": -0.04650075310403109
+        }
+      ],
+      "mci_spearman": 0.13633666907367617,
+      "mci_kendall": 0.13336493096284124,
+      "rho_tau_gap": 0.0637107273705857,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "llama-3.1-70b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.3812630493399421,
+          "kendall_tau": 0.3812630493399421
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.3288868835059705,
+          "kendall_tau": 0.3061693284048012
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.05121429379308689,
+          "kendall_tau": 0.04767671415838308
+        }
+      ],
+      "mci_spearman": 0.25378807554633315,
+      "mci_kendall": 0.24503636396770878,
+      "rho_tau_gap": 0.11376647040523002,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "llama-3.1-8b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "spatial",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.3019169279336703,
+          "kendall_tau": 0.3019169279336703
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2433645673518917,
+          "kendall_tau": 0.2299274178082337
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.09935280813522482,
+          "kendall_tau": 0.09386713470699312
+        }
+      ],
+      "mci_spearman": 0.2148781011402623,
+      "mci_kendall": 0.20857049348296572,
+      "rho_tau_gap": 0.09797763908418627,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "llama-3.2-3b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "logical",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.2498868522232155,
+          "kendall_tau": 0.2498868522232155
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.2280094264208194,
+          "kendall_tau": 0.21832039516472612
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.05292765231623714,
+          "kendall_tau": 0.05067854496285435
+        }
+      ],
+      "mci_spearman": 0.17694131032009067,
+      "mci_kendall": 0.17296193078359867,
+      "rho_tau_gap": 0.08250158585530734,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "llama-3.3-70b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.35915080486933076,
+          "kendall_tau": 0.3591508048693307
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.4145271846061676,
+          "kendall_tau": 0.39177219697909343
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.13815453549395162,
+          "kendall_tau": 0.13057070296732054
+        }
+      ],
+      "mci_spearman": 0.3039441749898167,
+      "mci_kendall": 0.29383123493858154,
+      "rho_tau_gap": 0.13680267741805563,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "mistral-large": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.3958866400840218,
+          "kendall_tau": 0.3958866400840217
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.28345447384394645,
+          "kendall_tau": 0.258506891310235
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.24653320565865408,
+          "kendall_tau": 0.22483516218781513
+        }
+      ],
+      "mci_spearman": 0.30862477319554077,
+      "mci_kendall": 0.293076231194024,
+      "rho_tau_gap": 0.13098957359549518,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "mixtral-8x22b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "procedural",
+        "social"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.37770591990556757,
+          "kendall_tau": 0.37770591990556757
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.23351930791359213,
+          "kendall_tau": 0.229298811054819
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.1113430100417054,
+          "kendall_tau": 0.10933065899319493
+        }
+      ],
+      "mci_spearman": 0.24085607928695504,
+      "mci_kendall": 0.23877846331786048,
+      "rho_tau_gap": 0.1173116156898357,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    },
+    "phi-4": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "arithmetic",
+        "linguistic",
+        "logical",
+        "procedural"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": NaN,
+          "kendall_tau": NaN
+        }
+      ],
+      "mci_spearman": NaN,
+      "mci_kendall": NaN,
+      "rho_tau_gap": NaN,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": false,
+      "stability_pass": false
+    },
+    "qwen3-next-80b": {
+      "n_tasks": 112,
+      "n_domain_pairs": 28,
+      "min_tasks_per_pair": 4,
+      "max_tasks_per_pair": 4,
+      "stratum_counts": {
+        "strong_strong": 24,
+        "strong_weak": 64,
+        "weak_weak": 24
+      },
+      "pair_quota_pass": true,
+      "weak_domains_used": [
+        "linguistic",
+        "procedural",
+        "social",
+        "temporal"
+      ],
+      "channel_pair_correlations": [
+        {
+          "pair": "wagering-natural",
+          "n_shared": 112,
+          "spearman_rho": 0.5801028486518047,
+          "kendall_tau": 0.5801028486518047
+        },
+        {
+          "pair": "wagering-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.352551099636588,
+          "kendall_tau": 0.34101150467041713
+        },
+        {
+          "pair": "natural-layer2",
+          "n_shared": 112,
+          "spearman_rho": 0.32266817551311777,
+          "kendall_tau": 0.31210669929666907
+        }
+      ],
+      "mci_spearman": 0.4184407079338368,
+      "mci_kendall": 0.411073684206297,
+      "rho_tau_gap": 0.19816981837560865,
+      "min_shared_for_corr": 112,
+      "corr_support_pass": true,
+      "sign_concordance": true,
+      "stability_pass": true
+    }
+  }
+}

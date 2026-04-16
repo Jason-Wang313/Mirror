@@ -12,7 +12,7 @@
 \texttt{gemini{-}2.5{-}pro} & Google & undisclosed & Dense & Google AI & 1, 4, 6, 9 \\
 \texttt{gemma{-}3{-}12b} & Google & 12B & Dense & Google AI & 1, 3--6, 9 \\
 \texttt{gemma{-}3{-}27b} & Google & 27B & Dense & NVIDIA NIM & 1--6, 9 \\
-\texttt{gpt{-}oss{-}120b}\textsuperscript{$\dagger$} & OpenAI & 120B & Dense & NVIDIA NIM & 1--6, 9 \\
+\texttt{openai/gpt{-}oss{-}120b}\textsuperscript{$\dagger$} & OpenAI (open-weights) & 120B & MoE & NVIDIA NIM & 1--6, 9 \\
 \texttt{kimi{-}k2} & Moonshot AI & 200B & Dense & NVIDIA NIM & 1--6, 9 \\
 \texttt{llama{-}3.1{-}405b} & Meta & 405B & Dense & NVIDIA NIM & 1--4, 6, 8--9 \\
 \texttt{llama{-}3.1{-}70b} & Meta & 70B & Dense & NVIDIA NIM & 1--6, 8--9 \\
@@ -25,5 +25,5 @@
 \texttt{qwen3{-}next{-}80b} & Alibaba & 80B & Dense & NVIDIA NIM & 1, 3--6, 9 \\
 \bottomrule
 \end{tabular}}\\[4pt]
-\parbox{\linewidth}{\footnotesize $\dagger$ Open-source 120B model hosted on NVIDIA NIM, not an OpenAI proprietary model.}
+\parbox{\linewidth}{\footnotesize $\dagger$ \texttt{openai/gpt-oss-120b}: OpenAI's open-weights 120B Mixture-of-Experts release (August 2025, Apache 2.0), accessed via NVIDIA NIM. Not a proprietary OpenAI API model (e.g., GPT-4/4o/5).}
 \end{table}
