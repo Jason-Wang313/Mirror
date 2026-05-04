@@ -12,7 +12,7 @@
   "name": "MIRROR",
   "description": "A hierarchical benchmark for metacognitive calibration in large language models. MIRROR evaluates whether LLMs know what they know and can act on that self-knowledge across 8 experiments spanning 4 metacognitive levels, 5 behavioral channels, 8 cognitive domains, and 16 models from 8 labs. The benchmark comprises 250K+ evaluation instances.",
   "license": "https://choosealicense.com/licenses/mit/",
-  "url": "https://anonymous.4open.science/r/Mirror-8EBB",
+  "url": "https://anonymous.4open.science/r/Mirror-E217",
   "version": "1.0.0",
   "datePublished": "2026-05-01",
   "creator": [
